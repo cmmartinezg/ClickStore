@@ -1,9 +1,4 @@
 /*-----------------------------------------------------------------------------------
-
-    Template Name: Marketshop eCommerce HTML Template
-    Author: Harnish Design
-    Author URI: http://harnishdesign.net
-
 ===================================================================================
  Table of Contents
 ===================================================================================
@@ -52,6 +47,52 @@
 21. Shortcodes
 22. Blog
 23. Extra
+===================================================================================
+                        Estilos generales
+===================================================================================
+2. Diseño
+3. encabezado
+ 3.1. Idioma y moneda
+ 3.2. Enlaces principales
+ 3.3. Mini carro
+ 3.4. Barra de búsqueda
+4. Menú
+5. Cuadro de funciones
+6. Pan rallado
+7. Página de categoría
+ 7.1. Refinar categoría de búsqueda
+ 7.2. Icono de lista de cuadrícula
+ 7.3. Pulgar del producto
+ 7.4. Producto de rejilla
+ 7.5. Listar producto
+ 7.6. Estrella de calificación
+ 7.7. Paginación
+8. Página del producto
+9. Artículo del producto para el panel izquierdo y derecho
+10. Categoría Acordeón
+11. botones
+12. Pestañas
+13. Banner estático
+14. Página de preguntas frecuentes
+15. Página del mapa del sitio
+16. Pie de página
+ 16.1. Enlaces de pie de página
+ 16.2. Bloque de contacto
+ 16.3. Tipos de pagos
+ 16.4. Icono social
+ 16.5. Desarrollado por texto
+ 16.6. Volver arriba
+17. Bloques laterales
+ 17.1. Facebook
+ 17.2. Gorjeo
+ 17.3. Bloque lateral personalizado
+ 17.4. Caja de vídeo
+18. Cinco columnas de cuadrícula
+19. Página de contacto
+20. Página del fabricante
+21. Códigos cortos
+22. Blog
+23. Adicional
 -------------------------------------------------------------------------------------*/
 
 /*===================================================================================*/
@@ -59,103 +100,105 @@
 /*===================================================================================*/
 html {
 	overflow: -moz-scrollbars-vertical;
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 	-webkit-font-smoothing: antialiased;
 }
 body {
-	background:#dcdbdb;
-	color:#222;
-	font-family:'Open Sans', sans-serif;
-	line-height:18px;
+	background: #dcdbdb;
+	color: #222;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 18px;
 }
-body { font-size:12px; }
+body { font-size: 12px; }
 legend {
 	font-size: 18px;
-	padding: 7px 0px
+	padding: 7px 0px;
 }
-label { font-weight:normal; }
+label { font-weight: normal; }
 form {
-	padding:0;
-	margin:0;
-	display:inline;
+	padding: 0;
+	margin: 0;
+	display: inline;
 }
-img { vertical-align:inherit; }
+img { vertical-align: inherit; }
 a, a b {
-	color:#3e7cb4;
+	color: #ef6920;
 	text-decoration: none;
 	cursor: pointer;
 }
 a:hover, a b:hover {
-	text-decoration:none;
-	color:#000;
+	text-decoration: none;
+	color: #000;
 }
-a:focus { outline:none; }
+a:focus { outline: none; }
 /**===== Title =====**/
-.title { margin:0px 0px 20px 0px; }
+.title { margin: 0px 0px 20px 0px; }
 /**===== Sub Title =====**/
 .subtitle {
-	position:relative;
-	padding:0px;
-	margin:0px 0px 20px 0px;
-	line-height:normal;
-	font-size:20px;
-	color:#000000;
-	border-bottom:2px solid #ddd;
-	padding-bottom:3px;
+	position: relative;
+	padding: 0px;
+	margin: 0px 0px 20px 0px;
+	line-height: normal;
+	font-size: 20px;
+	color: #000000;
+	border-bottom: 2px solid #d06616;
+	padding-bottom: 3px;
 }
-.subtitle .viewall { font-size:12px; }
+.subtitle .viewall { font-size: 12px; }
 /**===== Title for 404 Page =====**/
 .title-404 {
-	font-size:300px;
-	font-weight:bold;
+	font-size: 300px;
+	font-weight: bold;
 	line-height: 1em;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
+
 /*===================================================================================*/
-/*  2. Layout
+/*  2. Layout - Diseño
 /*===================================================================================*/
 .wrapper-box {
-	max-width:1220px;
-	margin:0px auto;
-	background:#fff;
-	box-shadow:0px 0px 10px rgba(0, 0, 0, 0.2);
+	max-width: 1220px;
+	margin: 0px auto;
+	background: #fff;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 .wrapper-wide {
-	max-width:100%;
-	background:#fff;
-	box-shadow:0px 0px 10px rgba(0, 0, 0, 0.08);
+	max-width: 100%;
+	background: #fff;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
 }
 .main-wrapper {
-	max-width:1170px;
-	margin:0px auto;
-	padding:0 25px;
-	clear:both;
+	max-width: 1170px;
+	margin: 0px auto;
+	padding: 0 25px;
+	clear: both;
 }
 #container {
-	text-align:left;
-	margin-top:20px;
-	margin-bottom:20px;
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
-#content { min-height:400px; }
+#content { min-height: 400px; }
+
 /*===================================================================================*/
-/*  3. Header
+/*  3. Header - Encabezado
 /*===================================================================================*/
 #header {
 	position: relative;
-	padding:0px;
+	padding: 0px;
 }
-#header .htop { background:#3e7cb4; }
+#header .htop { background: #000000; }
 #header .header-row {
-	position:relative;
-	padding:35px 0;
+	position: relative;
+	padding: 35px 0;
 }
-#header .header-row .inner { padding:0; }
-#header #logo img { display:inline-block!important; }
+#header .header-row .inner { padding: 0; }
+#header #logo img { display: inline-block; } /* Mostrar el logo */
 #header ul, #header ol {
-	list-style:none;
-	padding:0;
-	margin:0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 .table-container {
 	display: table;
@@ -167,149 +210,160 @@ a:focus { outline:none; }
 	vertical-align: middle;
 	float: none;
 }
+
 /**===== 3.1. Language & Currency =====**/
 #language, #currency {
-	float:left;
-	border-right:1px dotted #5b9ad4;
+	float: left;
+	border-right: 1px dotted rgb(242, 144, 31);
 }
 #language span, #currency span {
-	color:#fff;
-	font-size:12px;
+	color: #fff;
+	font-size: 12px;
 	-webkit-transition: all 0.8s ease-in-out;
 	-moz-transition: all 0.8s ease-in-out;
 	-o-transition: all 0.8s ease-in-out;
 	-ms-transition: all 0.8s ease-in-out;
 	transition: all 0.8s ease-in-out;
 }
+/**===== Lista desple registro =====**/
 #top .dropdown-menu {
-	margin:0;
-	border-radius:0px;
-	padding:0;
-	border:none;
-	z-index:1013;
+	margin: 0;
+	border-radius: 0px;
+	padding: 0;
+	border: none;
+	z-index: 1013;
+	background-color: hsl(20, 60%, 1%); 
 }
+/**===== Lista desple registro- color del texto =====**/
 #top .dropdown-menu li a, #currency ul li .currency-select, #language ul li .language-select {
-	color:#333;
-	padding:7px 10px;
-	text-align:left;
-	font-size:12px;
+	color: #e18c37;
+	padding: 7px 10px;
+	text-align: left;
+	font-size: 12px;
 }
-#top .dropdown-menu li + li a, #currency ul li + li .currency-select, #language ul li + li .language-select { border-top:1px solid #eee; }
+#top .dropdown-menu li + li a, #currency ul li + li .currency-select, #language ul li + li .language-select { border-top: 1px solid #eee; }
 #my_account:hover > a:after, #language:hover span:after, #currency:hover span:after, #header .links > ul > li.wrap_custom_block:hover > a:after {
-	clear:both;
-	content:' ';
-	display:block;
-	width:0;
-	height:0;
-	border-style:solid;
-	border-color:transparent transparent #fff transparent;
-	position:absolute;
-	z-index:1014;
-	border-width:0px 7px 6px 7px;
-	bottom:0px;
-	left:50%;
-	margin:0 0 0 -5px;
+	clear: both;
+	content: ' ';
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: transparent transparent #ffffff transparent;
+	position: absolute;
+	z-index: 1014;
+	border-width: 0px 7px 6px 7px;
+	bottom: 0px;
+	left: 50%;
+	margin: 0 0 0 -5px;
 }
 #header .links > ul > li.wrap_custom_block:hover > a:after {
-	clear:both;
-	content:' ';
-	display:block;
-	width:0;
-	height:0;
-	border-style:solid;
-	border-color:transparent transparent #fff transparent;
-	position:absolute;
-	z-index:1014;
-	border-width:0px 7px 6px 7px;
-	bottom:0px;
-	left:50%;
-	margin:0 0 0 -5px;
+	clear: both;
+	content: ' ';
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: transparent transparent #fff transparent;
+	position: absolute;
+	z-index: 1014;
+	border-width: 0px 7px 6px 7px;
+	bottom: 0px;
+	left: 50%;
+	margin: 0 0 0 -5px;
 }
-#language button .btn-link { border:none 0px; }
+#language button .btn-link { border: none 0px; }
 #header .links > ul > li.wrap_custom_block > a b {
-	clear:both;
-	content:' ';
-	display:inline-block;
-	width:0;
-	height:0;
-	border-style:solid;
-	border-color:#fff transparent transparent transparent;
-	border-width:4px 5px 0px 5px;
-	margin:0 0 1px 0;
+	clear: both;
+	content: ' ';
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-color: #f47826 transparent transparent transparent;
+	border-width: 4px 5px 0px 5px;
+	margin: 0 0 1px 0;
 }
 #language img {
 	cursor: pointer;
-	margin-right:5px;
+	margin-right: 5px;
 }
+
 #top .dropdown-menu li a:hover, #currency ul li .currency-select:hover, #language ul li .language-select:hover {
-	color:#3e7cb4;
-	background:none;
-	text-decoration:none;
+	color: #ea6721;
+	background: none;
+	text-decoration: none;
 }
+
 /**===== 3.2. Top Links =====**/
 #header .links {
 	position: relative;
-	float:left;
-	border-right:1px dotted #5b9ad4;
+	float: left;
+	border-right: 1px dotted #5b9ad4;
 }
 #header .links > ul > li {
-	float:left;
-	list-style-type:none;
-	border-left:1px dotted #5b9ad4;
+	float: left;
+	list-style-type: none;
+	border-left: 1px dotted rgb(239, 157, 4); 
 }
-#header .links > ul > li.mobile, #header .links > ul > li.email { color:#fff; }
-#header .links > ul > li.mobile { padding:0 10px; }
+#header .links > ul > li.mobile, #header .links > ul > li.email { color: #fff; }
+#header .links > ul > li.mobile { padding: 0 10px; }
 #header .links > ul > li > a, #header .links > ul > li .wrap_custom_block > a {
-	padding:0px 10px;
-	color: #fff;
+	padding: 0px 10px;
+	color: orange; 
 	text-decoration: none;
-	font-size:12px;
-	position:relative;
-	display:block
+	font-size: 12px;
+	position: relative;
+	display: block;
+}
+#header .links > ul > li > a i {
+	color: orange; 
 }
 #language .btn-link, #currency .btn-link {
-	padding:0px 10px;
-	border:none;
+	padding: 0px 10px;
+	border: none;
 }
-#language .btn-link:hover, #currency .btn-link:hover { text-decoration:none; }
+#language .btn-link:hover, #currency .btn-link:hover { text-decoration: none; }
 #header .links > ul > li .fa-phone, #header .links > ul > li .fa-envelope {
-	font-size:120%;
-	margin-right:5px;
+	font-size: 120%;
+	margin-right: 5px;
 }
-#header .links > ul > li.wrap_custom_block { position:relative; }
+#header .links > ul > li.wrap_custom_block { position: relative; }
 #header .links > ul > li.wrap_custom_block > div {
 	display: none;
-	background:#fff;
-	position:absolute;
-	z-index:1015;
-	top:35px;
-	padding:10px;
-	box-shadow:0px 4px 8px rgba(0, 0, 0, 0.3);
+	background: #fff;
+	position: absolute;
+	z-index: 1015;
+	top: 35px;
+	padding: 10px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
-#header .links > ul > li.wrap_custom_block > a b { margin-left:3px; }
-#header .links > ul > li.wrap_custom_block > a:hover { text-decoration:none; }
-#header .links > ul > li.wrap_custom_block > div ul li { list-style-type:none; }
+#header .links > ul > li.wrap_custom_block > a b { margin-left: 3px; }
+#header .links > ul > li.wrap_custom_block > a:hover { text-decoration: none; }
+#header .links > ul > li.wrap_custom_block > div ul li { list-style-type: none; }
 #header #top-links {
-	color:#fff;
-	border-right:1px dotted #5b9ad4;
+	color: #e77d1b;
+	border-right: 1px dotted #ef6920;
 }
 #header #top-links > ul > li {
-	float:left;
-	border-left:1px dotted #5b9ad4;
+	float: left;
+	border-left: 1px dotted #ef6920;
 }
+/**===== Titulos del contenedor=====**/
 #header #top-links > ul > li > a {
-	color:#fff;
-	text-transform:capitalize;
+	color: #f0762a;
+	text-transform: capitalize;
 	display: inline-block;
-	padding:0px 10px;
+	padding: 0px 10px;
 }
-#header #top .links > ul > li, #header #top-links > ul > li, #language .btn-link span, #currency .btn-link span { line-height:35px; }
-#header #top-links > ul > li > a:hover, #header .links > ul > li > a:hover { text-decoration:underline; }
-.wrapper-box #header #top-links { border-right:none; }
+#header #top .links > ul > li, #header #top-links > ul > li, #language .btn-link span, #currency .btn-link span { line-height: 35px; }
+#header #top-links > ul > li > a:hover, #header .links > ul > li > a:hover { text-decoration: underline; }
+.wrapper-box #header #top-links { border-right: none; }
 .wrapper-box .htop .main-wrapper {
-	max-width:1220px;
-	padding:0;
+	max-width: 1220px;
+	padding: 0;
 }
+
 /**===== 3.3. Mini Cart =====**/
 #header #cart {
 	position:relative;
@@ -318,7 +372,7 @@ a:focus { outline:none; }
 #header #cart .heading .cart-icon {
 	width:20px;
 	height:16px;
-	background:#3e7cb4;
+	background:#ef6920;
 	position:relative;
 	margin-right:5px;
 	margin-top:8px;
@@ -331,7 +385,7 @@ a:focus { outline:none; }
 	height:19px;
 	top:-8px;
 	left:3px;
-	border:2px solid #3e7cb4;
+	border:2px solid #ef6920;
 	border-radius:50%;
 	border-bottom:none;
 	position:absolute;
@@ -344,7 +398,7 @@ a:focus { outline:none; }
 	height:2px;
 	bottom:-2px;
 	left:0px;
-	border:1px solid #3e7cb4;
+	border:1px solid #ef6920;
 	border-top:none;
 	position:absolute;
 }
@@ -371,7 +425,7 @@ a:focus { outline:none; }
 	width:0;
 	height:0;
 	border-style:solid;
-	border-color:transparent transparent #3e7cb4 transparent;
+	border-color:transparent transparent #ef6920 transparent;
 	position:absolute;
 	border-width:0px 7px 6px 7px;
 	bottom:0px;
@@ -384,7 +438,7 @@ a:focus { outline:none; }
 	margin:0;
 	z-index:1011;
 	background: #FFF;
-	border:3px solid #3e7cb4;
+	border:3px solid #ef6920;
 	border-width:3px 0px 0px 0px;
 	width:420px;
 	border-radius:0px;
@@ -915,9 +969,11 @@ border-color:#eae9e9;
 .product-grid .product-thumb .image { margin-bottom:5px; }
 .product-grid .product-thumb .image { float: none; }
 .product-grid .product-thumb .description, .product-grid .product-thumb .price-tax, .owl-carousel .product-thumb .price-tax { display:none; }
-.product-grid .product-thumb .button-group .add-to-links button, .owl-carousel .product-thumb .button-group .add-to-links button, {
-padding:2px 6px;
+.product-grid .product-thumb .button-group .add-to-links button,
+.owl-carousel .product-thumb .button-group .add-to-links button {
+  padding: 2px 6px;
 }
+
 @media only screen and (min-width:1025px) {
 .product-grid .product-thumb .button-group .add-to-links, .owl-carousel .product-thumb .button-group .add-to-links {
 visibility:hidden;
