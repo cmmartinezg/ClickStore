@@ -43,77 +43,141 @@
         <div class="table-container">
           <!-- Logo Start -->
           <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
-            <div id="logo"><a href="index.html"><img class="img-responsive" src="image/logo.png" title="MarketShop" alt="MarketShop" /></a></div>
+            <div id="logo"><a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a></div>
           </div>
           <!-- Logo End -->
-          <!-- Mini Cart Start-->
-          <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div id="cart">
-              <button type="button" data-toggle="dropdown" data-loading-text="Loading..." class="heading dropdown-toggle">
-              <span class="cart-icon pull-left flip"></span>
-              <span id="cart-total">2 item(s) - $1,132.00</span></button>
-              <ul class="dropdown-menu">
-                <li>
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Xitefun Causal Wear Fancy Shoes" alt="Xitefun Causal Wear Fancy Shoes" src="image/product/sony_vaio_1-50x50.jpg"></a></td>
-                        <td class="text-left"><a href="product.html">Xitefun Causal Wear Fancy Shoes</a></td>
-                        <td class="text-right">x 1</td>
-                        <td class="text-right">$902.00</td>
-                        <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" onClick="" type="button"><i class="fa fa-times"></i></button></td>
-                      </tr>
-                      <tr>
-                        <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Aspire Ultrabook Laptop" alt="Aspire Ultrabook Laptop" src="image/product/samsung_tab_1-50x50.jpg"></a></td>
-                        <td class="text-left"><a href="product.html">Aspire Ultrabook Laptop</a></td>
-                        <td class="text-right">x 1</td>
-                        <td class="text-right">$230.00</td>
-                        <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" onClick="" type="button"><i class="fa fa-times"></i></button></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </li>
-                <li>
-                  <div>
-                    <table class="table table-bordered">
-                      <tbody>
-                        <tr>
-                          <td class="text-right"><strong>Sub-Total</strong></td>
-                          <td class="text-right">$940.00</td>
-                        </tr>
-                        <tr>
-                          <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
-                          <td class="text-right">$4.00</td>
-                        </tr>
-                        <tr>
-                          <td class="text-right"><strong>VAT (20%)</strong></td>
-                          <td class="text-right">$188.00</td>
-                        </tr>
-                        <tr>
-                          <td class="text-right"><strong>Total</strong></td>
-                          <td class="text-right">$1,132.00</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <p class="checkout"><a href="cart.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> View Cart</a>&nbsp;&nbsp;&nbsp;<a href="checkout.html" class="btn btn-primary"><i class="fa fa-share"></i> Checkout</a></p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- Mini Cart End-->
-          <!-- Search Start-->
-          <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
-            <div id="search" class="input-group">
-              <input id="filter_name" type="text" name="search" value="" placeholder="Search" class="form-control input-lg" />
-              <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-          <!-- Search End-->
+  <!-- Busqueda Start-->
+  <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
+    <div id="search" class="input-group">
+      <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" class="form-control input-lg" />
+      <button type="button" class="button-search"><i class="fa fa-search"></i></button>
+    </div>
+  </div>
+  <!-- Search End-->
+   <!-- Mini Cart and Wishlist Start-->
+                        <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 header-icons">
+                            <!-- Mini Cart Start -->
+                            <div class="icon">
+                                <a href="#" id="cart-button"><i class="fa fa-shopping-cart"></i> Carrito</a>
+                                <div id="cart" class="dropdown-menu">
+                                    <ul>
+                                        <li>
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Xitefun Causal Wear Fancy Shoes" alt="Xitefun Causal Wear Fancy Shoes" src="image/product/sony_vaio_1-50x50.jpg"></a></td>
+                                                        <td class="text-left"><a href="product.html">Xitefun Causal Wear Fancy Shoes</a></td>
+                                                        <td class="text-right">x 1</td>
+                                                        <td class="text-right">$902.00</td>
+                                                        <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Aspire Ultrabook Laptop" alt="Aspire Ultrabook Laptop" src="image/product/samsung_tab_1-50x50.jpg"></a></td>
+                                                        <td class="text-left"><a href="product.html">Aspire Ultrabook Laptop</a></td>
+                                                        <td class="text-right">x 1</td>
+                                                        <td class="text-right">$230.00</td>
+                                                        <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <table class="table table-bordered">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-right"><strong>Sub-Total</strong></td>
+                                                            <td class="text-right">$940.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-right"><strong>Eco Tax (-2.00)</strong></td>
+                                                            <td class="text-right">$4.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-right"><strong>VAT (20%)</strong></td>
+                                                            <td class="text-right">$188.00</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-right"><strong>Total</strong></td>
+                                                            <td class="text-right">$1,132.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <p class="checkout"><a href="cart.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Ver Carrito</a>&nbsp;&nbsp;&nbsp;<a href="checkout.html" class="btn btn-primary"><i class="fa fa-share"></i> Pagar</a></p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Mini Cart End-->
+
+                            <!-- Wishlist Start -->
+                            <div class="icon">
+                                <a href="#" id="wishlist-button"><i class="fa fa-heart"></i> Lista de Deseos</a>
+                                <div id="wishlist" class="dropdown-menu">
+                                    <ul>
+                                        <li>
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Product 1" alt="Product 1" src="image/product/sony_vaio_1-50x50.jpg"></a></td>
+                                                        <td class="text-left"><a href="product.html">Product 1</a></td>
+                                                        <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center"><a href="product.html"><img class="img-thumbnail" title="Product 2" alt="Product 2" src="image/product/samsung_tab_1-50x50.jpg"></a></td>
+                                                        <td class="text-left"><a href="product.html">Product 2</a></td>
+                                                        <td class="text-center"><button class="btn btn-danger btn-xs remove" title="Remove" type="button"><i class="fa fa-times"></i></button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <p class="checkout"><a href="wishlist.html" class="btn btn-primary"><i class="fa fa-heart"></i> Ver Lista de Deseos</a></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Wishlist End -->
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Encabezado End -->
         </div>
-      </div>
-    </header>
-    <!-- Header End-->
+    </div>
+
+    <script>
+        // JavaScript para mostrar/ocultar el carrito y la lista de deseos
+        document.getElementById('cart-button').addEventListener('click', function(event) {
+            event.stopPropagation(); // Evita que el clic se propague al window.onclick
+            var cartDropdown = document.getElementById('cart').querySelector('.dropdown-menu');
+            cartDropdown.classList.toggle('show');
+        });
+
+        document.getElementById('wishlist-button').addEventListener('click', function(event) {
+            event.stopPropagation(); // Evita que el clic se propague al window.onclick
+            var wishlistDropdown = document.getElementById('wishlist').querySelector('.dropdown-menu');
+            wishlistDropdown.classList.toggle('show');
+        });
+
+        // Cerrar el menú desplegable si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (!event.target.matches('#cart-button') && !event.target.closest('#cart')) {
+                var cartDropdown = document.getElementById('cart').querySelector('.dropdown-menu');
+                if (cartDropdown.classList.contains('show')) {
+                    cartDropdown.classList.remove('show');
+                }
+            }
+            if (!event.target.matches('#wishlist-button') && !event.target.closest('#wishlist')) {
+                var wishlistDropdown = document.getElementById('wishlist').querySelector('.dropdown-menu');
+                if (wishlistDropdown.classList.contains('show')) {
+                    wishlistDropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+    <!-- Encabezado End-->
     <!-- Main Menu Start-->
     <div class="container">
       <nav id="menu" class="navbar">
