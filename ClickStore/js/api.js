@@ -2,7 +2,7 @@
 
 async function obtenerProductos() {
     try {
-      const response = await fetch('http://localhost:3000/api/productos');
+      const response = await fetch('http://localhost:3000/api/producto'); // Asegúrate de que la URL sea correcta
       const productos = await response.json();
       const lista = document.getElementById('productos-lista');
       lista.innerHTML = ''; // Limpiar la lista antes de agregar nuevos elementos
