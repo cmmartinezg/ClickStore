@@ -5,7 +5,105 @@
     Author URI: http://harnishdesign.net
 
 -----------------------------------------------------------------------------------*/
+/* inicio */
+/* Ajuste de Flexbox para los íconos del encabezado */
+.header-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.header-icons .icon {
+    margin-left: 10px; /* Espacio entre íconos */
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    /* Header adjustments for smaller screens */
+    .header-icons {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin-top: 25px;
+    }
+
+    .header-icons .icon {
+        margin-left: 10px; /* Espacio entre íconos */
+    }
+
+    /* Adjust search bar for smaller screens */
+    #header #search {
+        margin-top: 25px;
+        width: 100%; /* Asegura que el buscador use el 100% del contenedor */
+    }
+    
+    /* Adjust cart for smaller screens */
+    #header #cart {
+        margin-top: 25px;
+        text-align: left;
+    }
+
+    #header #cart .dropdown-menu {
+        right: auto;
+        left: 0;
+    }
+
+    /* Style 2 adjustments */
+    #header.style2 #cart {
+        margin-top: auto;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    #header.style2 #cart .dropdown-menu {
+        left: 50%;
+        margin-left: -210px;
+    }
+
+    #header.style3 #cart {
+        text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    #header #cart, #header.style2 #cart, #header.style3 #cart {
+        text-align: center;
+    }
+
+    #header #cart .dropdown-menu {
+        left: 50%;
+        margin-left: -210px;
+    }
+
+    .header-icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .header-icons .icon {
+        margin: 5px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #header #cart .dropdown-menu, #header.style2 #cart .dropdown-menu {
+        left: 50%;
+        margin-left: -155px;
+        width: 310px;
+    }
+
+    .header-icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .header-icons .icon {
+        margin: 5px 0;
+    }
+}
+/* FIN */
 @media (max-width: 1199px) {
 /**===== Layout =====**/
 .main-wrapper {
@@ -16,7 +114,7 @@ width:152px;
 }
 }
  @media only screen and (min-width:992px) {
-/**===== footer =====**/
+/**===== pie de página =====**/
 #footer ul, .left-top {
 display:block!important;
 }
@@ -25,7 +123,7 @@ display:block!important;
 body {
 -webkit-text-size-adjust: auto;
 }
-/**===== Layout =====**/
+/**===== Disposición =====**/
 .main-wrapper {
 margin:0px;
 padding:0 10px;
@@ -33,7 +131,7 @@ padding:0 10px;
 .wrapper-box {
 margin:0;
 }
-/**===== Header =====**/
+/**===== Encabezamiento =====**/
 #header .header-row {
 text-align:center;
 padding:30px 0;
@@ -58,7 +156,7 @@ color:#fff;
 }
 .left-top {
 min-width:160px;
-background:#3E7CB4;
+background:#ec8e3c;
 position:absolute;
 top:35px;
 z-index:99;

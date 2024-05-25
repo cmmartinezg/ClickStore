@@ -2,51 +2,6 @@
 ===================================================================================
  Table of Contents
 ===================================================================================
- 
-1. General Styles
-2.  Layout
-3.  Header
-     3.1. Language & Currency
-     3.2. Top Links
-     3.3. Mini Cart
-     3.4. Search Bar
-4.  Menu
-5.  Feature box
-6.  Breadcrumb
-7.  Category Page
-     7.1. Refine Search Category
-     7.2. Grid-List Icon
-     7.3. Produc Thumb
-     7.4. Grid Product
-     7.5. List Product
-     7.6. Rating Star
-     7.7. Pagination 
-8.  Product Page
-9.  Product Item for Left and Right Panel
-10. Category Accordion
-11. buttons
-12. Tabs
-13. Static Banner
-14. Faq Page
-15. Sitemap Page
-16. Footer
-     16.1. Footer Links
-     16.2. Contact Block
-     16.3. Payments Types
-     16.4. Social Icon
-     16.5. Powered by Text
-     16.6. Back To Top
-17. Side Blocks
-     17.1. Facebook
-     17.2. Twitter
-     17.3. Custom Side block
-     17.4. Video Box
-18. Five Grid Columns
-19. Contact Page
-20. Manufacturer Page
-21. Shortcodes
-22. Blog
-23. Extra
 ===================================================================================
                         Estilos generales
 ===================================================================================
@@ -188,10 +143,14 @@ a:focus { outline: none; }
 	position: relative;
 	padding: 0px;
 }
-#header .htop { background: #000000; }
+
+
+/* Ajustes para hacer la barra superior más ancha y color*/
+#header .htop { background: #121212; }
+
 #header .header-row {
 	position: relative;
-	padding: 35px 0;
+	padding: 15px 0;
 }
 #header .header-row .inner { padding: 0; }
 #header #logo img { display: inline-block; } /* Mostrar el logo */
@@ -2234,3 +2193,35 @@ div.required .control-label:before {
 	color: #F00;
 	font-weight: bold;
 }
+
+/* Contenedor Imagen */
+/* Estilos para el contenedor del carrusel */
+.featured-products-container {
+	position: relative;
+  }
+  
+  /* Estilos para las imágenes dentro del carrusel */
+  .featured-products-container img {
+	max-width: 100%;
+	height: auto;
+  }
+  
+  /* Estilos para los botones de navegación */
+  .carousel-nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 5px;
+	cursor: pointer;
+  }
+  
+  .prev {
+	left: 0;
+  }
+  
+  .next {
+	right: 0;
+  }
+  
