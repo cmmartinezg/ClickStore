@@ -95,27 +95,25 @@
           <!--Middle Part Start-->
           <div class="col-sm-9" id="content">
             <h1 class="title">Iniciar Sesión</h1>
-            <p>Si ya tienes una cuenta con nosotros, por favor inicia sesión en la <a href="login.html">Página de Inicio de Sesión</a>.</p>
-            <form class="form-horizontal" action="/iniciar-sesion" method="POST">
+            <p>Si ya tienes una cuenta con nosotros, por favor inicia sesión.</p>
+            <form class="form-horizontal" action="javascript:void(0);" id="form-login">
               <fieldset id="account">
-                <legend>Detalles de Inicio de Sesión</legend>
+                <legend>Detalles de tu cuenta</legend>
                 <div class="form-group required">
-                  <label for="input-email" class="col-sm-2 control-label">E-Mail</label>
+                  <label for="login-email" class="col-sm-2 control-label">E-Mail</label>
                   <div class="col-sm-10">
-                    <input type="email" class="form-control" id="input-email" placeholder="E-Mail" name="email" required>
+                    <input type="email" class="form-control" id="login-email" placeholder="E-Mail" name="email" required>
                   </div>
                 </div>
                 <div class="form-group required">
-                  <label for="input-contraseña" class="col-sm-2 control-label">Contraseña</label>
+                  <label for="login-password" class="col-sm-2 control-label">Contraseña</label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="input-contraseña" placeholder="Contraseña" name="contraseña" required>
+                    <input type="password" class="form-control" id="login-password" placeholder="Contraseña" name="contraseña" required>
                   </div>
                 </div>
               </fieldset>
               <div class="buttons">
                 <div class="pull-right">
-                  <input type="checkbox" value="1" name="agree" required>
-                  &nbsp;He leído y estoy de acuerdo con la <a class="agree" href="politica.html"><b>Política de Privacidad</b></a> &nbsp;
                   <input type="submit" class="btn btn-primary" value="Iniciar Sesión">
                 </div>
               </div>
@@ -193,27 +191,27 @@
         <div class="container">
           <div id="powered" class="clearfix">
             <div class="powered_text pull-left flip">
-              <p>Click Store 2024 </a></p>
+              <p>Click Store 2024</p>
             </div>
             <div class="social pull-right flip"> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter" title="Twitter"></a> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/google_plus.png" alt="Google+" title="Google+"></a> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"></a> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS" title="RSS"></a> 
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a>
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter" title="Twitter"></a>
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/google_plus.png" alt="Google+" title="Google+"></a>
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"></a>
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS" title="RSS"></a>
             </div>
           </div>
           <div class="bottom-row">
             <div class="custom-text text-center">
               <p>Este es un bloque CMS. Puedes insertar cualquier contenido (HTML, Texto, Imágenes) aquí. Lorem Ipsum es simplemente texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500, cuando un impresor desconocido tomó una galera de tipos y la mezcló para hacer un libro de muestras tipográficas. Ha sobrevivido no solo cinco siglos, sino también el salto a la composición electrónica, permaneciendo esencialmente sin cambios.</p>
             </div>
-            <div class="payments_types"> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_paypal.png" alt="paypal" title="PayPal"></a> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express" title="American Express"></a> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_2checkout.png" alt="2checkout" title="2checkout"></a> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_discover.png" alt="discover" title="Discover"></a> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_mastercard.png" alt="mastercard" title="MasterCard"></a> 
+            <div class="payments_types">
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_paypal.png" alt="paypal" title="PayPal"></a>
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express" title="American Express"></a>
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_2checkout.png" alt="2checkout" title="2checkout"></a>
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a>
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_discover.png" alt="discover" title="Discover"></a>
+              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_mastercard.png" alt="mastercard" title="MasterCard"></a>
             </div>
           </div>
         </div>
@@ -229,6 +227,7 @@
   <script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
   <script type="text/javascript" src="js/owl.carousel.min.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="js/api.js"></script> <!-- Añadir esta línea -->
   <!-- JS Part End-->
 </body>
 </html>
