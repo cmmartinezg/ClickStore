@@ -208,7 +208,7 @@
               </li>   
               <li class="dropdown"><a href="blog.html">Blog</a>
               <li class="custom-link-right"><a href="search.html" target="_blank"> ¡Comprar Ahora!</a></li>
-              <li id="subir-articulo-nav" style="display: none;"><a href="subir-articulo.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
+              <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
             </ul>
           </div>
         </nav>
@@ -240,7 +240,7 @@
 
   <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
   <div class="container" id="comerciante-section" style="display: none;">
-    <button class="btn btn-primary" id="subir-articulo-btn">Subir Artículo</button>
+    <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
   </div>
 
   <!-- Pie de Página Inicio -->
@@ -339,7 +339,7 @@
       const tipoUsuario = sessionStorage.getItem('tipoUsuario');
       if (tipoUsuario === 'comerciante') {
         document.getElementById('comerciante-section').style.display = 'block';
-        document.getElementById('subir-articulo-nav').style.display = 'block'; // Mostrar botón en el menú
+        document.getElementById('productos-nav').style.display = 'block'; // Mostrar botón en el menú
       }
     });
   </script>
