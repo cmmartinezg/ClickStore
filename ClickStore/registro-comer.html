@@ -259,7 +259,44 @@
   <script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
   <script type="text/javascript" src="js/owl.carousel.min.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
-  <script type="text/javascript" src="js/api.js"></script> <!-- Añadir esta línea -->
+  <script type="text/javascript">
+    async function registrarComerciante(event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById('input-nombre').value;
+      const email = document.getElementById('input-email').value;
+      const contrasena = document.getElementById('input-contrasena').value;
+      const direccion = document.getElementById('input-direccion').value;
+      const telefono = document.getElementById('input-telefono').value;
+      const descripcion = document.getElementById('input-descripcion').value;
+      const enlace_tienda = document.getElementById('input-enlace-tienda').value;
+
+      const data = { nombre, email, contrasena, direccion, telefono, descripcion, enlace_tienda };
+
+      try {
+        const response = await fetch('http://localhost:3000/api/comerciantes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          alert('Comerciante registrado exitosamente');
+          window.location.href = 'index.html';  // Redirección a la página de inicio
+        } else {
+          const errorData = await response.json();
+          alert('Error al registrar comerciante: ' + errorData.error);
+        }
+      } catch (error) {
+        console.error('Error al registrar comerciante:', error);
+        alert('Hubo un error al registrar el comerciante. Por favor, intente nuevamente.');
+      }
+    }
+
+    document.getElementById('registroComercianteForm').addEventListener('submit', registrarComerciante);
+  </script>
   <!-- JS Part End-->
 </body>
 </html>
