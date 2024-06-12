@@ -259,6 +259,8 @@
   <script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
   <script type="text/javascript" src="js/owl.carousel.min.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script type="text/javascript">
     async function registrarComerciante(event) {
       event.preventDefault();
@@ -283,11 +285,22 @@
         });
 
         if (response.ok) {
-          alert('Comerciante registrado exitosamente');
-          window.location.href = 'index.html';  // Redirección a la página de inicio
+          Swal.fire({
+            title: 'Éxito',
+            text: 'Comerciante registrado exitosamente',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          }).then(() => {
+            window.location.href = 'index.html';  // Redirección a la página de inicio
+          });
         } else {
           const errorData = await response.json();
-          alert('Error al registrar comerciante: ' + errorData.error);
+          Swal.fire({
+            title: 'Error',
+            text: 'Error al registrar comerciante: ' + errorData.error,
+            icon: 'error',
+            confirmButtonText: 'OK'
+          });
         }
       } catch (error) {
         console.error('Error al registrar comerciante:', error);
