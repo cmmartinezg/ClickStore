@@ -102,7 +102,7 @@
                 <div class="form-group required">
                   <label for="input-usuario" class="col-sm-2 control-label">Nombre de Usuario</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="input-usuario" placeholder="Nombre de Usuario" name="nombre_usuario" required>
+                    <input type="text" class="form-control" id="input-usuario" placeholder="Nombre de Usuario" name="nombre" required>
                   </div>
                 </div>
                 <div class="form-group required">
@@ -117,32 +117,16 @@
                     <input type="password" class="form-control" id="input-password" placeholder="Contraseña" name="contraseña" required>
                   </div>
                 </div>
-                <div class="form-group required">
+                <div class="form-group">
                   <label for="input-direccion" class="col-sm-2 control-label">Dirección</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" id="input-direccion" placeholder="Dirección" name="direccion">
                   </div>
                 </div>
-                <div class="form-group required">
+                <div class="form-group">
                   <label for="input-telefono" class="col-sm-2 control-label">Teléfono</label>
                   <div class="col-sm-10">
                     <input type="tel" class="form-control" id="input-telefono" placeholder="Teléfono" name="telefono">
-                  </div>
-                </div>
-                <div class="form-group required">
-                  <label for="input-fecha-nacimiento" class="col-sm-2 control-label">Fecha de Nacimiento</label>
-                  <div class="col-sm-10">
-                    <input type="date" class="form-control" id="input-fecha-nacimiento" placeholder="Fecha de Nacimiento" name="fecha_nacimiento">
-                  </div>
-                </div>
-                <div class="form-group required">
-                  <label for="input-sexo" class="col-sm-2 control-label">Sexo</label>
-                  <div class="col-sm-10">
-                    <select class="form-control" id="input-sexo" name="sexo">
-                      <option value="M">Masculino</option>
-                      <option value="F">Femenino</option>
-                      <option value="O">Otro</option>
-                    </select>
                   </div>
                 </div>
               </fieldset>
@@ -183,7 +167,7 @@
               <ul>
                 <li class="address"><i class="fa fa-map-marker"></i>Central Square, 22 Hoi Wing Road, Asunción, Paraguay</li>
                 <li class="mobile"><i class="fa fa-phone"></i>+595 123 456 789</li>
-                <li class="email"><i class="fa fa-envelope"></i>Envíanos un correo a <a href="contact-us.html">Contact Us</a></li>
+                <li class="email"><i class="fa fa-envelope"></i>Envíanos un correo a <a href="contact-us.html">Contáctanos</a></li>
               </ul>
             </div>
             <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
@@ -263,7 +247,48 @@
   <script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
   <script type="text/javascript" src="js/owl.carousel.min.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
-  <script type="text/javascript" src="js/api.js"></script> <!-- Añadir esta línea -->
+  <script>
+    async function registrarUsuario(event) {
+      event.preventDefault();
+  
+      const data = {
+        nombre: document.getElementById('input-usuario').value,
+        email: document.getElementById('input-email').value,
+        contraseña: document.getElementById('input-password').value,
+        direccion: document.getElementById('input-direccion').value,
+        telefono: document.getElementById('input-telefono').value
+      };
+  
+      try {
+        const response = await fetch('http://localhost:3000/api/usuarios', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+  
+        if (response.ok) {
+          alert('Usuario registrado exitosamente');
+          window.location.href = 'index.html?mensaje=Usuario registrado exitosamente';
+        } else if (response.status === 409) {
+          const errorData = await response.json();
+          console.error('Error al registrar usuario:', errorData);
+          alert('El usuario ya existe. Por favor, utilice otro email.');
+        } else {
+          const errorData = await response.json();
+          console.error('Error al registrar usuario:', errorData);
+          alert('Hubo un error al registrar el usuario. Por favor, intente nuevamente.');
+        }
+      } catch (error) {
+        console.error('Error al registrar usuario:', error);
+        alert('Hubo un error al registrar el usuario. Por favor, intente nuevamente.');
+      }
+    }
+  
+    document.getElementById('form-registro').addEventListener('submit', registrarUsuario);
+  </script>
+  
   <!-- JS Part End-->
 </body>
 </html>
