@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="image/favicon.png" rel="icon" />
 <title>Registro de Comerciante</title>
-<meta name="description" content="Plantilla de diseño HTML receptiva y limpia para cualquier tipo de tienda en línea">
 <!-- CSS Part Start-->
 <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
@@ -14,7 +13,6 @@
 <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
 <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
 <!-- CSS Part End-->
 </head>
 <body>
@@ -22,18 +20,11 @@
   <div id="header">
     <!-- Inicio de la barra superior -->
     <nav id="top" class="htop">
-      <div class="container bg-dark">
+      <div class="container">
         <div class="row">
-          <div id="top-links" class="nav pull-right flip">
+          <div id="top-links" class="nav pull-right">
             <ul>
               <li><a href="login.html"><i class="fa fa-sign-in"></i> Iniciar Sesión</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i> Registro <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="registro-usu.html">Usuario</a></li>
-                  <li><a href="registro-comer.html">Comerciante</a></li>
-                </ul>
-              </li>
               <li><a href="wishlist.html"><i class="fa fa-heart"></i> Favoritos</a></li>
               <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
             </ul>
@@ -42,274 +33,103 @@
       </div>
     </nav>
     <!-- Barra superior End -->
-    <!-- Inicio del encabezado -->
-    <header class="header-row">
-      <div class="container">
-        <div class="table-container">
-          <!-- Logo Start -->
-          <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
-            <div id="logo"><a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a></div>
-          </div>
-          <!-- Logo End -->
-          <!-- Busqueda Start -->
-          <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
-            <div id="search" class="input-group">
-              <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" class="form-control input-lg" />
-              <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-          <!-- Busqueda End -->
-        </div>
-      </div>
-    </header>
-    <!-- Encabezado End -->
-    <!-- Main Menu Start -->
-    <div class="container">
-      <nav id="menu" class="navbar">
-        <div class="navbar-header"><span class="visible-xs visible-sm"> Menú <b></b></span></div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li><a class="home_link" title="Inicio" href="index.html"><span>Inicio</span></a></li>
-            <li class="mega-menu dropdown"><a>Categorías</a>
-              <div class="dropdown-menu">
-                <!-- Agregar categorías según tu estructura -->
-              </div>
-            </li>
-            <li class="dropdown"><a href="blog.html">Blog</a></li>
-            <li class="custom-link-right"><a href="search.html" target="_blank">¡Comprar Ahora!</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <!-- Menú Principal End -->
-    <div id="container">
-      <div class="container">
-        <!-- Breadcrumb Start -->
-        <ul class="breadcrumb">
-          <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-          <li><a href="login.html">Cuenta</a></li>
-          <li><a href="registro-comer.html">Registro de Comerciante</a></li>
-        </ul>
-        <!-- Breadcrumb End -->
-        <div class="row">
-          <!--Middle Part Start-->
-          <div class="col-sm-9" id="content">
-            <h1 class="title">Registro de Comerciante</h1>
-            <p>Si ya tienes una cuenta con nosotros, por favor inicia sesión en la <a href="login.html">Página de Inicio de Sesión</a>.</p>
-            <form id="registroComercianteForm" class="form-horizontal">
-              <fieldset id="account">
-                <legend>Detalles Personales</legend>
-                <div class="form-group required">
-                  <label for="input-nombre" class="col-sm-2 control-label">Nombre</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="input-nombre" placeholder="Nombre" name="nombre" required>
-                  </div>
-                </div>
-                <div class="form-group required">
-                  <label for="input-email" class="col-sm-2 control-label">E-Mail</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="input-email" placeholder="E-Mail" name="email" required>
-                  </div>
-                </div>
-                <div class="form-group required">
-                  <label for="input-contrasena" class="col-sm-2 control-label">Contraseña</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="input-contrasena" placeholder="Contraseña" name="contrasena" required>
-                  </div>
-                </div>
-                <div class="form-group required">
-                  <label for="input-direccion" class="col-sm-2 control-label">Dirección</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="input-direccion" placeholder="Dirección" name="direccion">
-                  </div>
-                </div>
-                <div class="form-group required">
-                  <label for="input-telefono" class="col-sm-2 control-label">Teléfono</label>
-                  <div class="col-sm-10">
-                    <input type="tel" class="form-control" id="input-telefono" placeholder="Teléfono" name="telefono">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="input-descripcion" class="col-sm-2 control-label">Descripción</label>
-                  <div class="col-sm-10">
-                    <textarea class="form-control" id="input-descripcion" placeholder="Descripción" name="descripcion"></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="input-enlace-tienda" class="col-sm-2 control-label">Enlace a la Tienda</label>
-                  <div class="col-sm-10">
-                    <input type="url" class="form-control" id="input-enlace-tienda" placeholder="Enlace a la Tienda" name="enlace_tienda">
-                  </div>
-                </div>
-              </fieldset>
-              <div class="buttons">
-                <div class="pull-right">
-                  <input type="checkbox" value="1" name="agree" required>
-                  &nbsp;He leído y estoy de acuerdo con la <a class="agree" href="politica.html"><b>Política de Privacidad</b></a> &nbsp;
-                  <input type="submit" class="btn btn-primary" value="Continuar">
-                </div>
-              </div>
-            </form>
-          </div>
-          <!--Middle Part End-->
-          <!--Right Part Start-->
-          <aside id="column-right" class="col-sm-3 hidden-xs">
-            <h3 class="subtitle">Cuenta</h3>
-            <div class="list-group">
-              <ul class="list-item">
-                <li><a href="login.html">Iniciar Sesión</a></li>
-                <li><a href="registro-usu.html">Registro de Usuario</a></li>
-                <li><a href="registro-comer.html">Registro de Comerciante</a></li>
-                <li><a href="#">Olvidé mi Contraseña</a></li>
-                <li><a href="#">Mi Cuenta</a></li>
-              </ul>
-            </div>
-          </aside>
-          <!--Right Part End-->
-        </div>
-      </div>
-    </div>
-    <!--Footer Start-->
-    <footer id="footer">
-      <div class="fpart-first">
-        <div class="container">
-          <div class="row">
-            <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
-              <h5>Detalles de Contacto</h5>
-              <ul>
-                <li class="address"><i class="fa fa-map-marker"></i>Central Square, 22 Hoi Wing Road, Asunción, Paraguay</li>
-                <li class="mobile"><i class="fa fa-phone"></i>+595 123 456 789</li>
-                <li class="email"><i class="fa fa-envelope"></i>Envíanos un correo a <a href="contact-us.html">Contact Us</a></li>
-              </ul>
-            </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-              <h5>Información</h5>
-              <ul>
-                <li><a href="about-us.html">Sobre Nosotros</a></li>
-                <li><a href="about-us.html">Información de Entrega</a></li>
-                <li><a href="about-us.html">Política de Privacidad</a></li>
-                <li><a href="about-us.html">Términos y Condiciones</a></li>
-              </ul>
-            </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-              <h5>Servicio al Cliente</h5>
-              <ul>
-                <li><a href="contact-us.html">Contáctanos</a></li>
-                <li><a href="returns.html">Devoluciones</a></li>
-                <li><a href="sitemap.html">Mapa del Sitio</a></li>
-              </ul>
-            </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-              <h5>Extras</h5>
-              <ul>
-                <li><a href="manufacturer.html">Marcas</a></li>
-                <li><a href="gift-voucher.html">Vales de Regalo</a></li>
-                <li><a href="#">Afiliados</a></li>
-                <li><a href="#">Ofertas Especiales</a></li>
-              </ul>
-            </div>
-            <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
-              <h5>Boletín Informativo</h5>
-              <div class="form-group">
-                <label class="control-label" for="subscribe">Suscríbete para recibir las últimas noticias y actualizaciones.</label>
-                <input id="signup" type="email" required="" placeholder="Dirección de correo electrónico" name="email" class="form-control">
-              </div>
-              <input type="submit" value="Suscribirse" class="btn btn-primary">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fpart-second">
-        <div class="container">
-          <div id="powered" class="clearfix">
-            <div class="powered_text pull-left flip">
-              <p>Click Store 2024</a></p>
-            </div>
-            <div class="social pull-right flip"> 
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a>
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter" title="Twitter"></a>
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/google_plus.png" alt="Google+" title="Google+"></a>
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"></a>
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS" title="RSS"></a>
-            </div>
-          </div>
-          <div class="bottom-row">
-            <div class="custom-text text-center">
-              <p>Este es un bloque CMS. Puedes insertar cualquier contenido (HTML, Texto, Imágenes) aquí. Lorem Ipsum es simplemente texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500, cuando un impresor desconocido tomó una galera de tipos y la mezcló para hacer un libro de muestras tipográficas. Ha sobrevivido no solo cinco siglos, sino también el salto a la composición electrónica, permaneciendo esencialmente sin cambios.</p>
-            </div>
-            <div class="payments_types">
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_paypal.png" alt="paypal" title="PayPal"></a>
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express" title="American Express"></a>
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_2checkout.png" alt="2checkout" title="2checkout"></a>
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a>
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_discover.png" alt="discover" title="Discover"></a>
-              <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_mastercard.png" alt="mastercard" title="MasterCard"></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="back-top"><a data-toggle="tooltip" title="Volver Arriba" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
-    </footer>
-    <!--Footer End-->
   </div>
-  <!-- JS Part Start-->
-  <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/jquery.easing-1.3.min.js"></script>
-  <script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
-  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-  <script type="text/javascript" src="js/custom.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <div id="container">
+    <div class="container">
+      <!--Middle Part Start-->
+      <div id="content">
+        <h1 class="title">Registro de Comerciante</h1>
+        <form id="registroComercianteForm" class="form-horizontal">
+          <fieldset id="account">
+            <legend>Detalles Personales</legend>
+            <div class="form-group required">
+              <label for="input-nombre" class="control-label">Nombre</label>
+              <input type="text" class="form-control" id="input-nombre" placeholder="Nombre" name="nombre" required>
+            </div>
+            <div class="form-group required">
+              <label for="input-email" class="control-label">E-Mail</label>
+              <input type="email" class="form-control" id="input-email" placeholder="E-Mail" name="email" required>
+            </div>
+            <div class="form-group required">
+              <label for="input-contrasena" class="control-label">Contraseña</label>
+              <input type="password" class="form-control" id="input-contrasena" placeholder="Contraseña" name="contrasena" required>
+            </div>
+            <div class="form-group required">
+              <label for="input-direccion" class="control-label">Dirección</label>
+              <input type="text" class="form-control" id="input-direccion" placeholder="Dirección" name="direccion">
+            </div>
+            <div class="form-group required">
+              <label for="input-telefono" class="control-label">Teléfono</label>
+              <input type="tel" class="form-control" id="input-telefono" placeholder="Teléfono" name="telefono">
+            </div>
+            <div class="form-group">
+              <label for="input-descripcion" class="control-label">Descripción</label>
+              <textarea class="form-control" id="input-descripcion" placeholder="Descripción" name="descripcion"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="input-enlace-tienda" class="control-label">Enlace a la Tienda</label>
+              <input type="url" class="form-control" id="input-enlace-tienda" placeholder="Enlace a la Tienda" name="enlace_tienda">
+            </div>
+            <div class="buttons">
+              <div class="pull-right">
+                <input type="checkbox" value="1" name="agree" required>
+                &nbsp;He leído y estoy de acuerdo con la <a href="politica.html"><b>Política de Privacidad</b></a> &nbsp;
+                <input type="submit" class="btn btn-primary" value="Continuar">
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <!--Middle Part End-->
+    </div>
+  </div>
+  <!--Footer Start-->
+  <footer id="footer">
+    <div class="container">
+      <p>Click Store 2024</p>
+    </div>
+  </footer>
+  <!--Footer End-->
+</div>
+<!-- JS Part Start-->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+  async function registrarComerciante(event) {
+    event.preventDefault();
+    const formData = {
+      nombre: document.getElementById('input-nombre').value,
+      email: document.getElementById('input-email').value,
+      contrasena: document.getElementById('input-contrasena').value,
+      direccion: document.getElementById('input-direccion').value,
+      telefono: document.getElementById('input-telefono').value,
+      descripcion: document.getElementById('input-descripcion').value,
+      enlace_tienda: document.getElementById('input-enlace-tienda').value
+    };
 
-  <script type="text/javascript">
-    async function registrarComerciante(event) {
-      event.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3000/api/comerciantes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
 
-      const nombre = document.getElementById('input-nombre').value;
-      const email = document.getElementById('input-email').value;
-      const contrasena = document.getElementById('input-contrasena').value;
-      const direccion = document.getElementById('input-direccion').value;
-      const telefono = document.getElementById('input-telefono').value;
-      const descripcion = document.getElementById('input-descripcion').value;
-      const enlace_tienda = document.getElementById('input-enlace-tienda').value;
-
-      const data = { nombre, email, contrasena, direccion, telefono, descripcion, enlace_tienda };
-
-      try {
-        const response = await fetch('http://localhost:3000/api/comerciantes', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-          Swal.fire({
-            title: 'Éxito',
-            text: 'Comerciante registrado exitosamente',
-            icon: 'success',
-            confirmButtonText: 'OK'
-          }).then(() => {
-            window.location.href = 'index.html';  // Redirección a la página de inicio
-          });
-        } else {
-          const errorData = await response.json();
-          Swal.fire({
-            title: 'Error',
-            text: 'Error al registrar comerciante: ' + errorData.error,
-            icon: 'error',
-            confirmButtonText: 'OK'
-          });
-        }
-      } catch (error) {
-        console.error('Error al registrar comerciante:', error);
-        alert('Hubo un error al registrar el comerciante. Por favor, intente nuevamente.');
+      if (response.ok) {
+        Swal.fire('Registro Exitoso', 'Comerciante registrado exitosamente', 'success')
+        .then(() => window.location.href = 'index.html');
+      } else {
+        const errorData = await response.json();
+        Swal.fire('Error en el Registro', errorData.message, 'error');
       }
+    } catch (error) {
+      console.error('Error en la solicitud', error);
+      Swal.fire('Error', 'Error al procesar la solicitud', 'error');
     }
+  }
 
-    document.getElementById('registroComercianteForm').addEventListener('submit', registrarComerciante);
-  </script>
-  <!-- JS Part End-->
+  document.getElementById('registroComercianteForm').addEventListener('submit', registrarComerciante);
+</script>
+<!-- JS Part End-->
 </body>
 </html>
