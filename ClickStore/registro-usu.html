@@ -15,6 +15,8 @@
 <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
 <link rel="stylesheet" type="text/css" href="css/responsive.css" />
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- CSS Part End-->
 </head>
 <body>
@@ -250,7 +252,7 @@
   <script>
     async function registrarUsuario(event) {
       event.preventDefault();
-  
+    
       const data = {
         nombre: document.getElementById('input-usuario').value,
         email: document.getElementById('input-email').value,
@@ -258,7 +260,7 @@
         direccion: document.getElementById('input-direccion').value,
         telefono: document.getElementById('input-telefono').value
       };
-  
+    
       try {
         const response = await fetch('http://localhost:3000/api/usuarios', {
           method: 'POST',
@@ -267,27 +269,41 @@
           },
           body: JSON.stringify(data)
         });
-  
+    
         if (response.ok) {
-          alert('Usuario registrado exitosamente');
-          window.location.href = 'index.html?mensaje=Usuario registrado exitosamente';
-        } else if (response.status === 409) {
-          const errorData = await response.json();
-          console.error('Error al registrar usuario:', errorData);
-          alert('El usuario ya existe. Por favor, utilice otro email.');
+          Swal.fire({
+            title: '¡Registrado!',
+            text: 'Usuario registrado exitosamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = 'index.html'; // Redirige al inicio después de la confirmación
+            }
+          });
         } else {
           const errorData = await response.json();
-          console.error('Error al registrar usuario:', errorData);
-          alert('Hubo un error al registrar el usuario. Por favor, intente nuevamente.');
+          Swal.fire({
+            title: 'Error',
+            text: errorData.message, // Mostrando el mensaje de error desde el servidor
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+          });
         }
       } catch (error) {
-        console.error('Error al registrar usuario:', error);
-        alert('Hubo un error al registrar el usuario. Por favor, intente nuevamente.');
+        Swal.fire({
+          title: 'Error',
+          text: 'Hubo un error al registrar el usuario. Por favor, intente nuevamente.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
       }
     }
-  
+    
     document.getElementById('form-registro').addEventListener('submit', registrarUsuario);
-  </script>
+    </script>
+    
+    
   
   <!-- JS Part End-->
 </body>
