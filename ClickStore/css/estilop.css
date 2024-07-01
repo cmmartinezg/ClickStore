@@ -166,3 +166,55 @@ body {
     padding: 20px;
     box-sizing: border-box;
 }
+/* Ajuste de ancho del contenedor para amazon-style */
+.amazon-style .container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    max-width: 1200px; /* Ajuste según tus necesidades */
+}
+
+/* Ajustes adicionales si es necesario */
+.amazon-style .header,
+.amazon-style .container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Asegurarse de que el contenedor .container se ajuste al ancho del contenedor principal */
+.amazon-style .main-wrapper {
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+/* Ajuste de ancho del carrusel para amazon-style */
+.amazon-style .featured-products-container {
+    width: 100%;
+    max-width: 1200px; /* Ajuste según tus necesidades */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.amazon-style .featured-products-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.amazon-style .carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.amazon-style .carousel-nav.prev {
+    left: 0;
+}
+
+.amazon-style .carousel-nav.next {
+    right: 0;
+}
