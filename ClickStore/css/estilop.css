@@ -1,6 +1,12 @@
 /* archivo: estilop.css */
 
 /* General Styles */
+*{
+margin: 0%;
+padding: 0%;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -218,3 +224,76 @@ body {
 .amazon-style .carousel-nav.next {
     right: 0;
 }
+
+/* Estilos del contenedor de ofertas */
+.slider_container{
+    width: 1280px; /*ancho*/
+    height: auto ; /* alto*/
+    margin: 50px auto 0;
+    overflow: hidden;
+    
+    }
+    /* Ver si lleva o no titulo y dar estilo */
+    .titulo{
+        text-align: center;
+        font-size: 40px;  /* taman */
+        padding-top: 50px; /*separ */
+    }
+    
+    /* lista y tiempo de duración*/
+    .slider_container ul{
+       list-style: none ;
+       display: flex;
+       padding: 0%;
+       animation: movimiento_slider 16s infinite alternate ease-in-out ;
+    }
+   
+    
+    /* Movimiento del contenedor */
+    @keyframes movimiento_slider {
+
+        0%{  margin-left: 0;}
+        20%{  margin-left: 0;}
+    
+        25%{  margin-left: -100%;}
+        45%{  margin-left: -100%;}
+    
+        50%{  margin-left: -200%;}
+        70%{  margin-left: -200%;}
+
+        75%{ margin-left:  -300%;}
+        100%{ margin-left:  -300%;}
+    }
+
+    /* res */
+    @media(max-width:991px){
+
+         body{
+            padding: 30px;
+    }
+
+    .slider_container{
+            width: 100%;
+    }
+
+    }
+
+    #container {
+        text-align: left;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #content { min-height: 400px; }
+
+    .table-container {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .table-container .col-table-cell {
+        display: table-cell;
+        vertical-align: middle;
+        float: none;
+    }
+    
