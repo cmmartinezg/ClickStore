@@ -13,6 +13,41 @@
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
   <!-- CSS Parte Fin -->
+  <style>
+    .product-item {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 10px;
+      text-align: center;
+      width: 200px;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer; /* Para indicar que es clicable */
+    }
+    .product-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .product-item h3 {
+      font-size: 16px;
+      height: 40px;
+      overflow: hidden;
+    }
+    .product-item p {
+      font-size: 14px;
+      color: #555;
+    }
+    .product-item .price {
+      font-size: 18px;
+      color: #b12704;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 <div class="wrapper-wide">
@@ -163,8 +198,9 @@
                       <li><a href="category.html">Skin Care</a></li>
                     </ul>
                   </div>
-                </li>       
-           
+                </div>
+              </div>
+            </li>       
               <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
                 <div class="dropdown-menu">
                   <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
@@ -178,7 +214,7 @@
                       href="#">Hewlett-Packard</a></div>
                   <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
                         src="image/product/htc_logo-60x60.jpg" title="HTC" alt="HTC" /></a><a href="#">HTC</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                  <div the="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
                         src="image/product/palm_logo-60x60.jpg" title="Palm" alt="Palm" /></a><a href="#">Palm</a></div>
                   <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
                         src="image/product/sony_logo-60x60.jpg" title="Sony" alt="Sony" /></a><a href="#">Sony</a>
@@ -235,7 +271,7 @@
   <!-- Contenedor de la lista de productos -->
   <div class="container">
     <h1>Lista de Productos</h1>
-    <ul id="productos-lista"></ul>
+    <div id="productos-lista"></div>
   </div>
 
   <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
@@ -341,35 +377,34 @@
         document.getElementById('comerciante-section').style.display = 'block';
         document.getElementById('productos-nav').style.display = 'block'; // Mostrar botón en el menú
       }
+      fetchProductos();
     });
+
+    function fetchProductos() {
+      fetch('http://localhost:3000/api/productos')
+        .then(response => response.json())
+        .then(data => displayProductos(data))
+        .catch(err => console.error('Error fetching productos:', err));
+    }
+
+    function displayProductos(productos) {
+      const container = document.getElementById('productos-lista');
+      container.innerHTML = '';
+      productos.forEach(producto => {
+        const item = document.createElement('div');
+        item.className = 'product-item';
+        item.innerHTML = `
+          <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
+          <h3>${producto.nombre}</h3>
+          <p>${producto.descripcion}</p>
+          <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+        `;
+        item.onclick = () => {
+          window.location.href = `product.html?id=${producto.id}`;
+        };
+        container.appendChild(item);
+      });
+    }
   </script>
-     <style>
-      /* Ajustar el margen del contenedor de productos destacados */
-      .featured-products-container {
-        margin: 0 auto;
-        max-width: 1200px; /* Puedes ajustar este valor según sea necesario */
-        padding: 0 15px; /* Asegura que coincida con los demás contenedores */
-      }
-  
-      .carousel-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-      }
-  
-      .carousel-nav.prev {
-        left: 0;
-      }
-  
-      .carousel-nav.next {
-        right: 0;
-      }
-    </style>le>
-</div>
 </body>
 </html>
