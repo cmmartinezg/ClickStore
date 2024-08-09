@@ -7,6 +7,7 @@ padding: 0%;
 box-sizing: border-box;
 font-family: Arial, Helvetica, sans-serif;
 }
+
 html, body {
     margin: 0;
     padding: 0;
@@ -44,6 +45,7 @@ body {
     display: flex;
     align-items: center ;
     justify-content: space-between;
+    flex-wrap: wrap; /* Añadir para responsividad */
 }
 
 .header .logo img {
@@ -55,8 +57,9 @@ body {
     display: flex;
     color: #222;
     align-items: center;
-    margin-left: auto; /* Mover hacia la derecha */
-    width: 500px; /* Ajustar el ancho de la barra de búsqueda */
+    margin-left: auto;
+    width: 100%;
+    max-width: 500px; /* Ajustar el ancho máximo */
 }
 
 .header .search-bar select,
@@ -91,6 +94,7 @@ body {
 .header .nav-links {
     display: flex;
     align-items: center;
+    flex-wrap: wrap; /* Añadir para responsividad */
 }
 
 .header .nav-links a {
@@ -255,4 +259,353 @@ body {
         vertical-align: middle;
         float: none;
     }
-    
+   
+    .nav.navbar-nav > li > .dropdown-menu {
+        padding: 0;
+    }
+    .nav.navbar-nav > li > .dropdown-menu > .column > div > ul {
+        list-style-type: none; /* Elimina las viñetas */
+        padding: 0; /* Elimina el padding */
+        margin: 0; /* Elimina el margen */
+    }
+    .nav.navbar-nav > li > .dropdown-menu > .column > div > ul > li {
+        padding: 8px 0; /* Agrega un padding opcional para espaciado */
+    }
+/* Estilo del Menú Desplegable */
+.header .nav-links .dropdown {
+    position: relative;
+}
+
+
+.header .nav-links .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #232f3e; /* Fondo azul */
+    color: #ffffff;
+    border: none;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1;
+}
+.header .nav-links .dropdown-menu li {
+    padding: 8px 16px;
+}
+
+.header .nav-links .dropdown-menu li a {
+    color: #ffffff; /* Texto blanco */
+    text-decoration: none;
+}
+
+.header .nav-links .dropdown-menu li a:hover {
+    background-color: #232f3e; /* Fondo al hacer hover */
+}
+
+.header .nav-links .dropdown:hover .dropdown-menu,
+.header .nav-links .dropdown-menu:hover {
+    display: block;
+}
+.header .nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .header .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .header .nav-links a {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .product-item {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 10px;
+      text-align: center;
+      width: 200px;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer; /* Para indicar que es clicable */
+    }
+    .product-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .product-item h3 {
+      font-size: 16px;
+      height: 40px;
+      overflow: hidden;
+    }
+    .product-item p {
+      font-size: 14px;
+      color: #555;
+    }
+    .product-item .price {
+      font-size: 18px;
+      color: #b12704;
+      margin-top: 10px;
+    }
+
+
+/* Estilos para el contenedor de productos */
+.productos-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f5f5f5; /* Color de fondo del cuadro */
+    border-radius: 10px; /* Bordes redondeados para el cuadro */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para el cuadro */
+}
+
+/* Estilo para cada producto */
+.productos-contenedor .product-layout {
+    width: 23%; /* 4 productos por fila */
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo para la tarjeta de producto */
+.productos-contenedor .product-thumb {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+    height: 400px; /* Altura fija para todas las tarjetas */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilo para las imágenes de los productos */
+.productos-contenedor .product-thumb .image img {
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: contain; /* Ajuste de la imagen para que se mantenga dentro del cuadro */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Ajuste de las descripciones y precios */
+.productos-contenedor .product-thumb .caption h4 {
+    font-size: 14px;
+    margin: 5px 0;
+    height: 40px; /* Altura fija para los títulos */
+    overflow: hidden; /* Oculta el texto si es demasiado largo */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos al final si es necesario */
+}
+
+.productos-contenedor .product-thumb .caption .description {
+    font-size: 12px;
+    color: #555;
+    height: 40px; /* Altura fija para la descripción */
+    overflow: hidden; /* Oculta el texto si es demasiado largo */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos al final si es necesario */
+}
+
+.productos-contenedor .product-thumb .price {
+    font-size: 16px;
+    color: #b12704;
+    margin: 5px 0;
+}
+
+/* Botones */
+.button-group {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.button-group .btn-primary,
+.productos-contenedor .add-to-links button {
+    margin: 5px 0;
+    width: 100%;
+}
+
+/* Ajuste de la lista de deseos y comparación */
+.productos-contenedor .add-to-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.productos-contenedor .add-to-links button {
+    margin: 5px;
+    flex: 1 0 45%; /* Distribuye los botones uniformemente */
+    box-sizing: border-box;
+}
+
+/* Responsividad */
+@media (max-width: 1200px) {
+    .productos-contenedor .product-layout {
+        width: 48%; /* 2 productos por fila en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    .productos-contenedor .product-layout {
+        width: 100%; /* 1 producto por fila en pantallas muy pequeñas */
+    }
+}
+/* archivo: estilop.css */
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+}
+
+body {
+    color: #222;
+    line-height: 18px;
+    font-size: 14px; /* Tamaño de letra incrementado */
+}
+
+/* Layout */
+.wrapper-wide {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
+}
+
+.container-max {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    background-color: #232f3e;
+    color: #ffffff;
+    padding: 10px 0;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Añadir para responsividad */
+}
+
+.header .logo img {
+    height: 50px;
+}
+
+.header .search-bar {
+    display: flex;
+    color: #222;
+    align-items: center;
+    margin-left: auto;
+    width: 100%;
+    max-width: 500px; /* Ajustar el ancho máximo */
+}
+
+.header .search-bar select,
+.header .search-bar input,
+.header .search-bar button {
+    height: 40px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.header .search-bar select {
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    padding: 0 10px;
+}
+
+.header .search-bar input {
+    flex: 1;
+    border-left: none;
+    border-right: none;
+    padding: 0 10px;
+    border-radius: 0;
+}
+
+.header .search-bar button {
+    background-color: #febd69;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    padding: 0 15px;
+}
+
+.header .nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Añadir para responsividad */
+}
+
+.header .nav-links a {
+    color: #ffffff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 16px; /* Tamaño de letra incrementado */
+}
+
+.header .nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Content */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.content .item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: #232f3e;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+
+
+}

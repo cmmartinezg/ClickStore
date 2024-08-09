@@ -14,7 +14,70 @@
   <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
   <!-- CSS Parte Fin -->
+  <style>
+    .product-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    width: 250px;  /* Ancho fijo para todas las tarjetas */
+    height: 420px; /* Alto fijo para todas las tarjetas */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.product-item h3 {
+    font-size: 16px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-item p {
+    font-size: 14px;
+    color: #555;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-item .price {
+    font-size: 18px;
+    color: #b12704;
+    margin-top: 10px;
+}
+
+.product-item .ver-mas {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none; /* Cambiado a link */
+    width: 80%;
+}
+
+  </style>
 </head>
+
 <body class="amazon-style">
   <div class="wrapper-wide">
     <!-- Inicio del encabezado --> 
@@ -24,9 +87,12 @@
       </div>
       <div class="search-bar">
         <select>
-          <option value="all">Todos</option>
-          <option value="electronics">Electrónica</option>
-          <option value="clothing">Ropa</option>
+          <option value="Todos">Todos</option>
+          <option value="Electrónica">Electrónica</option>
+          <option value="Informática">Informática</option>
+          <option value="Ropa">Ropa</option>
+          <option value="Automóviles">Automóviles</option>
+          <option value="Belleza">Belleza</option>
           <!-- Agregar más opciones -->
         </select>
         <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
@@ -35,20 +101,20 @@
       <div class="nav-links">
         <a href="login.html">Iniciar Sesión</a>
         <div class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i> Registro <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="registro-usu.html">Usuario</a></li>
             <li><a href="registro-comer.html">Comerciante</a></li>
           </ul>
         </div>
-        <a href="wishlist.html"><i class="fa fa-heart"></i> Favoritos</a>
-        <a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a>
+        <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos</a>
+        <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito</a>
       </div>
     </header>
     <!-- Encabezado End -->
     <div class="container">
       <nav id="menu" class="navbar">
-        <div class="navbar-header"> <span class="visible-xs visible-sm"> Menu <b></b></span></div>
+        <div class="navbar-header"> <span class="visible-xs visible-sm">Menu <b></b></span></div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li><a class="home_link" title="Home" href="index.html"><span>Home</span></a></li>
@@ -58,40 +124,13 @@
                    <!-- Categoria Electrónica-->
                   <a href="category.html">Electrónica</a>
                   <div>
-                      <ul>
-                          <li> 
-                              <a href="category.html">Accesorios<span>&rsaquo;</span></a>
-                              <div class="dropdown-menu">
-                                  <ul>
-                                      <li> <a href="category.html">Audio</a> </li>
-                                      <li> <a href="category.html">Cables</a> </li>
-                                      <li> <a href="category.html">GPS y Navegación</a> </li>
-                                      <li> <a href="category.html">Pilas y Cargadores</a> </li>
-                                      <li> <a href="category.html">Calculadoras</a> </li>
-                                      <li> <a href="category.html">Video</a> </li>
-                                  </ul>
-                              </div>
-                          </li>
-                          <li> 
-                              <a href="category.html">Cámaras<span>&rsaquo;</span></a>
-                              <div class="dropdown-menu">
-                                  <ul>
-                                      <li> <a href="category.html">Accesorios</a></li>
-                                  </ul>
-                              </div>
-                          </li>
-                          <li>
-                              <a href="category.html">Celulares<span>&rsaquo;</span></a>
-                              <div class="dropdown-menu">
-                                  <ul>
-                                      <li><a href="category.html">Celulares y Tabletas</a></li>
-                                      <li><a href="category.html">Accesorios</a></li>
-                                  </ul>
-                              </div>
-                          </li>
-                          <li><a href="category.html">Tv y Audio</a> </li>
-                      </ul>
-                  </div>
+                    <ul>
+                        <li><a href="category.html">Accesorios</a></li>
+                        <li><a href="category.html">Cámaras</a></li>
+                        <li><a href="category.html">Celulares</a></li>
+                        <li><a href="category.html">Tv y Audio</a></li>
+                    </ul>
+                </div>
               </div>         
                 <div class="column col-lg-2 col-md-3"><a href="category.html">Informática</a>
                   <div>
@@ -100,8 +139,6 @@
                             <li> <a href="category.html">Notebook</a> </li>
                             <li> <a href="category.html">Impresoras</a> </li>
                             <li> <a href="category.html">Almacenamiento</a> </li>
-                            <li> <a href="category.html">Redes e Internet</a> </li>
-                            <li> <a href="category.html">Gaming</a> </li>
                     </ul>
                   </div>
                 </div>
@@ -118,38 +155,21 @@
                   <div>
                     <ul>
                       <li> <a href="category.html">Neumáticos</a></li>
-                      <li> <a href="category.html">Piezas</a></li>
                       <li> <a href="category.html">Sonido y Video</a></li>
                       <li> <a href="category.html">Accesorios</a></li>
                     </ul>
                   </div>
                 </div>
-                <div class="column col-lg-2 col-md-3"> <a href="category.html">Belleza</a>
+                <div class="column col-lg-2 col-md-3">
+                  <a href="category.html">Belleza</a>
                   <div>
-                    <ul>
-                      <li> <a href="category.html">Cosméticos<span>&rsaquo;</span></a>
-                        <div class="dropdown-menu">
-                          <ul>
-                            <li> <a href="category.html">Bases de Maquillaje</a></li>
-                            <li> <a href="category.html">Labiales</a></li>
-                            <li> <a href="category.html">Cremas</a></li>
-                          </ul>
-                        </div>
-                      </li>
-                      <li><a href="category.html">Perfumes<span>&rsaquo;</span></a>
-                        <div class="dropdown-menu">
-                          <ul>
-                            <li><a href="category.html">Hombre</a></li>
-                            <li><a href="category.html">Mujer</a></li>
-                          </ul>
-                        </div>
-                      </li>
-                      <li> <a href="category.html">Cuidado Personal</a></li>
-                      <li><a href="category.html">Skin Care</a></li>
-                    </ul>
+                      <ul>
+                          <li><a href="category.html">Cosméticos</a></li>
+                          <li><a href="category.html">Perfumes</a></li>
+                          <li><a href="category.html">Cuidado Personal</a></li>
+                      </ul>
                   </div>
-                </li>       
-
+              </div>
               <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
                 <div class="dropdown-menu">
                   <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
@@ -212,16 +232,17 @@
     </div>
     <!-- Contenedor de productos ofertas fin -->
 
-    <!-- Contenedor de la lista de productos -->
-    <div class="container">
-      <h1>Lista de Productos</h1>
-      <ul id="productos-lista"></ul>
-    </div>
+      <!-- Contenedor de la lista de productos -->
+      <div class="container">
+        <h1>Lista de Productos</h1>
+        <div id="productos-lista"></div>
+      </div>
 
-    <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
-    <div class="container" id="comerciante-section" style="display: none;">
-      <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
-    </div>
+      <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
+      <div class="container" id="comerciante-section" style="display: none;">
+        <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
+      </div>
+
 
     <!-- Pie de Página Inicio -->
     <footer id="footer">
@@ -317,15 +338,45 @@
         if (params.has('mensaje')) {
           alert(params.get('mensaje'));
         }
-
+  
         // Mostrar botón "Subir Artículo" si el usuario es comerciante
         const tipoUsuario = sessionStorage.getItem('tipoUsuario');
         if (tipoUsuario === 'comerciante') {
           document.getElementById('comerciante-section').style.display = 'block';
           document.getElementById('productos-nav').style.display = 'block'; // Mostrar botón en el menú
         }
+        fetchProductos();
       });
+  
+      function fetchProductos() {
+        fetch('http://localhost:3000/api/productos')
+          .then(response => response.json())
+          .then(data => displayProductos(data))
+          .catch(err => console.error('Error fetching productos:', err));
+      }
+  
+    function displayProductos(productos) {
+    const container = document.getElementById('productos-lista');
+    container.innerHTML = '';
+    productos.forEach(producto => {
+        const item = document.createElement('div');
+        item.className = 'product-item';
+        item.innerHTML = `
+            <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion.substring(0, 60)}...</p> <!-- Limitar descripción a 60 caracteres -->
+            <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+            <a href="product.html?id=${producto.id}" class="ver-mas">Ver más</a>
+        `;
+
+        item.onclick = () => {
+            window.location.href = `product.html?id=${producto.id}`;
+        };
+
+        container.appendChild(item);
+      });
+      }
+
     </script>
-  </div>
-</body>
-</html>
+  </body>
+  </html>
