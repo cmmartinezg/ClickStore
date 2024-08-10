@@ -21,7 +21,7 @@
                 <div class="row">
                     <div id="top-links" class="nav pull-right flip">
                         <ul>
-                            <li><a href="login.html"><i class="fa fa-sign-in"></i> Iniciar Sesión</a></li>
+                            <li><a href="index-comer.html"><i class="fa fa-sign-in"></i> Iniciar Sesión</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i> Registro <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -142,40 +142,44 @@
                             </div>
                         </li>
                         <li class="custom-link-right"><a href="#" target="_blank"> ¡Comprar Ahora!</a></li>
-                        <li id="productoss-nav" style="display: none;"><a href="productoss.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
+                        <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
                     </ul>
                 </div>
             </nav>
         </div>
         <!-- Menú Principal Fin -->
-        <!-- Contenedor de la lista de productoss -->
+        <!-- Contenedor de la lista de productos -->
         <div class="container">
             <h1>Registro de productos</h1>
-            <form id="registroproductosForm">
+            <form id="registroproductosForm" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nombre">Nombre del producto:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre">
                 </div>
                 <div class="form-group">
                     <label for="descripcion">Descripción:</label>
-                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+                    <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="precio">Precio:</label>
-                    <input type="number" class="form-control" id="precio" name="precio" step="0.01" required>
+                    <input type="number" class="form-control" id="precio" name="precio" step="0.01">
                 </div>
                 <div class="form-group">
                     <label for="foto_url">URL de la Foto:</label>
-                    <input type="url" class="form-control" id="foto_url" name="foto_url" required>
+                    <input type="url" class="form-control" id="foto_url" name="foto_url">
+                </div>
+                <div class="form-group">
+                    <label for="archivoProductos">Cargar archivo de productos (CSV):</label>
+                    <input type="file" class="form-control" id="archivoProductos" name="archivoProductos" accept=".csv">
                 </div>
                 <div class="buttons">
                     <div class="pull-right">
-                        <input type="submit" class="btn btn-primary" value="Registrar producto">
+                        <input type="submit" class="btn btn-primary" value="Registrar productos">
                     </div>
                 </div>
             </form>
         </div>
-        <!-- Contenedor de la lista de productoss Fin -->
+        <!-- Contenedor de la lista de productos Fin -->
         <!-- Pie de Página Inicio -->
         <footer id="footer">
             <div class="fpart-first">
@@ -265,31 +269,24 @@
             event.preventDefault();
 
             const formData = new FormData(event.target);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
 
             try {
-                const response = await fetch('http://localhost:3000/api/productos', {
+                const response = await fetch('http://localhost:3000/api/productos/upload', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
+                    body: formData
                 });
 
                 if (response.ok) {
-                    alert('Producto registrado exitosamente');
-                    window.location.href = 'index.html?mensaje=Producto registrado exitosamente';
+                    alert('Productos registrados exitosamente');
+                    window.location.href = 'index-comer.html?mensaje=Productos registrados exitosamente';
                 } else {
                     const errorData = await response.json();
-                    console.error('Error al registrar producto:', errorData);
-                    alert('Hubo un error al registrar el producto. Por favor, intente nuevamente.');
+                    console.error('Error al registrar productos:', errorData);
+                    alert('Hubo un error al registrar los productos. Por favor, intente nuevamente.');
                 }
             } catch (error) {
-                console.error('Error al registrar producto:', error);
-                alert('Hubo un error al registrar el producto. Por favor, intente nuevamente.');
+                console.error('Error al registrar productos:', error);
+                alert('Hubo un error al registrar los productos. Por favor, intente nuevamente.');
             }
 
         }

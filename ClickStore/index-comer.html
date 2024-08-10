@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Click Store</title>
+  <title>Click Store - Página del Comerciante</title>
   <!-- CSS Parte Inicio -->
   <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
@@ -11,338 +11,182 @@
   <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
   <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+  <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
   <!-- CSS Parte Fin -->
+  <style>
+    .product-item {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 10px;
+      text-align: center;
+      width: 250px;
+      height: 420px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .product-item h3 {
+      font-size: 16px;
+      height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .product-item p {
+      font-size: 14px;
+      color: #555;
+      height: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .product-item .price {
+      font-size: 18px;
+      color: #b12704;
+      margin-top: 10px;
+    }
+
+    .product-item .ver-mas {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ff9900;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      text-decoration: none;
+      width: 80%;
+    }
+
+    #subir-producto-btn {
+      background-color: #28a745;
+      color: white;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    #subir-producto-btn:hover {
+      background-color: #218838;
+    }
+  </style>
 </head>
-<body>
-<div class="wrapper-wide">
-  <div id="header">
-  <!-- Inicio de la barra superior --> 
-  <nav id="top" class="htop">
-    <div class="container bg-dark">
-      <div class="row">
-        <div id="top-links" class="nav pull-right flip">
-          <ul>
-            <li><a href="login.html"><i class="fa fa-sign-in"></i> Iniciar Sesión</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i> Registro <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="registro-usu.html">Usuario</a></li>
-                <li><a href="registro-comer.html">Comerciante</a></li>
-              </ul>
-            </li>
-            <li><a href="wishlist.html"><i class="fa fa-heart"></i> Favoritos</a></li>
-            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
+
+<body class="amazon-style">
+  <div class="wrapper-wide">
+    <!-- Inicio del encabezado --> 
+    <header class="header">
+      <div class="logo">
+        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+      </div>
+      <div class="search-bar">
+        <select>
+          <option value="Todos">Todos</option>
+          <option value="Electrónica">Electrónica</option>
+          <option value="Informática">Informática</option>
+          <option value="Ropa">Ropa</option>
+          <option value="Automóviles">Automóviles</option>
+          <option value="Belleza">Belleza</option>
+        </select>
+        <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
+        <button type="button" class="button-search"><i class="fa fa-search"></i></button>
+      </div>
+      <div class="nav-links">
+        <span id="nombre-comerciante"></span>
+        <a href="login.html">Iniciar Sesión</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="registro-usu.html">Usuario</a></li>
+            <li><a href="registro-comer.html">Comerciante</a></li>
           </ul>
         </div>
+        <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos</a>
+        <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito</a>
       </div>
+    </header>
+    <!-- Encabezado End -->
+
+    <!-- Botón de Subir Artículo -->
+    <div class="container text-right">
+      <button id="subir-producto-btn" class="btn btn-success" onclick="redirigirAProductos()">Subir Artículo</button>
     </div>
-  </nav>
-  <!-- Barra superior End -->
-     <!-- Inicio del encabezado--> 
-     <header class="header-row">
-      <div class="container">
-          <div class="table-container">
-              <!-- Logo Start -->
-              <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
-                  <div id="logo"><a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a></div>
-              </div>
-              <!-- Logo End -->
-              <!-- Busqueda Start-->
-              <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
-                  <div id="search" class="input-group">
-                      <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" class="form-control input-lg" />
-                      <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-                  </div>
-              </div>
-              <!-- Search End--> 
-          </div>
-      </div>
-  </header>
-  <!-- Encabezado End -->
-    <!-- Main Menu Start-->
+
+    <!-- Contenedor de la lista de productos -->
     <div class="container">
-      <nav id="menu" class="navbar">
-        <div class="navbar-header"> <span class="visible-xs visible-sm"> Menu <b></b></span></div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li><a class="home_link" title="Home" href="index.html"><span>Home</span></a></li>
-            <li class="mega-menu dropdown"><a>Categorias</a>
-              <div class="dropdown-menu">
-                <div class="column col-lg-2 col-md-3"> 
-                   <!-- Categoria Electrónica-->
-                  <a href="category.html">Electrónica</a>
-                  <div>
-                      <ul>
-                          <li> 
-                              <a href="category.html">Accesorios<span>&rsaquo;</span></a>
-                              <div class="dropdown-menu">
-                                  <ul>
-                                      <li> <a href="category.html">Audio</a> </li>
-                                      <li> <a href="category.html">Cables</a> </li>
-                                      <li> <a href="category.html">GPS y Navegación</a> </li>
-                                      <li> <a href="category.html">Pilas y Cargadores</a> </li>
-                                      <li> <a href="category.html">Calculadoras</a> </li>
-                                      <li> <a href="category.html">Video</a> </li>
-                                  </ul>
-                              </div>
-                          </li>
-                          <li> 
-                              <a href="category.html">Cámaras<span>&rsaquo;</span></a>
-                              <div class="dropdown-menu">
-                                  <ul>
-                                      <li> <a href="category.html">Accesorios</a></li>
-                                  </ul>
-                              </div>
-                          </li>
-                          <li>
-                              <a href="category.html">Celulares<span>&rsaquo;</span></a>
-                              <div class="dropdown-menu">
-                                  <ul>
-                                      <li><a href="category.html">Celulares y Tabletas</a></li>
-                                      <li><a href="category.html">Accesorios</a></li>
-                                  </ul>
-                              </div>
-                          </li>
-                          <li><a href="category.html">Tv y Audio</a> </li>
-                      </ul>
-                  </div>
-              </div>         
-                <div class="column col-lg-2 col-md-3"><a href="category.html">Informática</a>
-                  <div>
-                    <ul>
-                      <li> <a href="category.html">Monitores</a> </li>
-                            <li> <a href="category.html">Notebook</a> </li>
-                            <li> <a href="category.html">Impresoras</a> </li>
-                            <li> <a href="category.html">Almacenamiento</a> </li>
-                            <li> <a href="category.html">Redes e Internet</a> </li>
-                            <li> <a href="category.html">Gaming</a> </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="column col-lg-2 col-md-3"><a href="category.html">Ropa</a>
-                  <div>
-                    <ul>
-                      <li><a href="category.html">Mujer</a> </li>
-                      <li><a href="category.html">Hombre</a> </li>
-                      <li><a href="category.html">bebé</a> </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="column col-lg-2 col-md-3"> <a href="category.html">Automóviles</a>
-                  <div>
-                    <ul>
-                      <li> <a href="category.html">Neumáticos</a></li>
-                      <li> <a href="category.html">Piezas</a></li>
-                      <li> <a href="category.html">Sonido y Video</a></li>
-                      <li> <a href="category.html">Accesorios</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="column col-lg-2 col-md-3"> <a href="category.html">Belleza</a>
-                  <div>
-                    <ul>
-                      <li> <a href="category.html">Cosméticos<span>&rsaquo;</span></a>
-                        <div class="dropdown-menu">
-                          <ul>
-                            <li> <a href="category.html">Bases de Maquillaje</a></li>
-                            <li> <a href="category.html">Labiales</a></li>
-                            <li> <a href="category.html">Cremas</a></li>
-                          </ul>
-                        </div>
-                      </li>
-                      <li><a href="category.html">Perfumes<span>&rsaquo;</span></a>
-                        <div class="dropdown-menu">
-                          <ul>
-                            <li><a href="category.html">Hombre</a></li>
-                            <li><a href="category.html">Mujer</a></li>
-                          </ul>
-                        </div>
-                      </li>
-                      <li> <a href="category.html">Cuidado Personal</a></li>
-                      <li><a href="category.html">Skin Care</a></li>
-                    </ul>
-                  </div>
-                </li>       
-           
-              <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
-                <div class="dropdown-menu">
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/apple_logo-60x60.jpg" title="Apple" alt="Apple" /></a><a href="#">Apple</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="Canon" alt="Canon" /></a><a href="#">Canon</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"> <a href="#"><img
-                        src="image/product/hp_logo-60x60.jpg" title="Hewlett-Packard" alt="Hewlett-Packard" /></a><a
-                      href="#">Hewlett-Packard</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/htc_logo-60x60.jpg" title="HTC" alt="HTC" /></a><a href="#">HTC</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/palm_logo-60x60.jpg" title="Palm" alt="Palm" /></a><a href="#">Palm</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/sony_logo-60x60.jpg" title="Sony" alt="Sony" /></a><a href="#">Sony</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="test" alt="test" /></a><a href="#">test</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/apple_logo-60x60.jpg" title="test 3" alt="test 3" /></a><a href="#">test
-                      3</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="test 5" alt="test 5" /></a><a href="#">test
-                      5</a> </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="test 6" alt="test 6" /></a><a href="#">test
-                      6</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/apple_logo-60x60.jpg" title="test 7" alt="test 7" /></a><a href="#">test
-                      7</a> </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="test1" alt="test1" /></a><a href="#">test1</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/apple_logo-60x60.jpg" title="test2" alt="test2" /></a><a href="#">test2</a>
-                  </div>
-                </div>
-              </li>   
-              <li class="dropdown"><a href="blog.html">Blog</a>
-              <li class="custom-link-right"><a href="search.html" target="_blank"> ¡Comprar Ahora!</a></li>
-              <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
-            </ul>
-          </div>
-        </nav>
-      </div>
- <!-- Menú Principal Fin -->
-
- <!-- Contenedor de productos destacados -->
-<!-- Agregar luego enlaces para los productos -->
-<div class="container-fluid featured-products-container">
-  <div id="featured-products-carousel" class="owl-carousel owl-theme">
-    <div class="item"><img src="image/nuevo1.png" alt="Producto 1"></div>
-    <div class="item"><img src="image/nuevo2.png" alt="Producto 2"></div>
-    <div class="item"><img src="image/nuevo3.png" alt="Producto 3"></div>
-    <div class="item"><img src="image/nuevo5.png" alt="Producto 5"></div>
-    <div class="item"><img src="image/nuevo4.png" alt="Producto 4"></div>
-    <div class="item"><img src="image/nuevo6.png" alt="Producto 6"></div>
-    <!-- Agrega más elementos según sea necesario -->
-  </div>
-  <button id="prevBtn" class="carousel-nav prev"><i class="fa fa-chevron-left"></i></button>
-  <button id="nextBtn" class="carousel-nav next"><i class="fa fa-chevron-right"></i></button>
-</div>
-<!-- Contenedor de productos destacados Fin -->
-
-  <!-- Contenedor de la lista de productos -->
-  <div class="container">
-    <h1>Lista de Productos</h1>
-    <ul id="productos-lista"></ul>
-  </div>
-
-  <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
-  <div class="container" id="comerciante-section" style="display: none;">
-    <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
-  </div>
-
-  <!-- Pie de Página Inicio -->
-  <footer id="footer">
-    <div class="fpart-first">
-      <div class="container">
-        <div class="row">
-          <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <h5>Detalles de Contacto</h5>
-            <ul>
-              <li class="address"><i class="fa fa-map-marker"></i>Central Square, 22 Hoi Wing Road, New Delhi, India</li>
-              <li class="mobile"><i class="fa fa-phone"></i>+91 9898777656</li>
-              <li class="email"><i class="fa fa-envelope"></i>Enviar correo a través de nuestro <a href="contact-us.html">Contáctanos</a></li>
-            </ul>
-          </div>
-          <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-            <h5>Información</h5>
-            <ul>
-              <li><a href="about-us.html">Acerca de Nosotros</a></li>
-              <li><a href="about-us.html">Información de Entrega</a></li>
-              <li><a href="about-us.html">Política de Privacidad</a></li>
-              <li><a href="about-us.html">Términos &amp; Condiciones</a></li>
-            </ul>
-          </div>
-          <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-            <h5>Servicio al Cliente</h5>
-            <ul>
-              <li><a href="contact-us.html">Contáctanos</a></li>
-              <li><a href="returns.html">Devoluciones</a></li>
-              <li><a href="sitemap.html">Mapa del Sitio</a></li>
-            </ul>
-          </div>
-          <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-            <h5>Extras</h5>
-            <ul>
-              <li><a href="manufacturer.html">Marcas</a></li>
-              <li><a href="gift-voucher.html">Vales de Regalo</a></li>
-              <li><a href="#">Afiliados</a></li>
-              <li><a href="#">Ofertas Especiales</a></li>
-            </ul>
-          </div>
-          <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <h5>Boletín Informativo</h5>
-            <div class="form-group">
-              <label class="control-label" for="subscribe">Regístrate para recibir las últimas noticias y actualizaciones.</label>
-              <input id="signup" type="email" required="" placeholder="Dirección de correo electrónico" name="email" class="form-control">
-            </div>
-            <input type="submit" value="Suscribirse" class="btn btn-primary">
-          </div>
-        </div>
-      </div>
+      <h1>Mis Productos</h1>
+      <div id="productos-lista"></div>
     </div>
-    <div class="fpart-second">
-      <div class="container">
-        <div id="powered" class="clearfix">
-          <div class="powered_text pull-left flip">
-            <p>click Store © 2024</p>
-          </div>
-        </div>
-        <div class="bottom-row">
-          <div class="custom-text text-center">
-            <p>Este es un bloque CMS. Puedes insertar cualquier contenido (HTML, Texto, Imágenes) Aquí. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500, cuando un impresor desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que también ingresó como texto de relleno en documentos electrónicos, sin cambios en su contenido.</p>
-          </div>
-          <div class="payments_types">  <a href="#" target="_blank">
-              <img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express" title="American Express"></a>  <a href="#"
-              target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a> <a href="#" target="_blank"> <img data-toggle="tooltip"
-              src="image/payment/payment_discover.png" alt="discover" title="Discover"></a> <a href="#"
-              target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_mastercard.png" alt="mastercard" title="MasterCard"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="back-top"><a data-toggle="tooltip" title="Volver Arriba" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
-  </footer>
-  <!-- Pie de Página Fin -->
 
-  <!-- Parte JS Inicio -->
-  <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/jquery.easing-1.3.min.js"></script>
-  <script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
-  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-  <script type="text/javascript" src="js/custom.js"></script>
-  <script type="text/javascript" src="js/api.js"></script> <!-- Incluir api.js aquí -->
-  <!-- Parte JS Fin -->
+    <!-- Pie de Página Inicio -->
+    <footer id="footer">
+      <!-- Contenido del pie de página aquí -->
+    </footer>
+    <!-- Pie de Página Fin -->
 
-  <script>
-    // Mostrar mensaje de inicio de sesión o registro exitoso
-    document.addEventListener('DOMContentLoaded', function() {
-      const params = new URLSearchParams(window.location.search);
-      if (params.has('mensaje')) {
-        alert(params.get('mensaje'));
+    <!-- Parte JS Inicio -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/api.js"></script>
+    <!-- Parte JS Fin -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Mostrar nombre del comerciante
+        const nombreComerciante = sessionStorage.getItem('nombreComerciante');
+        if (nombreComerciante) {
+          document.getElementById('nombre-comerciante').textContent = `Bienvenido, ${nombreComerciante}`;
+        }
+
+        fetchProductos(); // Cargar los productos del comerciante
+      });
+
+      function fetchProductos() {
+        const comercianteId = sessionStorage.getItem('comercianteId');
+        fetch(`http://localhost:3000/api/productos?comercianteId=${comercianteId}`)
+          .then(response => response.json())
+          .then(data => displayProductos(data))
+          .catch(err => console.error('Error fetching productos:', err));
       }
 
-      // Mostrar botón "Subir Artículo" si el usuario es comerciante
-      const tipoUsuario = sessionStorage.getItem('tipoUsuario');
-      if (tipoUsuario === 'comerciante') {
-        document.getElementById('comerciante-section').style.display = 'block';
-        document.getElementById('productos-nav').style.display = 'block'; // Mostrar botón en el menú
+      function displayProductos(productos) {
+        const container = document.getElementById('productos-lista');
+        container.innerHTML = '';
+        productos.forEach(producto => {
+          const item = document.createElement('div');
+          item.className = 'product-item';
+          item.innerHTML = `
+            <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion.substring(0, 60)}...</p>
+            <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+            <a href="product.html?id=${producto.id}" class="ver-mas">Ver más</a>
+          `;
+          container.appendChild(item);
+        });
       }
-    });
-  </script>
-</div>
+
+      function redirigirAProductos() {
+        window.location.href = 'productos.html';
+      }
+    </script>
+  </div>
 </body>
 </html>

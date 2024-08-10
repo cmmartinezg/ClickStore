@@ -1,31 +1,34 @@
 // js/api.js
 
-// Función para manejar el envío del formulario de registro de comerciante
-async function registrarComerciante(event) {
+// Función para manejar el envío del formulario de inicio de sesión
+async function iniciarSesion(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+    const email = document.querySelector('#login-email').value;
+    const contraseña = document.querySelector('#login-password').value;
 
     try {
-        const response = await fetch('http://localhost:3000/api/comerciante', {
+        const response = await fetch('http://localhost:3000/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({ email, contraseña })
         });
 
         if (response.ok) {
-            sessionStorage.setItem('tipoUsuario', 'comerciante');
-            window.location.href = 'index.html?mensaje=Comerciante registrado exitosamente';
+            const data = await response.json();
+            sessionStorage.setItem('tipoUsuario', data.tipo);
+            alert(data.mensaje);
+            // Redirigir según el tipo de usuario
+            if (data.tipo === 'comerciante') {
+                window.location.href = 'index.html?mensaje=Comerciante autenticado exitosamente';
+            } else {
+                window.location.href = 'index.html?mensaje=Usuario autenticado exitosamente';
+            }
         } else {
             const errorData = await response.json();
-            console.error('Error al registrar comerciante:', errorData);
-            alert('Hubo un error al registrar el comerciante. Por favor, inténtalo de nuevo.');
+            alert(errorData.error);
         }
     } catch (error) {
         console.error('Error al enviar la solicitud:', error);
@@ -35,8 +38,8 @@ async function registrarComerciante(event) {
 
 // Añadir eventos cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', () => {
-    const formComerciante = document.querySelector('form#registroComercianteForm');
-    if (formComerciante) {
-        formComerciante.addEventListener('submit', registrarComerciante);
+    const formLogin = document.querySelector('form#form-login');
+    if (formLogin) {
+        formLogin.addEventListener('submit', iniciarSesion);
     }
 });
