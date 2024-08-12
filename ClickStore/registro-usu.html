@@ -6,83 +6,160 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href="image/favicon.png" rel="icon" />
 <title>Registro de Usuario</title>
-<meta name="description" content="Plantilla de diseño HTML receptiva y limpia para cualquier tipo de tienda en línea">
-<!-- CSS Part Start-->
-<link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-<link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
-<link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
-<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<!-- CSS Part End-->
-</head>
-<body>
-<div class="wrapper-wide">
-  <div id="header">
-    <!-- Inicio de la barra superior -->
-    <nav id="top" class="htop">
-      <div class="container bg-dark">
-        <div class="row">
-          <div id="top-links" class="nav pull-right flip">
-            <ul>
-              <li><a href="login.html"><i class="fa fa-sign-in"></i> Iniciar Sesión</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i> Registro <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="registro-usu.html">Usuario</a></li>
-                  <li><a href="registro-comer.html">Comerciante</a></li>
-                </ul>
-              </li>
-              <li><a href="wishlist.html"><i class="fa fa-heart"></i> Favoritos</a></li>
-              <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <!-- Barra superior End -->
-    <!-- Inicio del encabezado -->
-    <header class="header-row">
-      <div class="container">
-        <div class="table-container">
-          <!-- Logo Start -->
-          <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
-            <div id="logo"><a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a></div>
-          </div>
-          <!-- Logo End -->
-          <!-- Busqueda Start -->
-          <div class="col-table-cell col-lg-3 col-md-3 col-sm-6 col-xs-12 inner">
-            <div id="search" class="input-group">
-              <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" class="form-control input-lg" />
-              <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-          <!-- Busqueda End -->
-        </div>
-      </div>
-    </header>
-    <!-- Encabezado End -->
-    <!-- Main Menu Start -->
-    <div class="container">
-      <nav id="menu" class="navbar">
-        <div class="navbar-header"><span class="visible-xs visible-sm"> Menú <b></b></span></div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li><a class="home_link" title="Inicio" href="index.html"><span>Inicio</span></a></li>
-            <li class="mega-menu dropdown"><a>Categorías</a>
-              <div class="dropdown-menu">
-                <!-- Agregar categorías según tu estructura -->
+    <!-- CSS Parte Inicio -->
+    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
+    <!-- CSS Parte Fin -->
+  </head>
+  <body>
+  
+      <body class="amazon-style">
+          <div class="wrapper-wide">
+            <!-- Inicio del encabezado --> 
+            <header class="header">
+              <div class="logo">
+                <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
               </div>
-            </li>
-            <li class="dropdown"><a href="blog.html">Blog</a></li>
-            <li class="custom-link-right"><a href="search.html" target="_blank">¡Comprar Ahora!</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+              <div class="search-bar">
+                <select>
+                  <option value="Todos">Todos</option>
+                  <option value="Electrónica">Electrónica</option>
+                  <option value="Informática">Informática</option>
+                  <option value="Ropa">Ropa</option>
+                  <option value="Automóviles">Automóviles</option>
+                  <option value="Belleza">Belleza</option>
+                  <!-- Agregar más opciones -->
+                </select>
+                <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
+                <button type="button" class="button-search"><i class="fa fa-search"></i></button>
+              </div>
+              <div class="nav-links">
+                <a href="login.html">Iniciar Sesión</a>
+                <div class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="registro-usu.html">Usuario</a></li>
+                    <li><a href="registro-comer.html">Comerciante</a></li>
+                  </ul>
+                </div>
+                <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos</a>
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito</a>
+              </div>
+            </header>
+            <!-- Encabezado End -->
+            <div class="container">
+              <nav id="menu" class="navbar">
+                <div class="navbar-header"> <span class="visible-xs visible-sm">Menu <b></b></span></div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a class="home_link" title="Home" href="index.html"><span>Home</span></a></li>
+                    <li class="mega-menu dropdown"><a>Categorias</a>
+                      <div class="dropdown-menu">
+                        <div class="column col-lg-2 col-md-3"> 
+                           <!-- Categoria Electrónica-->
+                          <a href="category.html">Electrónica</a>
+                          <div>
+                            <ul>
+                                <li><a href="category.html">Accesorios</a></li>
+                                <li><a href="category.html">Cámaras</a></li>
+                                <li><a href="category.html">Celulares</a></li>
+                                <li><a href="category.html">Tv y Audio</a></li>
+                            </ul>
+                        </div>
+                      </div>         
+                        <div class="column col-lg-2 col-md-3"><a href="category.html">Informática</a>
+                          <div>
+                            <ul>
+                              <li> <a href="category.html">Monitores</a> </li>
+                                    <li> <a href="category.html">Notebook</a> </li>
+                                    <li> <a href="category.html">Impresoras</a> </li>
+                                    <li> <a href="category.html">Almacenamiento</a> </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="column col-lg-2 col-md-3"><a href="category.html">Ropa</a>
+                          <div>
+                            <ul>
+                              <li><a href="category.html">Mujer</a> </li>
+                              <li><a href="category.html">Hombre</a> </li>
+                              <li><a href="category.html">bebé</a> </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="column col-lg-2 col-md-3"> <a href="category.html">Automóviles</a>
+                          <div>
+                            <ul>
+                              <li> <a href="category.html">Neumáticos</a></li>
+                              <li> <a href="category.html">Sonido y Video</a></li>
+                              <li> <a href="category.html">Accesorios</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="column col-lg-2 col-md-3">
+                          <a href="category.html">Belleza</a>
+                          <div>
+                              <ul>
+                                  <li><a href="category.html">Cosméticos</a></li>
+                                  <li><a href="category.html">Perfumes</a></li>
+                                  <li><a href="category.html">Cuidado Personal</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
+                        <div class="dropdown-menu">
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/apple_logo-60x60.jpg" title="Apple" alt="Apple" /></a><a href="#">Apple</a>
+                          </div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/canon_logo-60x60.jpg" title="Canon" alt="Canon" /></a><a href="#">Canon</a>
+                          </div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"> <a href="#"><img
+                                src="image/product/hp_logo-60x60.jpg" title="Hewlett-Packard" alt="Hewlett-Packard" /></a><a
+                              href="#">Hewlett-Packard</a></div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/htc_logo-60x60.jpg" title="HTC" alt="HTC" /></a><a href="#">HTC</a></div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/palm_logo-60x60.jpg" title="Palm" alt="Palm" /></a><a href="#">Palm</a></div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/sony_logo-60x60.jpg" title="Sony" alt="Sony" /></a><a href="#">Sony</a>
+                          </div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/canon_logo-60x60.jpg" title="test" alt="test" /></a><a href="#">test</a>
+                          </div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/apple_logo-60x60.jpg" title="test 3" alt="test 3" /></a><a href="#">test
+                              3</a></div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/canon_logo-60x60.jpg" title="test 5" alt="test 5" /></a><a href="#">test
+                              5</a> </div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/canon_logo-60x60.jpg" title="test 6" alt="test 6" /></a><a href="#">test
+                              6</a></div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/apple_logo-60x60.jpg" title="test 7" alt="test 7" /></a><a href="#">test
+                              7</a> </div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/canon_logo-60x60.jpg" title="test1" alt="test1" /></a><a href="#">test1</a>
+                          </div>
+                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                                src="image/product/apple_logo-60x60.jpg" title="test2" alt="test2" /></a><a href="#">test2</a>
+                          </div>
+                        </div>
+                      </li>   
+                      <li class="dropdown"><a href="blog.html">Blog</a>
+                      <li class="custom-link-right"><a href="search.html" target="_blank"> ¡Comprar Ahora!</a></li>
+                      <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+         <!-- Menú Principal Fin -->
     <!-- Menú Principal End -->
     <div id="container">
       <div class="container">

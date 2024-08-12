@@ -195,7 +195,7 @@ body {
     height: auto ; /* alto*/
     overflow: hidden; /* Ocultar el desbordamiento */
     margin: 0 auto; /* Centrar el contenedor */
-    position: absolute; /* Para mantener las imágenes dentro del contenedor */
+    position: relative; /* Para mantener las imágenes dentro del contenedor */
 }
  
     /* lista y tiempo de duración*/
@@ -205,35 +205,28 @@ body {
        padding: 0;
        margin: 0;
     
-       animation: movimiento_slider 17s infinite alternate ease-in-out ;
+       animation: movimiento_slider 17s linear infinite;
     }
    
     
     /* Movimiento del contenedor */
-@keyframes movimiento_slider {
-    0% {
-        transform: translateX(0);
+    @keyframes movimiento_slider {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%); /* Mover solo la mitad ya que estamos duplicando las imágenes */
+        }
     }
-    16.67% {
-        transform: translateX(0);
-    }
-    33.33% {
-        transform: translateX(-100%);
-    }
-    50% {
-        transform: translateX(-200%);
-    }
-    66.67% {
-        transform: translateX(-300%);
-    }
-    83.33% {
-        transform: translateX(-400%);
-    }
-    100% {
-        transform: translateX(-500%);
-    }
-}
 
+    .slider_container img {
+    max-width: auto; /* No restringe el ancho de las imágenes */
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+   }
+ 
+    
     /* res */
     @media(max-width:991px){
 
