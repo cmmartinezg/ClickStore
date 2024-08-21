@@ -201,7 +201,46 @@
                                 </div>
                             </div>
                           </div>   
-                    
+
+                          <!--Califica este producto(puntajes de valoración para ML)-->
+                          <form id="ratingForm">
+                            <label for="rating">Califica este producto:</label>
+                            <select name="rating" id="rating">
+                              <option value="1">1 estrella</option>
+                              <option value="2">2 estrellas</option>
+                              <option value="3">3 estrellas</option>
+                              <option value="4">4 estrellas</option>
+                              <option value="5">5 estrellas</option>
+                            </select>
+                            <button type="button" onclick="submitRating()">Enviar</button>
+                          </form>
+                          
+                          <script>
+                            function submitRating() {
+                              const rating = document.getElementById('rating').value;
+                              const userId = 1;  // Aquí deberías obtener el user_id del usuario autenticado
+                              const itemId = 123;  // Aquí deberías obtener el ID del producto
+                          
+                              fetch('/submit_rating', {
+                                method: 'POST',
+                                headers: {
+                                  'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ user_id: userId, item_id: itemId, rating: rating })
+                              })
+                              .then(response => response.json())
+                              .then(data => {
+                                console.log('Valoración enviada:', data);
+                              })
+                              .catch(error => {
+                                console.error('Error:', error);
+                              });
+                            }
+                          </script>
+                          
+   <!--Califica este producto(puntajes de valoración para ML)-->
+
+
                       <!--Productos relacionados -->
                       <h3 class="subtitle">Productos relacionados</h3>
                       <div class="owl-carousel related_pro">
