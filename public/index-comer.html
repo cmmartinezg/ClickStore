@@ -85,6 +85,16 @@
     #subir-producto-btn:hover {
       background-color: #218838;
     }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links .comerciante-info {
+      margin-right: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -108,17 +118,8 @@
         <button type="button" class="button-search"><i class="fa fa-search"></i></button>
       </div>
       <div class="nav-links">
-        <span id="nombre-comerciante"></span>
-        <a href="login.html">Iniciar Sesión</a>
-        <div class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="registro-usu.html">Usuario</a></li>
-            <li><a href="registro-comer.html">Comerciante</a></li>
-          </ul>
-        </div>
-        <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos</a>
-        <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito</a>
+        <span id="nombre-comerciante" class="comerciante-info"></span>
+        <a href="#" id="logout-btn">Cerrar Sesión</a>
       </div>
     </header>
     <!-- Encabezado End -->
@@ -153,9 +154,18 @@
         const nombreComerciante = sessionStorage.getItem('nombreComerciante');
         if (nombreComerciante) {
           document.getElementById('nombre-comerciante').textContent = `Bienvenido, ${nombreComerciante}`;
+        } else {
+          window.location.href = 'login.html'; // Redirigir al login si no está autenticado
         }
 
         fetchProductos(); // Cargar los productos del comerciante
+
+        // Manejar el cierre de sesión
+        document.getElementById('logout-btn').addEventListener('click', function() {
+          sessionStorage.removeItem('nombreComerciante');
+          sessionStorage.removeItem('comercianteId');
+          window.location.href = 'login.html';
+        });
       });
 
       function fetchProductos() {
