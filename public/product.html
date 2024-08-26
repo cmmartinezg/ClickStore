@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,259 +12,351 @@
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
     <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-    <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/estilop.css" />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
     <!-- CSS Parte Fin -->
-     <!-- CSS Parte Fin -->
-     <style>
-      .product-info {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          align-items: flex-start;
-          padding: 20px 0;
-      }
+    <style>
+        /* Estilos previos */
+        .product-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 0;
+        }
 
-      .product-info .col-sm-6 {
-          flex: 0 0 48%;
-          max-width: 48%;
-          box-sizing: border-box;
-      }
+        .product-info .col-sm-6 {
+            flex: 0 0 48%;
+            max-width: 48%;
+            box-sizing: border-box;
+        }
 
-      .image img {
-          width: 80%;
-          height: auto;
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(228, 128, 7, 0.1);
-      }
+        .image img {
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(228, 128, 7, 0.1);
+        }
 
-      .description {
-          margin-bottom: 20px;
-          font-size: 16px;
-      }
+        .description {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
 
-      .description li {
-          margin-bottom: 10px;
-      }
+        .description li {
+            margin-bottom: 10px;
+        }
 
-      .cart {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 30px;  
-    }
+        .cart {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+        }
 
-      .qty {
-          display: flex;
-          align-items: center;
-          margin-bottom: 20px;
-      }
+        .qty {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-      .qty input {
-          text-align: center;
-          max-width: 60px;
-          margin-right: 10px;
-      }
+        .qty input {
+            text-align: center;
+            max-width: 60px;
+            margin-right: 10px;
+        }
 
-      .qtyBtn {
-          font-size: 18px;
-          padding: 5px 10px;
-          background-color: #f5f5f5;
-          border: 1px solid #ccc;
-          cursor: pointer;
-      }
+        .qtyBtn {
+            font-size: 18px;
+            padding: 5px 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
 
-      .cart-buttons {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; 
-        gap: 10px;
-        width: 100%;
-}
+        .cart-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            width: 100%;
+        }
 
-  .wishlist, .btn-primary {
-    flex-grow: 1; 
-    padding: 15px 0; 
-    background-color: #f7941d; 
-    border: 2px solid #f7941d; 
-    color: white;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none; 
-    white-space: nowrap; 
-    box-sizing: border-box; 
-    margin-top: 10px; 
-    
-  }
+        .wishlist,
+        .btn-primary,
+        .btn-buy {
+            flex-grow: 1;
+            padding: 15px 0;
+            background-color: #f7941d;
+            border: 2px solid #f7941d;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap;
+            box-sizing: border-box;
+            margin-top: 10px;
 
-  .wishlist:hover, .btn-primary:hover {
-      background-color: #ffc107; 
-  }
+        }
 
+        .wishlist:hover,
+        .btn-primary:hover,
+        .btn-buy:hover {
+            background-color: #ffc107;
+        }
 
-      .wishlist {
-      background-color: #f7941d !important; 
-      border: 2px solid #f7941d !important; 
-      color: white !important;
-      width: 48%;
-      cursor: pointer !important;
-      transition: background-color 0.3s ease !important;
-      padding: 20px 0;
-      margin-top: 10px !important; 
-      font-size: 16px; 
-      text-decoration: none !important;
-      }
+        .wishlist {
+            background-color: #f7941d !important;
+            border: 2px solid #f7941d !important;
+            color: white !important;
+            width: 48%;
+            cursor: pointer !important;
+            transition: background-color 0.3s ease !important;
+            padding: 20px 0;
+            margin-top: 10px !important;
+            font-size: 16px;
+            text-decoration: none !important;
+        }
 
-      /* Estilo de los contadores en el encabezado */
-      #wishlist-count,
-      #cart-count {
-          background-color: #f7941d;
-          color: #fff;
-          border-radius: 50%;
-          padding: 2px 8px;
-          font-size: 14px;
-          margin-left: 5px;
-      }
-  </style>
+        /* Estilo de los contadores en el encabezado */
+        #wishlist-count,
+        #cart-count {
+            background-color: #f7941d;
+            color: #fff;
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        /* Estilos adicionales para el modal */
+        .modal-body {
+            font-size: 16px;
+        }
+
+        .payment-btn {
+            margin-bottom: 15px;
+        }
+
+        .payment-form {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .payment-form.active {
+            display: block;
+        }
+
+        .card-icons img {
+            width: 50px;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #processing {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #processing.active {
+            display: block;
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
+
 <body class="amazon-style">
-  <div class="wrapper-wide">
-      <!-- Inicio del encabezado --> 
-      <header class="header">
-          <div class="logo">
-              <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
-          </div>
-          <div class="search-bar">
-              <select>
-                  <option value="Todos">Todos</option>
-                  <option value="Electrónica">Electrónica</option>
-                  <option value="Informática">Informática</option>
-                  <option value="Ropa">Ropa</option>
-                  <option value="Automóviles">Automóviles</option>
-                  <option value="Belleza">Belleza</option>
-              </select>
-              <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
-              <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-          </div>
-          <div class="nav-links">
-              <a href="login.html">Iniciar Sesión</a>
-              <div class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                      <li><a href="registro-usu.html">Usuario</a></li>
-                      <li><a href="registro-comer.html">Comerciante</a></li>
-                  </ul>
-              </div>
-              <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos<span id="wishlist-count">0</span></a>
-              <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito<span id="cart-count">0</span></a>
-          </div>
-      </header>
-      <!-- Encabezado End -->
-      
-      <!-- Menú Principal Fin -->
-      <div id="container">
-          <div class="container">
-              <!-- Breadcrumb -->
-              <ul class="breadcrumb">
-                  <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-                  <li><a href="category.html">Electronica</a></li>
-                  <li><a href="product.html">Producto</a></li>
-              </ul>
-              <!-- Fin Breadcrumb -->
-              <div class="row">
-                  <!--Parte Principal Inicio-->
-                  <div id="content" class="col-sm-12">
-                      <h1 id="product-title" class="title">Product</h1>
-                      <div class="row product-info">
-                          <div class="col-sm-6">
-                              <div class="image"><img id="product-image" class="img-responsive" src="image/no_image.png" alt="Product Image" /></div>
-                          </div>
-                          <div class="col-sm-6">
-                              <ul class="list-unstyled description">
-                                  <li><b>Nombre del Producto:</b> <span id="product-name">Product</span></li>
-                                  <li><b>Precio:</b> <span id="product-price">$0.00</span></li>
-                                  <li><b>Descripción:</b> <span id="product-description">N/A</span></li>
-                                  <li><b>Disponibilidad:</b> <span id="product-availability" class="label label-success">En stock</span></li>
-                              </ul>
-                              <div id="product">
-                                <div class="cart">
-                                    <div class="qty">
-                                        <label class="control-label" for="input-quantity">Cantidad</label>
-                                        <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
-                                        <a class="qtyBtn plus" href="javascript:void(0);">+</a>
-                                        <a class="qtyBtn mines" href="javascript:void(0);">-</a>
-                                      </div> 
+    <div class="wrapper-wide">
+        <!-- Inicio del encabezado -->
+        <header class="header">
+            <div class="logo">
+                <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+            </div>
+            <div class="search-bar">
+                <select>
+                    <option value="Todos">Todos</option>
+                    <option value="Electrónica">Electrónica</option>
+                    <option value="Informática">Informática</option>
+                    <option value="Ropa">Ropa</option>
+                    <option value="Automóviles">Automóviles</option>
+                    <option value="Belleza">Belleza</option>
+                </select>
+                <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
+                <button type="button" class="button-search"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="login.html">Iniciar Sesión</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="registro-usu.html">Usuario</a></li>
+                        <li><a href="registro-comer.html">Comerciante</a></li>
+                    </ul>
+                </div>
+                <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos<span id="wishlist-count">0</span></a>
+                <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito<span id="cart-count">0</span></a>
+            </div>
+        </header>
+        <!-- Encabezado End -->
+
+        <div id="container">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <ul class="breadcrumb">
+                    <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+                    <li><a href="category.html">Electronica</a></li>
+                    <li><a href="product.html">Producto</a></li>
+                </ul>
+                <!-- Fin Breadcrumb -->
+                <div class="row">
+                    <!--Parte Principal Inicio-->
+                    <div id="content" class="col-sm-12">
+                        <h1 id="product-title" class="title">Product</h1>
+                        <div class="row product-info">
+                            <div class="col-sm-6">
+                                <div class="image"><img id="product-image" class="img-responsive" src="image/no_image.png" alt="Product Image" /></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="list-unstyled description">
+                                    <li><b>Nombre del Producto:</b> <span id="product-name">Product</span></li>
+                                    <li><b>Precio:</b> <span id="product-price">$0.00</span></li>
+                                    <li><b>Descripción:</b> <span id="product-description">N/A</span></li>
+                                    <li><b>Disponibilidad:</b> <span id="product-availability" class="label label-success">En stock</span></li>
+                                </ul>
+                                <div id="product">
+                                    <div class="cart">
+                                        <div class="qty">
+                                            <label class="control-label" for="input-quantity">Cantidad</label>
+                                            <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
+                                            <a class="qtyBtn plus" href="javascript:void(0);">+</a>
+                                            <a class="qtyBtn mines" href="javascript:void(0);">-</a>
+                                        </div>
                                         <div class="cart-buttons">
-                                          <button type="button" class="wishlist" id="button-wishlist">AÑADIR A FAVORITOS</button>
-                                          <button type="button" id="button-cart" class="btn btn-primary btn-lg">AÑADIR AL CARRITO</button>
-                                      </div>
+                                            <button type="button" class="wishlist" id="button-wishlist">AÑADIR A FAVORITOS</button>
+                                            <button type="button" id="button-cart" class="btn btn-primary btn-lg">AÑADIR AL CARRITO</button>
+                                            <button type="button" id="button-buy" class="btn btn-buy btn-lg">COMPRAR AHORA</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                          </div>   
 
-                          <!--Califica este producto(puntajes de valoración para ML)-->
-                          <form id="ratingForm">
-                            <label for="rating">Califica este producto:</label>
-                            <select name="rating" id="rating">
-                              <option value="1">1 estrella</option>
-                              <option value="2">2 estrellas</option>
-                              <option value="3">3 estrellas</option>
-                              <option value="4">4 estrellas</option>
-                              <option value="5">5 estrellas</option>
-                            </select>
-                            <button type="button" onclick="submitRating()">Enviar</button>
-                          </form>
-                          
-                          <script>
-                            function submitRating() {
-                              const rating = document.getElementById('rating').value;
-                              const userId = 1;  // Aquí deberías obtener el user_id del usuario autenticado
-                              const itemId = 123;  // Aquí deberías obtener el ID del producto
-                          
-                              fetch('/submit_rating', {
-                                method: 'POST',
-                                headers: {
-                                  'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify({ user_id: userId, item_id: itemId, rating: rating })
-                              })
-                              .then(response => response.json())
-                              .then(data => {
-                                console.log('Valoración enviada:', data);
-                              })
-                              .catch(error => {
-                                console.error('Error:', error);
-                              });
-                            }
-                          </script>
-                          
-   <!--Califica este producto(puntajes de valoración para ML)-->
+                            <!--Productos relacionados -->
+                            <h3 class="subtitle">Productos relacionados</h3>
+                            <div class="owl-carousel related_pro">
+                                <!-- Aquí pueden ir productos relacionados si se desea -->
+                            </div>
+                            <!-- Fin Related Products -->
+                        </div>
+                        <!--Parte Principal Fin-->
+                    </div>
+                </div>
+            </div>
 
+            <!-- Modal de compra -->
+            <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="buyModalLabel">Completar Compra</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h6>Seleccione el método de pago:</h6>
+                            <button type="button" class="btn btn-primary payment-btn" id="payWithCard">Tarjeta de Crédito/Débito</button>
+                            <button type="button" class="btn btn-primary payment-btn" id="payWithEfectivo">Efectivo</button>
+                            <button type="button" class="btn btn-primary payment-btn" id="payWithTransferencia">Transferencia Bancaria</button>
 
-                      <!--Productos relacionados -->
-                      <h3 class="subtitle">Productos relacionados</h3>
-                      <div class="owl-carousel related_pro">
-                          <!-- Aquí pueden ir productos relacionados si se desea -->
-                      </div>
-                      <!-- Fin Related Products -->
-                  </div>
-                  <!--Parte Principal Fin-->
-              </div>
-          </div>
-      </div>
-       <!--Footer Inicio-->
-       <footer id="footer">
-        <!-- Aquí va el contenido del footer -->
-    </footer>
-    <!--Footer Fin-->
+                            <!-- Formulario para Tarjeta -->
+                            <div id="cardForm" class="payment-form">
+                                <h6>Pago con Tarjeta:</h6>
+                                <div class="form-group">
+                                    <label for="cardNumber">Número de Tarjeta:</label>
+                                    <input type="text" id="cardNumber" class="form-control" placeholder="Número de Tarjeta" maxlength="19">
+                                    <div class="card-icons">
+                                        <img id="visaIcon" class="hidden" src="https://img.icons8.com/color/48/000000/visa.png" />
+                                        <img id="mastercardIcon" class="hidden" src="https://img.icons8.com/color/48/000000/mastercard.png" />
+                                        <img id="amexIcon" class="hidden" src="https://img.icons8.com/color/48/000000/amex.png" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardExpiry">Fecha de Expiración:</label>
+                                    <input type="text" id="cardExpiry" class="form-control" placeholder="MM/AA">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardCVC">CVC:</label>
+                                    <input type="text" id="cardCVC" class="form-control" placeholder="CVC">
+                                </div>
+                                <button type="button" class="btn btn-success btn-block" id="confirmTarjeta">Confirmar Pago</button>
+                            </div>
+
+                            <!-- Información para Efectivo -->
+                            <div id="efectivoForm" class="payment-form">
+                                <h6>Pago en Efectivo:</h6>
+                                <p>Por favor, acérquese a cualquiera de nuestras tiendas físicas para realizar el pago.</p>
+                                <button type="button" class="btn btn-success btn-block" id="confirmEfectivo">Confirmar Pago</button>
+                            </div>
+
+                            <!-- Información para Transferencia -->
+                            <div id="transferenciaForm" class="payment-form">
+                                <h6>Pago por Transferencia Bancaria:</h6>
+                                <p>Realice la transferencia a la siguiente cuenta:</p>
+                                <ul>
+                                    <li><b>Banco:</b> Banco XYZ</li>
+                                    <li><b>Número de Cuenta:</b> 123456789</li>
+                                    <li><b>Nombre del Titular:</b> Click Store</li>
+                                    <li><b>Concepto:</b> Compra #<span id="orderNumber">12345</span></li>
+                                </ul>
+                                <button type="button" class="btn btn-success btn-block" id="confirmTransferencia">Confirmar Pago</button>
+                            </div>
+
+                            <!-- Animación de Procesamiento -->
+                            <div id="processing" class="text-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="sr-only">Procesando...</span>
+                                </div>
+                                <p>Procesando su pago, por favor espere...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer Inicio-->
+        <footer id="footer">
+            <!-- Aquí va el contenido del footer -->
+        </footer>
+        <!--Footer Fin-->
     </div>
     <!-- JS Parte Inicio -->
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const params = new URLSearchParams(window.location.search);
             const productId = params.get('id');
 
@@ -281,31 +374,92 @@
                     })
                     .catch(err => console.error('Error fetching product:', err));
             }
+
+            // Botón Comprar Ahora
+            document.getElementById('button-buy').addEventListener('click', function () {
+                $('#buyModal').modal('show');
+            });
+
+            // Mostrar el formulario correcto según el método de pago seleccionado
+            document.getElementById('payWithCard').addEventListener('click', function () {
+                document.getElementById('cardForm').classList.add('active');
+                document.getElementById('efectivoForm').classList.remove('active');
+                document.getElementById('transferenciaForm').classList.remove('active');
+            });
+
+            document.getElementById('payWithEfectivo').addEventListener('click', function () {
+                document.getElementById('efectivoForm').classList.add('active');
+                document.getElementById('cardForm').classList.remove('active');
+                document.getElementById('transferenciaForm').classList.remove('active');
+            });
+
+            document.getElementById('payWithTransferencia').addEventListener('click', function () {
+                document.getElementById('transferenciaForm').classList.add('active');
+                document.getElementById('cardForm').classList.remove('active');
+                document.getElementById('efectivoForm').classList.remove('active');
+            });
+
+            // Detectar tipo de tarjeta
+            document.getElementById('cardNumber').addEventListener('input', function (e) {
+                const cardNumber = e.target.value.replace(/\s+/g, '');
+
+                // Ocultar todos los íconos
+                document.querySelectorAll('.card-icons img').forEach(img => img.classList.add('hidden'));
+
+                // Detectar tipo de tarjeta
+                const visa = /^4[0-9]{12}(?:[0-9]{3})?$/;
+                const mastercard = /^5[1-5][0-9]{14}$/;
+                const amex = /^3[47][0-9]{13}$/;
+
+                if (visa.test(cardNumber)) {
+                    document.getElementById('visaIcon').classList.remove('hidden');
+                } else if (mastercard.test(cardNumber)) {
+                    document.getElementById('mastercardIcon').classList.remove('hidden');
+                } else if (amex.test(cardNumber)) {
+                    document.getElementById('amexIcon').classList.remove('hidden');
+                }
+            });
+
+            // Simulación de pago
+            const processPayment = (method) => {
+                document.querySelectorAll('.payment-form').forEach(form => form.classList.add('hidden'));
+                document.getElementById('processing').classList.add('active');
+
+                setTimeout(() => {
+                    document.getElementById('processing').classList.remove('active');
+                    $('#buyModal').modal('hide');
+                    alert(`Pago con ${method} procesado exitosamente!`);
+                }, 3000);
+            };
+
+            document.getElementById('confirmTarjeta').addEventListener('click', () => processPayment('Tarjeta'));
+            document.getElementById('confirmEfectivo').addEventListener('click', () => processPayment('Efectivo'));
+            document.getElementById('confirmTransferencia').addEventListener('click', () => processPayment('Transferencia'));
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             let cartCount = 0;
             let wishlistCount = 0;
 
-            document.getElementById('button-cart').addEventListener('click', function() {
+            document.getElementById('button-cart').addEventListener('click', function () {
                 let quantity = parseInt(document.getElementById('input-quantity').value, 10);
                 cartCount += quantity;
                 document.getElementById('cart-count').textContent = cartCount;
                 alert('Producto añadido al carrito.');
             });
 
-            document.getElementById('button-wishlist').addEventListener('click', function() {
+            document.getElementById('button-wishlist').addEventListener('click', function () {
                 wishlistCount++;
                 document.getElementById('wishlist-count').textContent = wishlistCount;
                 alert('Producto añadido a la lista de deseos.');
             });
 
-            document.querySelector('.qtyBtn.plus').addEventListener('click', function() {
+            document.querySelector('.qtyBtn.plus').addEventListener('click', function () {
                 let input = document.getElementById('input-quantity');
                 input.value = parseInt(input.value, 10) + 1;
             });
 
-            document.querySelector('.qtyBtn.mines').addEventListener('click', function() {
+            document.querySelector('.qtyBtn.mines').addEventListener('click', function () {
                 let input = document.getElementById('input-quantity');
                 if (parseInt(input.value, 10) > 1) {
                     input.value = parseInt(input.value, 10) - 1;
@@ -315,4 +469,5 @@
     </script>
     <!-- JS Parte Fin -->
 </body>
+
 </html>
