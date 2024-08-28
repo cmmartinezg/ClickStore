@@ -134,6 +134,13 @@
       <h1>Mis Productos</h1>
       <div id="productos-lista"></div>
     </div>
+    
+    <!-- Nueva Sección de Recomendaciones -->
+    <div class="container">
+      <h2>Tal vez te pueda interesar subir estos artículos similares</h2>
+      <div id="recomendaciones-lista" class="owl-carousel owl-theme"></div>
+    </div>
+    
 
     <!-- Pie de Página Inicio -->
     <footer id="footer">
@@ -150,24 +157,23 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Mostrar nombre del comerciante
         const nombreComerciante = sessionStorage.getItem('nombreComerciante');
         if (nombreComerciante) {
           document.getElementById('nombre-comerciante').textContent = `Bienvenido, ${nombreComerciante}`;
         } else {
-          window.location.href = 'login.html'; // Redirigir al login si no está autenticado
+          window.location.href = 'login.html';
         }
-
+    
         fetchProductos(); // Cargar los productos del comerciante
-
-        // Manejar el cierre de sesión
+        fetchRecomendaciones(); // Cargar recomendaciones de productos similares
+    
         document.getElementById('logout-btn').addEventListener('click', function() {
           sessionStorage.removeItem('nombreComerciante');
           sessionStorage.removeItem('comercianteId');
           window.location.href = 'login.html';
         });
       });
-
+    
       function fetchProductos() {
         const comercianteId = sessionStorage.getItem('comercianteId');
         fetch(`http://localhost:3000/api/productos?comercianteId=${comercianteId}`)
@@ -175,7 +181,7 @@
           .then(data => displayProductos(data))
           .catch(err => console.error('Error fetching productos:', err));
       }
-
+    
       function displayProductos(productos) {
         const container = document.getElementById('productos-lista');
         container.innerHTML = '';
@@ -192,11 +198,56 @@
           container.appendChild(item);
         });
       }
-
+    
+      // Nueva función para obtener recomendaciones
+      function fetchRecomendaciones() {
+        const comercianteId = sessionStorage.getItem('comercianteId');
+        fetch(`http://localhost:3000/api/recomendaciones?comercianteId=${comercianteId}`)
+          .then(response => response.json())
+          .then(data => displayRecomendaciones(data))
+          .catch(err => console.error('Error fetching recomendaciones:', err));
+      }
+    
+      function displayRecomendaciones(productos) {
+        const container = document.getElementById('recomendaciones-lista');
+        container.innerHTML = '';
+        productos.forEach(producto => {
+          const item = document.createElement('div');
+          item.className = 'product-item';
+          item.innerHTML = `
+            <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion.substring(0, 60)}...</p>
+            <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+            <a href="product.html?id=${producto.id}" class="ver-mas">Ver más</a>
+          `;
+          container.appendChild(item);
+        });
+    
+        // Inicializar el carrusel de productos recomendados
+        $('.owl-carousel').owlCarousel({
+          loop: true,
+          margin: 10,
+          nav: true,
+          responsive: {
+            0: {
+              items: 1
+            },
+            600: {
+              items: 3
+            },
+            1000: {
+              items: 5
+            }
+          }
+        });
+      }
+    
       function redirigirAProductos() {
         window.location.href = 'productos.html';
       }
     </script>
+    
   </div>
 </body>
 </html>
