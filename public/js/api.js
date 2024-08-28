@@ -18,8 +18,14 @@ async function iniciarSesion(event) {
 
         if (response.ok) {
             const data = await response.json();
+
+            // Guardar las variables de sesión
             sessionStorage.setItem('tipoUsuario', data.tipo);
+            sessionStorage.setItem('nombreComerciante', data.comercianteNombre); // Asumiendo que 'nombre' es el nombre del comerciante
+            sessionStorage.setItem('comercianteId', data.comercianteId); // Asumiendo que 'id' es el ID del comerciante
+
             alert(data.mensaje);
+            
             // Redirigir según el tipo de usuario
             if (data.tipo === 'comerciante') {
                 window.location.href = 'index-comer.html?mensaje=Comerciante autenticado exitosamente';

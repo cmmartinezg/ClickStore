@@ -1,302 +1,268 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="image/favicon.png" rel="icon" />
-    <title>Iniciar Sesión</title>
-     <!-- CSS Parte Inicio -->
+  <meta charset="UTF-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="image/favicon.png" rel="icon" />
+  <title>Iniciar Sesión</title>
+  <!-- CSS Parte Inicio -->
   <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
   <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
   <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-  <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
+  <link rel="stylesheet" type="text/css" href="css/estilop.css" />
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
   <!-- CSS Parte Fin -->
 </head>
+
 <body>
 
-    <body class="amazon-style">
-        <div class="wrapper-wide">
-          <!-- Inicio del encabezado --> 
-          <header class="header">
-            <div class="logo">
-              <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+  <body class="amazon-style">
+    <div class="wrapper-wide">
+      <!-- Inicio del encabezado -->
+      <header class="header">
+        <div class="logo">
+          <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store"
+              alt="Click Store" /></a>
+        </div>
+        <div class="search-bar">
+          <select>
+            <option value="Todos">Todos</option>
+            <option value="Electrónica">Electrónica</option>
+            <option value="Informática">Informática</option>
+            <option value="Ropa">Ropa</option>
+            <option value="Automóviles">Automóviles</option>
+            <option value="Belleza">Belleza</option>
+            <!-- Agregar más opciones -->
+          </select>
+          <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
+          <button type="button" class="button-search"><i class="fa fa-search"></i></button>
+        </div>
+        <div class="nav-links">
+          <a href="login.html">Iniciar Sesión</a>
+          <div class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b
+                class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="registro-usu.html">Usuario</a></li>
+              <li><a href="registro-comer.html">Comerciante</a></li>
+            </ul>
+          </div>
+          <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos</a>
+          <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito</a>
+        </div>
+      </header>
+      <!-- Encabezado End -->
+      <div class="container">
+        <nav id="menu" class="navbar">
+          <div class="navbar-header"> <span class="visible-xs visible-sm">Menu <b></b></span></div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li><a class="home_link" title="Home" href="index.html"><span>Home</span></a></li>
+              <li class="mega-menu dropdown"><a>Categorias</a>
+                <div class="dropdown-menu">
+                  <div class="column col-lg-2 col-md-3">
+                    <!-- Categoria Electrónica-->
+                    <a href="category.html">Electrónica</a>
+                    <div>
+                      <ul>
+                        <li><a href="category.html">Accesorios</a></li>
+                        <li><a href="category.html">Cámaras</a></li>
+                        <li><a href="category.html">Celulares</a></li>
+                        <li><a href="category.html">Tv y Audio</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="column col-lg-2 col-md-3"><a href="category.html">Informática</a>
+                    <div>
+                      <ul>
+                        <li> <a href="category.html">Monitores</a> </li>
+                        <li> <a href="category.html">Notebook</a> </li>
+                        <li> <a href="category.html">Impresoras</a> </li>
+                        <li> <a href="category.html">Almacenamiento</a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="column col-lg-2 col-md-3"><a href="category.html">Ropa</a>
+                    <div>
+                      <ul>
+                        <li><a href="category.html">Mujer</a> </li>
+                        <li><a href="category.html">Hombre</a> </li>
+                        <li><a href="category.html">bebé</a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="column col-lg-2 col-md-3"> <a href="category.html">Automóviles</a>
+                    <div>
+                      <ul>
+                        <li> <a href="category.html">Neumáticos</a></li>
+                        <li> <a href="category.html">Sonido y Video</a></li>
+                        <li> <a href="category.html">Accesorios</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="column col-lg-2 col-md-3">
+                    <a href="category.html">Belleza</a>
+                    <div>
+                      <ul>
+                        <li><a href="category.html">Cosméticos</a></li>
+                        <li><a href="category.html">Perfumes</a></li>
+                        <li><a href="category.html">Cuidado Personal</a></li>
+                      </ul>
+                    </div>
+                  </div>
+              <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
+                <div class="dropdown-menu">
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/apple_logo-60x60.jpg" title="Apple" alt="Apple" /></a><a href="#">Apple</a>
+                  </div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/canon_logo-60x60.jpg" title="Canon" alt="Canon" /></a><a href="#">Canon</a>
+                  </div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"> <a href="#"><img
+                        src="image/product/hp_logo-60x60.jpg" title="Hewlett-Packard" alt="Hewlett-Packard" /></a><a
+                      href="#">Hewlett-Packard</a></div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/htc_logo-60x60.jpg" title="HTC" alt="HTC" /></a><a href="#">HTC</a></div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/palm_logo-60x60.jpg" title="Palm" alt="Palm" /></a><a href="#">Palm</a></div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/sony_logo-60x60.jpg" title="Sony" alt="Sony" /></a><a href="#">Sony</a>
+                  </div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/canon_logo-60x60.jpg" title="test" alt="test" /></a><a href="#">test</a>
+                  </div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/apple_logo-60x60.jpg" title="test 3" alt="test 3" /></a><a href="#">test
+                      3</a></div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/canon_logo-60x60.jpg" title="test 5" alt="test 5" /></a><a href="#">test
+                      5</a> </div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/canon_logo-60x60.jpg" title="test 6" alt="test 6" /></a><a href="#">test
+                      6</a></div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/apple_logo-60x60.jpg" title="test 7" alt="test 7" /></a><a href="#">test
+                      7</a> </div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/canon_logo-60x60.jpg" title="test1" alt="test1" /></a><a href="#">test1</a>
+                  </div>
+                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                        src="image/product/apple_logo-60x60.jpg" title="test2" alt="test2" /></a><a href="#">test2</a>
+                  </div>
+                </div>
+              </li>
+              <li class="dropdown"><a href="blog.html">Blog</a>
+              <li class="custom-link-right"><a href="search.html" target="_blank"> ¡Comprar Ahora!</a></li>
+              <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li>
+              <!-- Botón de Subir Artículo -->
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- Menú Principal Fin -->
+      <div id="container">
+        <div class="container">
+          <!-- Breadcrumb Start -->
+          <ul class="breadcrumb">
+            <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+            <li><a href="login.html">Cuenta</a></li>
+            <li><a href="login.html">Iniciar Sesión</a></li>
+          </ul>
+          <!-- Breadcrumb End -->
+          <div class="row">
+            <!--Middle Part Start-->
+            <div class="col-sm-9" id="content">
+              <h1 class="title">Iniciar Sesión</h1>
+              <p>Si ya tienes una cuenta con nosotros, por favor inicia sesión.</p>
+              <form class="form-horizontal" action="javascript:void(0);" id="form-login">
+                <fieldset id="account">
+                  <legend>Detalles de tu cuenta</legend>
+                  <div class="form-group required">
+                    <label for="login-email" class="col-sm-2 control-label">E-Mail</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="login-email" placeholder="E-Mail" name="email"
+                        required>
+                    </div>
+                  </div>
+                  <div class="form-group required">
+                    <label for="login-password" class="col-sm-2 control-label">Contraseña</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="login-password" placeholder="Contraseña"
+                        name="contraseña" required>
+                    </div>
+                  </div>
+                </fieldset>
+                <div class="buttons">
+                  <div class="pull-right">
+                    <input type="submit" class="btn btn-primary" value="Iniciar Sesión">
+                  </div>
+                </div>
+              </form>
             </div>
-            <div class="search-bar">
-              <select>
-                <option value="Todos">Todos</option>
-                <option value="Electrónica">Electrónica</option>
-                <option value="Informática">Informática</option>
-                <option value="Ropa">Ropa</option>
-                <option value="Automóviles">Automóviles</option>
-                <option value="Belleza">Belleza</option>
-                <!-- Agregar más opciones -->
-              </select>
-              <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
-              <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-            </div>
-            <div class="nav-links">
-              <a href="login.html">Iniciar Sesión</a>
-              <div class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="registro-usu.html">Usuario</a></li>
-                  <li><a href="registro-comer.html">Comerciante</a></li>
+            <!--Middle Part End-->
+            <!--Right Part Start-->
+            <aside id="column-right" class="col-sm-3 hidden-xs">
+              <h3 class="subtitle">Cuenta</h3>
+              <div class="list-group">
+                <ul class="list-item">
+                  <li><a href="login.html">Iniciar Sesión</a></li>
+                  <li><a href="registro-usu.html">Registro de Usuario</a></li>
+                  <li><a href="registro-comer.html">Registro de Comerciante</a></li>
+                  <li><a href="#">Olvidé mi Contraseña</a></li>
+                  <li><a href="#">Mi Cuenta</a></li>
                 </ul>
               </div>
-              <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos</a>
-              <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito</a>
-            </div>
-          </header>
-          <!-- Encabezado End -->
-          <div class="container">
-            <nav id="menu" class="navbar">
-              <div class="navbar-header"> <span class="visible-xs visible-sm">Menu <b></b></span></div>
-              <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav">
-                  <li><a class="home_link" title="Home" href="index.html"><span>Home</span></a></li>
-                  <li class="mega-menu dropdown"><a>Categorias</a>
-                    <div class="dropdown-menu">
-                      <div class="column col-lg-2 col-md-3"> 
-                         <!-- Categoria Electrónica-->
-                        <a href="category.html">Electrónica</a>
-                        <div>
-                          <ul>
-                              <li><a href="category.html">Accesorios</a></li>
-                              <li><a href="category.html">Cámaras</a></li>
-                              <li><a href="category.html">Celulares</a></li>
-                              <li><a href="category.html">Tv y Audio</a></li>
-                          </ul>
-                      </div>
-                    </div>         
-                      <div class="column col-lg-2 col-md-3"><a href="category.html">Informática</a>
-                        <div>
-                          <ul>
-                            <li> <a href="category.html">Monitores</a> </li>
-                                  <li> <a href="category.html">Notebook</a> </li>
-                                  <li> <a href="category.html">Impresoras</a> </li>
-                                  <li> <a href="category.html">Almacenamiento</a> </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="column col-lg-2 col-md-3"><a href="category.html">Ropa</a>
-                        <div>
-                          <ul>
-                            <li><a href="category.html">Mujer</a> </li>
-                            <li><a href="category.html">Hombre</a> </li>
-                            <li><a href="category.html">bebé</a> </li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="column col-lg-2 col-md-3"> <a href="category.html">Automóviles</a>
-                        <div>
-                          <ul>
-                            <li> <a href="category.html">Neumáticos</a></li>
-                            <li> <a href="category.html">Sonido y Video</a></li>
-                            <li> <a href="category.html">Accesorios</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="column col-lg-2 col-md-3">
-                        <a href="category.html">Belleza</a>
-                        <div>
-                            <ul>
-                                <li><a href="category.html">Cosméticos</a></li>
-                                <li><a href="category.html">Perfumes</a></li>
-                                <li><a href="category.html">Cuidado Personal</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
-                      <div class="dropdown-menu">
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/apple_logo-60x60.jpg" title="Apple" alt="Apple" /></a><a href="#">Apple</a>
-                        </div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/canon_logo-60x60.jpg" title="Canon" alt="Canon" /></a><a href="#">Canon</a>
-                        </div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"> <a href="#"><img
-                              src="image/product/hp_logo-60x60.jpg" title="Hewlett-Packard" alt="Hewlett-Packard" /></a><a
-                            href="#">Hewlett-Packard</a></div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/htc_logo-60x60.jpg" title="HTC" alt="HTC" /></a><a href="#">HTC</a></div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/palm_logo-60x60.jpg" title="Palm" alt="Palm" /></a><a href="#">Palm</a></div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/sony_logo-60x60.jpg" title="Sony" alt="Sony" /></a><a href="#">Sony</a>
-                        </div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/canon_logo-60x60.jpg" title="test" alt="test" /></a><a href="#">test</a>
-                        </div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/apple_logo-60x60.jpg" title="test 3" alt="test 3" /></a><a href="#">test
-                            3</a></div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/canon_logo-60x60.jpg" title="test 5" alt="test 5" /></a><a href="#">test
-                            5</a> </div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/canon_logo-60x60.jpg" title="test 6" alt="test 6" /></a><a href="#">test
-                            6</a></div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/apple_logo-60x60.jpg" title="test 7" alt="test 7" /></a><a href="#">test
-                            7</a> </div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/canon_logo-60x60.jpg" title="test1" alt="test1" /></a><a href="#">test1</a>
-                        </div>
-                        <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                              src="image/product/apple_logo-60x60.jpg" title="test2" alt="test2" /></a><a href="#">test2</a>
-                        </div>
-                      </div>
-                    </li>   
-                    <li class="dropdown"><a href="blog.html">Blog</a>
-                    <li class="custom-link-right"><a href="search.html" target="_blank"> ¡Comprar Ahora!</a></li>
-                    <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
-                  </ul>
-                </div>
-              </nav>
-            </div>
-       <!-- Menú Principal Fin -->
-        <div id="container">
-            <div class="container">
-                <!-- Breadcrumb Start -->
-                <ul class="breadcrumb">
-                    <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-                    <li><a href="login.html">Cuenta</a></li>
-                    <li><a href="login.html">Iniciar Sesión</a></li>
-                </ul>
-                <!-- Breadcrumb End -->
-                <div class="row">
-                    <!--Middle Part Start-->
-                    <div class="col-sm-9" id="content">
-                        <h1 class="title">Iniciar Sesión</h1>
-                        <p>Si ya tienes una cuenta con nosotros, por favor inicia sesión.</p>
-                        <form class="form-horizontal" action="javascript:void(0);" id="form-login">
-                            <fieldset id="account">
-                                <legend>Detalles de tu cuenta</legend>
-                                <div class="form-group required">
-                                    <label for="login-email" class="col-sm-2 control-label">E-Mail</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="login-email" placeholder="E-Mail" name="email" required>
-                                    </div>
-                                </div>
-                                <div class="form-group required">
-                                    <label for="login-password" class="col-sm-2 control-label">Contraseña</label>
-                                    <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="login-password" placeholder="Contraseña" name="contraseña" required>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div class="buttons">
-                                <div class="pull-right">
-                                    <input type="submit" class="btn btn-primary" value="Iniciar Sesión">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!--Middle Part End-->
-                    <!--Right Part Start-->
-                    <aside id="column-right" class="col-sm-3 hidden-xs">
-                        <h3 class="subtitle">Cuenta</h3>
-                        <div class="list-group">
-                            <ul class="list-item">
-                                <li><a href="login.html">Iniciar Sesión</a></li>
-                                <li><a href="registro-usu.html">Registro de Usuario</a></li>
-                                <li><a href="registro-comer.html">Registro de Comerciante</a></li>
-                                <li><a href="#">Olvidé mi Contraseña</a></li>
-                                <li><a href="#">Mi Cuenta</a></li>
-                            </ul>
-                        </div>
-                    </aside>
-                    <!--Right Part End-->
-                </div>
-            </div>
+            </aside>
+            <!--Right Part End-->
+          </div>
         </div>
-        <!--Footer Start-->
-        <footer id="footer">
-            <div class="fpart-first">
-                <div class="container">
-                    <div class="row">
-                        <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <h5>Detalles de Contacto</h5>
-                            <ul>
-                                <li class="address"><i class="fa fa-map-marker"></i>Central Square, 22 Hoi Wing Road, Asunción, Paraguay</li>
-                                <li class="mobile"><i class="fa fa-phone"></i>+595 123 456 789</li>
-                                <li class="email"><i class="fa fa-envelope"></i>Envíanos un correo a <a href="contact-us.html">Contact Us</a></li>
-                            </ul>
-                        </div>
-                        <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                            <h5>Información</h5>
-                            <ul>
-                                <li><a href="about-us.html">Sobre Nosotros</a></li>
-                                <li><a href="about-us.html">Información de Entrega</a></li>
-                                <li><a href="about-us.html">Política de Privacidad</a></li>
-                                <li><a href="about-us.html">Términos y Condiciones</a></li>
-                            </ul>
-                        </div>
-                        <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                            <h5>Servicio al Cliente</h5>
-                            <ul>
-                                <li><a href="contact-us.html">Contáctanos</a></li>
-                                <li><a href="returns.html">Devoluciones</a></li>
-                                <li><a href="sitemap.html">Mapa del Sitio</a></li>
-                            </ul>
-                        </div>
-                        <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                            <h5>Extras</h5>
-                            <ul>
-                                <li><a href="manufacturer.html">Marcas</a></li>
-                                <li><a href="gift-voucher.html">Vales de Regalo</a></li>
-                                <li><a href="#">Afiliados</a></li>
-                                <li><a href="#">Ofertas Especiales</a></li>
-                            </ul>
-                        </div>
-                        <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <h5>Boletín Informativo</h5>
-                            <div class="form-group">
-                                <label class="control-label" for="subscribe">Suscríbete para recibir las últimas noticias y actualizaciones.</label>
-                                <input id="signup" type="email" required="" placeholder="Dirección de correo electrónico" name="email" class="form-control">
-                            </div>
-                            <input type="submit" value="Suscribirse" class="btn btn-primary">
-                        </div>
-                    </div>
-                </div>
+      </div>
+      <!--Footer Start-->
+      <footer id="footer">
+        <div class="fpart-first">
+          <div class="container">
+            <div class="row">
+              
+              
+              
+              
+              
             </div>
-            <div class="fpart-second">
-                <div class="container">
-                    <div id="powered" class="clearfix">
-                        <div class="powered_text pull-left flip">
-                            <p>Click Store 2024</p>
-                        </div>
-                        <div class="social pull-right flip"> 
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a>
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter" title="Twitter"></a>
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/google_plus.png" alt="Google+" title="Google+"></a>
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"></a>
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS" title="RSS"></a>
-                        </div>
-                    </div>
-                    <div class="bottom-row">
-                        <div class="custom-text text-center">
-                            <p>Este es un bloque CMS. Puedes insertar cualquier contenido (HTML, Texto, Imágenes) aquí. Lorem Ipsum es simplemente texto ficticio de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto ficticio estándar de la industria desde el año 1500, cuando un impresor desconocido tomó una galera de tipos y la mezcló para hacer un libro de muestras tipográficas. Ha sobrevivido no solo cinco siglos, sino también el salto a la composición electrónica, permaneciendo esencialmente sin cambios.</p>
-                        </div>
-                        <div class="payments_types">
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_paypal.png" alt="paypal" title="PayPal"></a>
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express" title="American Express"></a>
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_2checkout.png" alt="2checkout" title="2checkout"></a>
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a>
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_discover.png" alt="discover" title="Discover"></a>
-                            <a href="#" target="_blank"><img data-toggle="tooltip" src="image/payment/payment_mastercard.png" alt="mastercard" title="MasterCard"></a>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+        <div class="fpart-second">
+          <div class="container">
+            <div id="powered" class="clearfix">
+              <div class="powered_text pull-left flip">
+                <p>Click Store 2024</p>
+              </div>
+              <!--
+                <div class="social pull-right flip">
+                <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/facebook.png"
+                    alt="Facebook" title="Facebook"></a>
+                <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter"
+                    title="Twitter"></a>
+                <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/google_plus.png"
+                    alt="Google+" title="Google+"></a>
+                <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/pinterest.png"
+                    alt="Pinterest" title="Pinterest"></a>
+                <a href="#" target="_blank"><img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS"
+                    title="RSS"></a>
+              </div>
+            -->
             </div>
-            <div id="back-top"><a data-toggle="tooltip" title="Volver Arriba" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
-        </footer>
-        <!--Footer End-->
+            
+          </div>
+        </div>
+        <div id="back-top"><a data-toggle="tooltip" title="Volver Arriba" href="javascript:void(0)" class="backtotop"><i
+              class="fa fa-chevron-up"></i></a></div>
+      </footer>
+      <!--Footer End-->
     </div>
     <!-- JS Part Start-->
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
@@ -307,5 +273,6 @@
     <script type="text/javascript" src="js/custom.js"></script>
     <script type="text/javascript" src="js/api.js"></script> <!-- Archivo JS -->
     <!-- JS Part End-->
-</body>
+  </body>
+
 </html>
