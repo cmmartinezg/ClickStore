@@ -197,10 +197,9 @@
         } else {
           window.location.href = 'login.html';
         }
-    
+  
         fetchProductos(); // Cargar los productos del comerciante
-        fetchRecomendaciones(); // Cargar recomendaciones de productos similares
-    
+  
         document.getElementById('logout-btn').addEventListener('click', function() {
           sessionStorage.removeItem('nombre');
           sessionStorage.removeItem('Id');
@@ -208,7 +207,8 @@
           window.location.href = 'login.html';
         });
       });
-    
+  
+      // Función para obtener los productos del comerciante
       function fetchProductos() {
         const comercianteId = sessionStorage.getItem('Id');
         fetch(`http://localhost:3000/api/productos?comercianteId=${comercianteId}`)
@@ -216,7 +216,8 @@
           .then(data => displayProductos(data))
           .catch(err => console.error('Error fetching productos:', err));
       }
-    
+  
+      // Mostrar productos en la página
       function displayProductos(productos) {
         const container = document.getElementById('productos-lista');
         container.innerHTML = '';
@@ -233,8 +234,8 @@
           container.appendChild(item);
         });
       }
-    
-      // Función para abrir el modal de edición de producto
+  
+      // Función para editar producto
       function editarProducto(id) {
         fetch(`http://localhost:3000/api/productos/${id}`)
           .then(response => response.json())
@@ -248,98 +249,54 @@
           })
           .catch(err => console.error('Error al cargar producto para editar:', err));
       }
-
+  
       // Función para guardar cambios en el producto
       function guardarCambiosProducto() {
         const productoId = document.getElementById('producto-id').value;
         const data = {
-            nombre: document.getElementById('producto-nombre').value,
-            descripcion: document.getElementById('producto-descripcion').value,
-            precio: document.getElementById('producto-precio').value,
-            foto_url: document.getElementById('producto-foto').value,
-            id_comerciante: sessionStorage.getItem('Id')  // Asegúrate de enviar el comercianteId correcto
+          nombre: document.getElementById('producto-nombre').value,
+          descripcion: document.getElementById('producto-descripcion').value,
+          precio: document.getElementById('producto-precio').value,
+          foto_url: document.getElementById('producto-foto').value,
+          id_comerciante: sessionStorage.getItem('Id')
         };
-
+  
         fetch(`http://localhost:3000/api/productos/${productoId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
         .then(response => {
-            if (response.ok) {
-                $('#editarProductoModal').modal('hide');
-                fetchProductos(); // Recargar los productos para ver los cambios
-            } else {
-                alert('Error al guardar los cambios');
-            }
+          if (response.ok) {
+            $('#editarProductoModal').modal('hide');
+            fetchProductos(); // Recargar los productos
+          } else {
+            alert('Error al guardar los cambios');
+          }
         })
         .catch(err => console.error('Error guardando producto:', err));
       }
-
+  
       // Función para eliminar producto
       function eliminarProducto() {
         const productoId = document.getElementById('producto-id').value;
-
+  
         fetch(`http://localhost:3000/api/productos/${productoId}`, {
-            method: 'DELETE'
+          method: 'DELETE'
         })
         .then(response => {
-            if (response.ok) {
-                $('#editarProductoModal').modal('hide');
-                fetchProductos(); // Recargar los productos después de la eliminación
-            } else {
-                alert('Error al eliminar el producto');
-            }
+          if (response.ok) {
+            $('#editarProductoModal').modal('hide');
+            fetchProductos(); // Recargar los productos después de la eliminación
+          } else {
+            alert('Error al eliminar el producto');
+          }
         })
         .catch(err => console.error('Error eliminando producto:', err));
       }
-
-      // Nueva función para obtener recomendaciones
-      function fetchRecomendaciones() {
-        const comercianteId = sessionStorage.getItem('Id');
-        fetch(`http://localhost:3000/api/recomendaciones?comercianteId=${comercianteId}`)
-          .then(response => response.json())
-          .then(data => displayRecomendaciones(data))
-          .catch(err => console.error('Error fetching recomendaciones:', err));
-      }
-    
-      function displayRecomendaciones(productos) {
-        const container = document.getElementById('recomendaciones-lista');
-        container.innerHTML = '';
-        productos.forEach(producto => {
-          const item = document.createElement('div');
-          item.className = 'product-item';
-          item.innerHTML = `
-            <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
-            <h3>${producto.nombre}</h3>
-            <p>${producto.descripcion.substring(0, 60)}...</p>
-            <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
-            <a href="product.html?id=${producto.id}" class="ver-mas">Ver más</a>
-          `;
-          container.appendChild(item);
-        });
-    
-        // Inicializar el carrusel de productos recomendados
-        $('.owl-carousel').owlCarousel({
-          loop: true,
-          margin: 10,
-          nav: true,
-          responsive: {
-            0: {
-              items: 1
-            },
-            600: {
-              items: 3
-            },
-            1000: {
-              items: 5
-            }
-          }
-        });
-      }
-    
+  
       function redirigirAProductos() {
         window.location.href = 'productos.html';
       }
