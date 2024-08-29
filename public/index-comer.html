@@ -141,6 +141,40 @@
       <div id="recomendaciones-lista" class="owl-carousel owl-theme"></div>
     </div>
     
+    <!-- Modal para editar producto -->
+    <div class="modal fade" id="editarProductoModal" tabindex="-1" role="dialog" aria-labelledby="editarProductoModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="editarProductoModalLabel">Editar Producto</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="producto-id">
+            <div class="form-group">
+              <label for="producto-nombre">Nombre del Producto</label>
+              <input type="text" class="form-control" id="producto-nombre">
+            </div>
+            <div class="form-group">
+              <label for="producto-descripcion">Descripción</label>
+              <textarea class="form-control" id="producto-descripcion"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="producto-precio">Precio</label>
+              <input type="number" class="form-control" id="producto-precio">
+            </div>
+            <div class="form-group">
+              <label for="producto-foto">URL de la Foto</label>
+              <input type="text" class="form-control" id="producto-foto">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" onclick="eliminarProducto()">Eliminar</button>
+            <button type="button" class="btn btn-primary" onclick="guardarCambiosProducto()">Guardar Cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Pie de Página Inicio -->
     <footer id="footer">
@@ -193,12 +227,74 @@
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion.substring(0, 60)}...</p>
             <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
-            <a href="product.html?id=${producto.id}" class="ver-mas">Ver más</a>
+            <button class="ver-mas" onclick="editarProducto(${producto.id})">Editar Producto</button>
           `;
           container.appendChild(item);
         });
       }
     
+      // Función para abrir el modal de edición de producto
+      function editarProducto(id) {
+        fetch(`http://localhost:3000/api/productos/${id}`)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('producto-id').value = data.id;
+            document.getElementById('producto-nombre').value = data.nombre;
+            document.getElementById('producto-descripcion').value = data.descripcion;
+            document.getElementById('producto-precio').value = data.precio;
+            document.getElementById('producto-foto').value = data.foto_url;
+            $('#editarProductoModal').modal('show');
+          })
+          .catch(err => console.error('Error al cargar producto para editar:', err));
+      }
+
+      // Función para guardar cambios en el producto
+      function guardarCambiosProducto() {
+        const productoId = document.getElementById('producto-id').value;
+        const data = {
+            nombre: document.getElementById('producto-nombre').value,
+            descripcion: document.getElementById('producto-descripcion').value,
+            precio: document.getElementById('producto-precio').value,
+            foto_url: document.getElementById('producto-foto').value,
+            id_comerciante: sessionStorage.getItem('comercianteId')  // Asegúrate de enviar el comercianteId correcto
+        };
+
+        fetch(`http://localhost:3000/api/productos/${productoId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                $('#editarProductoModal').modal('hide');
+                fetchProductos(); // Recargar los productos para ver los cambios
+            } else {
+                alert('Error al guardar los cambios');
+            }
+        })
+        .catch(err => console.error('Error guardando producto:', err));
+      }
+
+      // Función para eliminar producto
+      function eliminarProducto() {
+        const productoId = document.getElementById('producto-id').value;
+
+        fetch(`http://localhost:3000/api/productos/${productoId}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.ok) {
+                $('#editarProductoModal').modal('hide');
+                fetchProductos(); // Recargar los productos después de la eliminación
+            } else {
+                alert('Error al eliminar el producto');
+            }
+        })
+        .catch(err => console.error('Error eliminando producto:', err));
+      }
+
       // Nueva función para obtener recomendaciones
       function fetchRecomendaciones() {
         const comercianteId = sessionStorage.getItem('comercianteId');
