@@ -5,9 +5,9 @@ async function iniciarSesion(event) {
     event.preventDefault();
 
     const email = document.querySelector('#login-email').value;
-    const contraseña = document.querySelector('#login-password').value;
+    const contrasena = document.querySelector('#login-password').value;
 
-    console.log('Datos de inicio de sesión:', { email, contraseña }); // Mostrar datos de entrada
+    console.log('Datos de inicio de sesión:', { email, contrasena }); // Mostrar datos de entrada
 
     try {
         console.log('Enviando solicitud de inicio de sesión...');
@@ -17,7 +17,7 @@ async function iniciarSesion(event) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, contraseña })
+            body: JSON.stringify({ email, contrasena })
         });
 
         console.log('Respuesta recibida del servidor:', response); // Mostrar respuesta cruda del servidor
@@ -66,7 +66,7 @@ async function registrarUsuario(event) {
     const data = {
         nombre: document.getElementById('input-usuario').value,
         email: document.getElementById('input-email').value,
-        contraseña: document.getElementById('input-password').value,
+        contrasena: document.getElementById('input-password').value,
         direccion: document.getElementById('input-direccion').value,
         telefono: document.getElementById('input-telefono').value
     };
