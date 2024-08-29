@@ -322,9 +322,9 @@
                   const responseData = await response.json();
   
                   // Guardar las variables de sesión para el comerciante
-                  sessionStorage.setItem('nombreComerciante', nombre);
-                  sessionStorage.setItem('comercianteId', responseData.id);
-  
+                  sessionStorage.setItem('nombre', nombre);
+                  sessionStorage.setItem('Id', responseData.id);
+                  sessionStorage.setItem('tipo', "usuario");
                   Swal.fire({
                       title: '¡Registrado!',
                       text: 'Usuario registrado exitosamente',
@@ -332,7 +332,7 @@
                       confirmButtonText: 'Aceptar'
                   }).then((result) => {
                       if (result.isConfirmed) {
-                          window.location.href = 'index-comer.html'; // Redirige al perfil del comerciante
+                          window.location.href = 'index.html'; 
                       }
                   });
               } else if (response.status === 409) {

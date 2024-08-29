@@ -370,9 +370,9 @@
                 const responseData = await response.json();
 
                 // Guardar las variables de sesión para el comerciante
-                sessionStorage.setItem('nombreComerciante', nombre);
-                sessionStorage.setItem('comercianteId', responseData.id);
-
+                sessionStorage.setItem('nombre', nombre);
+                sessionStorage.setItem('Id', responseData.id);
+                sessionStorage.setItem('tipo', "comerciante");
                 Swal.fire({
                     title: '¡Registrado!',
                     text: 'Usuario registrado exitosamente',

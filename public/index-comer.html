@@ -191,7 +191,7 @@
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        const nombreComerciante = sessionStorage.getItem('nombreComerciante');
+        const nombreComerciante = sessionStorage.getItem('nombre');
         if (nombreComerciante) {
           document.getElementById('nombre-comerciante').textContent = `Bienvenido, ${nombreComerciante}`;
         } else {
@@ -202,14 +202,15 @@
         fetchRecomendaciones(); // Cargar recomendaciones de productos similares
     
         document.getElementById('logout-btn').addEventListener('click', function() {
-          sessionStorage.removeItem('nombreComerciante');
-          sessionStorage.removeItem('comercianteId');
+          sessionStorage.removeItem('nombre');
+          sessionStorage.removeItem('Id');
+          sessionStorage.removeItem('tipo');
           window.location.href = 'login.html';
         });
       });
     
       function fetchProductos() {
-        const comercianteId = sessionStorage.getItem('comercianteId');
+        const comercianteId = sessionStorage.getItem('Id');
         fetch(`http://localhost:3000/api/productos?comercianteId=${comercianteId}`)
           .then(response => response.json())
           .then(data => displayProductos(data))
@@ -256,7 +257,7 @@
             descripcion: document.getElementById('producto-descripcion').value,
             precio: document.getElementById('producto-precio').value,
             foto_url: document.getElementById('producto-foto').value,
-            id_comerciante: sessionStorage.getItem('comercianteId')  // Asegúrate de enviar el comercianteId correcto
+            id_comerciante: sessionStorage.getItem('Id')  // Asegúrate de enviar el comercianteId correcto
         };
 
         fetch(`http://localhost:3000/api/productos/${productoId}`, {
@@ -297,7 +298,7 @@
 
       // Nueva función para obtener recomendaciones
       function fetchRecomendaciones() {
-        const comercianteId = sessionStorage.getItem('comercianteId');
+        const comercianteId = sessionStorage.getItem('Id');
         fetch(`http://localhost:3000/api/recomendaciones?comercianteId=${comercianteId}`)
           .then(response => response.json())
           .then(data => displayRecomendaciones(data))
