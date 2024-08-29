@@ -190,9 +190,9 @@
                   </div>
                 </div>
                 <div class="form-group required">
-                  <label for="input-contrasena" class="col-sm-2 control-label">Contrasena</label>
+                  <label for="input-password" class="col-sm-2 control-label">Contrasena</label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="input-contrasena" placeholder="Contrasena" name="contrasena" required>
+                    <input type="password" class="form-control" id="input-password" placeholder="Contraseña" name="contrasena" required>
                   </div>
                 </div>
                 <div class="form-group required">
@@ -340,15 +340,25 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script>
+document.addEventListener('DOMContentLoaded', function() {
     async function registrarUsuario(event) {
         event.preventDefault();
-
-        const nombre = document.getElementById('input-usuario').value;
+        
+        // Obtener los valores de los campos del formulario
+        const nombre = document.getElementById('input-nombre').value;
         const email = document.getElementById('input-email').value;
         const contrasena = document.getElementById('input-password').value;
         const direccion = document.getElementById('input-direccion').value;
         const telefono = document.getElementById('input-telefono').value;
 
+        console.log("Valores obtenidos del formulario:");
+        console.log("Nombre:", nombre);
+        console.log("Email:", email);
+        console.log("Contraseña:", contrasena);
+        console.log("Dirección:", direccion);
+        console.log("Teléfono:", telefono);
+
+        // Crear el objeto de datos para enviar
         const data = {
             nombre,
             email,
@@ -357,7 +367,10 @@
             telefono
         };
 
+        console.log("Datos a enviar:", JSON.stringify(data));
+
         try {
+            // Hacer la solicitud fetch al servidor
             const response = await fetch('http://localhost:3000/api/usuarios', {
                 method: 'POST',
                 headers: {
@@ -366,13 +379,23 @@
                 body: JSON.stringify(data)
             });
 
+            console.log("Respuesta del servidor:", response);
+
+            // Verificar si la respuesta es exitosa
             if (response.ok) {
                 const responseData = await response.json();
+                console.log("Datos recibidos del servidor:", responseData);
 
                 // Guardar las variables de sesión para el comerciante
                 sessionStorage.setItem('nombre', nombre);
                 sessionStorage.setItem('Id', responseData.id);
                 sessionStorage.setItem('tipo', "comerciante");
+                console.log("Variables de sesión guardadas:", {
+                    nombre: sessionStorage.getItem('nombre'),
+                    Id: sessionStorage.getItem('Id'),
+                    tipo: sessionStorage.getItem('tipo')
+                });
+
                 Swal.fire({
                     title: '¡Registrado!',
                     text: 'Usuario registrado exitosamente',
@@ -380,10 +403,12 @@
                     confirmButtonText: 'Aceptar'
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        console.log("Redirigiendo a index-comer.html");
                         window.location.href = 'index-comer.html'; // Redirige al perfil del comerciante
                     }
                 });
             } else if (response.status === 409) {
+                console.log("Email ya registrado:", email);
                 Swal.fire({
                     title: 'Error',
                     text: 'El email ya está registrado. Por favor, utiliza otro email.',
@@ -392,6 +417,7 @@
                 });
             } else {
                 const errorData = await response.json();
+                console.log("Error recibido del servidor:", errorData);
                 Swal.fire({
                     title: 'Error',
                     text: errorData.message,
@@ -400,6 +426,7 @@
                 });
             }
         } catch (error) {
+            console.error("Error en la solicitud fetch:", error);
             Swal.fire({
                 title: 'Error',
                 text: 'Hubo un error al registrar el usuario. Por favor, intente nuevamente.',
@@ -409,9 +436,8 @@
         }
     }
 
-    document.getElementById('form-registro').addEventListener('submit', registrarUsuario);
-</script>
-  
-  <!-- JS Part End-->
+    document.getElementById('registroComercianteForm').addEventListener('submit', registrarUsuario);
+});
+  </script>
 </body>
 </html>
