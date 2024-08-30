@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,137 +12,146 @@
   <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
   <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-  <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
+  <link rel="stylesheet" type="text/css" href="css/estilop.css" />
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
   <!-- CSS Parte Fin -->
   <style>
     .product-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 10px;
-    text-align: center;
-    width: 250px;  /* Ancho fijo para todas las tarjetas */
-    height: 420px; /* Alto fijo para todas las tarjetas */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    overflow: hidden;
-}
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 10px;
+      text-align: center;
+      width: 250px;
+      /* Ancho fijo para todas las tarjetas */
+      height: 420px;
+      /* Alto fijo para todas las tarjetas */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      overflow: hidden;
+    }
 
-.product-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
+    .product-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
 
-.product-item h3 {
-    font-size: 16px;
-    height: 40px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+    .product-item h3 {
+      font-size: 16px;
+      height: 40px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
-.product-item p {
-    font-size: 14px;
-    color: #555;
-    height: 60px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+    .product-item p {
+      font-size: 14px;
+      color: #555;
+      height: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
-.product-item .price {
-    font-size: 18px;
-    color: #b12704;
-    margin-top: 10px;
-}
+    .product-item .price {
+      font-size: 18px;
+      color: #b12704;
+      margin-top: 10px;
+    }
 
-.product-item .ver-mas {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ff9900;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    text-decoration: none; 
-    width: 80%;
-}
+    .product-item .ver-mas {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ff9900;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      text-decoration: none;
+      width: 80%;
+    }
 
-.action-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px; 
-    margin-bottom: 10px; 
-}
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
 
-.wishlist-button, .cart-button {
-    background-color: #ffcc00; 
-    border: none;
-    padding: 10px;
-    margin: 0 5px;
-    border-radius: 50%;
-    cursor: pointer;
-}
+    .wishlist-button,
+    .cart-button {
+      background-color: #ffcc00;
+      border: none;
+      padding: 10px;
+      margin: 0 5px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
 
-.wishlist-button i, .cart-button i {
-    color: white;
-    font-size: 18px;
-}
+    .wishlist-button i,
+    .cart-button i {
+      color: white;
+      font-size: 18px;
+    }
 
-.wishlist-button:hover, .cart-button:hover {
-    background-color: #e6b800; /* Un tono más oscuro al hacer hover */
-}
+    .wishlist-button:hover,
+    .cart-button:hover {
+      background-color: #e6b800;
+      /* Un tono más oscuro al hacer hover */
+    }
 
-.ver-mas {
-    margin-top: 10px;
-}
-.product-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 10px;
-    text-align: center;
-    width: 250px;  /* Ancho fijo para todas las tarjetas */
-    height: 450px; /* Ajusta el alto según sea necesario */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    overflow: hidden;
-}
+    .ver-mas {
+      margin-top: 10px;
+    }
 
-.product-item .ver-mas {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ff9900;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    text-decoration: none;
-    width: 80%;
-}
+    .product-item {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 10px;
+      text-align: center;
+      width: 250px;
+      /* Ancho fijo para todas las tarjetas */
+      height: 450px;
+      /* Ajusta el alto según sea necesario */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      overflow: hidden;
+    }
 
+    .product-item .ver-mas {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ff9900;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      text-decoration: none;
+      width: 80%;
+    }
   </style>
 </head>
 
 <body class="amazon-style">
   <div class="wrapper-wide">
-    <!-- Inicio del encabezado --> 
+    <!-- Inicio del encabezado -->
     <header class="header">
       <div class="logo">
-        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store"
+            alt="Click Store" /></a>
       </div>
       <div class="search-bar">
         <select>
@@ -159,7 +169,8 @@
       <div class="nav-links">
         <a href="login.html">Iniciar Sesión</a>
         <div class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b
+              class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="registro-usu.html">Usuario</a></li>
             <li><a href="registro-comer.html">Comerciante</a></li>
@@ -178,25 +189,25 @@
             <li><a class="home_link" title="Home" href="index.html"><span>Home</span></a></li>
             <li class="mega-menu dropdown"><a>Categorias</a>
               <div class="dropdown-menu">
-                <div class="column col-lg-2 col-md-3"> 
-                   <!-- Categoria Electrónica-->
+                <div class="column col-lg-2 col-md-3">
+                  <!-- Categoria Electrónica-->
                   <a href="category.html">Electrónica</a>
                   <div>
                     <ul>
-                        <li><a href="category.html">Accesorios</a></li>
-                        <li><a href="category.html">Cámaras</a></li>
-                        <li><a href="category.html">Celulares</a></li>
-                        <li><a href="category.html">Tv y Audio</a></li>
+                      <li><a href="category.html">Accesorios</a></li>
+                      <li><a href="category.html">Cámaras</a></li>
+                      <li><a href="category.html">Celulares</a></li>
+                      <li><a href="category.html">Tv y Audio</a></li>
                     </ul>
+                  </div>
                 </div>
-              </div>         
                 <div class="column col-lg-2 col-md-3"><a href="category.html">Informática</a>
                   <div>
                     <ul>
                       <li> <a href="category.html">Monitores</a> </li>
-                            <li> <a href="category.html">Notebook</a> </li>
-                            <li> <a href="category.html">Impresoras</a> </li>
-                            <li> <a href="category.html">Almacenamiento</a> </li>
+                      <li> <a href="category.html">Notebook</a> </li>
+                      <li> <a href="category.html">Impresoras</a> </li>
+                      <li> <a href="category.html">Almacenamiento</a> </li>
                     </ul>
                   </div>
                 </div>
@@ -221,64 +232,64 @@
                 <div class="column col-lg-2 col-md-3">
                   <a href="category.html">Belleza</a>
                   <div>
-                      <ul>
-                          <li><a href="category.html">Cosméticos</a></li>
-                          <li><a href="category.html">Perfumes</a></li>
-                          <li><a href="category.html">Cuidado Personal</a></li>
-                      </ul>
-                  </div>
-              </div>
-              <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
-                <div class="dropdown-menu">
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/apple_logo-60x60.jpg" title="Apple" alt="Apple" /></a><a href="#">Apple</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="Canon" alt="Canon" /></a><a href="#">Canon</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"> <a href="#"><img
-                        src="image/product/hp_logo-60x60.jpg" title="Hewlett-Packard" alt="Hewlett-Packard" /></a><a
-                      href="#">Hewlett-Packard</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/htc_logo-60x60.jpg" title="HTC" alt="HTC" /></a><a href="#">HTC</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/palm_logo-60x60.jpg" title="Palm" alt="Palm" /></a><a href="#">Palm</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/sony_logo-60x60.jpg" title="Sony" alt="Sony" /></a><a href="#">Sony</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="test" alt="test" /></a><a href="#">test</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/apple_logo-60x60.jpg" title="test 3" alt="test 3" /></a><a href="#">test
-                      3</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="test 5" alt="test 5" /></a><a href="#">test
-                      5</a> </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="test 6" alt="test 6" /></a><a href="#">test
-                      6</a></div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/apple_logo-60x60.jpg" title="test 7" alt="test 7" /></a><a href="#">test
-                      7</a> </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/canon_logo-60x60.jpg" title="test1" alt="test1" /></a><a href="#">test1</a>
-                  </div>
-                  <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                        src="image/product/apple_logo-60x60.jpg" title="test2" alt="test2" /></a><a href="#">test2</a>
+                    <ul>
+                      <li><a href="category.html">Cosméticos</a></li>
+                      <li><a href="category.html">Perfumes</a></li>
+                      <li><a href="category.html">Cuidado Personal</a></li>
+                    </ul>
                   </div>
                 </div>
-              </li>   
-              <li class="dropdown"><a href="blog.html">Blog</a>
-              <li class="custom-link-right"><a href="search.html" target="_blank"> ¡Comprar Ahora!</a></li>
-              <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
-            </ul>
-          </div>
-        </nav>
-      </div>
- <!-- Menú Principal Fin -->
+            <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
+              <div class="dropdown-menu">
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/apple_logo-60x60.jpg" title="Apple" alt="Apple" /></a><a href="#">Apple</a>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/canon_logo-60x60.jpg" title="Canon" alt="Canon" /></a><a href="#">Canon</a>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"> <a href="#"><img src="image/product/hp_logo-60x60.jpg"
+                      title="Hewlett-Packard" alt="Hewlett-Packard" /></a><a href="#">Hewlett-Packard</a></div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img src="image/product/htc_logo-60x60.jpg"
+                      title="HTC" alt="HTC" /></a><a href="#">HTC</a></div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/palm_logo-60x60.jpg" title="Palm" alt="Palm" /></a><a href="#">Palm</a></div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/sony_logo-60x60.jpg" title="Sony" alt="Sony" /></a><a href="#">Sony</a>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/canon_logo-60x60.jpg" title="test" alt="test" /></a><a href="#">test</a>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/apple_logo-60x60.jpg" title="test 3" alt="test 3" /></a><a href="#">test
+                    3</a></div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/canon_logo-60x60.jpg" title="test 5" alt="test 5" /></a><a href="#">test
+                    5</a> </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/canon_logo-60x60.jpg" title="test 6" alt="test 6" /></a><a href="#">test
+                    6</a></div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/apple_logo-60x60.jpg" title="test 7" alt="test 7" /></a><a href="#">test
+                    7</a> </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/canon_logo-60x60.jpg" title="test1" alt="test1" /></a><a href="#">test1</a>
+                </div>
+                <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
+                      src="image/product/apple_logo-60x60.jpg" title="test2" alt="test2" /></a><a href="#">test2</a>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown"><a href="blog.html">Blog</a>
+            <li class="custom-link-right"><a href="search.html" target="_blank"> ¡Comprar Ahora!</a></li>
+            <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li>
+            <!-- Botón de Subir Artículo -->
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- Menú Principal Fin -->
     <!-- Contenedor de productos Ofertas -->
-    <div class="slider_container" style="display: contents;" >
+    <div class="slider_container" style="display: contents;">
       <ul>
         <li><img src="image/nuevo1.png" alt=""></li>
         <li><img src="image/nuevo2.png" alt=""></li>
@@ -296,16 +307,16 @@
     </div>
     <!-- Contenedor de productos ofertas fin -->
 
-      <!-- Contenedor de la lista de productos -->
-      <div class="container">
-        <h1>Lista de Productos</h1>
-        <div id="productos-lista"></div>
-      </div>
+    <!-- Contenedor de la lista de productos -->
+    <div class="container">
+      <h1>Lista de Productos</h1>
+      <div id="productos-lista"></div>
+    </div>
 
-      <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
-      <div class="container" id="comerciante-section" style="display: none;">
-        <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
-      </div>
+    <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
+    <div class="container" id="comerciante-section" style="display: none;">
+      <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
+    </div>
 
 
     <!-- Pie de Página Inicio -->
@@ -316,9 +327,11 @@
             <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
               <h5>Detalles de Contacto</h5>
               <ul>
-                <li class="address"><i class="fa fa-map-marker"></i> Central Square, 22 Hoi Wing Road, New Delhi, India</li>
+                <li class="address"><i class="fa fa-map-marker"></i> Central Square, 22 Hoi Wing Road, New Delhi, India
+                </li>
                 <li class="mobile"><i class="fa fa-phone"></i> +91 9898777656</li>
-                <li class="email"><i class="fa fa-envelope"></i> Enviar correo a través de nuestro <a href="contact-us.html">Contáctanos</a></li>
+                <li class="email"><i class="fa fa-envelope"></i> Enviar correo a través de nuestro <a
+                    href="contact-us.html">Contáctanos</a></li>
               </ul>
             </div>
             <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
@@ -338,6 +351,7 @@
                 <li><a href="sitemap.html">Mapa del Sitio</a></li>
               </ul>
             </div>
+            <!--
             <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
               <h5>Extras</h5>
               <ul>
@@ -347,11 +361,14 @@
                 <li><a href="#">Ofertas Especiales</a></li>
               </ul>
             </div>
+          -->
             <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
               <h5>Boletín Informativo</h5>
               <div class="form-group">
-                <label class="control-label" for="subscribe">Regístrate para recibir las últimas noticias y actualizaciones.</label>
-                <input id="signup" type="email" required="" placeholder="Dirección de correo electrónico" name="email" class="form-control">
+                <label class="control-label" for="subscribe">Regístrate para recibir las últimas noticias y
+                  actualizaciones.</label>
+                <input id="signup" type="email" required="" placeholder="Dirección de correo electrónico" name="email"
+                  class="form-control">
               </div>
               <input type="submit" value="Suscribirse" class="btn btn-primary">
             </div>
@@ -365,13 +382,20 @@
               <p>click Store © 2024</p>
             </div>
           </div>
+          <!--
           <div class="bottom-row">
             <div class="custom-text text-center">
-              <p>Este es un bloque CMS. Puedes insertar cualquier contenido (HTML, Texto, Imágenes) Aquí. Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500, cuando un impresor desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que también ingresó como texto de relleno en documentos electrónicos, sin cambios en su contenido.</p>
+              <p>Este es un bloque CMS. Puedes insertar cualquier contenido (HTML, Texto, Imágenes) Aquí. Lorem Ipsum es
+                simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de
+                relleno estándar de la industria desde el año 1500, cuando un impresor desconocido usó una galería de
+                textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500
+                años, sino que también ingresó como texto de relleno en documentos electrónicos, sin cambios en su
+                contenido.</p>
             </div>
             <div class="payments_types">
               <a href="#" target="_blank">
-                <img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express" title="American Express"></a>
+                <img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express"
+                  title="American Express"></a>
               <a href="#" target="_blank">
                 <img data-toggle="tooltip" src="image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a>
               <a href="#" target="_blank">
@@ -379,9 +403,11 @@
               <a href="#">
             </div>
           </div>
+        -->
         </div>
       </div>
-      <div id="back-top"><a data-toggle="tooltip" title="Volver Arriba" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
+      <div id="back-top"><a data-toggle="tooltip" title="Volver Arriba" href="javascript:void(0)" class="backtotop"><i
+            class="fa fa-chevron-up"></i></a></div>
     </footer>
     <!-- Pie de Página Fin -->
 
@@ -397,12 +423,12 @@
 
     <script>
       // Mostrar mensaje de inicio de sesión o registro exitoso
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         const params = new URLSearchParams(window.location.search);
         if (params.has('mensaje')) {
           alert(params.get('mensaje'));
         }
-  
+
         // Mostrar botón "Subir Artículo" si el usuario es comerciante
         const tipoUsuario = sessionStorage.getItem('tipoUsuario');
         if (tipoUsuario === 'comerciante') {
@@ -411,22 +437,22 @@
         }
         fetchProductos();
       });
-  
+
       function fetchProductos() {
         fetch('http://localhost:3000/api/productos')
           .then(response => response.json())
           .then(data => displayProductos(data))
           .catch(err => console.error('Error fetching productos:', err));
       }
-  
-    
+
+
       function displayProductos(productos) {
-    const container = document.getElementById('productos-lista');
-    container.innerHTML = '';
-    productos.forEach(producto => {
-        const item = document.createElement('div');
-        item.className = 'product-item';
-        item.innerHTML = `
+        const container = document.getElementById('productos-lista');
+        container.innerHTML = '';
+        productos.forEach(producto => {
+          const item = document.createElement('div');
+          item.className = 'product-item';
+          item.innerHTML = `
             <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion.substring(0, 60)}...</p>
@@ -441,79 +467,80 @@
             </div>
             <a href="product.html?id=${producto.id}" class="ver-mas">Ver más</a>
         `;
-        container.appendChild(item);
-    });
-}
+          container.appendChild(item);
+        });
+      }
 
 
-      document.addEventListener('DOMContentLoaded', function() {
-      const userId = 1; 
-      updateWishlistCount(userId);
-      updateCartCount(userId);
-    });
+      document.addEventListener('DOMContentLoaded', function () {
+        const userId = 1;
+        updateWishlistCount(userId);
+        updateCartCount(userId);
+      });
 
 
-// Función para actualizar el contador de la lista de deseos
-function updateWishlistCount(userId) {
-  fetch(`/api/wishlist/${userId}`)
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('wishlist-count').innerText = data.length;
-    })
-    .catch(error => console.error('Error:', error));
-}
+      // Función para actualizar el contador de la lista de deseos
+      function updateWishlistCount(userId) {
+        fetch(`/api/wishlist/${userId}`)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('wishlist-count').innerText = data.length;
+          })
+          .catch(error => console.error('Error:', error));
+      }
 
-// Función para actualizar el contador del carrito
-function updateCartCount(userId) {
-  fetch(`/api/cart/${userId}`)
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('cart-count').innerText = data.length;
-    })
-    .catch(error => console.error('Error:', error));
-}
+      // Función para actualizar el contador del carrito
+      function updateCartCount(userId) {
+        fetch(`/api/cart/${userId}`)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('cart-count').innerText = data.length;
+          })
+          .catch(error => console.error('Error:', error));
+      }
 
-// Llamar a estas funciones cuando se cargue la página
-document.addEventListener('DOMContentLoaded', function() {
-  const userId = 1; // Aquí debes poner el ID del usuario actual
-  updateWishlistCount(userId);
-  updateCartCount(userId);
-});
+      // Llamar a estas funciones cuando se cargue la página
+      document.addEventListener('DOMContentLoaded', function () {
+        const userId = 1; // Aquí debes poner el ID del usuario actual
+        updateWishlistCount(userId);
+        updateCartCount(userId);
+      });
 
-// Función para agregar un producto a la lista de deseos
-function addToWishlist(productId, userId) {
-  fetch('/api/wishlist', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ id_usuario: userId, id_producto: productId }),
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Producto agregado a la lista de deseos:', data);
-    updateWishlistCount(userId);
-  })
-  .catch(error => console.error('Error:', error));
-}
+      // Función para agregar un producto a la lista de deseos
+      function addToWishlist(productId, userId) {
+        fetch('/api/wishlist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id_usuario: userId, id_producto: productId }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Producto agregado a la lista de deseos:', data);
+            updateWishlistCount(userId);
+          })
+          .catch(error => console.error('Error:', error));
+      }
 
-// Función para agregar un producto al carrito
-function addToCart(productId, userId) {
-  fetch('/api/cart', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ id_usuario: userId, id_producto: productId }),
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Producto agregado al carrito:', data);
-    updateCartCount(userId);// Actualiza el contador después de agregar el producto
-  })
-  .catch(error => console.error('Error:', error));
-}
+      // Función para agregar un producto al carrito
+      function addToCart(productId, userId) {
+        fetch('/api/cart', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id_usuario: userId, id_producto: productId }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Producto agregado al carrito:', data);
+            updateCartCount(userId);// Actualiza el contador después de agregar el producto
+          })
+          .catch(error => console.error('Error:', error));
+      }
 
     </script>
-  </body>
-  </html>
+</body>
+
+</html>
