@@ -23,9 +23,7 @@
       padding: 10px;
       text-align: center;
       width: 250px;
-      /* Ancho fijo para todas las tarjetas */
       height: 420px;
-      /* Alto fijo para todas las tarjetas */
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       display: inline-block;
@@ -78,69 +76,73 @@
       width: 80%;
     }
 
-    .action-buttons {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-
-    .wishlist-button,
-    .cart-button {
-      background-color: #ffcc00;
-      border: none;
-      padding: 10px;
-      margin: 0 5px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .wishlist-button i,
-    .cart-button i {
-      color: white;
-      font-size: 18px;
-    }
-
-    .wishlist-button:hover,
-    .cart-button:hover {
-      background-color: #e6b800;
-      /* Un tono más oscuro al hacer hover */
-    }
-
-    .ver-mas {
-      margin-top: 10px;
-    }
-
-    .product-item {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-bottom: 20px;
-      padding: 10px;
-      text-align: center;
-      width: 250px;
-      /* Ancho fijo para todas las tarjetas */
-      height: 450px;
-      /* Ajusta el alto según sea necesario */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      display: inline-block;
-      vertical-align: top;
+    .search-bar {
       position: relative;
-      overflow: hidden;
+      z-index: 2;
     }
 
-    .product-item .ver-mas {
+    #autocomplete-list {
       position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #ff9900;
-      color: white;
-      border: none;
-      padding: 5px 10px;
+      top: 100%; /* Coloca el autocompletado debajo del campo de texto */
+      background: white;
+      border: 1px solid #ddd;
+      max-height: 300px;
+      overflow-y: auto;
+      width: 100%;
+      z-index: 1; /* Asegura que esté debajo del campo de texto */
+      margin-top: 5px;
+    }
+
+    .autocomplete-item {
+      padding: 10px;
+      display: flex;
+      align-items: center;
       cursor: pointer;
-      text-decoration: none;
-      width: 80%;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .autocomplete-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .autocomplete-item:hover {
+      background-color: #f0f0f0;
+    }
+
+    .autocomplete-item h4 {
+      font-size: 14px;
+      margin: 0;
+      flex: 1;
+    }
+
+    .autocomplete-item .price {
+      font-size: 14px;
+      color: #b12704;
+      margin-left: 10px;
+    }
+
+    /* Ajustes para la responsividad */
+    @media (max-width: 767px) {
+      .search-bar {
+        width: 100%;
+      }
+
+      #autocomplete-list {
+        max-height: 200px;
+        width: 100%;
+      }
+
+      .autocomplete-item h4 {
+        font-size: 12px;
+      }
+
+      .autocomplete-item img {
+        width: 40px;
+        height: 40px;
+      }
     }
   </style>
 </head>
@@ -150,8 +152,7 @@
     <!-- Inicio del encabezado -->
     <header class="header">
       <div class="logo">
-        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store"
-            alt="Click Store" /></a>
+        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
       </div>
       <div class="search-bar">
         <select>
@@ -161,10 +162,10 @@
           <option value="Ropa">Ropa</option>
           <option value="Automóviles">Automóviles</option>
           <option value="Belleza">Belleza</option>
-          <!-- Agregar más opciones -->
         </select>
-        <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
-        <button type="button" class="button-search"><i class="fa fa-search"></i></button>
+        <input id="filter_name" type="text" name="search" placeholder="Buscar Producto" oninput="filterProductos()" autocomplete="off"/>
+        <div id="autocomplete-list"></div>
+        <button type="button" class="button-search" onclick="performSearch()"><i class="fa fa-search"></i></button>
       </div>
       <div class="nav-links">
         <a href="login.html">Iniciar Sesión</a>
@@ -441,10 +442,12 @@
       function fetchProductos() {
         fetch('http://localhost:3000/api/productos')
           .then(response => response.json())
-          .then(data => displayProductos(data))
+          .then(data => {
+            displayProductos(data);
+            populateAutocomplete(data);
+          })
           .catch(err => console.error('Error fetching productos:', err));
       }
-
 
       function displayProductos(productos) {
         const container = document.getElementById('productos-lista');
@@ -471,13 +474,60 @@
         });
       }
 
+      function populateAutocomplete(productos) {
+        const list = document.getElementById('autocomplete-list');
+        list.innerHTML = ''; // Limpiar el contenido previo
+        if (productos.length === 0) {
+          list.style.display = 'none';
+          return;
+        }
+        productos.forEach(producto => {
+          const item = document.createElement('div');
+          item.className = 'autocomplete-item';
+          item.innerHTML = `
+            <img src="${producto.foto_url}" alt="${producto.nombre}">
+            <h4>${producto.nombre}</h4>
+            <span class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</span>
+          `;
+          item.addEventListener('click', () => {
+            document.getElementById('filter_name').value = producto.nombre;
+            list.style.display = 'none';
+            performSearch();
+          });
+          list.appendChild(item);
+        });
+        list.style.display = 'block'; // Mostrar el contenedor de resultados
+      }
+
+      function filterProductos() {
+        const query = document.getElementById('filter_name').value.toLowerCase();
+        if (query === "") {
+          document.getElementById('autocomplete-list').style.display = 'none';
+          return;
+        }
+        fetch('http://localhost:3000/api/productos')
+          .then(response => response.json())
+          .then(data => {
+            const filtered = data.filter(producto => producto.nombre.toLowerCase().includes(query));
+            populateAutocomplete(filtered);
+          })
+          .catch(err => console.error('Error filtering productos:', err));
+      }
+
+      function performSearch() {
+        const query = document.getElementById('filter_name').value.toLowerCase();
+        if (query) {
+          filterProductos();
+        } else {
+          fetchProductos();
+        }
+      }
 
       document.addEventListener('DOMContentLoaded', function () {
         const userId = 1;
         updateWishlistCount(userId);
         updateCartCount(userId);
       });
-
 
       // Función para actualizar el contador de la lista de deseos
       function updateWishlistCount(userId) {
@@ -539,6 +589,14 @@
           })
           .catch(error => console.error('Error:', error));
       }
+
+      // Cerrar sugerencias al hacer clic fuera de ellas
+      document.addEventListener('click', function (e) {
+        const target = e.target;
+        if (!target.closest('.search-bar')) {
+          document.getElementById('autocomplete-list').style.display = 'none';
+        }
+      });
 
     </script>
 </body>
