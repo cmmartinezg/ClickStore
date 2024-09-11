@@ -14,21 +14,97 @@
   <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
   <!-- CSS Parte Fin -->
+  <!-- Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .container-main {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .comerciante-recuadro {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      margin-right: 20px;
+      width: 300px;
+    }
+
+    .comerciante-recuadro h2 {
+      font-size: 22px;
+      color: #ff9900;
+    }
+
+    .comerciante-recuadro p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .dashboard-item {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #f8f9fa;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-item h4 {
+      font-size: 18px;
+      color: #ff9500;
+      margin-bottom: 5px;
+    }
+
+    .dashboard-item p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .product-list {
+      flex: 1;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .product-list h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ff9500;
+    }
+
     .product-item {
       border: 1px solid #ddd;
-      border-radius: 5px;
+      border-radius: 10px;
       margin-bottom: 20px;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
       width: 250px;
       height: 420px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background-color: #fff;
       display: inline-block;
       vertical-align: top;
       position: relative;
       overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
     .product-image {
@@ -36,10 +112,11 @@
       height: 150px;
       object-fit: cover;
       margin-bottom: 10px;
+      border-radius: 10px;
     }
 
     .product-item h3 {
-      font-size: 16px;
+      font-size: 18px;
       height: 40px;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -57,8 +134,9 @@
 
     .product-item .price {
       font-size: 18px;
-      color: #b12704;
+      color: #28a745;
       margin-top: 10px;
+      font-weight: bold;
     }
 
     .product-item .ver-mas {
@@ -66,13 +144,18 @@
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #ff9900;
+      background-color: #ff9d00;
       color: white;
       border: none;
-      padding: 5px 10px;
+      padding: 8px 15px;
       cursor: pointer;
       text-decoration: none;
-      width: 80%;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .product-item .ver-mas:hover {
+      background-color: #b37a00;
     }
 
     #subir-producto-btn {
@@ -80,6 +163,8 @@
       color: white;
       margin-bottom: 20px;
       transition: background-color 0.3s ease;
+      border-radius: 5px;
+      padding: 10px 20px;
     }
 
     #subir-producto-btn:hover {
@@ -89,11 +174,63 @@
     .nav-links {
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     .nav-links .comerciante-info {
-      margin-right: 20px;
+      font-size: 16px;
+      color: #555;
       font-weight: bold;
+    }
+
+    footer {
+      background-color: #ff9100;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      margin-top: 30px;
+    }
+
+    h2 {
+      color: #ff7700;
+    }
+
+    .chart-container {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+    }
+
+    .dashboard-charts {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    .chart-box {
+      width: 48%;
+    }
+
+    canvas {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -129,12 +266,43 @@
       <button id="subir-producto-btn" class="btn btn-success" onclick="redirigirAProductos()">Subir Artículo</button>
     </div>
 
-    <!-- Contenedor de la lista de productos -->
-    <div class="container">
-      <h1>Mis Productos</h1>
-      <div id="productos-lista"></div>
+    <!-- Contenedor principal con comerciante y productos -->
+    <div class="container-main">
+      <!-- Información del Comerciante -->
+      <div class="comerciante-recuadro">
+        <h2>Información del Comerciante</h2>
+        <div id="comerciante-info"></div>
+
+        <!-- Dashboard del Comerciante -->
+        <div class="dashboard-item">
+          <h4>Total de Productos</h4>
+          <p id="total-productos"></p>
+        </div>
+        <div class="dashboard-item">
+          <h4>Producto más Caro</h4>
+          <p id="producto-mas-caro"></p>
+        </div>
+      </div>
+
+      <!-- Contenedor de la lista de productos -->
+      <div class="product-list">
+        <h1>Mis Productos</h1>
+        <div id="productos-lista"></div>
+      </div>
     </div>
-    
+
+    <!-- Gráficos de ventas -->
+    <div class="dashboard-charts container">
+      <div class="chart-box">
+        <h2>Artículos Más Vendidos</h2>
+        <canvas id="topProductsChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <h2>Ventas Mensuales</h2>
+        <canvas id="monthlySalesChart"></canvas>
+      </div>
+    </div>
+
     <!-- Nueva Sección de Recomendaciones -->
     <div class="container">
       <h2>Tal vez te pueda interesar subir estos artículos similares</h2>
@@ -178,9 +346,8 @@
 
     <!-- Pie de Página Inicio -->
     <footer id="footer">
-      <!-- Contenido del pie de página aquí -->
+      <p>&copy; 2024 Click Store | <a href="index.html">Inicio</a> | <a href="contact.html">Contacto</a></p>
     </footer>
-    <!-- Pie de Página Fin -->
 
     <!-- Parte JS Inicio -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -189,6 +356,7 @@
     <script src="js/api.js"></script>
     <!-- Parte JS Fin -->
 
+    <!-- Simulación de gráficos con Chart.js -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const nombreComerciante = sessionStorage.getItem('nombre');
@@ -199,6 +367,8 @@
         }
   
         fetchProductos(); // Cargar los productos del comerciante
+        fetchComercianteInfo(); // Cargar la información del comerciante
+        fetchRecomendaciones(); // Cargar las recomendaciones
   
         document.getElementById('logout-btn').addEventListener('click', function() {
           sessionStorage.removeItem('nombre');
@@ -207,14 +377,78 @@
           window.location.href = 'login.html';
         });
       });
-  
+
+      // Función para simular gráficos con datos reales de los productos
+      function simularGraficos(productos) {
+        // Extraer nombres y simular datos de ventas de los productos
+        const nombresProductos = productos.map(p => p.nombre);
+        const ventasSimuladas = productos.map(() => Math.floor(Math.random() * 30) + 5); // Simular ventas entre 5 y 35
+
+        // Gráfico de Artículos Más Vendidos
+        const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
+        const topProductsChart = new Chart(topProductsCtx, {
+          type: 'bar',
+          data: {
+            labels: nombresProductos,
+            datasets: [{
+              label: 'Ventas',
+              data: ventasSimuladas,
+              backgroundColor: '#ff9900'
+            }]
+          }
+        });
+
+        // Gráfico de Ventas Mensuales
+        const monthlySalesCtx = document.getElementById('monthlySalesChart').getContext('2d');
+        const ventasMensuales = Array.from({ length: 6 }, () => Math.floor(Math.random() * 50000) + 50000); // Simular ventas mensuales
+        const monthlySalesChart = new Chart(monthlySalesCtx, {
+          type: 'line',
+          data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+            datasets: [{
+              label: 'Ventas en ₲',
+              data: ventasMensuales,
+              backgroundColor: 'rgba(255, 153, 0, 0.2)',
+              borderColor: '#ff9900',
+              borderWidth: 2
+            }]
+          }
+        });
+      }
+
       // Función para obtener los productos del comerciante
       function fetchProductos() {
         const comercianteId = sessionStorage.getItem('Id');
         fetch(`http://localhost:3000/api/productos?comercianteId=${comercianteId}`)
           .then(response => response.json())
-          .then(data => displayProductos(data))
+          .then(data => {
+            displayProductos(data);
+            actualizarDashboard(data);
+            simularGraficos(data); // Simular gráficos con los productos obtenidos
+          })
           .catch(err => console.error('Error fetching productos:', err));
+      }
+
+      // Función para obtener la información del comerciante
+      function fetchComercianteInfo() {
+        const comercianteId = sessionStorage.getItem('Id');
+        fetch(`http://localhost:3000/api/comerciantes/${comercianteId}`)
+          .then(response => response.json())
+          .then(data => displayComercianteInfo(data))
+          .catch(err => console.error('Error fetching comerciante info:', err));
+      }
+
+      // Mostrar información del comerciante
+      function displayComercianteInfo(comerciante) {
+        const comercianteInfo = document.getElementById('comerciante-info');
+        comercianteInfo.innerHTML = `
+          <h3>${comerciante.nombre}</h3>
+          <p><strong>Email:</strong> ${comerciante.email}</p>
+          <p><strong>Dirección:</strong> ${comerciante.direccion}</p>
+          <p><strong>Teléfono:</strong> ${comerciante.telefono}</p>
+          <p><strong>Descripción:</strong> ${comerciante.descripcion}</p>
+          <p><strong>Enlace a la tienda:</strong> <a href="${comerciante.enlace_tienda}" target="_blank">${comerciante.enlace_tienda}</a></p>
+        `;
       }
   
       // Mostrar productos en la página
@@ -234,6 +468,15 @@
           container.appendChild(item);
         });
       }
+
+      // Actualizar el dashboard del comerciante
+      function actualizarDashboard(productos) {
+        const totalProductos = productos.length;
+        const productoMasCaro = productos.reduce((max, producto) => producto.precio > max.precio ? producto : max, productos[0]);
+
+        document.getElementById('total-productos').textContent = totalProductos;
+        document.getElementById('producto-mas-caro').textContent = `${productoMasCaro.nombre} - ₲${Number(productoMasCaro.precio).toLocaleString('es-PY')}`;
+      }
   
       // Función para editar producto
       function editarProducto(id) {
@@ -249,36 +492,7 @@
           })
           .catch(err => console.error('Error al cargar producto para editar:', err));
       }
-  
-      // Función para guardar cambios en el producto
-      function guardarCambiosProducto() {
-        const productoId = document.getElementById('producto-id').value;
-        const data = {
-          nombre: document.getElementById('producto-nombre').value,
-          descripcion: document.getElementById('producto-descripcion').value,
-          precio: document.getElementById('producto-precio').value,
-          foto_url: document.getElementById('producto-foto').value,
-          id_comerciante: sessionStorage.getItem('Id')
-        };
-  
-        fetch(`http://localhost:3000/api/productos/${productoId}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-        .then(response => {
-          if (response.ok) {
-            $('#editarProductoModal').modal('hide');
-            fetchProductos(); // Recargar los productos
-          } else {
-            alert('Error al guardar los cambios');
-          }
-        })
-        .catch(err => console.error('Error guardando producto:', err));
-      }
-  
+
       // Función para eliminar producto
       function eliminarProducto() {
         const productoId = document.getElementById('producto-id').value;
@@ -299,6 +513,32 @@
   
       function redirigirAProductos() {
         window.location.href = 'productos.html';
+      }
+
+      // Obtener recomendaciones
+      function fetchRecomendaciones() {
+        const comercianteId = sessionStorage.getItem('Id');
+        fetch(`http://localhost:3000/api/productos/recomendaciones?comercianteId=${comercianteId}`)
+          .then(response => response.json())
+          .then(data => displayRecomendaciones(data))
+          .catch(err => console.error('Error fetching recomendaciones:', err));
+      }
+
+      // Mostrar recomendaciones
+      function displayRecomendaciones(recomendaciones) {
+        const container = document.getElementById('recomendaciones-lista');
+        container.innerHTML = '';
+        recomendaciones.forEach(producto => {
+          const item = document.createElement('div');
+          item.className = 'product-item';
+          item.innerHTML = `
+            <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion.substring(0, 60)}...</p>
+            <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+          `;
+          container.appendChild(item);
+        });
       }
     </script>
     
