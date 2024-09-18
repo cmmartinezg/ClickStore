@@ -16,6 +16,13 @@
   <!-- CSS Parte Fin -->
   <!-- Chart.js library -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <!-- Axios library -->
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+   <!-- jQuery script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Owl Carousel script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
@@ -232,6 +239,75 @@
       padding: 20px;
       border-radius: 10px;
     }
+
+#productos-recomendados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.producto {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 200px;
+  text-align: center;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.producto img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.producto p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+.producto .precio {
+  font-size: 16px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.producto .calificacion {
+  font-size: 14px;
+  color: #666;
+}
+ 
+.ver-mas {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff9d00; 
+  color: white; 
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.ver-mas:hover {
+  background-color: #b37a00;
+}
+
+
   </style>
 </head>
 
@@ -288,9 +364,14 @@
       <!-- Contenedor de la lista de productos -->
       <div class="product-list">
         <h1>Mis Productos</h1>
-        <div id="productos-lista"></div>
-      </div>
-    </div>
+        <div id="productos-lista"> </div>
+
+          <!--Recomendaciones -->
+          <div class="product-list">
+            <h1>Tal vez te pueda interesar subir estos artículos similares</h1>
+            <div class="container-main" id="productos-recomendados"></div>
+        </div>
+ </div>
 
     <!-- Gráficos de ventas -->
     <div class="dashboard-charts container">
@@ -304,12 +385,7 @@
       </div>
     </div>
 
-    <!-- Nueva Sección de Recomendaciones -->
-    <div class="container">
-      <h2>Tal vez te pueda interesar subir estos artículos similares</h2>
-      <div id="recomendaciones-lista" class="owl-carousel owl-theme"></div>
-    </div>
-    
+  
     <!-- Modal para editar producto -->
     <div class="modal fade" id="editarProductoModal" tabindex="-1" role="dialog" aria-labelledby="editarProductoModalLabel">
       <div class="modal-dialog" role="document">
@@ -344,6 +420,40 @@
         </div>
       </div>
     </div>
+<!-- Modal para Agregar Producto en Recomendaciones-->
+<div class="modal fade" id="agregarProductoModal" tabindex="-1" role="dialog" aria-labelledby="agregarProductoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="agregarProductoModalLabel">Agregar Producto</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="nuevo-producto-id">
+        <div class="form-group">
+          <label for="nuevo-producto-nombre">Nombre del Producto</label>
+          <input type="text" class="form-control" id="nuevo-producto-nombre">
+        </div>
+        <div class="form-group">
+          <label for="nuevo-producto-descripcion">Descripción</label>
+          <textarea class="form-control" id="nuevo-producto-descripcion"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="nuevo-producto-precio">Precio</label>
+          <input type="number" class="form-control" id="nuevo-producto-precio">
+        </div>
+        <div class="form-group">
+          <label for="nuevo-producto-foto">URL de la Foto</label>
+          <input type="text" class="form-control" id="nuevo-producto-foto">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="agregarProducto()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <!-- Pie de Página Inicio -->
     <footer id="footer">
@@ -369,7 +479,6 @@
   
         fetchProductos(); // Cargar los productos del comerciante
         fetchComercianteInfo(); // Cargar la información del comerciante
-        fetchRecomendaciones(); // Cargar las recomendaciones
   
         document.getElementById('logout-btn').addEventListener('click', function() {
           sessionStorage.removeItem('nombre');
@@ -516,31 +625,87 @@
         window.location.href = 'productos.html';
       }
 
-      // Obtener recomendaciones
-      function fetchRecomendaciones() {
-        const comercianteId = sessionStorage.getItem('Id');
-        fetch(`http://localhost:3000/api/productos/recomendaciones?comercianteId=${comercianteId}`)
-          .then(response => response.json())
-          .then(data => displayRecomendaciones(data))
-          .catch(err => console.error('Error fetching recomendaciones:', err));
-      }
+  
+      // URL de tu API de recomendaciones
+      document.addEventListener('DOMContentLoaded', function() {
+              // Realiza la solicitud para obtener recomendaciones
+              axios.get('http://127.0.0.1:5000/recomendaciones')
+                  .then(response => {
+                      const recomendaciones = response.data;
+                      mostrarRecomendaciones(recomendaciones);
+                  })
+                  .catch(error => {
+                      console.error('Error al cargar recomendaciones:', error);
+                  });
 
-      // Mostrar recomendaciones
-      function displayRecomendaciones(recomendaciones) {
-        const container = document.getElementById('recomendaciones-lista');
-        container.innerHTML = '';
-        recomendaciones.forEach(producto => {
-          const item = document.createElement('div');
-          item.className = 'product-item';
-          item.innerHTML = `
-            <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
-            <h3>${producto.nombre}</h3>
-            <p>${producto.descripcion.substring(0, 60)}...</p>
-            <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
-          `;
-          container.appendChild(item);
+        // Función para mostrar las recomendaciones en el contenedor
+    function mostrarRecomendaciones(recomendaciones) {
+        const contenedor = document.getElementById('productos-recomendados');
+        contenedor.innerHTML = ''; // Limpia el contenedor
+
+        recomendaciones.forEach(recomendacion => {
+            const productoDiv = document.createElement('div');
+            productoDiv.classList.add('product-item'); // Asegura que tenga la clase correcta
+
+            // Crea la estructura HTML para cada producto recomendado
+            productoDiv.innerHTML = `
+                <img src="${recomendacion.foto_url}" alt="${recomendacion.nombre}" class="product-image">
+                <h3>${recomendacion.nombre}</h3>
+                <p>${recomendacion.descripcion}</p>
+                <p class="price">Precio: ₲${Number(recomendacion.precio).toLocaleString('es-PY')}</p>
+                <button class="ver-mas" onclick='mostrarAgregarProductoModal(${JSON.stringify(recomendacion)})'>Agregar Producto</button>
+            `;
+
+            // Añade cada producto al contenedor
+            contenedor.appendChild(productoDiv);
         });
-      }
+    }
+
+            // Función para manejar el clic en "Agregar Producto"
+            function agregarProducto(productoId) {
+                // Lógica para agregar el producto
+                alert(`Producto con ID ${productoId} agregado.`);
+            }
+
+        });
+            
+            // Función para mostrar el modal de agregar producto con los datos del producto seleccionado
+        function mostrarAgregarProductoModal(producto) {
+          // Asignar los valores del producto a los campos del modal
+          document.getElementById('nuevo-producto-id').value = producto.id; // Asumiendo que 'producto.id' es el identificador
+          document.getElementById('nuevo-producto-nombre').value = producto.nombre;
+          document.getElementById('nuevo-producto-descripcion').value = producto.descripcion;
+          document.getElementById('nuevo-producto-precio').value = producto.precio;
+          document.getElementById('nuevo-producto-foto').value = producto.foto_url;
+
+          // Mostrar el modal
+          $('#agregarProductoModal').modal('show');
+        }
+
+        // Función para agregar (o modificar) un producto
+        function agregarProducto() {
+        const nombre = document.getElementById('nuevo-producto-nombre').value;
+        const descripcion = document.getElementById('nuevo-producto-descripcion').value;
+        const precio = document.getElementById('nuevo-producto-precio').value;
+        const fotoUrl = document.getElementById('nuevo-producto-foto').value;
+
+        axios.post('http://127.0.0.1:5000/api/productos', {
+            nombre: nombre,
+            descripcion: descripcion,
+            precio: precio,
+            foto_url: fotoUrl
+        })
+        .then(response => {
+            alert('Producto registrado exitosamente');
+            // Aquí puedes actualizar la lista de productos o cerrar el modal
+        })
+        .catch(error => {
+            console.error('Error al registrar el producto:', error);
+            alert('Hubo un error al registrar el producto');
+        });
+    }
+
+
     </script>
     
   </div>
