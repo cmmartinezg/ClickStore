@@ -683,27 +683,38 @@
         }
 
         // Función para agregar (o modificar) un producto
-        function agregarProducto() {
-        const nombre = document.getElementById('nuevo-producto-nombre').value;
-        const descripcion = document.getElementById('nuevo-producto-descripcion').value;
-        const precio = document.getElementById('nuevo-producto-precio').value;
-        const fotoUrl = document.getElementById('nuevo-producto-foto').value;
+function agregarProducto() {
+    // Obtener los valores de los campos del formulario
+    const nombre = document.getElementById('nuevo-producto-nombre').value;
+    const descripcion = document.getElementById('nuevo-producto-descripcion').value;
+    const precio = document.getElementById('nuevo-producto-precio').value;
+    const fotoUrl = document.getElementById('nuevo-producto-foto').value;
+    const comercianteId = sessionStorage.getItem('Id'); // Obtener el ID del comerciante desde sessionStorage
 
-        axios.post('http://127.0.0.1:5000/api/productos', {
-            nombre: nombre,
-            descripcion: descripcion,
-            precio: precio,
-            foto_url: fotoUrl
-        })
-        .then(response => {
-            alert('Producto registrado exitosamente');
-            // Aquí puedes actualizar la lista de productos o cerrar el modal
-        })
-        .catch(error => {
-            console.error('Error al registrar el producto:', error);
-            alert('Hubo un error al registrar el producto');
-        });
+    // Validar que todos los campos estén completos
+    if (!nombre || !descripcion || !precio || !fotoUrl || !comercianteId) {
+        alert('Por favor completa todos los campos antes de agregar el producto.');
+        return;
     }
+
+    // Realizar la solicitud POST para agregar el producto
+    axios.post('http://127.0.0.1:3000/api/productos', {
+        nombre: nombre,
+        descripcion: descripcion,
+        precio: parseFloat(precio), // Asegurar que el precio sea un número
+        id_comerciante: comercianteId, // Enviar el ID del comerciante
+        foto_url: fotoUrl
+    })
+    .then(response => {
+        alert('Producto registrado exitosamente');
+        $('#agregarProductoModal').modal('hide'); // Cerrar el modal
+        // Puedes actualizar la lista de productos o redirigir al comerciante
+    })
+    .catch(error => {
+        console.error('Error al registrar el producto:', error);
+        alert('Hubo un error al registrar el producto');
+    });
+}
 
 
     </script>
