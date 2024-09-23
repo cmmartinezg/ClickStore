@@ -20,7 +20,10 @@
    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
    <!-- jQuery script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Owl Carousel script -->
+<!-- Owl Carousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<!-- Owl Carousel JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
   <style>
@@ -96,6 +99,7 @@
       border: 1px solid #ddd;
       border-radius: 10px;
       margin-bottom: 20px;
+      margin-right: 25px;
       padding: 15px;
       text-align: center;
       width: 250px;
@@ -166,16 +170,16 @@
     }
 
     #subir-producto-btn {
-      background-color: #28a745;
-      color: white;
+      background-color: #ff9d00;
+      color: rgb(247, 247, 246);
       margin-bottom: 20px;
       transition: background-color 0.3s ease;
-      border-radius: 5px;
+      border-radius: 9px;
       padding: 10px 20px;
     }
 
     #subir-producto-btn:hover {
-      background-color: #218838;
+      background-color: #cd2a2a;
     }
 
     .nav-links {
@@ -246,6 +250,8 @@
   gap: 20px;
   justify-content: center;
   margin-top: 20px;
+  max-width: 100%; 
+
 }
 
 .producto {
@@ -257,6 +263,7 @@
   transition: transform 0.3s, box-shadow 0.3s;
   width: 200px;
   text-align: center;
+  margin-right: 10px; 
 }
 
 .producto:hover {
@@ -307,7 +314,44 @@
   background-color: #b37a00;
 }
 
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%; 
+}
 
+.filter-container input.form-control {
+  width: 400px; 
+  max-width: 100%;
+  margin-right: 20px; 
+}
+
+.filter-container .sort-container {
+  display: flex;
+  align-items: center;
+}
+
+.filter-container .sort-container label {
+  margin-right: 10px;
+}
+
+.filter-container .sort-container select {
+  width: 200px;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column; 
+    align-items: stretch; 
+  }
+
+  .filter-container input.form-control,
+  .filter-container .sort-container select {
+    width: 100%; 
+  }
+}
   </style>
 </head>
 
@@ -338,11 +382,6 @@
     </header>
     <!-- Encabezado End -->
 
-    <!-- Botón de Subir Artículo -->
-    <div class="container text-right">
-      <button id="subir-producto-btn" class="btn btn-success" onclick="redirigirAProductos()">Subir Artículo</button>
-    </div>
-
     <!-- Contenedor principal con comerciante y productos -->
     <div class="container-main">
       <!-- Información del Comerciante -->
@@ -359,18 +398,42 @@
           <h4>Producto más Caro</h4>
           <p id="producto-mas-caro"></p>
         </div>
+        <div class="dashboard-item">
+          <h4>Total de Productos Similares</h4>
+          <p id="total-productos-similares"></p> 
+        </div>
       </div>
 
       <!-- Contenedor de la lista de productos -->
       <div class="product-list">
+        <!-- Botón de Subir Artículo -->
+        <div class="container text-right">
+          <button id="subir-producto-btn" class="btn btn-success" onclick="redirigirAProductos()">Subir Artículo</button>
+        </div>
         <h1>Mis Productos</h1>
-        <div id="productos-lista"> </div>
+          <!-- Filtros -->
+          <div class="filter-container">
+            <input type="text" id="search-bar" placeholder="Buscar producto..." class="form-control" onkeyup="filtrarProductos()">
+          
+            <div class="sort-container">
+              <label for="ordenar">Ordenar por:</label>
+              <select id="ordenar" class="form-control" onchange="ordenarProductos()">
+                <option value="nombre">Nombre</option>
+                <option value="precio-asc">Precio: Menor a Mayor</option>
+                <option value="precio-desc">Precio: Mayor a Menor</option>
+              </select>
+            </div>
+          </div>
+          
 
+
+        <div id="productos-lista"> 
+        </div>
           <!--Recomendaciones -->
           <div class="product-list">
             <h1>Tal vez te pueda interesar subir estos artículos similares</h1>
-            <div class="container-main" id="productos-recomendados"></div>
-        </div>
+            <div id="productos-recomendados"></div>
+      </div>
  </div>
 
     <!-- Gráficos de ventas -->
@@ -586,6 +649,7 @@
 
         document.getElementById('total-productos').textContent = totalProductos;
         document.getElementById('producto-mas-caro').textContent = `${productoMasCaro.nombre} - ₲${Number(productoMasCaro.precio).toLocaleString('es-PY')}`;
+
       }
   
       // Función para editar producto
@@ -625,7 +689,23 @@
         window.location.href = 'productos.html';
       }
 
-  
+  // Función para mostrar la cantidad de productos similares recomendados
+function mostrarTotalProductosSimilares(recomendaciones) {
+    const totalProductosSimilares = recomendaciones.length;
+
+    // Actualizar el texto del contenedor de productos similares
+    document.getElementById('total-productos-similares').textContent = totalProductosSimilares;
+}
+
+axios.get('http://127.0.0.1:5000/recomendaciones')
+    .then(response => {
+        const recomendaciones = response.data;
+        mostrarTotalProductosSimilares(recomendaciones); // Llamar a la función para actualizar el total
+    })
+    .catch(error => {
+        console.error('Error al cargar recomendaciones:', error);
+    });
+
       // URL de tu API de recomendaciones
       document.addEventListener('DOMContentLoaded', function() {
               // Realiza la solicitud para obtener recomendaciones
@@ -638,28 +718,35 @@
                       console.error('Error al cargar recomendaciones:', error);
                   });
 
-        // Función para mostrar las recomendaciones en el contenedor
-    function mostrarRecomendaciones(recomendaciones) {
-        const contenedor = document.getElementById('productos-recomendados');
-        contenedor.innerHTML = ''; // Limpia el contenedor
+        // Función para mostrar las recomendaciones en el contenedor con un límite de productos
+        function mostrarRecomendaciones(recomendaciones) {
+            const contenedor = document.getElementById('productos-recomendados');
+            contenedor.innerHTML = ''; // Limpia el contenedor
 
-        recomendaciones.forEach(recomendacion => {
-            const productoDiv = document.createElement('div');
-            productoDiv.classList.add('product-item'); // Asegura que tenga la clase correcta
+            // Limitar el número de recomendaciones
+            const limite = 6;
+            const recomendacionesLimitadas = recomendaciones.slice(0, limite);
 
-            // Crea la estructura HTML para cada producto recomendado
-            productoDiv.innerHTML = `
-                <img src="${recomendacion.foto_url}" alt="${recomendacion.nombre}" class="product-image">
-                <h3>${recomendacion.nombre}</h3>
-                <p>${recomendacion.descripcion}</p>
-                <p class="price">Precio: ₲${Number(recomendacion.precio).toLocaleString('es-PY')}</p>
-                <button class="ver-mas" onclick='mostrarAgregarProductoModal(${JSON.stringify(recomendacion)})'>Agregar Producto</button>
-            `;
+            // Actualizar el contador de productos similares
+            document.getElementById('total-productos-similares').textContent = recomendacionesLimitadas.length;
 
-            // Añade cada producto al contenedor
-            contenedor.appendChild(productoDiv);
-        });
-    }
+            recomendacionesLimitadas.forEach(recomendacion => {
+                const productoDiv = document.createElement('div');
+                productoDiv.classList.add('product-item'); // Asegura que tenga la clase correcta
+
+                // Crea la estructura HTML para cada producto recomendado
+                productoDiv.innerHTML = `
+                    <img src="${recomendacion.foto_url}" alt="${recomendacion.nombre}" class="product-image">
+                    <h3>${recomendacion.nombre}</h3>
+                    <p>${recomendacion.descripcion}</p>
+                    <p class="price">Precio: ₲${Number(recomendacion.precio).toLocaleString('es-PY')}</p>
+                    <button class="ver-mas" onclick='mostrarAgregarProductoModal(${JSON.stringify(recomendacion)})'>Agregar Producto</button>
+                `;
+
+                // Añade cada producto al contenedor
+                contenedor.appendChild(productoDiv);
+            });
+        }
 
             // Función para manejar el clic en "Agregar Producto"
             function agregarProducto(productoId) {
@@ -715,7 +802,54 @@ function agregarProducto() {
         alert('Hubo un error al registrar el producto');
     });
 }
+function filtrarProductos() { 
+  const searchQuery = document.getElementById('search-bar').value.toLowerCase();
+  const productos = document.querySelectorAll('.product-item');
 
+  productos.forEach(producto => {
+    const nombreProducto = producto.querySelector('h3').textContent.toLowerCase();
+    if (nombreProducto.includes(searchQuery)) {
+      producto.style.display = 'inline-block'; // Mantener el estilo original
+    } else {
+      producto.style.display = 'none'; // Ocultar el producto
+    }
+  });
+}
+
+
+function ordenarProductos() {
+  const ordenarPor = document.getElementById('ordenar').value;
+  const listaProductos = document.getElementById('productos-lista');
+  const productos = Array.from(listaProductos.getElementsByClassName('product-item'));
+
+  let productosOrdenados;
+
+  if (ordenarPor === 'nombre') {
+    productosOrdenados = productos.sort((a, b) => {
+      const nombreA = a.querySelector('h3').textContent.toLowerCase();
+      const nombreB = b.querySelector('h3').textContent.toLowerCase();
+      return nombreA.localeCompare(nombreB);
+    });
+  } else if (ordenarPor === 'precio-asc') {
+    productosOrdenados = productos.sort((a, b) => {
+      const precioA = parseFloat(a.querySelector('.price').textContent.replace('₲', '').replace(/\./g, ''));
+      const precioB = parseFloat(b.querySelector('.price').textContent.replace('₲', '').replace(/\./g, ''));
+      return precioA - precioB;
+    });
+  } else if (ordenarPor === 'precio-desc') {
+    productosOrdenados = productos.sort((a, b) => {
+      const precioA = parseFloat(a.querySelector('.price').textContent.replace('₲', '').replace(/\./g, ''));
+      const precioB = parseFloat(b.querySelector('.price').textContent.replace('₲', '').replace(/\./g, ''));
+      return precioB - precioA;
+    });
+  }
+
+  // Limpiar y agregar productos ordenados al contenedor
+  listaProductos.innerHTML = '';
+  productosOrdenados.forEach(producto => {
+    listaProductos.appendChild(producto);
+  });
+}
 
     </script>
     
