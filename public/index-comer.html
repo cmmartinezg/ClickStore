@@ -360,21 +360,8 @@
     <!-- Inicio del encabezado --> 
     <header class="header">
       <div class="logo">
-        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+        <a><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
       </div>
-      <!--
-      <div class="search-bar">
-        <select>
-          <option value="Todos">Todos</option>
-          <option value="Electrónica">Electrónica</option>
-          <option value="Informática">Informática</option>
-          <option value="Ropa">Ropa</option>
-          <option value="Automóviles">Automóviles</option>
-          <option value="Belleza">Belleza</option>
-        </select>
-        <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
-        <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-      </div>-->
       <div class="nav-links">
         <span id="nombre-comerciante" class="comerciante-info"></span>
         <a href="#" id="logout-btn">Cerrar Sesión</a>
@@ -517,7 +504,6 @@
   </div>
 </div>
 
-
     <!-- Pie de Página Inicio -->
     <footer id="footer">
       <p>&copy; 2024 Click Store | <a href="index.html">Inicio</a> | <a href="contact.html">Contacto</a></p>
@@ -535,7 +521,8 @@
       document.addEventListener('DOMContentLoaded', function() {
         const nombreComerciante = sessionStorage.getItem('nombre');
         if (nombreComerciante) {
-          document.getElementById('nombre-comerciante').textContent = `Bienvenido, ${nombreComerciante}`;
+
+          document.getElementById('nombre-comerciante').innerHTML = `<span style="color: white;">Hola ${nombreComerciante}</span>`;
         } else {
           window.location.href = 'login.html';
         }
