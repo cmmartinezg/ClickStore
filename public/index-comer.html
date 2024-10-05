@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Click Store - Página del Comerciante</title>
+  <title>Click Store - Panel del Comerciante</title>
   <!-- CSS Parte Inicio -->
   <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
@@ -11,32 +12,79 @@
   <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
   <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-  <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
+  <link rel="stylesheet" type="text/css" href="css/estilop.css" />
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
   <!-- CSS Parte Fin -->
   <!-- Chart.js library -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   <!-- Axios library -->
-   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
-   <!-- jQuery script -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Owl Carousel CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-<!-- Owl Carousel JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!-- Axios library -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- jQuery script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <!-- Owl Carousel JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
   <style>
+    /* Variables de colores para fácil modificación */
+    :root {
+      --primary-color: #ff6f61;
+      --secondary-color: #ff9e80;
+      --text-color: #333;
+      --background-color: #f9f9f9;
+      --font-family: 'Open Sans', sans-serif;
+    }
+
     body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      font-family: var(--font-family);
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .logo img {
+      max-width: 180px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links .comerciante-info {
+      font-size: 16px;
+      color: var(--text-color);
+      font-weight: bold;
+      margin-right: 20px;
+    }
+
+    .nav-links a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
     }
 
     .container-main {
       display: flex;
       flex-wrap: wrap;
-      margin-top: 20px;
+      margin: 20px;
     }
 
     .comerciante-recuadro {
@@ -50,8 +98,9 @@
     }
 
     .comerciante-recuadro h2 {
-      font-size: 22px;
-      color: #ff9900;
+      font-size: 24px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
     }
 
     .comerciante-recuadro p {
@@ -65,20 +114,20 @@
       padding: 15px;
       border: 1px solid #ddd;
       border-radius: 10px;
-      background-color: #f8f9fa;
+      background-color: #fff7f5;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .dashboard-item h4 {
       font-size: 18px;
-      color: #ff9500;
+      color: var(--primary-color);
       margin-bottom: 5px;
     }
 
     .dashboard-item p {
       font-size: 16px;
-      color: #333;
+      color: var(--text-color);
     }
 
     .product-list {
@@ -87,30 +136,31 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 20px;
+      margin-top: 20px;
     }
 
     .product-list h1 {
-      font-size: 24px;
+      font-size: 28px;
       margin-bottom: 20px;
-      color: #ff9500;
+      color: var(--primary-color);
     }
 
     .product-item {
       border: 1px solid #ddd;
       border-radius: 10px;
       margin-bottom: 20px;
-      margin-right: 25px;
       padding: 15px;
       text-align: center;
       width: 250px;
       height: 420px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       background-color: #fff;
       display: inline-block;
       vertical-align: top;
       position: relative;
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-right: 15px;
     }
 
     .product-item:hover {
@@ -132,6 +182,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      color: var(--text-color);
     }
 
     .product-item p {
@@ -155,7 +206,7 @@
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #ff9d00;
+      background-color: var(--primary-color);
       color: white;
       border: none;
       padding: 8px 15px;
@@ -166,42 +217,32 @@
     }
 
     .product-item .ver-mas:hover {
-      background-color: #b37a00;
+      background-color: #e65b54;
     }
 
     #subir-producto-btn {
-      background-color: #ff9d00;
-      color: rgb(247, 247, 246);
+      background-color: var(--primary-color);
+      color: #fff;
       margin-bottom: 20px;
       transition: background-color 0.3s ease;
-      border-radius: 9px;
+      border-radius: 5px;
       padding: 10px 20px;
+      border: none;
     }
 
     #subir-producto-btn:hover {
-      background-color: #cd2a2a;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-links .comerciante-info {
-      font-size: 16px;
-      color: #555;
-      font-weight: bold;
+      background-color: #e65b54;
     }
 
     footer {
-      background-color: #ff9100;
+      background-color: #333;
       color: white;
       padding: 20px;
       text-align: center;
       position: relative;
       bottom: 0;
       width: 100%;
+      margin-top: 40px;
     }
 
     footer a {
@@ -214,28 +255,22 @@
       text-decoration: underline;
     }
 
-    .container {
-      margin-top: 30px;
-    }
-
-    h2 {
-      color: #ff7700;
-    }
-
-    .chart-container {
-      width: 100%;
-      height: 400px;
-      margin-top: 20px;
-    }
-
     .dashboard-charts {
       display: flex;
       justify-content: space-between;
       margin-top: 30px;
+      flex-wrap: wrap;
     }
 
     .chart-box {
       width: 48%;
+      margin-bottom: 30px;
+    }
+
+    .chart-box h2 {
+      font-size: 24px;
+      color: var(--primary-color);
+      margin-bottom: 15px;
     }
 
     canvas {
@@ -244,123 +279,130 @@
       border-radius: 10px;
     }
 
-#productos-recomendados {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
-  max-width: 100%; 
+    #productos-recomendados {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+      max-width: 100%;
+    }
 
-}
+    .producto {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 200px;
+      text-align: center;
+      margin-right: 10px;
+    }
 
-.producto {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  width: 200px;
-  text-align: center;
-  margin-right: 10px; 
-}
+    .producto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
 
-.producto:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+    .producto img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
 
-.producto img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
+    .producto p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #333;
+    }
 
-.producto p {
-  margin: 5px 0;
-  font-size: 14px;
-  color: #333;
-}
-.producto .precio {
-  font-size: 16px;
-  font-weight: bold;
-  color: #28a745;
-}
+    .producto .precio {
+      font-size: 16px;
+      font-weight: bold;
+      color: #28a745;
+    }
 
-.producto .calificacion {
-  font-size: 14px;
-  color: #666;
-}
- 
-.ver-mas {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ff9d00; 
-  color: white; 
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
+    .producto .calificacion {
+      font-size: 14px;
+      color: #666;
+    }
 
-.ver-mas:hover {
-  background-color: #b37a00;
-}
+    .ver-mas {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
 
-.filter-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%; 
-}
+    .ver-mas:hover {
+      background-color: #e65b54;
+    }
 
-.filter-container input.form-control {
-  width: 400px; 
-  max-width: 100%;
-  margin-right: 20px; 
-}
+    .filter-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
-.filter-container .sort-container {
-  display: flex;
-  align-items: center;
-}
+    .filter-container input.form-control {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 10px;
+    }
 
-.filter-container .sort-container label {
-  margin-right: 10px;
-}
+    .filter-container .sort-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
 
-.filter-container .sort-container select {
-  width: 200px;
-  max-width: 100%;
-}
+    .filter-container .sort-container label {
+      margin-right: 10px;
+    }
 
-@media (max-width: 768px) {
-  .filter-container {
-    flex-direction: column; 
-    align-items: stretch; 
-  }
+    .filter-container .sort-container select {
+      width: 200px;
+      max-width: 100%;
+    }
 
-  .filter-container input.form-control,
-  .filter-container .sort-container select {
-    width: 100%; 
-  }
-}
+    @media (max-width: 768px) {
+      .container-main {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .comerciante-recuadro {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .chart-box {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
-<body class="amazon-style">
+<body>
   <div class="wrapper-wide">
-    <!-- Inicio del encabezado --> 
+    <!-- Inicio del encabezado -->
     <header class="header">
       <div class="logo">
-        <a><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
       </div>
       <div class="nav-links">
         <span id="nombre-comerciante" class="comerciante-info"></span>
@@ -387,41 +429,41 @@
         </div>
         <div class="dashboard-item">
           <h4>Total de Productos Similares</h4>
-          <p id="total-productos-similares"></p> 
+          <p id="total-productos-similares"></p>
         </div>
       </div>
 
       <!-- Contenedor de la lista de productos -->
       <div class="product-list">
         <!-- Botón de Subir Artículo -->
-        <div class="container text-right">
-          <button id="subir-producto-btn" class="btn btn-success" onclick="redirigirAProductos()">Subir Artículo</button>
+        <div class="text-right">
+          <button id="subir-producto-btn" onclick="redirigirAProductos()">Subir Artículo</button>
         </div>
         <h1>Mis Productos</h1>
-          <!-- Filtros -->
-          <div class="filter-container">
-            <input type="text" id="search-bar" placeholder="Buscar producto..." class="form-control" onkeyup="filtrarProductos()">
-          
-            <div class="sort-container">
-              <label for="ordenar">Ordenar por:</label>
-              <select id="ordenar" class="form-control" onchange="ordenarProductos()">
-                <option value="nombre">Nombre</option>
-                <option value="precio-asc">Precio: Menor a Mayor</option>
-                <option value="precio-desc">Precio: Mayor a Menor</option>
-              </select>
-            </div>
+        <!-- Filtros -->
+        <div class="filter-container">
+          <input type="text" id="search-bar" placeholder="Buscar producto..." class="form-control"
+            onkeyup="filtrarProductos()">
+
+          <div class="sort-container">
+            <label for="ordenar">Ordenar por:</label>
+            <select id="ordenar" class="form-control" onchange="ordenarProductos()">
+              <option value="nombre">Nombre</option>
+              <option value="precio-asc">Precio: Menor a Mayor</option>
+              <option value="precio-desc">Precio: Mayor a Menor</option>
+            </select>
           </div>
-          
-
-
-        <div id="productos-lista"> 
         </div>
-          <!--Recomendaciones -->
-          <div class="product-list">
-            <h1>Tal vez te pueda interesar subir estos artículos similares</h1>
-            <div id="productos-recomendados"></div>
+
+        <div id="productos-lista">
+          <!-- Los productos se cargarán aquí -->
+        </div>
+
+        <!-- Recomendaciones -->
+        <h1>Tal vez te interese subir estos artículos similares</h1>
+        <div id="productos-recomendados"></div>
       </div>
- </div>
+    </div>
 
     <!-- Gráficos de ventas -->
     <div class="dashboard-charts container">
@@ -435,14 +477,15 @@
       </div>
     </div>
 
-  
     <!-- Modal para editar producto -->
-    <div class="modal fade" id="editarProductoModal" tabindex="-1" role="dialog" aria-labelledby="editarProductoModalLabel">
+    <div class="modal fade" id="editarProductoModal" tabindex="-1" role="dialog"
+      aria-labelledby="editarProductoModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title" id="editarProductoModalLabel">Editar Producto</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+              onclick="$('#editarProductoModal').modal('hide');"><span aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body">
             <input type="hidden" id="producto-id">
@@ -470,113 +513,75 @@
         </div>
       </div>
     </div>
-<!-- Modal para Agregar Producto en Recomendaciones-->
-<div class="modal fade" id="agregarProductoModal" tabindex="-1" role="dialog" aria-labelledby="agregarProductoModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="agregarProductoModalLabel">Agregar Producto</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="nuevo-producto-id">
-        <div class="form-group">
-          <label for="nuevo-producto-nombre">Nombre del Producto</label>
-          <input type="text" class="form-control" id="nuevo-producto-nombre">
+
+    <!-- Modal para Agregar Producto en Recomendaciones-->
+    <div class="modal fade" id="agregarProductoModal" tabindex="-1" role="dialog"
+      aria-labelledby="agregarProductoModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="agregarProductoModalLabel">Agregar Producto</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+              onclick="$('#agregarProductoModal').modal('hide');"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="nuevo-producto-id">
+            <div class="form-group">
+              <label for="nuevo-producto-nombre">Nombre del Producto</label>
+              <input type="text" class="form-control" id="nuevo-producto-nombre">
+            </div>
+            <div class="form-group">
+              <label for="nuevo-producto-descripcion">Descripción</label>
+              <textarea class="form-control" id="nuevo-producto-descripcion"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="nuevo-producto-precio">Precio</label>
+              <input type="number" class="form-control" id="nuevo-producto-precio">
+            </div>
+            <div class="form-group">
+              <label for="nuevo-producto-foto">URL de la Foto</label>
+              <input type="text" class="form-control" id="nuevo-producto-foto">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="agregarProducto()">Confirmar</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="nuevo-producto-descripcion">Descripción</label>
-          <textarea class="form-control" id="nuevo-producto-descripcion"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="nuevo-producto-precio">Precio</label>
-          <input type="number" class="form-control" id="nuevo-producto-precio">
-        </div>
-        <div class="form-group">
-          <label for="nuevo-producto-foto">URL de la Foto</label>
-          <input type="text" class="form-control" id="nuevo-producto-foto">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="agregarProducto()">Confirmar</button>
       </div>
     </div>
-  </div>
-</div>
 
     <!-- Pie de Página Inicio -->
     <footer id="footer">
       <p>&copy; 2024 Click Store | <a href="index.html">Inicio</a> | <a href="contact.html">Contacto</a></p>
     </footer>
 
-    <!-- Parte JS Inicio -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Scripts -->
     <script src="js/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/api.js"></script>
-    <!-- Parte JS Fin -->
 
-    <!-- Simulación de gráficos con Chart.js -->
+    <!-- Script Principal -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         const nombreComerciante = sessionStorage.getItem('nombre');
         if (nombreComerciante) {
-
-          document.getElementById('nombre-comerciante').innerHTML = `<span style="color: white;">Hola ${nombreComerciante}</span>`;
+          document.getElementById('nombre-comerciante').innerHTML = `Hola, ${nombreComerciante}`;
         } else {
           window.location.href = 'login.html';
         }
-  
+
         fetchProductos(); // Cargar los productos del comerciante
         fetchComercianteInfo(); // Cargar la información del comerciante
-  
-        document.getElementById('logout-btn').addEventListener('click', function() {
-          sessionStorage.removeItem('nombre');
-          sessionStorage.removeItem('Id');
-          sessionStorage.removeItem('tipo');
+
+        document.getElementById('logout-btn').addEventListener('click', function () {
+          sessionStorage.clear();
           window.location.href = 'login.html';
         });
+
+        // Cargar recomendaciones
+        cargarRecomendaciones();
       });
 
-      // Función para simular gráficos con datos reales de los productos
-      function simularGraficos(productos) {
-        // Extraer nombres y simular datos de ventas de los productos
-        const nombresProductos = productos.map(p => p.nombre);
-        const ventasSimuladas = productos.map(() => Math.floor(Math.random() * 30) + 5); // Simular ventas entre 5 y 35
-
-        // Gráfico de Artículos Más Vendidos
-        const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
-        const topProductsChart = new Chart(topProductsCtx, {
-          type: 'bar',
-          data: {
-            labels: nombresProductos,
-            datasets: [{
-              label: 'Ventas',
-              data: ventasSimuladas,
-              backgroundColor: '#ff9900'
-            }]
-          }
-        });
-
-        // Gráfico de Ventas Mensuales
-        const monthlySalesCtx = document.getElementById('monthlySalesChart').getContext('2d');
-        const ventasMensuales = Array.from({ length: 6 }, () => Math.floor(Math.random() * 50000) + 50000); // Simular ventas mensuales
-        const monthlySalesChart = new Chart(monthlySalesCtx, {
-          type: 'line',
-          data: {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
-            datasets: [{
-              label: 'Ventas en ₲',
-              data: ventasMensuales,
-              backgroundColor: 'rgba(255, 153, 0, 0.2)',
-              borderColor: '#ff9900',
-              borderWidth: 2
-            }]
-          }
-        });
-      }
-
-      // Función para obtener los productos del comerciante
       function fetchProductos() {
         const comercianteId = sessionStorage.getItem('Id');
         fetch(`http://localhost:3000/api/productos?comercianteId=${comercianteId}`)
@@ -584,12 +589,11 @@
           .then(data => {
             displayProductos(data);
             actualizarDashboard(data);
-            simularGraficos(data); // Simular gráficos con los productos obtenidos
+            simularGraficos(data);
           })
           .catch(err => console.error('Error fetching productos:', err));
       }
 
-      // Función para obtener la información del comerciante
       function fetchComercianteInfo() {
         const comercianteId = sessionStorage.getItem('Id');
         fetch(`http://localhost:3000/api/comerciantes/${comercianteId}`)
@@ -598,7 +602,6 @@
           .catch(err => console.error('Error fetching comerciante info:', err));
       }
 
-      // Mostrar información del comerciante
       function displayComercianteInfo(comerciante) {
         const comercianteInfo = document.getElementById('comerciante-info');
         comercianteInfo.innerHTML = `
@@ -610,8 +613,7 @@
           <p><strong>Enlace a la tienda:</strong> <a href="${comerciante.enlace_tienda}" target="_blank">${comerciante.enlace_tienda}</a></p>
         `;
       }
-  
-      // Mostrar productos en la página
+
       function displayProductos(productos) {
         const container = document.getElementById('productos-lista');
         container.innerHTML = '';
@@ -629,17 +631,18 @@
         });
       }
 
-      // Actualizar el dashboard del comerciante
       function actualizarDashboard(productos) {
         const totalProductos = productos.length;
         const productoMasCaro = productos.reduce((max, producto) => producto.precio > max.precio ? producto : max, productos[0]);
 
         document.getElementById('total-productos').textContent = totalProductos;
-        document.getElementById('producto-mas-caro').textContent = `${productoMasCaro.nombre} - ₲${Number(productoMasCaro.precio).toLocaleString('es-PY')}`;
-
+        if (productoMasCaro) {
+          document.getElementById('producto-mas-caro').textContent = `${productoMasCaro.nombre} - ₲${Number(productoMasCaro.precio).toLocaleString('es-PY')}`;
+        } else {
+          document.getElementById('producto-mas-caro').textContent = 'No hay productos';
+        }
       }
-  
-      // Función para editar producto
+
       function editarProducto(id) {
         fetch(`http://localhost:3000/api/productos/${id}`)
           .then(response => response.json())
@@ -654,192 +657,226 @@
           .catch(err => console.error('Error al cargar producto para editar:', err));
       }
 
-      // Función para eliminar producto
+      function guardarCambiosProducto() {
+        const productoId = document.getElementById('producto-id').value;
+        const nombre = document.getElementById('producto-nombre').value;
+        const descripcion = document.getElementById('producto-descripcion').value;
+        const precio = document.getElementById('producto-precio').value;
+        const fotoUrl = document.getElementById('producto-foto').value;
+        const idComerciante = sessionStorage.getItem('Id'); // Obtener el `id_comerciante`
+
+        fetch(`http://localhost:3000/api/productos/${productoId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            nombre: nombre,
+            descripcion: descripcion,
+            precio: parseFloat(precio),
+            foto_url: fotoUrl,
+            id_comerciante: idComerciante, // Incluir el `id_comerciante`
+          }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.producto) {
+              alert('Producto actualizado exitosamente');
+              $('#editarProductoModal').modal('hide');
+              fetchProductos();
+            } else {
+              alert('Hubo un error al actualizar el producto');
+            }
+          })
+          .catch(err => console.error('Error al actualizar producto:', err));
+      }
+
       function eliminarProducto() {
         const productoId = document.getElementById('producto-id').value;
-  
+
         fetch(`http://localhost:3000/api/productos/${productoId}`, {
           method: 'DELETE'
         })
-        .then(response => {
-          if (response.ok) {
-            $('#editarProductoModal').modal('hide');
-            fetchProductos(); // Recargar los productos después de la eliminación
-          } else {
-            alert('Error al eliminar el producto');
-          }
-        })
-        .catch(err => console.error('Error eliminando producto:', err));
+          .then(response => {
+            if (response.ok) {
+              alert('Producto eliminado exitosamente');
+              $('#editarProductoModal').modal('hide');
+              fetchProductos();
+            } else {
+              alert('Error al eliminar el producto');
+            }
+          })
+          .catch(err => console.error('Error eliminando producto:', err));
       }
-  
+
       function redirigirAProductos() {
         window.location.href = 'productos.html';
       }
 
-  // Función para mostrar la cantidad de productos similares recomendados
-function mostrarTotalProductosSimilares(recomendaciones) {
-    const totalProductosSimilares = recomendaciones.length;
+      function simularGraficos(productos) {
+        const nombresProductos = productos.map(p => p.nombre);
+        const ventasSimuladas = productos.map(() => Math.floor(Math.random() * 30) + 5);
 
-    // Actualizar el texto del contenedor de productos similares
-    document.getElementById('total-productos-similares').textContent = totalProductosSimilares;
-}
+        // Obtener el valor de la variable CSS
+        const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
 
-axios.get('http://127.0.0.1:5000/recomendaciones')
-    .then(response => {
-        const recomendaciones = response.data;
-        mostrarTotalProductosSimilares(recomendaciones); // Llamar a la función para actualizar el total
-    })
-    .catch(error => {
-        console.error('Error al cargar recomendaciones:', error);
-    });
-
-      // URL de tu API de recomendaciones
-      document.addEventListener('DOMContentLoaded', function() {
-              // Realiza la solicitud para obtener recomendaciones
-              axios.get('http://127.0.0.1:5000/recomendaciones')
-                  .then(response => {
-                      const recomendaciones = response.data;
-                      mostrarRecomendaciones(recomendaciones);
-                  })
-                  .catch(error => {
-                      console.error('Error al cargar recomendaciones:', error);
-                  });
-
-        // Función para mostrar las recomendaciones en el contenedor con un límite de productos
-        function mostrarRecomendaciones(recomendaciones) {
-            const contenedor = document.getElementById('productos-recomendados');
-            contenedor.innerHTML = ''; // Limpia el contenedor
-
-            // Limitar el número de recomendaciones
-            const limite = 6;
-            const recomendacionesLimitadas = recomendaciones.slice(0, limite);
-
-            // Actualizar el contador de productos similares
-            document.getElementById('total-productos-similares').textContent = recomendacionesLimitadas.length;
-
-            recomendacionesLimitadas.forEach(recomendacion => {
-                const productoDiv = document.createElement('div');
-                productoDiv.classList.add('product-item'); // Asegura que tenga la clase correcta
-
-                // Crea la estructura HTML para cada producto recomendado
-                productoDiv.innerHTML = `
-                    <img src="${recomendacion.foto_url}" alt="${recomendacion.nombre}" class="product-image">
-                    <h3>${recomendacion.nombre}</h3>
-                    <p>${recomendacion.descripcion}</p>
-                    <p class="price">Precio: ₲${Number(recomendacion.precio).toLocaleString('es-PY')}</p>
-                    <button class="ver-mas" onclick='mostrarAgregarProductoModal(${JSON.stringify(recomendacion)})'>Agregar Producto</button>
-                `;
-
-                // Añade cada producto al contenedor
-                contenedor.appendChild(productoDiv);
-            });
-        }
-
-            // Función para manejar el clic en "Agregar Producto"
-            function agregarProducto(productoId) {
-                // Lógica para agregar el producto
-                alert(`Producto con ID ${productoId} agregado.`);
-            }
-
+        const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
+        new Chart(topProductsCtx, {
+          type: 'bar',
+          data: {
+            labels: nombresProductos,
+            datasets: [{
+              label: 'Ventas',
+              data: ventasSimuladas,
+              backgroundColor: primaryColor
+            }]
+          }
         });
-            
-            // Función para mostrar el modal de agregar producto con los datos del producto seleccionado
-        function mostrarAgregarProductoModal(producto) {
-          // Asignar los valores del producto a los campos del modal
-          document.getElementById('nuevo-producto-id').value = producto.id; // Asumiendo que 'producto.id' es el identificador
-          document.getElementById('nuevo-producto-nombre').value = producto.nombre;
-          document.getElementById('nuevo-producto-descripcion').value = producto.descripcion;
-          document.getElementById('nuevo-producto-precio').value = producto.precio;
-          document.getElementById('nuevo-producto-foto').value = producto.foto_url;
 
-          // Mostrar el modal
-          $('#agregarProductoModal').modal('show');
+        const monthlySalesCtx = document.getElementById('monthlySalesChart').getContext('2d');
+        const ventasMensuales = Array.from({ length: 6 }, () => Math.floor(Math.random() * 50000) + 50000);
+        new Chart(monthlySalesCtx, {
+          type: 'line',
+          data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+            datasets: [{
+              label: 'Ventas en ₲',
+              data: ventasMensuales,
+              backgroundColor: 'rgba(255, 153, 0, 0.2)',
+              borderColor: primaryColor,
+              borderWidth: 2
+            }]
+          }
+        });
+      }
+
+      function filtrarProductos() {
+        const searchQuery = document.getElementById('search-bar').value.toLowerCase();
+        const productos = document.querySelectorAll('.product-item');
+
+        productos.forEach(producto => {
+          const nombreProducto = producto.querySelector('h3').textContent.toLowerCase();
+          if (nombreProducto.includes(searchQuery)) {
+            producto.style.display = 'inline-block';
+          } else {
+            producto.style.display = 'none';
+          }
+        });
+      }
+
+      function ordenarProductos() {
+        const ordenarPor = document.getElementById('ordenar').value;
+        const listaProductos = document.getElementById('productos-lista');
+        const productos = Array.from(listaProductos.getElementsByClassName('product-item'));
+
+        let productosOrdenados;
+
+        if (ordenarPor === 'nombre') {
+          productosOrdenados = productos.sort((a, b) => {
+            const nombreA = a.querySelector('h3').textContent.toLowerCase();
+            const nombreB = b.querySelector('h3').textContent.toLowerCase();
+            return nombreA.localeCompare(nombreB);
+          });
+        } else if (ordenarPor === 'precio-asc') {
+          productosOrdenados = productos.sort((a, b) => {
+            const precioA = parseFloat(a.querySelector('.price').textContent.replace(/[^\d]/g, ''));
+            const precioB = parseFloat(b.querySelector('.price').textContent.replace(/[^\d]/g, ''));
+            return precioA - precioB;
+          });
+        } else if (ordenarPor === 'precio-desc') {
+          productosOrdenados = productos.sort((a, b) => {
+            const precioA = parseFloat(a.querySelector('.price').textContent.replace(/[^\d]/g, ''));
+            const precioB = parseFloat(b.querySelector('.price').textContent.replace(/[^\d]/g, ''));
+            return precioB - precioA;
+          });
         }
 
-        // Función para agregar (o modificar) un producto
-function agregarProducto() {
-    // Obtener los valores de los campos del formulario
-    const nombre = document.getElementById('nuevo-producto-nombre').value;
-    const descripcion = document.getElementById('nuevo-producto-descripcion').value;
-    const precio = document.getElementById('nuevo-producto-precio').value;
-    const fotoUrl = document.getElementById('nuevo-producto-foto').value;
-    const comercianteId = sessionStorage.getItem('Id'); // Obtener el ID del comerciante desde sessionStorage
+        listaProductos.innerHTML = '';
+        productosOrdenados.forEach(producto => {
+          listaProductos.appendChild(producto);
+        });
+      }
 
-    // Validar que todos los campos estén completos
-    if (!nombre || !descripcion || !precio || !fotoUrl || !comercianteId) {
-        alert('Por favor completa todos los campos antes de agregar el producto.');
-        return;
-    }
+      function cargarRecomendaciones() {
+        axios.get('http://127.0.0.1:5000/recomendaciones')
+          .then(response => {
+            const recomendaciones = response.data;
+            mostrarRecomendaciones(recomendaciones);
+            mostrarTotalProductosSimilares(recomendaciones);
+          })
+          .catch(error => {
+            console.error('Error al cargar recomendaciones:', error);
+          });
+      }
 
-    // Realizar la solicitud POST para agregar el producto
-    axios.post('http://127.0.0.1:3000/api/productos', {
-        nombre: nombre,
-        descripcion: descripcion,
-        precio: parseFloat(precio), // Asegurar que el precio sea un número
-        id_comerciante: comercianteId, // Enviar el ID del comerciante
-        foto_url: fotoUrl
-    })
-    .then(response => {
-        alert('Producto registrado exitosamente');
-        $('#agregarProductoModal').modal('hide'); // Cerrar el modal
-        // Puedes actualizar la lista de productos o redirigir al comerciante
-    })
-    .catch(error => {
-        console.error('Error al registrar el producto:', error);
-        alert('Hubo un error al registrar el producto');
-    });
-}
-function filtrarProductos() { 
-  const searchQuery = document.getElementById('search-bar').value.toLowerCase();
-  const productos = document.querySelectorAll('.product-item');
+      function mostrarRecomendaciones(recomendaciones) {
+        const contenedor = document.getElementById('productos-recomendados');
+        contenedor.innerHTML = '';
+        const limite = 6;
+        const recomendacionesLimitadas = recomendaciones.slice(0, limite);
 
-  productos.forEach(producto => {
-    const nombreProducto = producto.querySelector('h3').textContent.toLowerCase();
-    if (nombreProducto.includes(searchQuery)) {
-      producto.style.display = 'inline-block'; // Mantener el estilo original
-    } else {
-      producto.style.display = 'none'; // Ocultar el producto
-    }
-  });
-}
+        recomendacionesLimitadas.forEach(recomendacion => {
+          const productoDiv = document.createElement('div');
+          productoDiv.classList.add('product-item');
 
+          productoDiv.innerHTML = `
+            <img src="${recomendacion.foto_url}" alt="${recomendacion.nombre}" class="product-image">
+            <h3>${recomendacion.nombre}</h3>
+            <p>${recomendacion.descripcion}</p>
+            <p class="price">₲${Number(recomendacion.precio).toLocaleString('es-PY')}</p>
+            <button class="ver-mas" onclick='mostrarAgregarProductoModal(${JSON.stringify(recomendacion)})'>Agregar Producto</button>
+          `;
 
-function ordenarProductos() {
-  const ordenarPor = document.getElementById('ordenar').value;
-  const listaProductos = document.getElementById('productos-lista');
-  const productos = Array.from(listaProductos.getElementsByClassName('product-item'));
+          contenedor.appendChild(productoDiv);
+        });
+      }
 
-  let productosOrdenados;
+      function mostrarTotalProductosSimilares(recomendaciones) {
+        const totalProductosSimilares = recomendaciones.length;
+        document.getElementById('total-productos-similares').textContent = totalProductosSimilares;
+      }
 
-  if (ordenarPor === 'nombre') {
-    productosOrdenados = productos.sort((a, b) => {
-      const nombreA = a.querySelector('h3').textContent.toLowerCase();
-      const nombreB = b.querySelector('h3').textContent.toLowerCase();
-      return nombreA.localeCompare(nombreB);
-    });
-  } else if (ordenarPor === 'precio-asc') {
-    productosOrdenados = productos.sort((a, b) => {
-      const precioA = parseFloat(a.querySelector('.price').textContent.replace('₲', '').replace(/\./g, ''));
-      const precioB = parseFloat(b.querySelector('.price').textContent.replace('₲', '').replace(/\./g, ''));
-      return precioA - precioB;
-    });
-  } else if (ordenarPor === 'precio-desc') {
-    productosOrdenados = productos.sort((a, b) => {
-      const precioA = parseFloat(a.querySelector('.price').textContent.replace('₲', '').replace(/\./g, ''));
-      const precioB = parseFloat(b.querySelector('.price').textContent.replace('₲', '').replace(/\./g, ''));
-      return precioB - precioA;
-    });
-  }
+      function mostrarAgregarProductoModal(producto) {
+        document.getElementById('nuevo-producto-id').value = producto.id;
+        document.getElementById('nuevo-producto-nombre').value = producto.nombre;
+        document.getElementById('nuevo-producto-descripcion').value = producto.descripcion;
+        document.getElementById('nuevo-producto-precio').value = producto.precio;
+        document.getElementById('nuevo-producto-foto').value = producto.foto_url;
 
-  // Limpiar y agregar productos ordenados al contenedor
-  listaProductos.innerHTML = '';
-  productosOrdenados.forEach(producto => {
-    listaProductos.appendChild(producto);
-  });
-}
+        $('#agregarProductoModal').modal('show');
+      }
 
+      function agregarProducto() {
+        const nombre = document.getElementById('nuevo-producto-nombre').value;
+        const descripcion = document.getElementById('nuevo-producto-descripcion').value;
+        const precio = document.getElementById('nuevo-producto-precio').value;
+        const fotoUrl = document.getElementById('nuevo-producto-foto').value;
+        const comercianteId = sessionStorage.getItem('Id');
+
+        if (!nombre || !descripcion || !precio || !fotoUrl || !comercianteId) {
+          alert('Por favor completa todos los campos antes de agregar el producto.');
+          return;
+        }
+
+        axios.post('http://localhost:3000/api/productos', {
+          nombre: nombre,
+          descripcion: descripcion,
+          precio: parseFloat(precio),
+          id_comerciante: comercianteId,
+          foto_url: fotoUrl
+        })
+          .then(response => {
+            alert('Producto agregado exitosamente');
+            $('#agregarProductoModal').modal('hide');
+            fetchProductos();
+          })
+          .catch(error => {
+            console.error('Error al agregar el producto:', error);
+            alert('Hubo un error al agregar el producto');
+          });
+      }
     </script>
-    
   </div>
 </body>
+
 </html>
