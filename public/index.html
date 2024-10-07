@@ -224,7 +224,7 @@
         height: 40px;
       }
     }
-/* --- Estilo para el segundo encabezado --- */
+/* 
 .secondary-header {
   background-color: #ffffff; 
   padding: 10px 20px; 
@@ -251,10 +251,10 @@
 
 .categories-btn i {
   margin-right: 7px; 
-}
+} */
 
 /* --- (Ofertas del Día) --- */
-.secondary-title {
+/* .secondary-title {
   font-size: 18px; 
   color: #000000;
   display: flex; 
@@ -263,10 +263,10 @@
 
 .secondary-title i {
   margin-right: 6px; 
-}
+} */
 
 /* ---(contenedor desplegable) --- */
-.categories-dropdown {
+/* .categories-dropdown {
   background-color: #ffffff; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 0px; 
@@ -281,9 +281,8 @@
 .categories-dropdown ul {
   list-style: none; 
   padding: 0; 
-}
-
-/* --- Elemento de cada categoría dentro de la lista --- */
+} */
+/* 
 .categories-dropdown li {
   padding: 10px 0; 
   font-size: 16px; 
@@ -292,12 +291,12 @@
   align-items: center; 
 }
 
-/* --- Icono dentro de cada categoría --- */
+
 .categories-dropdown li i {
   margin-right: 12px; 
 }
 
-/* --- Lista de categorías --- */
+
 .categories-list li {
   padding: 15px 10px; 
   font-size: 16px; 
@@ -309,16 +308,16 @@
   cursor: pointer; 
 }
 
-/* --- Estilo del contenedor al pasar el mouse por encima --- */
+
 .categories-list li:hover {
   background-color: #f7f7f7; 
 }
 
-/* --- Icono de flecha para subcategorías --- */
+
 .arrow-icon {
   font-size: 16px; 
   color: #888; 
-}
+} */
 
 /* --- Estilo del botón de categorías principal--- */
 .categories-button {
@@ -594,7 +593,7 @@ ul li input {
       </div>
     </header>
 
-    <div class="secondary-header">
+    <!-- <div class="secondary-header">
       <div class="categories-container">
         <button class="categories-btn" onclick="toggleDropdown()">
           <i class="fas fa-bars"></i> Categorías
@@ -603,10 +602,10 @@ ul li input {
       <div class="secondary-title">
         <i class="fas fa-bolt"></i> Ofertas del Día
       </div>
-    </div>
+    </div> -->
     
     <!-- Dropdown de Categorías (desplegable) -->
-    <div class="categories-dropdown" id="categories-dropdown" style="display: none;">
+    <!-- <div class="categories-dropdown" id="categories-dropdown" style="display: none;">
       <ul>
         <li><i class="fas fa-tv"></i> Electrónica</li>
         <li><i class="fas fa-laptop"></i> Informática</li>
@@ -617,7 +616,7 @@ ul li input {
         <li><i class="fas fa-couch"></i> Muebles</li>
       </ul>
     </div>
-    
+     -->
   <div class="slider_container" style="display: contents;">
       <ul>
         <li><img src="image/nuevo1.png" alt=""></li>
@@ -970,14 +969,14 @@ ul li input {
         }
       });
 
-      function toggleDropdown() {
-  var dropdown = document.getElementById("categories-dropdown");
-  if (dropdown.style.display === "none") {
-    dropdown.style.display = "block";
-  } else {
-    dropdown.style.display = "none";
-  }
-}
+//       function toggleDropdown() {
+//   var dropdown = document.getElementById("categories-dropdown");
+//   if (dropdown.style.display === "none") {
+//     dropdown.style.display = "block";
+//   } else {
+//     dropdown.style.display = "none";
+//   }
+// }
 // Función para filtrar productos en "Todos los Productos"
 function filtrarProductosTodos() {
   const input = document.getElementById("search-bar-todos").value.toLowerCase();
