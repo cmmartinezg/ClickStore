@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Click Store - Registro de productos</title>
-    <!-- CSS Parte Inicio -->
+    <title>Registrar Producto</title>
     <!-- CSS Parte Inicio -->
     <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
@@ -13,309 +13,254 @@
     <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
     <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
     <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-    <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
+    <link rel="stylesheet" type="text/css" href="css/estilop.css" />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
     <!-- CSS Parte Fin -->
+    <style>
+        /* Estilos personalizados para la página de registro de productos */
+        .container {
+            margin-top: 30px;
+        }
+
+        .product-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .product-form .form-group label {
+            font-weight: bold;
+        }
+
+        .product-form .btn-primary {
+            background-color: #ff6f61;
+            border-color: #ff6f61;
+        }
+
+        .product-form .btn-primary:hover {
+            background-color: #e65b54;
+            border-color: #e65b54;
+        }
+
+        .separator {
+            text-align: center;
+            margin: 30px 0;
+            font-weight: bold;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
 </head>
 
-<body class="amazon-style">
+<body>
     <div class="wrapper-wide">
-      <!-- Inicio del encabezado --> 
-      <header class="header">
-        <div class="logo">
-          <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
-        </div>
-        <div class="search-bar">
-          <select>
-            <option value="Todos">Todos</option>
-            <option value="Electrónica">Electrónica</option>
-            <option value="Informática">Informática</option>
-            <option value="Ropa">Ropa</option>
-            <option value="Automóviles">Automóviles</option>
-            <option value="Belleza">Belleza</option>
-            <!-- Agregar más opciones -->
-          </select>
-          <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
-          <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-        </div>
-        <div class="nav-links">
-          <a href="login.html">Iniciar Sesión</a>
-          <div class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="registro-usu.html">Usuario</a></li>
-              <li><a href="registro-comer.html">Comerciante</a></li>
-            </ul>
-          </div>
-          <a href="wishlist.html"><i class="fa fa-heart"></i> Favoritos (<span id="wishlist-count">0</span>)</a>
-          <a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)</a>
-        </div>
-      </header>
-      <!-- Encabezado End -->
-      <div class="container">
-        <nav id="menu" class="navbar">
-          <div class="navbar-header"> <span class="visible-xs visible-sm">Menu <b></b></span></div>
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-              <li><a class="home_link" title="Home" href="index.html"><span>Home</span></a></li>
-              <li class="mega-menu dropdown"><a>Categorias</a>
-                <div class="dropdown-menu">
-                  <div class="column col-lg-2 col-md-3"> 
-                     <!-- Categoria Electrónica-->
-                    <a href="category.html">Electrónica</a>
-                    <div>
-                      <ul>
-                          <li><a href="category.html">Accesorios</a></li>
-                          <li><a href="category.html">Cámaras</a></li>
-                          <li><a href="category.html">Celulares</a></li>
-                          <li><a href="category.html">Tv y Audio</a></li>
-                      </ul>
-                  </div>
-                </div>         
-                  <div class="column col-lg-2 col-md-3"><a href="category.html">Informática</a>
-                    <div>
-                      <ul>
-                        <li> <a href="category.html">Monitores</a> </li>
-                              <li> <a href="category.html">Notebook</a> </li>
-                              <li> <a href="category.html">Impresoras</a> </li>
-                              <li> <a href="category.html">Almacenamiento</a> </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="column col-lg-2 col-md-3"><a href="category.html">Ropa</a>
-                    <div>
-                      <ul>
-                        <li><a href="category.html">Mujer</a> </li>
-                        <li><a href="category.html">Hombre</a> </li>
-                        <li><a href="category.html">bebé</a> </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="column col-lg-2 col-md-3"> <a href="category.html">Automóviles</a>
-                    <div>
-                      <ul>
-                        <li> <a href="category.html">Neumáticos</a></li>
-                        <li> <a href="category.html">Sonido y Video</a></li>
-                        <li> <a href="category.html">Accesorios</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="column col-lg-2 col-md-3">
-                    <a href="category.html">Belleza</a>
-                    <div>
-                        <ul>
-                            <li><a href="category.html">Cosméticos</a></li>
-                            <li><a href="category.html">Perfumes</a></li>
-                            <li><a href="category.html">Cuidado Personal</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
-                  <div class="dropdown-menu">
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/apple_logo-60x60.jpg" title="Apple" alt="Apple" /></a><a href="#">Apple</a>
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/canon_logo-60x60.jpg" title="Canon" alt="Canon" /></a><a href="#">Canon</a>
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"> <a href="#"><img
-                          src="image/product/hp_logo-60x60.jpg" title="Hewlett-Packard" alt="Hewlett-Packard" /></a><a
-                        href="#">Hewlett-Packard</a></div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/htc_logo-60x60.jpg" title="HTC" alt="HTC" /></a><a href="#">HTC</a></div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/palm_logo-60x60.jpg" title="Palm" alt="Palm" /></a><a href="#">Palm</a></div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/sony_logo-60x60.jpg" title="Sony" alt="Sony" /></a><a href="#">Sony</a>
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/canon_logo-60x60.jpg" title="test" alt="test" /></a><a href="#">test</a>
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/apple_logo-60x60.jpg" title="test 3" alt="test 3" /></a><a href="#">test
-                        3</a></div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/canon_logo-60x60.jpg" title="test 5" alt="test 5" /></a><a href="#">test
-                        5</a> </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/canon_logo-60x60.jpg" title="test 6" alt="test 6" /></a><a href="#">test
-                        6</a></div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/apple_logo-60x60.jpg" title="test 7" alt="test 7" /></a><a href="#">test
-                        7</a> </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/canon_logo-60x60.jpg" title="test1" alt="test1" /></a><a href="#">test1</a>
-                    </div>
-                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                          src="image/product/apple_logo-60x60.jpg" title="test2" alt="test2" /></a><a href="#">test2</a>
-                    </div>
-                  </div>
-                </li>   
-                <li class="dropdown"><a href="blog.html">Blog</a>
-                <li class="custom-link-right"><a href="search.html" target="_blank"> ¡Comprar Ahora!</a></li>
-                <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
-              </ul>
+        <!-- Inicio del encabezado -->
+        <header class="header">
+            <div class="logo">
+                <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
             </div>
-          </nav>
-        </div>
-   <!-- Menú Principal Fin -->
-    <!-- Contenedor de la lista de productos -->
-    <div class="container">
-        <h1>Registro de productos</h1>
-        <form id="registroproductosForm" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="nombre">Nombre del producto:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre">
+            <div class="nav-links">
+                <span id="nombre-comerciante" class="comerciante-info"></span>
+                <a href="#" id="logout-btn">Cerrar Sesión</a>
             </div>
-            <div class="form-group">
-                <label for="descripcion">Descripción:</label>
-                <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="precio">Precio:</label>
-                <input type="number" class="form-control" id="precio" name="precio" step="0.01">
-            </div>
-            <div class="form-group">
-                <label for="foto_url">URL de la Foto:</label>
-                <input type="url" class="form-control" id="foto_url" name="foto_url">
-            </div>
-            <div class="form-group">
-                <label for="archivoProductos">Cargar archivo de productos (CSV):</label>
-                <input type="file" class="form-control" id="archivoProductos" name="archivoProductos" accept=".csv">
-            </div>
-            <div class="buttons">
-                <div class="pull-right">
-                    <input type="submit" class="btn btn-primary" value="Registrar productos">
-                </div>
-            </div>
-        </form>
-    </div>
-    <!-- Contenedor de la lista de productos Fin -->
-    <!-- Pie de Página Inicio -->
-    <footer id="footer">
-        <div class="fpart-first">
-            <div class="container">
-                <!-- <div class="row">
-                        <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <h5>Detalles de Contacto</h5>
-                            <ul>
-                                <li class="address"><i class="fa fa-map-marker"></i>Central Square, 22 Hoi Wing Road, New Delhi, India</li>
-                                <li class="mobile"><i class="fa fa-phone"></i>+91 9898777656</li>
-                                <li class="email"><i class="fa fa-envelope"></i>Enviar correo a través de nuestro <a href="contact-us.html">Contáctanos</a></li>
-                            </ul>
-                        </div>
-                        <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                            <h5>Información</h5>
-                            <ul>
-                                <li><a href="about-us.html">Acerca de Nosotros</a></li>
-                                <li><a href="about-us.html">Información de Entrega</a></li>
-                                <li><a href="about-us.html">Política de Privacidad</a></li>
-                                <li><a href="about-us.html">Términos &amp; Condiciones</a></li>
-                            </ul>
-                        </div>
-                        <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                            <h5>Servicio al Cliente</h5>
-                            <ul>
-                                <li><a href="contact-us.html">Contáctanos</a></li>
-                                <li><a href="returns.html">Devoluciones</a></li
-                                <li><a href="sitemap.html">Mapa del Sitio</a></li>
-                            </ul>
-                        </div>
-                        <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                            <h5>Extras</h5>
-                            <ul>
-                                <li><a href="manufacturer.html">Marcas</a></li>
-                                <li><a href="gift-voucher.html">Vales de Regalo</a></li>
-                                <li><a href="#">Afiliados</a></li>
-                                <li><a href="#">Ofertas Especiales</a></li>
-                            </ul>
-                        </div>
-                        <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <h5>Boletín Informativo</h5>
-                            <div class="form-group">
-                                <label class="control-label" for="subscribe">Regístrate para recibir las últimas noticias y actualizaciones.</label>
-                                <input id="signup" type="email" required="" placeholder="Dirección de correo electrónico" name="email" class="form-control">
-                            </div>
-                            <input type="submit" value="Suscribirse" class="btn btn-primary">
-                        </div>
-                    </div>-->
-            </div>
-        </div>
-        <div class="fpart-second">
-            <div class="container">
-                <div id="powered" class="clearfix">
-                    <div class="powered_text pull-left flip">
-                        <p>Click Store © 2024</p>
+        </header>
+        <!-- Encabezado End -->
+
+        <!-- Contenido principal -->
+        <div class="container">
+            <!-- Formulario para registro individual de productos -->
+            <div class="product-form">
+                <h2>Registrar Nuevo Producto</h2>
+                <form id="registroProductoForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Producto</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
                     </div>
-                </div>
-                <!--
-                <div class="bottom-row">
-                    <div class="custom-text text-center">
-                        <p>Este es un bloque CMS. Puedes insertar cualquier contenido (HTML, Texto, Imágenes) Aquí.
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem
-                            Ipsum ha sido el texto de relleno estándar de la industria desde el año 1500, cuando un
-                            impresor desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un
-                            libro de textos especimen. No sólo sobrevivió 500 años, sino que también ingresó como texto
-                            de relleno en documentos electrónicos, sin cambios en su contenido.</p>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
                     </div>
-                    <div class="payments_types"> <a href="#" target="_blank">
-                            <img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express"
-                                title="American Express"></a> <a href="#" target="_blank"> <img data-toggle="tooltip"
-                                src="image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a> <a href="#"
-                            target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_discover.png"
-                                alt="discover" title="Discover"></a> <a href="#" target="_blank"> <img
-                                data-toggle="tooltip" src="image/payment/payment_mastercard.png" alt="mastercard"
-                                title="MasterCard"></a>
+                    <div class="form-group">
+                        <label for="precio">Precio</label>
+                        <input type="number" class="form-control" id="precio" name="precio" required>
                     </div>
-                </div id="back-top"> --><a data-toggle="tooltip" title="Volver Arriba" href="javascript:void(0)"
-                    class="backtotop"><i class="fa fa-chevron-up"></i></a>
+                    <div class="form-group">
+                        <label for="categoria">Categoría</label>
+                        <select class="form-control" id="categoria" name="categoria" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="Electrónica">Electrónica</option>
+                            <option value="Informática">Informática</option>
+                            <option value="Ropa">Ropa</option>
+                            <option value="Automóviles">Automóviles</option>
+                            <option value="Belleza">Belleza</option>
+                            <!-- Agrega más opciones si es necesario -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="foto_url">URL de la Foto</label>
+                        <input type="text" class="form-control" id="foto_url" name="foto_url" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrar Producto</button>
+                </form>
             </div>
 
+            <div class="separator">O</div>
 
-        </div>
-        </div>
-    </footer>
-    <!-- Pie de Página Fin -->
+            <!-- Formulario para carga masiva de productos -->
+            <div class="product-form">
+                <h2>Carga Masiva de Productos</h2>
+                <form id="cargaMasivaForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="archivoProductos">Selecciona un archivo CSV</label>
+                        <input type="file" class="form-control" id="archivoProductos" name="archivoProductos" accept=".csv" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cargar Productos</button>
+                </form>
             </div>
-            <!-- Parte JS Inicio -->
-            <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-            <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="js/jquery.easing-1.3.min.js"></script>
-            <script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
-            <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-            <script type="text/javascript" src="js/custom.js"></script>
-            <script type="text/javascript" src="js/api.js"></script>
-            <!-- Parte JS Fin -->
-            <script>
-                // Manejar el envío del formulario de registro de productos
-                async function registrarproductos(event) {
-                    event.preventDefault();
+        </div>
 
-                    const formData = new FormData(event.target);
+        <!-- Pie de Página Inicio -->
+        <footer id="footer">
+            <p>&copy; 2024 Click Store | <a href="index.html">Inicio</a> | <a href="contact.html">Contacto</a></p>
+        </footer>
 
-                    try {
-                        const response = await fetch('http://localhost:3000/api/productos/upload', {
-                            method: 'POST',
-                            body: formData
-                        });
+        <!-- Scripts -->
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
 
-                        if (response.ok) {
-                            alert('Productos registrados exitosamente');
-                            window.location.href = 'index-comer.html?mensaje=Productos registrados exitosamente';
-                        } else {
-                            const errorData = await response.json();
-                            console.error('Error al registrar productos:', errorData);
-                            alert('Hubo un error al registrar los productos. Por favor, intente nuevamente.');
-                        }
-                    } catch (error) {
-                        console.error('Error al registrar productos:', error);
-                        alert('Hubo un error al registrar los productos. Por favor, intente nuevamente.');
-                    }
+        <!-- Script Principal -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Obtener el id_comerciante y el nombre del sessionStorage
+                const idComerciante = sessionStorage.getItem('id');
+                const nombreComerciante = sessionStorage.getItem('nombre');
+                const tipoUsuario = sessionStorage.getItem('tipo');
 
+                // Verificar que el usuario es un comerciante y que está autenticado
+                if (tipoUsuario !== 'comerciante' || !idComerciante) {
+                    alert('Por favor, inicie sesión como comerciante para registrar productos.');
+                    window.location.href = 'login.html';
                 }
 
-                document.getElementById('registroproductosForm').addEventListener('submit', registrarproductos);
-            </script>
+                // Mostrar el nombre del comerciante en la barra de navegación
+                if (nombreComerciante) {
+                    document.getElementById('nombre-comerciante').textContent = `Hola, ${nombreComerciante}`;
+                }
+
+                // Manejar el cierre de sesión
+                document.getElementById('logout-btn').addEventListener('click', function () {
+                    sessionStorage.clear();
+                    window.location.href = 'login.html';
+                });
+
+                // Manejar el envío del formulario de registro de productos
+                document.getElementById('registroProductoForm').addEventListener('submit', registrarProducto);
+
+                // Manejar el envío del formulario de carga masiva
+                document.getElementById('cargaMasivaForm').addEventListener('submit', cargarProductosMasivamente);
+            });
+
+            async function registrarProducto(event) {
+                event.preventDefault();
+
+                // Obtener los datos del formulario
+                const nombre = document.getElementById('nombre').value.trim();
+                const descripcion = document.getElementById('descripcion').value.trim();
+                const precio = document.getElementById('precio').value.trim();
+                const categoria = document.getElementById('categoria').value.trim();
+                const foto_url = document.getElementById('foto_url').value.trim();
+                const id_comerciante = sessionStorage.getItem('id'); // Obtener el id_comerciante del sessionStorage
+
+                // Validar que todos los campos están completos
+                if (!nombre || !descripcion || !precio || !categoria || !foto_url || !id_comerciante) {
+                    alert('Por favor, completa todos los campos.');
+                    return;
+                }
+
+                // Crear el objeto de datos a enviar
+                const data = {
+                    nombre,
+                    descripcion,
+                    precio: parseFloat(precio),
+                    categoria,
+                    foto_url,
+                    id_comerciante
+                };
+
+                try {
+                    // Enviar la solicitud al servidor
+                    const response = await fetch('http://localhost:3000/api/productos', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        alert('Producto registrado exitosamente');
+                        // Redirigir al panel del comerciante o limpiar el formulario
+                        window.location.href = 'index-comer.html';
+                    } else {
+                        const errorData = await response.json();
+                        console.error('Error al registrar producto:', errorData);
+                        alert('Error al registrar producto: ' + (errorData.error || 'Por favor, intente nuevamente.'));
+                    }
+                } catch (error) {
+                    console.error('Error al enviar la solicitud:', error);
+                    alert('Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.');
+                }
+            }
+
+            async function cargarProductosMasivamente(event) {
+                event.preventDefault();
+
+                const archivoInput = document.getElementById('archivoProductos');
+                const archivo = archivoInput.files[0];
+                const id_comerciante = sessionStorage.getItem('id'); // Obtener el id_comerciante del sessionStorage
+
+                if (!archivo || !id_comerciante) {
+                    alert('Por favor, selecciona un archivo y asegúrate de estar autenticado.');
+                    return;
+                }
+
+                // Crear un objeto FormData y agregar el archivo y el id_comerciante
+                const formData = new FormData();
+                formData.append('archivoProductos', archivo);
+                formData.append('id_comerciante', id_comerciante);
+
+                try {
+                    // Enviar la solicitud al servidor
+                    const response = await fetch('http://localhost:3000/api/productos/upload', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        alert('Productos cargados exitosamente');
+                        // Redirigir al panel del comerciante o actualizar la página
+                        window.location.href = 'index-comer.html';
+                    } else {
+                        const errorData = await response.json();
+                        console.error('Error al cargar productos:', errorData);
+                        alert('Error al cargar productos: ' + (errorData.error || 'Por favor, intente nuevamente.'));
+                    }
+                } catch (error) {
+                    console.error('Error al enviar la solicitud:', error);
+                    alert('Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.');
+                }
+            }
+        </script>
+    </div>
 </body>
 
 </html>
