@@ -1,79 +1,26 @@
-// js/api.js
+// js/carrito.js
 
-// Función para manejar el envío del formulario de inicio de sesión
-async function iniciarSesion(event) {
-    event.preventDefault();
+// Función para añadir un producto al carrito
+async function añadirAlCarrito(productoId, cantidad) {
+    const usuarioId = sessionStorage.getItem('id');
+    const nombreUsuario = sessionStorage.getItem('nombre');
 
-    const email = document.querySelector('#login-email').value.trim();
-    const contrasena = document.querySelector('#login-password').value.trim();
-
-    // Validar que los campos no estén vacíos
-    if (!email || !contrasena) {
-        alert('Por favor, completa todos los campos.');
+    // Validar si el usuario está autenticado
+    if (!usuarioId) {
+        alert('Por favor, inicia sesión para añadir productos al carrito.');
         return;
     }
-
-    try {
-        const response = await fetch('http://localhost:3000/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, contrasena })
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-
-            // Guardar las variables de sesión
-            sessionStorage.setItem('tipo', data.tipo);
-            sessionStorage.setItem('nombre', data.nombre);
-            sessionStorage.setItem('id', data.Id); // Usar 'id' en minúscula
-
-            alert(data.mensaje);
-
-            // Redirigir según el tipo de usuario
-            if (data.tipo === 'comerciante') {
-                window.location.href = 'index-comer.html?mensaje=Comerciante autenticado exitosamente';
-            } else {
-                window.location.href = 'index.html?mensaje=Usuario autenticado exitosamente';
-            }
-        } else {
-            const errorData = await response.json();
-            alert(errorData.error || 'Error al iniciar sesión. Por favor, inténtalo de nuevo.');
-        }
-    } catch (error) {
-        console.error('Error al enviar la solicitud:', error);
-        alert('Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.');
-    }
-}
-
-
-// Función para manejar el registro de un nuevo usuario
-async function registrarUsuario(event) {
-    event.preventDefault();
 
     const data = {
-        nombre: document.getElementById('input-usuario').value.trim(),
-        email: document.getElementById('input-email').value.trim(),
-        contrasena: document.getElementById('input-password').value.trim(),
-        direccion: document.getElementById('input-direccion').value.trim(),
-        telefono: document.getElementById('input-telefono').value.trim()
+        id_usuario: parseInt(usuarioId),
+        id_producto: productoId,
+        cantidad: cantidad,
+        usuario: nombreUsuario,
+        producto: document.getElementById('product-name').textContent
     };
 
-    // Validar que los campos no estén vacíos
-    if (!data.nombre || !data.email || !data.contrasena || !data.direccion || !data.telefono) {
-        Swal.fire({
-            title: 'Error',
-            text: 'Por favor, completa todos los campos.',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-        });
-        return;
-    }
-
     try {
-        const response = await fetch('http://localhost:3000/api/usuarios', {
+        const response = await fetch('http://localhost:3000/api/carrito', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -82,45 +29,140 @@ async function registrarUsuario(event) {
         });
 
         if (response.ok) {
-            Swal.fire({
-                title: '¡Registrado!',
-                text: 'Usuario registrado exitosamente',
-                icon: 'success',
-                confirmButtonText: 'Aceptar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = 'index.html'; // Redirige al inicio después de la confirmación
-                }
-            });
+            const result = await response.json();
+            alert('Producto añadido al carrito con éxito.');
+            actualizarContadorCarrito();
         } else {
             const errorData = await response.json();
-            Swal.fire({
-                title: 'Error',
-                text: errorData.message || 'Error al registrar el usuario.',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-            });
+            alert(`Error al añadir al carrito: ${errorData.message || 'Intente nuevamente.'}`);
         }
     } catch (error) {
-        console.error('Error al registrar el usuario:', error);
-        Swal.fire({
-            title: 'Error',
-            text: 'Hubo un error al registrar el usuario. Por favor, intente nuevamente.',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-        });
+        console.error('Error al enviar la solicitud:', error);
+        alert('Hubo un error al conectar con el servidor. Inténtalo de nuevo.');
     }
 }
 
-// Añadir eventos cuando el DOM esté cargado
-document.addEventListener('DOMContentLoaded', () => {
-    const formLogin = document.querySelector('form#form-login');
-    if (formLogin) {
-        formLogin.addEventListener('submit', iniciarSesion);
-    }
+// Función para mostrar los productos del carrito en la página `cart.html`
+async function mostrarCarrito() {
+    const usuarioId = sessionStorage.getItem('id');
 
-    const formRegistro = document.querySelector('form#form-registro');
-    if (formRegistro) {
-        formRegistro.addEventListener('submit', registrarUsuario);
+    try {
+        const response = await fetch(`http://localhost:3000/api/carrito/${usuarioId}`);
+        const carrito = await response.json();
+
+        const listaCarrito = document.getElementById('lista-carrito');
+        if (carrito.length > 0) {
+            listaCarrito.innerHTML = '';
+            let totalCantidad = 0;
+            let totalPrecio = 0;
+
+            carrito.forEach(producto => {
+                const item = document.createElement('div');
+                item.innerHTML = `
+                    <div class="row carrito-item">
+                        <div class="col-md-4">
+                            <img src="${producto.foto_url || 'image/no_image.png'}" class="img-thumbnail" width="100">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>${producto.producto}</h5>
+                            <p>Precio: ₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+                            <p>Cantidad: ${producto.cantidad}</p>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-danger btn-sm eliminar-item" data-id="${producto.id}">Eliminar</button>
+                        </div>
+                    </div>
+                    <hr>
+                `;
+                listaCarrito.appendChild(item);
+
+                totalCantidad += producto.cantidad;
+                totalPrecio += producto.precio * producto.cantidad;
+
+                // Agregar evento para eliminar producto
+                item.querySelector('.eliminar-item').addEventListener('click', () => {
+                    eliminarProductoDelCarrito(producto.id);
+                });
+            });
+
+            document.getElementById('total-precio').textContent = `₲${totalPrecio.toLocaleString('es-PY')}`;
+            document.getElementById('total-cantidad').textContent = totalCantidad;
+        } else {
+            listaCarrito.innerHTML = '<p>No hay productos en el carrito.</p>';
+            document.getElementById('total-precio').textContent = '₲0';
+            document.getElementById('total-cantidad').textContent = '0';
+        }
+    } catch (error) {
+        console.error('Error al obtener el carrito:', error);
+    }
+}
+
+// Función para eliminar un producto del carrito
+async function eliminarProductoDelCarrito(carritoId) {
+    try {
+        const response = await fetch(`http://localhost:3000/api/carrito/${carritoId}`, {
+            method: 'DELETE'
+        });
+
+        if (response.ok) {
+            alert('Producto eliminado del carrito con éxito.');
+            mostrarCarrito(); // Actualizar la lista de productos
+        } else {
+            const errorData = await response.json();
+            alert(`Error al eliminar el producto: ${errorData.message || 'Intente nuevamente.'}`);
+        }
+    } catch (error) {
+        console.error('Error al enviar la solicitud:', error);
+        alert('Hubo un error al conectar con el servidor. Inténtalo de nuevo.');
+    }
+}
+
+// Función para actualizar el contador de productos en el carrito
+async function actualizarContadorCarrito() {
+    const usuarioId = sessionStorage.getItem('id');
+    if (!usuarioId) return;
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/carrito/count/${usuarioId}`);
+        const data = await response.json();
+        document.getElementById('cart-count').textContent = data.total || 0;
+    } catch (error) {
+        console.error('Error al actualizar el contador del carrito:', error);
+    }
+}
+
+// Función para finalizar la compra
+async function finalizarCompra() {
+    const usuarioId = sessionStorage.getItem('id');
+    if (!usuarioId) return;
+
+    try {
+        const response = await fetch(`http://localhost:3000/api/compras/${usuarioId}`, {
+            method: 'POST'
+        });
+
+        if (response.ok) {
+            alert('Compra finalizada con éxito.');
+            mostrarCarrito(); // Actualizar el carrito después de la compra
+        } else {
+            const errorData = await response.json();
+            alert(`Error al finalizar la compra: ${errorData.message || 'Intente nuevamente.'}`);
+        }
+    } catch (error) {
+        console.error('Error al finalizar la compra:', error);
+    }
+}
+
+// Exportar las funciones globalmente para usarlas en el frontend
+window.añadirAlCarrito = añadirAlCarrito;
+window.mostrarCarrito = mostrarCarrito;
+window.eliminarProductoDelCarrito = eliminarProductoDelCarrito;
+window.actualizarContadorCarrito = actualizarContadorCarrito;
+window.finalizarCompra = finalizarCompra;
+
+// Inicializar el carrito en `cart.html`
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.includes('cart.html')) {
+        mostrarCarrito(); // Mostrar los productos del carrito si estamos en la página correspondiente
     }
 });
