@@ -558,17 +558,19 @@
     <!-- Scripts -->
     <script src="js/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/custom.js"></script>
-    <script src="js/api.js"></script>
-
-    <!-- Script Principal -->
+    <!-- Asegúrate de que jQuery se cargue antes de este script -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const nombreComerciante = sessionStorage.getItem('nombre');
-        if (nombreComerciante) {
-          document.getElementById('nombre-comerciante').innerHTML = `Hola, ${nombreComerciante}`;
-        } else {
+        const idComerciante = sessionStorage.getItem('id');
+        const tipoUsuario = sessionStorage.getItem('tipo');
+
+        if (tipoUsuario !== 'comerciante' || !nombreComerciante || !idComerciante) {
+          alert('Por favor, inicie sesión como comerciante.');
           window.location.href = 'login.html';
         }
+
+        document.getElementById('nombre-comerciante').innerHTML = `Hola, ${nombreComerciante}`;
 
         fetchProductos(); // Cargar los productos del comerciante
         fetchComercianteInfo(); // Cargar la información del comerciante
@@ -583,8 +585,8 @@
       });
 
       function fetchProductos() {
-        const comercianteId = sessionStorage.getItem('Id');
-        fetch(`http://localhost:3000/api/productos?comercianteId=${comercianteId}`)
+        const comercianteId = sessionStorage.getItem('id');
+        fetch(`http://localhost:3000/api/productos/comerciante/${comercianteId}`)
           .then(response => response.json())
           .then(data => {
             displayProductos(data);
@@ -595,7 +597,7 @@
       }
 
       function fetchComercianteInfo() {
-        const comercianteId = sessionStorage.getItem('Id');
+        const comercianteId = sessionStorage.getItem('id');
         fetch(`http://localhost:3000/api/comerciantes/${comercianteId}`)
           .then(response => response.json())
           .then(data => displayComercianteInfo(data))
@@ -663,7 +665,7 @@
         const descripcion = document.getElementById('producto-descripcion').value;
         const precio = document.getElementById('producto-precio').value;
         const fotoUrl = document.getElementById('producto-foto').value;
-        const idComerciante = sessionStorage.getItem('Id'); // Obtener el `id_comerciante`
+        const idComerciante = sessionStorage.getItem('id'); // Obtener el `id_comerciante`
 
         fetch(`http://localhost:3000/api/productos/${productoId}`, {
           method: 'PUT',
@@ -851,7 +853,7 @@
         const descripcion = document.getElementById('nuevo-producto-descripcion').value;
         const precio = document.getElementById('nuevo-producto-precio').value;
         const fotoUrl = document.getElementById('nuevo-producto-foto').value;
-        const comercianteId = sessionStorage.getItem('Id');
+        const comercianteId = sessionStorage.getItem('id');
 
         if (!nombre || !descripcion || !precio || !fotoUrl || !comercianteId) {
           alert('Por favor completa todos los campos antes de agregar el producto.');
