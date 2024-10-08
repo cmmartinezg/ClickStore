@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Click Store</title>
+  <title>Click Store - Usuario</title>
   <!-- CSS Parte Inicio -->
   <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
@@ -556,58 +556,190 @@ ul li input {
   margin: 15px 0; 
 }
 
+#welcome-message {
+    color: #ff6600;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+          .header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 14px 30px;
+              background-color: #232f3e;
+              color: #fff;
+              font-size: 18px;
+          }
+          .logo img {
+              height: 50px;
+          }
+
+          .search-bar {
+              display: flex;
+              align-items: center;
+              margin-right: auto;
+          }
+
+          .nav-links {
+              display: flex;
+              align-items: center;
+          }
+
+        #welcome-message {
+              color: white;
+              margin-right: 20px;
+              font-weight: bold;
+              font-size: 18px;
+          }
+
+          .icon-link {
+              font-size: 36px;
+              margin: 0 20px;
+              color: #ffcc00;
+              text-decoration: none;
+              transition: transform 0.3s ease;
+          }
+
+          .icon-link:hover {
+              transform: scale(1.2);
+          }
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+   .header {
+    flex-direction: column;
+    text-align: center;
+     }
+
+  .search-bar {
+    margin: 15px 0;
+   }
+
+  #welcome-message {
+ margin-bottom: 15px;
+   }
+
+.icon-link {
+    font-size: 30px;
+    margin: 10px;
+     }
+ }
+         
+
+@media (max-width: 480px) {
+   .icon-link {
+   font-size: 26px;
+  }
+}
+.icon-link {
+    text-decoration: none; /* Eliminar subrayado */
+    color: #eecd48; /* Cambiar el color de los íconos */
+    margin: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar icono y texto verticalmente */
+}
+
+/* Contenedor del icono y texto */
+.icon-container {
+    display: flex;
+    flex-direction: column; /* Coloca el texto debajo del icono */
+    align-items: center; /* Centrar los elementos */
+}
+
+/* Estilo para el ícono */
+.icon-link i {
+    font-size: 32px; /* Aumentar el tamaño del ícono */
+    margin-bottom: 5px; /* Espacio entre el ícono y el texto */
+}
+
+/* Estilo para el texto debajo del ícono */
+.icon-text {
+    font-size: 14px; 
+    color: #e97f15; 
+    font-weight: bold; 
+}
+
+/* Efecto al pasar el ratón por el enlace */
+.icon-link:hover i,
+.icon-link:hover .icon-text {
+    color: #ffc107; 
+}
+/* Ajustes para los íconos de Favoritos y Carrito */
+.nav-links .icon-link {
+    text-decoration: none;
+    color: #ffcc00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+    font-size: 14px;
+}
+
+.nav-links .icon-link i {
+    font-size: 40px; 
+    color: #ffcc00 !important; 
+    margin-bottom: 5px;
+}
+
+.nav-links .icon-link span {
+    color: #fffefb !important;
+}
+
+/* Cambiar color al hacer hover */
+.nav-links .icon-link:hover i,
+.nav-links .icon-link:hover span {
+    color: #ffd700 !important; 
+}
+
+.nav-links #welcome-message {
+    color: #ffcc00; 
+    margin-right: 100px; 
+    margin-left: 40px; 
+    font-weight: bold;
+    font-size: 20px;
+}
+
   </style>
 </head>
 
-<body class="amazon-style">
-  <div class="wrapper-wide">
-    <!-- Inicio del encabezado -->
-    <header class="header">
+<div class="wrapper-wide">
+  <header class="header">
       <div class="logo">
-        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+          <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
       </div>
       <div class="search-bar">
-        <select>
-          <option value="Todos">Todos</option>
-          <option value="Electrónica">Electrónica</option>
-          <option value="Informática">Informática</option>
-          <option value="Ropa">Ropa</option>
-          <option value="Automóviles">Automóviles</option>
-          <option value="Belleza">Belleza</option>
-        </select>
-        <input id="filter_name" type="text" name="search" placeholder="Buscar Producto" oninput="filterProductos()" autocomplete="off"/>
-        <div id="autocomplete-list"></div>
-        <button type="button" class="button-search" onclick="performSearch()"><i class="fa fa-search"></i></button>
+          <select>
+              <option value="Todos">Todos</option>
+              <option value="Electrónica">Electrónica</option>
+              <option value="Informática">Informática</option>
+              <option value="Ropa">Ropa</option>
+              <option value="Automóviles">Automóviles</option>
+              <option value="Belleza">Belleza</option>
+          </select>
+          <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
+          <button type="button" class="button-search"><i class="fa fa-search"></i></button>
       </div>
       <div class="nav-links">
-        <a href="wishlist.html"><i class="fa fa-heart"></i> Favoritos (<span id="wishlist-count">0</span>)</a>
-        <a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)</a>
-      </div>
-    </header>
-
-    <div class="secondary-header">
-      <div class="categories-container">
-        <button class="categories-btn" onclick="toggleDropdown()">
-          <i class="fas fa-bars"></i> Categorías
-        </button>
-      </div>
-      <div class="secondary-title">
-        <i class="fas fa-bolt"></i> Ofertas del Día
-      </div>
+        <span id="welcome-message" style="color: rgb(230, 136, 29); font-weight: bold;"></span>
+        <a href="wishlist.html" class="icon-link">
+            <div class="icon-container">
+                <i class="fa fa-heart"></i>
+                <span class="icon-text">Favoritos</span>
+            </div>
+        </a>
+        <a href="cart.html" class="icon-link">
+            <div class="icon-container">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="icon-text">Mi carrito</span>
+            </div>
+        </a>
     </div>
     
-    <!-- Dropdown de Categorías (desplegable) -->
-    <div class="categories-dropdown" id="categories-dropdown" style="display: none;">
-      <ul>
-        <li><i class="fas fa-tv"></i> Electrónica</li>
-        <li><i class="fas fa-laptop"></i> Informática</li>
-        <li><i class="fas fa-gamepad"></i> Videojuegos</li>
-        <li><i class="fas fa-heartbeat"></i> Belleza</li>
-        <li><i class="fas fa-tshirt"></i> Ropa & Accesorios</li>
-        <li><i class="fas fa-plug"></i> Electrodomésticos</li>
-        <li><i class="fas fa-couch"></i> Muebles</li>
-      </ul>
-    </div>
+      
+  </header>
+</div>
     
   <div class="slider_container" style="display: contents;">
       <ul>
@@ -1128,6 +1260,96 @@ function filtrarPorPrecio() {
 
   mostrarProductos(productosFiltrados);
 }
+async function registrarUsuario(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById('input-usuario').value;
+    const email = document.getElementById('input-email').value;
+    const contrasena = document.getElementById('input-password').value;
+    const direccion = document.getElementById('input-direccion').value;
+    const telefono = document.getElementById('input-telefono').value;
+
+    const data = {
+        nombre,
+        email,
+        contrasena,
+        direccion,
+        telefono
+    };
+
+    try {
+        const response = await fetch('http://localhost:3000/api/usuarios', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            const responseData = await response.json();
+
+            // Guardar las variables de sesión para el usuario
+            sessionStorage.setItem('nombre', nombre);
+            sessionStorage.setItem('Id', responseData.id);
+            sessionStorage.setItem('tipo', "usuario");
+
+            Swal.fire({
+                title: '¡Registrado!',
+                text: 'Usuario registrado exitosamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'index-usuario.html'; // Redirigir a la página de usuario
+                }
+            });
+        } else if (response.status === 409) {
+            Swal.fire({
+                title: 'Error',
+                text: 'El email ya está registrado. Por favor, utiliza otro email.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+        } else {
+            const errorData = await response.json();
+            Swal.fire({
+                title: 'Error',
+                text: errorData.message,
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+        }
+    } catch (error) {
+        Swal.fire({
+            title: 'Error',
+            text: 'Hubo un error al registrar el usuario. Por favor, intente nuevamente.',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () { 
+  const nombreUsuario = sessionStorage.getItem('nombre');
+  console.log("Nombre del usuario en sessionStorage:", nombreUsuario); // Verifica si el valor es correcto
+  
+  if (nombreUsuario) {
+      document.getElementById('welcome-message').innerHTML = `Bienvenido/a, ${nombreUsuario}`;
+  } else {
+      console.log("No se encontró el nombre en sessionStorage. Redirigiendo a login...");
+      window.location.href = 'login.html';
+  }
+});
+
+setTimeout(() => {
+  if (responseData.tipo === 'comerciante') {
+    window.location.href = 'index-comer.html';
+  } else if (responseData.tipo === 'usuario') {
+    window.location.href = 'index-usuario.html';
+  }
+}, 100); // Agrega un retardo de 100 milisegundos
+
 
     </script>
 </body>
