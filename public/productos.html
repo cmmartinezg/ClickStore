@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -106,6 +107,10 @@
                         <label for="foto_url">URL de la Foto</label>
                         <input type="text" class="form-control" id="foto_url" name="foto_url" required>
                     </div>
+                    <div class="form-group">
+                        <label for="stock">Stock</label>
+                        <input type="number" class="form-control" id="stock" name="stock" required min="0">
+                    </div>
                     <button type="submit" class="btn btn-primary">Registrar Producto</button>
                 </form>
             </div>
@@ -117,7 +122,7 @@
                 <h2>Carga Masiva de Productos</h2>
                 <form id="cargaMasivaForm" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="archivoProductos">Selecciona un archivo CSV</label>
+                        <label for="archivoProductos">Selecciona un archivo CSV (Debe incluir la columna 'stock')</label>
                         <input type="file" class="form-control" id="archivoProductos" name="archivoProductos" accept=".csv" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Cargar Productos</button>
@@ -176,11 +181,18 @@
                 const precio = document.getElementById('precio').value.trim();
                 const categoria = document.getElementById('categoria').value.trim();
                 const foto_url = document.getElementById('foto_url').value.trim();
+                const stock = document.getElementById('stock').value.trim();
                 const id_comerciante = sessionStorage.getItem('id'); // Obtener el id_comerciante del sessionStorage
 
                 // Validar que todos los campos están completos
-                if (!nombre || !descripcion || !precio || !categoria || !foto_url || !id_comerciante) {
+                if (!nombre || !descripcion || !precio || !categoria || !foto_url || !id_comerciante || stock === '') {
                     alert('Por favor, completa todos los campos.');
+                    return;
+                }
+
+                // Validar que el stock es un número entero no negativo
+                if (isNaN(stock) || parseInt(stock) < 0) {
+                    alert('El campo stock debe ser un número entero no negativo.');
                     return;
                 }
 
@@ -191,7 +203,8 @@
                     precio: parseFloat(precio),
                     categoria,
                     foto_url,
-                    id_comerciante
+                    id_comerciante,
+                    stock: parseInt(stock)
                 };
 
                 try {
@@ -264,3 +277,6 @@
 </body>
 
 </html>
+
+
+
