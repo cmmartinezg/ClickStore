@@ -1,28 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Definir variables y obtener elementos del DOM
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const listaCarrito = document.getElementById('lista-carrito');
     const totalPrecioElemento = document.getElementById('total-precio');
     const totalCantidadElemento = document.getElementById('total-cantidad');
 
-    // Inicializar el carrito al cargar la página
-    mostrarCarrito();
-
-    // Función para agregar productos al carrito
-    function agregarAlCarrito(producto, cantidad) {
-        const index = carrito.findIndex(item => item.id === producto.id);
-        if (index >= 0) {
-            carrito[index].cantidad += cantidad;
-        } else {
-            producto.cantidad = cantidad;
-            carrito.push(producto);
-        }
-
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        alert(`Se agregó ${producto.nombre} al carrito.`);
-        mostrarCarrito();
-    }
-
-    // Función para mostrar el carrito en la página `cart.html`
+    // Función para mostrar los productos del carrito en `cart.html`
     function mostrarCarrito() {
         listaCarrito.innerHTML = '';
         let totalCantidad = 0;
@@ -72,7 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
         totalCantidadElemento.textContent = totalCantidad;
     }
 
-    // Función para cargar y agregar el producto al carrito desde `product.html`
+    // Función para agregar productos al carrito
+    function agregarAlCarrito(producto, cantidad) {
+        const index = carrito.findIndex(item => item.id === producto.id);
+        if (index >= 0) {
+            carrito[index].cantidad += cantidad;
+        } else {
+            producto.cantidad = cantidad;
+            carrito.push(producto);
+        }
+
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        alert(`Se agregó ${producto.nombre} al carrito.`);
+        mostrarCarrito();
+    }
+
+    // Función para cargar el producto actual desde `product.html`
     function cargarProductoYAgregarAlCarrito() {
         const params = new URLSearchParams(window.location.search);
         const productId = params.get('id');
@@ -81,10 +79,17 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(`http://localhost:3000/api/productos/${productId}`)
                 .then(response => response.json())
                 .then(producto => {
-                    document.getElementById('button-cart').addEventListener('click', () => {
-                        const cantidad = parseInt(document.getElementById('input-quantity').value, 10);
-                        agregarAlCarrito(producto, cantidad);
-                    });
+                    if (producto) {
+                        document.getElementById('button-cart').addEventListener('click', () => {
+                            const cantidad = parseInt(document.getElementById('input-quantity').value, 10);
+                            agregarAlCarrito({
+                                id: producto.id,
+                                nombre: producto.nombre,
+                                precio: producto.precio,
+                                imagen: producto.foto_url // Asegúrate de que el campo de la imagen se llame `foto_url`
+                            }, cantidad);
+                        });
+                    }
                 })
                 .catch(err => console.error('Error al cargar el producto:', err));
         }
@@ -129,9 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Confirmar el pago
-    document.getElementById('confirmTarjeta').addEventListener('click', () => procesarPago('Tarjeta'));
-    document.getElementById('confirmEfectivo').addEventListener('click', () => procesarPago('Efectivo'));
-    document.getElementById('confirmTransferencia').addEventListener('click', () => procesarPago('Transferencia'));
+        document.getElementById('confirmTarjeta').addEventListener('click', () => procesarPago('Tarjeta'));
+        document.getElementById('confirmEfectivo').addEventListener('click', () => procesarPago('Efectivo'));
+        document.getElementById('confirmTransferencia').addEventListener('click', () => procesarPago('Transferencia'));
 
     // Función para simular el procesamiento del pago
     function procesarPago(metodo) {
