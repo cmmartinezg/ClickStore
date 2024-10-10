@@ -1,24 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Registrar Producto</title>
-    <!-- CSS Parte Inicio -->
-    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-    <link rel="stylesheet" type="text/css" href="css/estilop.css" />
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-    <!-- CSS Parte Fin -->
+    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilop.css" />
     <style>
-        /* Estilos personalizados para la página de registro de productos */
         .container {
             margin-top: 30px;
         }
@@ -32,21 +21,6 @@
 
         .product-form h2 {
             margin-bottom: 20px;
-            color: #333;
-        }
-
-        .product-form .form-group label {
-            font-weight: bold;
-        }
-
-        .product-form .btn-primary {
-            background-color: #ff6f61;
-            border-color: #ff6f61;
-        }
-
-        .product-form .btn-primary:hover {
-            background-color: #e65b54;
-            border-color: #e65b54;
         }
 
         .separator {
@@ -54,62 +28,56 @@
             margin: 30px 0;
             font-weight: bold;
             font-size: 18px;
-            color: #666;
         }
     </style>
 </head>
 
 <body>
     <div class="wrapper-wide">
-        <!-- Inicio del encabezado -->
         <header class="header">
             <div class="logo">
-                <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+                <a href="index.html"><img src="image/logo.png" alt="Click Store" /></a>
             </div>
             <div class="nav-links">
                 <span id="nombre-comerciante" class="comerciante-info"></span>
                 <a href="#" id="logout-btn">Cerrar Sesión</a>
             </div>
         </header>
-        <!-- Encabezado End -->
 
-        <!-- Contenido principal -->
         <div class="container">
-            <!-- Formulario para registro individual de productos -->
             <div class="product-form">
                 <h2>Registrar Nuevo Producto</h2>
                 <form id="registroProductoForm">
                     <div class="form-group">
                         <label for="nombre">Nombre del Producto</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <input type="text" class="form-control" id="nombre" required>
                     </div>
                     <div class="form-group">
                         <label for="descripcion">Descripción</label>
-                        <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
+                        <textarea class="form-control" id="descripcion" rows="4" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="precio">Precio</label>
-                        <input type="number" class="form-control" id="precio" name="precio" required>
+                        <input type="number" class="form-control" id="precio" min="0" required>
                     </div>
                     <div class="form-group">
                         <label for="categoria">Categoría</label>
-                        <select class="form-control" id="categoria" name="categoria" required>
+                        <select class="form-control" id="categoria" required>
                             <option value="">Selecciona una categoría</option>
                             <option value="Electrónica">Electrónica</option>
                             <option value="Informática">Informática</option>
                             <option value="Ropa">Ropa</option>
                             <option value="Automóviles">Automóviles</option>
                             <option value="Belleza">Belleza</option>
-                            <!-- Agrega más opciones si es necesario -->
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="foto_url">URL de la Foto</label>
-                        <input type="text" class="form-control" id="foto_url" name="foto_url" required>
+                        <input type="text" class="form-control" id="foto_url" required>
                     </div>
                     <div class="form-group">
                         <label for="stock">Stock</label>
-                        <input type="number" class="form-control" id="stock" name="stock" required min="0">
+                        <input type="number" class="form-control" id="stock" min="0" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Registrar Producto</button>
                 </form>
@@ -117,159 +85,112 @@
 
             <div class="separator">O</div>
 
-            <!-- Formulario para carga masiva de productos -->
             <div class="product-form">
                 <h2>Carga Masiva de Productos</h2>
                 <form id="cargaMasivaForm" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="archivoProductos">Selecciona un archivo CSV (Debe incluir la columna 'stock')</label>
-                        <input type="file" class="form-control" id="archivoProductos" name="archivoProductos" accept=".csv" required>
+                        <label for="archivoProductos">Selecciona un archivo CSV</label>
+                        <input type="file" class="form-control" id="archivoProductos" accept=".csv" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Cargar Productos</button>
                 </form>
             </div>
         </div>
 
-        <!-- Pie de Página Inicio -->
         <footer id="footer">
             <p>&copy; 2024 Click Store | <a href="index.html">Inicio</a> | <a href="contact.html">Contacto</a></p>
         </footer>
 
-        <!-- Scripts -->
         <script src="js/jquery-2.1.1.min.js"></script>
         <script src="js/bootstrap/js/bootstrap.min.js"></script>
-        <script src="js/custom.js"></script>
-
-        <!-- Script Principal -->
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Obtener el id_comerciante y el nombre del sessionStorage
-                const idComerciante = sessionStorage.getItem('id');
                 const nombreComerciante = sessionStorage.getItem('nombre');
-                const tipoUsuario = sessionStorage.getItem('tipo');
+                const comercianteId = sessionStorage.getItem('Id');
 
-                // Verificar que el usuario es un comerciante y que está autenticado
-                if (tipoUsuario !== 'comerciante' || !idComerciante) {
-                    alert('Por favor, inicie sesión como comerciante para registrar productos.');
+                if (!nombreComerciante || !comercianteId) {
+                    alert('Por favor, inicie sesión como comerciante para continuar.');
                     window.location.href = 'login.html';
+                } else {
+                    document.getElementById('nombre-comerciante').innerText = `Hola, ${nombreComerciante}`;
                 }
 
-                // Mostrar el nombre del comerciante en la barra de navegación
-                if (nombreComerciante) {
-                    document.getElementById('nombre-comerciante').textContent = `Hola, ${nombreComerciante}`;
-                }
-
-                // Manejar el cierre de sesión
                 document.getElementById('logout-btn').addEventListener('click', function () {
                     sessionStorage.clear();
                     window.location.href = 'login.html';
                 });
 
-                // Manejar el envío del formulario de registro de productos
                 document.getElementById('registroProductoForm').addEventListener('submit', registrarProducto);
-
-                // Manejar el envío del formulario de carga masiva
-                document.getElementById('cargaMasivaForm').addEventListener('submit', cargarProductosMasivamente);
+                document.getElementById('cargaMasivaForm').addEventListener('submit', cargarProductosMasivos);
             });
 
             async function registrarProducto(event) {
                 event.preventDefault();
 
-                // Obtener los datos del formulario
+                // Obtener valores de los campos
                 const nombre = document.getElementById('nombre').value.trim();
                 const descripcion = document.getElementById('descripcion').value.trim();
-                const precio = document.getElementById('precio').value.trim();
+                const precio = parseFloat(document.getElementById('precio').value.trim());
                 const categoria = document.getElementById('categoria').value.trim();
                 const foto_url = document.getElementById('foto_url').value.trim();
-                const stock = document.getElementById('stock').value.trim();
-                const id_comerciante = sessionStorage.getItem('id'); // Obtener el id_comerciante del sessionStorage
+                const stock = parseInt(document.getElementById('stock').value.trim());
+                const id_comerciante = sessionStorage.getItem('Id'); // Asegúrate de usar el ID correcto
 
-                // Validar que todos los campos están completos
-                if (!nombre || !descripcion || !precio || !categoria || !foto_url || !id_comerciante || stock === '') {
+                // Validar campos
+                if (!nombre || !descripcion || isNaN(precio) || !categoria || !foto_url || isNaN(stock)) {
                     alert('Por favor, completa todos los campos.');
                     return;
                 }
 
-                // Validar que el stock es un número entero no negativo
-                if (isNaN(stock) || parseInt(stock) < 0) {
-                    alert('El campo stock debe ser un número entero no negativo.');
-                    return;
-                }
-
-                // Crear el objeto de datos a enviar
-                const data = {
-                    nombre,
-                    descripcion,
-                    precio: parseFloat(precio),
-                    categoria,
-                    foto_url,
-                    id_comerciante,
-                    stock: parseInt(stock)
-                };
-
                 try {
-                    // Enviar la solicitud al servidor
                     const response = await fetch('http://localhost:3000/api/productos', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify(data)
+                        body: JSON.stringify({ nombre, descripcion, precio, categoria, foto_url, id_comerciante, stock })
                     });
 
                     if (response.ok) {
-                        const result = await response.json();
                         alert('Producto registrado exitosamente');
-                        // Redirigir al panel del comerciante o limpiar el formulario
                         window.location.href = 'index-comer.html';
                     } else {
-                        const errorData = await response.json();
-                        console.error('Error al registrar producto:', errorData);
-                        alert('Error al registrar producto: ' + (errorData.error || 'Por favor, intente nuevamente.'));
+                        const error = await response.json();
+                        alert('Error al registrar producto: ' + error.message);
                     }
                 } catch (error) {
-                    console.error('Error al enviar la solicitud:', error);
-                    alert('Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.');
+                    alert('Ocurrió un error al registrar el producto. Por favor, inténtalo más tarde.');
                 }
             }
 
-            async function cargarProductosMasivamente(event) {
+            async function cargarProductosMasivos(event) {
                 event.preventDefault();
+                const archivo = document.getElementById('archivoProductos').files[0];
 
-                const archivoInput = document.getElementById('archivoProductos');
-                const archivo = archivoInput.files[0];
-                const id_comerciante = sessionStorage.getItem('id'); // Obtener el id_comerciante del sessionStorage
-
-                if (!archivo || !id_comerciante) {
-                    alert('Por favor, selecciona un archivo y asegúrate de estar autenticado.');
+                // Validar archivo
+                if (!archivo) {
+                    alert('Por favor, selecciona un archivo CSV.');
                     return;
                 }
 
-                // Crear un objeto FormData y agregar el archivo y el id_comerciante
                 const formData = new FormData();
-                formData.append('archivoProductos', archivo);
-                formData.append('id_comerciante', id_comerciante);
+                formData.append('archivo', archivo);
 
                 try {
-                    // Enviar la solicitud al servidor
-                    const response = await fetch('http://localhost:3000/api/productos/upload', {
+                    const response = await fetch('http://localhost:3000/api/cargar-productos', {
                         method: 'POST',
                         body: formData
                     });
 
                     if (response.ok) {
-                        const result = await response.json();
-                        alert('Productos cargados exitosamente');
-                        // Redirigir al panel del comerciante o actualizar la página
+                        alert('Carga masiva de productos realizada exitosamente');
                         window.location.href = 'index-comer.html';
                     } else {
-                        const errorData = await response.json();
-                        console.error('Error al cargar productos:', errorData);
-                        alert('Error al cargar productos: ' + (errorData.error || 'Por favor, intente nuevamente.'));
+                        const error = await response.json();
+                        alert('Error al cargar productos: ' + error.message);
                     }
                 } catch (error) {
-                    console.error('Error al enviar la solicitud:', error);
-                    alert('Hubo un error al enviar la solicitud. Por favor, inténtalo de nuevo.');
+                    alert('Ocurrió un error al cargar los productos. Por favor, inténtalo más tarde.');
                 }
             }
         </script>
@@ -277,6 +198,3 @@
 </body>
 
 </html>
-
-
-
