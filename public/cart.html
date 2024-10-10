@@ -5,63 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+    
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
         }
-
-        /* Encabezado */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 15px 30px;
             background-color: #2C3E50;
+            color: #fff;
         }
 
         .header .logo img {
-            width: 120px;
+            width: 130px;
         }
 
-        .header .nav-links a {
+        /* Estilo para los enlaces del encabezado */
+        .header .secure-payment {
+            display: flex;
+            align-items: center;
             color: #fff;
-            text-decoration: none;
-            background-color: #E74C3C;
-            padding: 10px 20px;
-            border-radius: 5px;
+            gap: 10px;
         }
 
-        .header .nav-links a:hover {
-            background-color: #C0392B;
+        .header .secure-payment .icon-secure {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        .header .secure-payment a {
+            color: #28a745;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .header .secure-payment a:hover {
+            text-decoration: underline;
+            color: #218838;
+        }
+
+        .header .shopping-link {
+            margin-left: 15px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .header .shopping-link:hover {
+            text-decoration: underline;
+            color: #ddd;
+        }
+
+        .header .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header .user-info .username {
+            font-size: 18px;
+            margin-right: 15px;
         }
 
         /* Título de la sección */
         .section-title {
             text-align: left;
             font-size: 28px;
-            margin-bottom: 30px;
-            margin-left: 10px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #34495e;
         }
 
         /* Estilos del carrito */
         .carrito-productos {
-            background-color: #f5f5f5;
+            background-color: #ffffff;
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .carrito-item img {
+            max-width: 100px;
             height: auto;
         }
 
+        .carrito-item h5 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .carrito-item p {
+            margin-bottom: 5px;
+        }
+
+        .carrito-item .eliminar-item {
+            margin-top: 10px;
+        }
+
         .carrito-resumen {
-            background-color: #fff;
+            background-color: #ffffff;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        #resumen-pedido p {
+        .resumen-titulo h4 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #34495e;
+        }
+
+        .resumen-pedido p {
             font-size: 18px;
-            margin: 10px 0;
+            margin-bottom: 10px;
+            color: #34495e;
         }
 
         #boton-comprar {
@@ -70,144 +135,144 @@
             background-color: #28a745;
             border: none;
             color: #fff;
-            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         #boton-comprar:hover {
             background-color: #218838;
         }
 
-        /* Modal de pago */
-        .modal-body button {
-            margin: 5px 0;
-        }
-        
-        .payment-btn {
-            padding: 10px 15px;
-            margin: 10px 5px;
-            border: none;
+        #metodo-pago-texto {
+            font-size: 18px;
             cursor: pointer;
-            border-radius: 5px;
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        #metodo-pago-texto:hover {
+            color: #0056b3;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header h5 {
             font-weight: bold;
-            color: white;
         }
-
-        .payment-btn.active {
-            background-color: #007bff;
-            border: 2px solid #007bff;
-        }
-
-        .payment-btn {
-            background-color: #f7941d;
-        }
-
-        .payment-btn:hover {
-            background-color: #e67e22;
-        }
-
-        .payment-form {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .payment-form.active {
-            display: block;
-        }
-
-    </style>
+   
+  </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <header class="header">
-            <div class="logo">
-                <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
-            </div>
-        </header>
-
-        <h2 class="section-title">Carrito de Compras</h2>
-        <div class="row">
-            <div class="col-md-8 carrito-productos">
-                <div class="carrito-titulo">
-                    <h4>Todos los artículos</h4>
-                </div>
-                <div id="lista-carrito" class="lista-carrito"></div>
-            </div>
-
-            <div class="col-md-4 carrito-resumen">
-                <div class="resumen-titulo">
-                    <h4>Resumen del Pedido</h4>
-                </div>
-                <div id="resumen-pedido">
-                    <p><b>Precio Estimado:</b> <span id="total-precio">₲0</span></p>
-                    <p><b>Cantidad Total:</b> <span id="total-cantidad">0</span></p>
-                    <p><b id="metodo-pago-texto" style="cursor: pointer; color: blue;">Método de Pago</b></p>
-                    <button class="btn btn-success" id="boton-comprar">Comprar Ahora</button>
-                </div>
-            </div>
+  <div class="container-fluid p-0">
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="image/logo.png" alt="Click Store" />
+            </a>
         </div>
-    </div>
-
-    <!-- Modal de Compra Simulada -->
-    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="buyModalLabel">Completar Compra</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h6>Seleccione el método de pago:</h6>
-                    <button type="button" class="btn btn-primary payment-btn" id="payWithCard">Tarjeta de Crédito/Débito</button>
-                    <button type="button" class="btn btn-primary payment-btn" id="payWithEfectivo">Efectivo</button>
-                    <button type="button" class="btn btn-primary payment-btn" id="payWithTransferencia">Transferencia Bancaria</button>
-
-                    <!-- Formulario de pago con Tarjeta -->
-                    <div id="cardForm" class="payment-form">
-                        <h6>Pago con Tarjeta:</h6>
-                        <div class="form-group">
-                            <label for="cardNumber">Número de Tarjeta:</label>
-                            <input type="text" id="cardNumber" class="form-control" placeholder="Número de Tarjeta">
-                        </div>
-                        <div class="form-group">
-                            <label for="cardExpiry">Fecha de Expiración:</label>
-                            <input type="text" id="cardExpiry" class="form-control" placeholder="MM/AA">
-                        </div>
-                        <div class="form-group">
-                            <label for="cardCVC">CVC:</label>
-                            <input type="text" id="cardCVC" class="form-control" placeholder="CVC">
-                        </div>
-                        <button type="button" class="btn btn-success" id="confirmTarjeta">Confirmar Pago</button>
-                    </div>
-
-                    <!-- Formulario de pago en Efectivo -->
-                    <div id="efectivoForm" class="payment-form">
-                        <h6>Pago en Efectivo:</h6>
-                        <p>Por favor, acérquese a cualquiera de nuestras tiendas físicas para realizar el pago.</p>
-                        <button type="button" class="btn btn-success" id="confirmEfectivo">Confirmar Pago</button>
-                    </div>
-
-                    <!-- Formulario de pago por Transferencia -->
-                    <div id="transferenciaForm" class="payment-form">
-                        <h6>Pago por Transferencia Bancaria:</h6>
-                        <p>Realice la transferencia a la siguiente cuenta:</p>
-                        <ul>
-                            <li><b>Banco:</b> Banco XYZ</li>
-                            <li><b>Número de Cuenta:</b> 123456789</li>
-                            <li><b>Nombre del Titular:</b> Click Store</li>
-                            <li><b>Concepto:</b> Compra #12345</li>
-                        </ul>
-                        <button type="button" class="btn btn-success" id="confirmTransferencia">Confirmar Pago</button>
-                    </div>
-                </div>
-            </div>
+        <div class="secure-payment">
+            <span class="icon-secure">🔒</span>
+            <span>Pago Seguro</span>
+            <span class="shopping-link" id="seguir-comprando">Seguir Comprando &rsaquo;</span>
         </div>
-    </div>
+    </header>
+    <div class="container mt-4">
+      <h2 class="section-title">Carrito de Compras</h2>
+      <div class="row">
+          <div class="col-md-8 carrito-productos">
+              <div class="carrito-titulo">
+                  <h4>Todos los artículos</h4>
+              </div>
+              <div id="lista-carrito" class="lista-carrito"></div>
+          </div>
+          <div class="col-md-4 carrito-resumen">
+              <div class="resumen-titulo">
+                  <h4>Resumen del Pedido</h4>
+              </div>
+              <div id="resumen-pedido">
+                  <p><b>Precio Estimado:</b> <span id="total-precio">₲0</span></p>
+                  <p><b>Cantidad Total:</b> <span id="total-cantidad">0</span></p>
+                  <p><b id="metodo-pago-texto" style="cursor: pointer; color: blue;">Método de Pago: No seleccionado</b></p>
+                  <button class="btn btn-success" id="boton-comprar">Comprar Ahora</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal de Selección de Pago -->
+  <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="buyModalLabel">Completar Compra</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <h6>Seleccione el método de pago:</h6>
+                  <button type="button" class="btn payment-btn" id="payWithCard">Tarjeta de Crédito/Débito</button>
+                  <button type="button" class="btn payment-btn" id="payWithEfectivo">Efectivo</button>
+                  <button type="button" class="btn payment-btn" id="payWithTransferencia">Transferencia Bancaria</button>
+  
+                  <!-- Formulario de pago con Tarjeta -->
+                  <div id="cardForm" class="payment-form">
+                      <h6>Pago con Tarjeta:</h6>
+                      <div class="form-group">
+                          <label for="cardNumber">Número de Tarjeta:</label>
+                          <input type="text" id="cardNumber" class="form-control" placeholder="Número de Tarjeta">
+                      </div>
+                      <div class="form-group">
+                          <label for="cardExpiry">Fecha de Expiración:</label>
+                          <input type="text" id="cardExpiry" class="form-control" placeholder="MM/AA">
+                      </div>
+                      <div class="form-group">
+                          <label for="cardCVC">CVC:</label>
+                          <input type="text" id="cardCVC" class="form-control" placeholder="CVC">
+                      </div>
+                      <button type="button" class="btn btn-success" id="confirmTarjeta">Confirmar</button>
+                  </div>
+  
+                  <!-- Formulario de pago en Efectivo -->
+                  <div id="efectivoForm" class="payment-form">
+                      <h6>Pago en Efectivo:</h6>
+                      <p>Por favor, acérquese a cualquiera de nuestras tiendas físicas para realizar el pago.</p>
+                      <button type="button" class="btn btn-success" id="confirmEfectivo">Confirmar</button>
+                  </div>
+  
+                  <!-- Formulario de pago por Transferencia -->
+                  <div id="transferenciaForm" class="payment-form">
+                      <h6>Pago por Transferencia Bancaria:</h6>
+                      <p>Realice la transferencia a la siguiente cuenta:</p>
+                      <ul>
+                          <li><b>Banco:</b> Banco XYZ</li>
+                          <li><b>Número de Cuenta:</b> 123456789</li>
+                          <li><b>Nombre del Titular:</b> Click Store</li>
+                          <li><b>Concepto:</b> Compra #12345</li>
+                      </ul>
+                      <button type="button" class="btn btn-success" id="confirmTransferencia">Confirmar</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+
 
     <!-- Script de Bootstrap y jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <script src="js/carrito.js"></script>
+    <script>
+      // Función para redirigir a la página de seguir comprando
+      document.getElementById('seguir-comprando').addEventListener('click', () => {
+          window.location.href = 'index-usuario.html'; // Cambia al nombre correcto de tu archivo HTML
+      });
+  </script>
 </body>
 </html>
