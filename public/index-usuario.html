@@ -147,7 +147,7 @@
       bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #ff9900;
+      background-color: #ff6f61;;
       color: white;
       border: none;
       padding: 5px 10px;
@@ -568,9 +568,9 @@ ul li input {
               justify-content: space-between;
               align-items: center;
               padding: 14px 30px;
-              background-color: #232f3e;
-              color: #fff;
-              font-size: 18px;
+              background-color: #333;
+             
+             
           }
           .logo img {
               height: 50px;
@@ -594,17 +594,17 @@ ul li input {
               font-size: 18px;
           }
 
-          .icon-link {
-              font-size: 36px;
-              margin: 0 20px;
-              color: #ffcc00;
-              text-decoration: none;
-              transition: transform 0.3s ease;
-          }
+    .icon-link {
+    font-size: 36px;
+    margin: 0 20px;
+    color: #ffcc00;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    }
 
-          .icon-link:hover {
-              transform: scale(1.2);
-          }
+    .icon-link:hover {
+    transform: scale(1.2);
+    }
   /* Responsive Styles */
   @media (max-width: 768px) {
    .header {
@@ -650,7 +650,7 @@ ul li input {
 
 /* Estilo para el ícono */
 .icon-link i {
-    font-size: 32px; /* Aumentar el tamaño del ícono */
+    font-size: 30px; /* Aumentar el tamaño del ícono */
     margin-bottom: 5px; /* Espacio entre el ícono y el texto */
 }
 
@@ -673,13 +673,13 @@ ul li input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 15px;
-    font-size: 14px;
+ 
+
 }
 
 .nav-links .icon-link i {
     font-size: 40px; 
-    color: #ffcc00 !important; 
+    color: #c58b0f !important; 
     margin-bottom: 5px;
 }
 
@@ -694,13 +694,92 @@ ul li input {
 }
 
 .nav-links #welcome-message {
-    color: #ffcc00; 
-    margin-right: 100px; 
+    color: #ffffff; 
+    margin-right: 22px; 
     margin-left: 40px; 
     font-weight: bold;
     font-size: 20px;
 }
 
+/* Estilo general del pie de página */
+#main-footer {
+    background: #333;
+    color: #fff;
+    padding: 40px 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Sección del pie de página */
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffc107;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffc107;
+}
+
+/* Estilos de los íconos de contacto */
+.footer-section ul li i {
+    margin-right: 10px;
+    color: #ffc107;
+}
+
+/* Estilo del contenedor inferior */
+.footer-bottom {
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #ffc107;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
   </style>
 </head>
 
@@ -722,7 +801,7 @@ ul li input {
           <button type="button" class="button-search"><i class="fa fa-search"></i></button>
       </div>
       <div class="nav-links">
-        <span id="welcome-message" style="color: rgb(230, 136, 29); font-weight: bold;"></span>
+        <span id="welcome-message" style="color: aaa(230, 136, 29); font-weight: bold;"></span>
         <a href="wishlist.html" class="icon-link">
             <div class="icon-container">
                 <i class="fa fa-heart"></i>
@@ -846,66 +925,41 @@ ul li input {
       <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
     </div>
 
-    <!-- Pie de Página Inicio -->
-    <footer id="footer">
-      <div class="fpart-first">
-        <div class="container">
-          <div class="row">
-            <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
-              <h5>Detalles de Contacto</h5>
-              <ul>
-                <li class="address"><i class="fa fa-map-marker"></i> Central Square, 22 Hoi Wing Road, New Delhi, India
-                </li>
-                <li class="mobile"><i class="fa fa-phone"></i> +91 9898777656</li>
-                <li class="email"><i class="fa fa-envelope"></i> Enviar correo a través de nuestro <a
-                    href="contact-us.html">Contáctanos</a></li>
-              </ul>
-            </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-              <h5>Información</h5>
-              <ul>
-                <li><a href="about-us.html">Acerca de Nosotros</a></li>
-                <li><a href="about-us.html">Información de Entrega</a></li>
-                <li><a href="about-us.html">Política de Privacidad</a></li>
-                <li><a href="about-us.html">Términos &amp; Condiciones</a></li>
-              </ul>
-            </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-              <h5>Servicio al Cliente</h5>
-              <ul>
-                <li><a href="contact-us.html">Contáctanos</a></li>
-                <li><a href="returns.html">Devoluciones</a></li>
-                <li><a href="sitemap.html">Mapa del Sitio</a></li>
-              </ul>
-            </div>
-            
-            <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
-              <h5>Boletín Informativo</h5>
-              <div class="form-group">
-                <label class="control-label" for="subscribe">Regístrate para recibir las últimas noticias y
-                  actualizaciones.</label>
-                <input id="signup" type="email" required="" placeholder="Dirección de correo electrónico" name="email"
-                  class="form-control">
-              </div>
-              <input type="submit" value="Suscribirse" class="btn btn-primary">
-            </div>
+   
+    <footer id="main-footer">
+      <div class="footer-container">
+          <!-- Contenedor de información de la compañía -->
+          <div class="footer-section">
+              <h4>Sobre Nosotros</h4>
+              <p>Click Store es una tienda en línea dedicada a ofrecer productos de calidad y un servicio excepcional a nuestros clientes. Nuestro objetivo es satisfacer todas tus necesidades con la mejor experiencia de compra.</p>
           </div>
-        </div>
-      </div>
-      <div class="fpart-second">
-        <div class="container">
-          <div id="powered" class="clearfix">
-            <div class="powered_text pull-left flip">
-              <p>click Store © 2024</p>
-            </div>
+  
+          <!-- Contenedor de enlaces rápidos -->
+          <div class="footer-section">
+              <h4>Enlaces Rápidos</h4>
+              <ul>
+                  <li><a href="#">Inicio</a></li>
+                  <li><a href="#">Tienda</a></li>
+                  <li><a href="#">Acerca de</a></li>
+                  <li><a href="#">Contacto</a></li>
+                  <li><a href="#">Política de Privacidad</a></li>
+              </ul>
           </div>
-          
-        </div>
+  
+          <!-- Contenedor de contacto -->
+          <div class="footer-section">
+              <h4>Contáctanos</h4>
+              <ul>
+                  <li><i class="fa fa-map-marker"></i> Asunción, Paraguay</li>
+                  <li><i class="fa fa-phone"></i> +595 21 123 4567</li>
+                  <li><i class="fa fa-envelope"></i> contacto@clickstore.com</li>
+              </ul>
+          </div>
       </div>
-      <div id="back-top"><a data-toggle="tooltip" title="Volver Arriba" href="javascript:void(0)" class="backtotop"><i
-            class="fa fa-chevron-up"></i></a></div>
-    </footer>
-    <!-- Pie de Página Fin -->
+      <div class="footer-bottom">
+          <p>&copy; 2024 Click Store. Todos los derechos reservados | <a href="#">Términos y Condiciones</a></p>
+      </div>
+  </footer>
 
     <!-- Parte JS Inicio -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

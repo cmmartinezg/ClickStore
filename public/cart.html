@@ -163,7 +163,30 @@
         .modal-header h5 {
             font-weight: bold;
         }
-   
+        .payment-btn {
+        margin: 5px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: #f7941d;
+        color: white;
+    }
+
+    .payment-btn.active {
+        background-color: #007bff;
+        border: 2px solid #007bff;
+    }
+
+    .payment-form {
+        display: none;
+        margin-top: 20px;
+    }
+
+    .payment-form.active {
+        display: block;
+    }
+     
   </style>
 </head>
 <body>
@@ -261,6 +284,7 @@
       </div>
   </div>
   
+  
 
 
 
@@ -273,6 +297,50 @@
       document.getElementById('seguir-comprando').addEventListener('click', () => {
           window.location.href = 'index-usuario.html'; // Cambia al nombre correcto de tu archivo HTML
       });
+
+      document.addEventListener('DOMContentLoaded', () => {
+    let metodoPagoSeleccionado = "No seleccionado";
+
+    // Evento para abrir el modal de pago
+    document.getElementById('metodo-pago-texto').addEventListener('click', () => {
+        $('#buyModal').modal('show');
+    });
+
+    // Eventos para seleccionar método de pago
+    document.getElementById('payWithCard').addEventListener('click', () => mostrarFormularioPago('cardForm', 'Tarjeta de Crédito/Débito'));
+    document.getElementById('payWithEfectivo').addEventListener('click', () => mostrarFormularioPago('efectivoForm', 'Efectivo'));
+    document.getElementById('payWithTransferencia').addEventListener('click', () => mostrarFormularioPago('transferenciaForm', 'Transferencia Bancaria'));
+
+    // Función para mostrar el formulario correspondiente y actualizar el método de pago seleccionado
+    function mostrarFormularioPago(formularioId, metodo) {
+        document.querySelectorAll('.payment-form').forEach(form => form.classList.remove('active'));
+        document.getElementById(formularioId).classList.add('active');
+
+        metodoPagoSeleccionado = metodo;
+    }
+
+    // Eventos de confirmación de métodos de pago
+    document.getElementById('confirmTarjeta').addEventListener('click', () => confirmarPago());
+    document.getElementById('confirmEfectivo').addEventListener('click', () => confirmarPago());
+    document.getElementById('confirmTransferencia').addEventListener('click', () => confirmarPago());
+
+    // Función para confirmar el método de pago
+    function confirmarPago() {
+        document.getElementById('metodo-pago-texto').textContent = `Método de Pago: ${metodoPagoSeleccionado}`;
+        $('#buyModal').modal('hide');
+    }
+
+    // Agregar funcionalidad al botón "Comprar Ahora"
+    document.getElementById('boton-comprar').addEventListener('click', () => {
+        if (metodoPagoSeleccionado === "No seleccionado") {
+            alert("Por favor, seleccione un método de pago antes de continuar.");
+        } else {
+            // Lógica para finalizar la compra y almacenar en base de datos
+            alert(`Compra realizada con el método de pago: ${metodoPagoSeleccionado}`);
+        }
+    });
+});
+
   </script>
 </body>
 </html>
