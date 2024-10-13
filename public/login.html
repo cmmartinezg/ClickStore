@@ -113,51 +113,51 @@
     </div>
 
 
+    
+
     <script>
-  document.getElementById('form-login').addEventListener('submit', async function (event) {
-  event.preventDefault();
-
-  const email = document.getElementById('login-email').value;
-  const contrasena = document.getElementById('login-password').value;
-
-  const data = { email, contrasena };
-
-  try {
-    const response = await fetch('http://localhost:3000/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-
-    if (response.ok) {
-      const responseData = await response.json();
-
-      // Guardar la información del usuario en sessionStorage
-      sessionStorage.setItem('nombre', responseData.nombre); // Guarda el nombre del usuario
-      sessionStorage.setItem('Id', responseData.Id);
-      sessionStorage.setItem('tipo', responseData.tipo); // "usuario" o "comerciante"
-
-      // Verificar si el valor se guarda correctamente
-      console.log("Datos guardados en sessionStorage:", sessionStorage.getItem('nombre'));
-
-      // Redirigir según el tipo de usuario
-      if (responseData.tipo === 'comerciante') {
-        window.location.href = 'index-comer.html';
-      } else if (responseData.tipo === 'usuario') {
-        window.location.href = 'index-usuario.html';
-      }
-    } else {
-      const errorData = await response.json();
-      alert('Error: ' + errorData.message);
-    }
-  } catch (error) {
-    console.error('Error de conexión:', error);
-  }
-});
-
-
-
+      document.getElementById('form-login').addEventListener('submit', async function (event) {
+        event.preventDefault();
+    
+        const email = document.getElementById('login-email').value;
+        const contrasena = document.getElementById('login-password').value;
+    
+        const data = { email, contrasena };
+    
+        try {
+          const response = await fetch('http://localhost:3000/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+    
+          if (response.ok) {
+            const responseData = await response.json();
+    
+            // Guardar la información del usuario en sessionStorage
+            sessionStorage.setItem('nombre', responseData.nombre); // Guarda el nombre del usuario
+            sessionStorage.setItem('Id', responseData.Id);         // Guarda el ID del comerciante o usuario
+            sessionStorage.setItem('tipo', responseData.tipo);     // "usuario" o "comerciante"
+    
+            // Verificar si el valor se guarda correctamente
+            console.log("Datos guardados en sessionStorage:", sessionStorage.getItem('nombre'));
+    
+            // Redirigir según el tipo de usuario
+            if (responseData.tipo === 'comerciante') {
+              window.location.href = 'index-comer.html'; // Redirigir a la página del comerciante
+            } else if (responseData.tipo === 'usuario') {
+              window.location.href = 'index-usuario.html'; // Redirigir a la página del usuario
+            }
+          } else {
+            const errorData = await response.json();
+            alert('Error: ' + errorData.message);
+          }
+        } catch (error) {
+          console.error('Error de conexión:', error);
+        }
+      });
     </script>
+    
     
     <!-- JS Part Start-->
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>

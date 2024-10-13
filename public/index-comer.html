@@ -27,6 +27,13 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
   <!-- Owl Carousel JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!-- Swiper CSS -->
+<!-- Incluir los estilos CSS de Swiper -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 
   <style>
     /* Variables de colores para fácil modificación */
@@ -402,6 +409,96 @@
         width: 100%;
       }
     }
+
+
+    .swiper-button-next, .swiper-button-prev {
+  position: absolute; /* Asegurar que los botones estén posicionados correctamente */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border: 1px solid #ff6f61;
+  color: #ff6f61;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  z-index: 10; /* Asegurar que los botones estén por encima de otros elementos */
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+.swiper-container {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.product-item-carousel {
+  width: 1500px; /* Ajustar para que los productos sean más pequeños en el carrusel */
+  height: auto;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.product-item-carousel img {
+  width: 100%;  /* La imagen ocupará el 100% del contenedor */
+  height: 100px; /* Ajusta la altura para que no sea muy alargada */
+  object-fit: cover; /* Mantiene la proporción de la imagen */
+  margin-bottom: 10px;
+}
+
+.product-item-carousel h3 {
+  font-size: 14px;  /* Reducir el tamaño del texto para que no ocupe mucho espacio */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  /* Cortar el texto con puntos suspensivos si es muy largo */
+  margin-bottom: 5px;
+}
+
+.product-item-carousel p {
+  font-size: 12px;  /* Reducir el tamaño de la descripción */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+}
+
+.product-item-carousel .price {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Ajustar los botones de navegación */
+.swiper-button-next, .swiper-button-prev {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border: 1px solid #ff6f61;
+  color: #ff6f61;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+}
+
   </style>
 </head>
 
@@ -436,7 +533,7 @@
           <p id="producto-mas-caro"></p>
         </div>
         <div class="dashboard-item">
-          <h4>Total de Productos Similares</h4>
+          <h4>Total de Productos Recomendados</h4>
           <p id="total-productos-similares"></p>
         </div>
       </div>
@@ -466,13 +563,23 @@
         <div id="productos-lista">
           <!-- Los productos se cargarán aquí -->
         </div>
-
-        <!-- Recomendaciones -->
-        <h1>Tal vez te interese subir estos artículos similares</h1>
-        <div id="productos-recomendados"></div>
+      </div>
+    </div> 
+      <!-- Swiper Carousel para productos recomendados -->
+    <div class="product-list">
+      <h1>Te pueden interesar estos artículos</h1>
+      <div class="swiper-container" id="productos-recomendados">
+        <div class="swiper-wrapper">
+          <!-- Los productos recomendados se cargarán aquí dinámicamente -->
+        </div>
+        <!-- Botones de navegación -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Paginación -->
+        <div class="swiper-pagination"></div>
       </div>
     </div>
-
+  </div>
     <!-- Gráficos de ventas -->
     <div class="dashboard-charts container">
       <div class="chart-box">
@@ -484,6 +591,7 @@
         <canvas id="monthlySalesChart"></canvas>
       </div>
     </div>
+  </div>
 
     <!-- Modal para editar producto -->
     <div class="modal fade" id="editarProductoModal" tabindex="-1" role="dialog"
@@ -804,88 +912,104 @@
           listaProductos.appendChild(producto);
         });
       }
+      document.addEventListener('DOMContentLoaded', function () {
+    const nombreComerciante = sessionStorage.getItem('nombre');
+    if (nombreComerciante) {
+      document.getElementById('nombre-comerciante').innerHTML = `Hola, ${nombreComerciante}`;
+    } else {
+      window.location.href = 'login.html';
+    }
 
- function cargarRecomendaciones() {
-  const comercianteId = sessionStorage.getItem('Id'); // Asegúrate de obtener el ID correctamente
+    fetchProductos(); // Cargar los productos del comerciante
+    fetchComercianteInfo(); // Cargar la información del comerciante
+
+    document.getElementById('logout-btn').addEventListener('click', function () {
+      sessionStorage.clear();
+      window.location.href = 'login.html';
+    });
+
+    // Cargar recomendaciones
+     cargarRecomendaciones();
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+  const comercianteId = sessionStorage.getItem('Id');
+  if (comercianteId) {
+    cargarRecomendaciones(comercianteId);
+  } else {
+    console.error('Error: comercianteId no encontrado en sessionStorage');
+  }
+});
+
+
+function almacenarComercianteId(comercianteId) {
+    if (comercianteId) {
+        sessionStorage.setItem('Id', comercianteId); 
+    }
+}
+
+function mostrarTotalProductosSimilares(total) {
+    document.getElementById('total-productos-similares').textContent = total;
+}
+
+
+function cargarRecomendaciones(comercianteId) {
   axios.get(`http://127.0.0.1:5002/recomendaciones?comercianteId=${comercianteId}`)
     .then(response => {
       const recomendaciones = response.data;
-      mostrarRecomendaciones(recomendaciones);
-      mostrarTotalProductosSimilares(recomendaciones);
+      mostrarRecomendaciones(recomendaciones);  
+        // Mostrar el total de recomendaciones en el dashboard
+        mostrarTotalProductosSimilares(recomendaciones.length);
     })
+
     .catch(error => {
       console.error('Error al cargar recomendaciones:', error);
     });
 }
 
+function mostrarRecomendaciones(recomendaciones) {
+  const swiperWrapper = document.querySelector('#productos-recomendados .swiper-wrapper');
+  swiperWrapper.innerHTML = ''; // Limpiar contenido previo
 
-      function mostrarRecomendaciones(recomendaciones) {
-        const contenedor = document.getElementById('productos-recomendados');
-        contenedor.innerHTML = '';
-        const limite = 6; // Limitar el número de productos a mostrar
-        const recomendacionesLimitadas = recomendaciones.slice(0, limite);
+  recomendaciones.forEach(recomendacion => {
+    const productoDiv = `
+      <div class="swiper-slide">
+        <div class="product-item product-item-carousel">
+          <img src="${recomendacion.foto_url}" alt="${recomendacion.nombre}" class="product-image">
+          <h3>${recomendacion.nombre}</h3>
+          <p>${recomendacion.descripcion}</p>
+          <p class="price">₲${Number(recomendacion.precio).toLocaleString('es-PY')}</p>
+        </div>
+      </div>
+    `;
+    swiperWrapper.innerHTML += productoDiv;
+  });
 
-        recomendacionesLimitadas.forEach(recomendacion => {
-          const productoDiv = document.createElement('div');
-          productoDiv.classList.add('product-item');
+  // Inicializar Swiper después de cargar los productos
+  inicializarSwiper();
+}
 
-          productoDiv.innerHTML = `
-            <img src="${recomendacion.foto_url}" alt="${recomendacion.nombre}" class="product-image">
-            <h3>${recomendacion.nombre}</h3>
-            <p>${recomendacion.descripcion}</p>
-            <p class="price">₲${Number(recomendacion.precio).toLocaleString('es-PY')}</p>
-            <button class="ver-mas" onclick='mostrarAgregarProductoModal(${JSON.stringify(recomendacion)})'>Agregar Producto</button>
-          `;
+function inicializarSwiper() {
+  new Swiper('.swiper-container', {
+    slidesPerView: 3, // Número de productos visibles por página
+    spaceBetween: 20, // Espacio entre los productos
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000, 
+    },
+    loop: true, 
+  });
+}
 
-          contenedor.appendChild(productoDiv);
-        });
-      }
 
-      function mostrarTotalProductosSimilares(recomendaciones) {
-        const totalProductosSimilares = recomendaciones.length;
-        document.getElementById('total-productos-similares').textContent = totalProductosSimilares;
-      }
 
-      function mostrarAgregarProductoModal(producto) {
-        document.getElementById('nuevo-producto-id').value = producto.id;
-        document.getElementById('nuevo-producto-nombre').value = producto.nombre;
-        document.getElementById('nuevo-producto-descripcion').value = producto.descripcion;
-        document.getElementById('nuevo-producto-precio').value = producto.precio;
-        document.getElementById('nuevo-producto-foto').value = producto.foto_url;
-
-        $('#agregarProductoModal').modal('show');
-      }
-
-      function agregarProducto() {
-        const nombre = document.getElementById('nuevo-producto-nombre').value;
-        const descripcion = document.getElementById('nuevo-producto-descripcion').value;
-        const precio = document.getElementById('nuevo-producto-precio').value;
-        const fotoUrl = document.getElementById('nuevo-producto-foto').value;
-        const comercianteId = sessionStorage.getItem('Id');
-
-        if (!nombre || !descripcion || !precio || !fotoUrl || !comercianteId) {
-          alert('Por favor completa todos los campos antes de agregar el producto.');
-          return;
-        }
-
-        axios.post('http://localhost:3000/api/productos', {
-          nombre: nombre,
-          descripcion: descripcion,
-          precio: parseFloat(precio),
-          id_comerciante: comercianteId,
-          foto_url: fotoUrl
-        })
-          .then(response => {
-            alert('Producto agregado exitosamente');
-            $('#agregarProductoModal').modal('hide');
-            fetchProductos();
-          })
-          .catch(error => {
-            console.error('Error al agregar el producto:', error);
-            alert('Hubo un error al agregar el producto');
-          });
-      }
-      
     </script>
   </div>
 </body>
