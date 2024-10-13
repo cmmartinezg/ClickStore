@@ -1197,7 +1197,6 @@ button:hover {
         console.error('No se encontró el ID del producto en la URL.');
     }
 });
-
 // Función para obtener recomendaciones desde la API correcta
 function obtenerRecomendaciones(idProducto) {
     console.log(`Intentando obtener recomendaciones para el producto con ID: ${idProducto}`);
@@ -1221,15 +1220,22 @@ function obtenerRecomendaciones(idProducto) {
             console.error('Error al cargar las recomendaciones:', error);
         });
 }
+
+// Función para mostrar las recomendaciones obtenidas en el frontend
 function mostrarRecomendaciones(recomendaciones) {
     const contenedorRecomendaciones = $('#productos-recomendados');
     contenedorRecomendaciones.empty(); // Limpiar cualquier contenido anterior
+
+    if (recomendaciones.length === 0) {
+        contenedorRecomendaciones.append('<p>No hay recomendaciones disponibles para este producto.</p>');
+        return;
+    }
 
     recomendaciones.forEach(producto => {
         const tarjetaProducto = `
             <div class="item producto">
                 <div class="producto-card">
-                    <img src="${producto.foto_url}" alt="${producto.nombre}" class="producto-imagen" />
+                    <img src="${producto.foto_url || 'image-placeholder.png'}" alt="${producto.nombre}" class="producto-imagen" />
                     <div class="producto-info">
                         <h3>${producto.nombre}</h3>
                         <p>${producto.descripcion || 'Descripción no disponible'}</p>
@@ -1244,25 +1250,7 @@ function mostrarRecomendaciones(recomendaciones) {
         contenedorRecomendaciones.append(tarjetaProducto);
     });
 
-    // Inicializar el carrusel Owl Carousel con las opciones deseadas
-    contenedorRecomendaciones.owlCarousel({
-        loop: true,
-        margin: 20,
-        nav: true,
-        dots: true,
-        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-        responsive: {
-            0: {
-                items: 1,
-            },
-            600: {
-                items: 2,
-            },
-            1000: {
-                items: 4,
-            }
-        }
-    });
+    
 }
 
 

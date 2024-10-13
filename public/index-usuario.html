@@ -1404,6 +1404,17 @@ setTimeout(() => {
   }
 }, 100); // Agrega un retardo de 100 milisegundos
 
+document.addEventListener('DOMContentLoaded', function () {
+  const nombreUsuario = sessionStorage.getItem('nombre');
+
+  if (!nombreUsuario) {
+    // Si no hay usuario logueado, redirigir al login
+    window.location.href = 'login.html';
+  } else {
+    // Mostrar el nombre del usuario en la página
+    document.getElementById('bienvenida-usuario').textContent = `Bienvenido, ${nombreUsuario}`;
+  }
+});
 
     </script>
 </body>

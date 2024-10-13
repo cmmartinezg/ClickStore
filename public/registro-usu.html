@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="format-detection" content="telephone=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Click Store</title>
+  <link href="image/favicon.png" rel="icon" />
+  <title>Registro de Usuario</title>
   <!-- CSS Parte Inicio -->
   <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
@@ -14,548 +16,7 @@
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
   <link rel="stylesheet" type="text/css" href="css/estilop.css" />
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- CSS Parte Fin -->
-  <style>
-    .container {
-    width: 100%;
-    padding: 20px;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-
-/* Ajuste del contenedor de la lista de productos */
-#productos-lista {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; 
-  gap: 20px; /* Espacio entre productos */
-  margin-top: 40px; /* Espacio entre los filtros y la lista de productos */
-  padding: 20px; /* Espacio interno del contenedor */
-  width: 90%; /* Ancho ajustado para centrar y darle mayor visibilidad */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Ajuste del contenedor de filtros */
-.filter-container {
-  display: flex;
-  justify-content: flex-start;; /* Centrar los filtros */
-  gap: 15px; /* Espacio entre los elementos del filtro */
-  margin-bottom: 20px; 
-  margin: 25px 0;
-}
-
-
-#search-bar {
-  width: 300px; /* Ajusta el ancho del campo de búsqueda */
-  padding: 10px; /* Ajusta el padding para que se vea más grande */
-  border-radius: 5px;
-}
-
-.sort-container {
-  display: flex;
-  align-items: center; /* Alineación vertical */
-}
-
-.sort-container label {
-  margin-right: 15px; 
-  font-weight: bold; 
-}
-
-#ordenar {
-  width: 200px; 
-  padding: 10px; 
-  border-radius: 5px;
-}
-
-
-/* Ajuste del campo de búsqueda */
-.filter-container input.form-control,
-.filter-container select.form-control {
-  width: 500px; 
-  height: 40px; 
-  padding: 19px; 
-  font-size: 15px; 
-}
-
-/* Estilo del título */
-.productos-titulo {
-  text-align: left; 
-  font-size: 26px; 
-  font-weight: bold; 
-  margin: 20px 0; 
-  color: #007bff;
-}
-
-
-.categorias-titulo, .productos-titulo {
-    text-align: left; 
-    font-size: 24px; 
-    font-weight: bold; 
-    margin-bottom: 20px; 
-    color: #000000; 
-  }
-    .product-item {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-bottom: 25px;
-      padding: 10px;
-      text-align: center;
-      width: 250px;
-      height: 420px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      display: inline-block;
-      vertical-align: top;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-
-    .product-item h3 {
-      font-size: 16px;
-      height: 40px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .product-item p {
-      font-size: 14px;
-      color: #555;
-      height: 60px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .product-item .price {
-      font-size: 18px;
-      color: #b12704;
-      margin-top: 10px;
-    }
-
-    .product-item .ver-mas {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #ff9900;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      text-decoration: none;
-      width: 80%;
-    }
-
-    .search-bar {
-      position: relative;
-      z-index: 2;
-    }
-
-    #autocomplete-list {
-      position: absolute;
-      top: 100%; /* Coloca el autocompletado debajo del campo de texto */
-      background: white;
-      border: 1px solid #ddd;
-      max-height: 300px;
-      overflow-y: auto;
-      width: 100%;
-      z-index: 1; /* Asegura que esté debajo del campo de texto */
-      margin-top: 5px;
-    }
-
-    .autocomplete-item {
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .autocomplete-item img {
-      width: 50px;
-      height: 50px;
-      object-fit: cover;
-      margin-right: 10px;
-    }
-
-    .autocomplete-item:hover {
-      background-color: #f0f0f0;
-    }
-
-    .autocomplete-item h4 {
-      font-size: 14px;
-      margin: 0;
-      flex: 1;
-    }
-
-    .autocomplete-item .price {
-      font-size: 14px;
-      color: #b12704;
-      margin-left: 10px;
-    }
-
-    /* Ajustes para la responsividad */
-    @media (max-width: 767px) {
-      .search-bar {
-        width: 100%;
-      }
-
-      #autocomplete-list {
-        max-height: 200px;
-        width: 100%;
-      }
-
-      .autocomplete-item h4 {
-        font-size: 12px;
-      }
-
-      .autocomplete-item img {
-        width: 40px;
-        height: 40px;
-      }
-    }
-/* 
-.secondary-header {
-  background-color: #ffffff; 
-  padding: 10px 20px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-}
-
-.categories-container {
-  display: flex;
-  align-items: center;
-}
-
-.categories-btn {
-  background: transparent; 
-  border: none; 
-  font-size: 18px; 
-  color: #000000; 
-  cursor: pointer;
-  display: flex; 
-  align-items: center; 
-}
-
-
-.categories-btn i {
-  margin-right: 7px; 
-} */
-
-/* --- (Ofertas del Día) --- */
-/* .secondary-title {
-  font-size: 18px; 
-  color: #000000;
-  display: flex; 
-  align-items: center;
-}
-
-.secondary-title i {
-  margin-right: 6px; 
-} */
-
-/* ---(contenedor desplegable) --- */
-/* .categories-dropdown {
-  background-color: #ffffff; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 0px; 
-  padding: 15px; 
-  position: absolute; 
-  width: 300px; 
-  z-index: 1000; 
-  margin-top: 3px; 
-}
-
-
-.categories-dropdown ul {
-  list-style: none; 
-  padding: 0; 
-} */
-/* 
-.categories-dropdown li {
-  padding: 10px 0; 
-  font-size: 16px; 
-  color: #333; 
-  display: flex; 
-  align-items: center; 
-}
-
-
-.categories-dropdown li i {
-  margin-right: 12px; 
-}
-
-
-.categories-list li {
-  padding: 15px 10px; 
-  font-size: 16px; 
-  color: #333; 
-  border-bottom: 1px solid #eee; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  cursor: pointer; 
-}
-
-
-.categories-list li:hover {
-  background-color: #f7f7f7; 
-}
-
-
-.arrow-icon {
-  font-size: 16px; 
-  color: #888; 
-} */
-
-/* --- Estilo del botón de categorías principal--- */
-.categories-button {
-  background-color: #ffc107; 
-  border: 19px; 
-  padding: 10px 15px; 
-  border-radius: 5px;
-  cursor: pointer; 
-  font-size: 19px; 
-  color: #000000; 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-}
-
-
-.categories-button:hover {
-  background-color: #e0a800; 
-}
-
-
-.categories-button i {
-  margin-left: 5px; 
-}
-/* Contenedor principal */
-.categorias-contenedor {
-  background-color: #f9f9f9; 
-  padding: 20px 0;
-  border-bottom: 1px solid #e5e5e5; 
-}
-
-/* Título del contenedor */
-.categorias-titulo {
-  text-align: left;
-  padding-left: 20px;
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-/* Estilo de la cuadrícula de categorías */
-.categorias-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; 
-  gap: 20px; 
-  margin-bottom: 30px;
-  margin-top: 20px; 
-}
-
-/* Estilo de cada categoría */
-.categoria-item {
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  padding: 20px;
-  width: 150px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.categoria-item i {
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: #ff6600; 
-}
-
-.categoria-item span {
-  display: block;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-}
-
-/* Efecto hover */
-.categoria-item:hover {
-  border-color: #ff6600;
-  background-color: #fff7e6; 
-}
-
-@media (max-width: 768px) {
-  .categoria-item {
-    width: 120px; 
-  }
-}
-
-.filter-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px; 
-  margin-bottom: 20px;
-}
-
-.filter-container input.form-control,
-.filter-container select.form-control {
-  width: auto;
-  min-width: 200px; 
-}
-
-
-.sort-container {
-  display: flex;
-  align-items: center;
-}
-
-.sort-container label {
-  margin-right: 10px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Estilo para la lista de productos */
-.productos-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; 
-  margin-top: 20px;
-}
-/* Estilos Generales */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-.main-container {
-  display: flex; 
-  justify-content: space-between;
-  margin: 20px;
-}
-
-/* Contenedor de Filtros */
-.filters-container {
-  width: 20%; 
-  padding: 15px;
-  background: #f8f8f8;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.filters-container h3 {
-  color: #ff9500;
-  font-size: 22px;
-  margin-bottom: 20px;
-}
-
-.filter-section {
-  margin-bottom: 20px;
-}
-
-.filter-section label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 10px;
-}
-
-/* Estilo de la barra de rango */
-#price-range {
-  width: 100%;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 10px;
-}
-
-ul li input {
-  margin-right: 5px;
-}
-
-/* Contenedor de Productos */
-.products-container {
-  width: 75%; 
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.productos-titulo {
-  color: #ff9500;
-  font-size: 28px;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.filter-container {
-  display: flex;
-  width: 989px;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.filter-container input, .filter-container select {
-  margin-right: 15px;
-  width: 200px;
-}
-
-/* Productos */
-#productos-lista {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.product-item {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin: 15px;
-  padding: 15px;
-  width: calc(33% - 30px); 
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-#productos-lista {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.product-item {
-  flex: 0 0 30%; 
-  margin: 15px 0; 
-}
-
-  </style>
 </head>
 
 <body class="amazon-style">
@@ -574,644 +35,161 @@ ul li input {
           <option value="Automóviles">Automóviles</option>
           <option value="Belleza">Belleza</option>
         </select>
-        <input id="filter_name" type="text" name="search" placeholder="Buscar Producto" oninput="filterProductos()" autocomplete="off"/>
-        <div id="autocomplete-list"></div>
-        <button type="button" class="button-search" onclick="performSearch()"><i class="fa fa-search"></i></button>
+        <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
+        <button type="button" class="button-search"><i class="fa fa-search"></i></button>
       </div>
       <div class="nav-links">
         <a href="login.html">Iniciar Sesión</a>
-        <div class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b
-              class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="registro-usu.html">Usuario</a></li>
-            <li><a href="registro-comer.html">Comerciante</a></li>
-          </ul>
-        </div>
-        <a href="wishlist.html"><i class="fa fa-heart"></i> Favoritos (<span id="wishlist-count">0</span>)</a>
-        <a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)</a>
+        <a href="registro-usu.html">Registrarse</a>
+        <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos</a>
+        <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito</a>
       </div>
     </header>
 
-    <!-- <div class="secondary-header">
-      <div class="categories-container">
-        <button class="categories-btn" onclick="toggleDropdown()">
-          <i class="fas fa-bars"></i> Categorías
-        </button>
-      </div>
-      <div class="secondary-title">
-        <i class="fas fa-bolt"></i> Ofertas del Día
-      </div>
-    </div> -->
-    
-    <!-- Dropdown de Categorías (desplegable) -->
-    <!-- <div class="categories-dropdown" id="categories-dropdown" style="display: none;">
-      <ul>
-        <li><i class="fas fa-tv"></i> Electrónica</li>
-        <li><i class="fas fa-laptop"></i> Informática</li>
-        <li><i class="fas fa-gamepad"></i> Videojuegos</li>
-        <li><i class="fas fa-heartbeat"></i> Belleza</li>
-        <li><i class="fas fa-tshirt"></i> Ropa & Accesorios</li>
-        <li><i class="fas fa-plug"></i> Electrodomésticos</li>
-        <li><i class="fas fa-couch"></i> Muebles</li>
-      </ul>
-    </div>
-     -->
-  <div class="slider_container" style="display: contents;">
-      <ul>
-        <li><img src="image/nuevo1.png" alt=""></li>
-        <li><img src="image/nuevo2.png" alt=""></li>
-        <li><img src="image/nuevo3.png" alt=""></li>
-        <li><img src="image/nuevo4.png" alt=""></li>
-        <li><img src="image/nuevo5.png" alt=""></li>
-        <li><img src="image/nuevo6.png" alt=""></li>
-        <li><img src="image/nuevo1.png" alt=""></li>
-        <li><img src="image/nuevo2.png" alt=""></li>
-        <li><img src="image/nuevo3.png" alt=""></li>
-        <li><img src="image/nuevo4.png" alt=""></li>
-        <li><img src="image/nuevo5.png" alt=""></li>
-        <li><img src="image/nuevo6.png" alt=""></li>
-      </ul>
-    </div> 
-
-
-    <!-- Contenedor de la lista de productos -->
-     <div class="container">
-    <!-- Título de Productos Principales -->
-    <h2 class="categorias-titulo">Productos Principales</h2>
-    <div class="categorias-grid">
-      <div class="categoria-item" data-categoria="Celulares">
-        <i class="fas fa-mobile-alt"></i>
-        <span>Celulares</span>
-      </div>
-      <div class="categoria-item" data-categoria="Informática">
-        <i class="fas fa-laptop"></i>
-        <span>Informática</span>
-      </div>
-      <div class="categoria-item" data-categoria="Tv">
-        <i class="fas fa-tv"></i>
-        <span>Tv</span>
-      </div>
-      <div class="categoria-item" data-categoria="Perfumes">
-        <i class="fas fa-spray-can"></i>
-        <span>Perfumes</span>
-      </div>
-      <div class="categoria-item" data-categoria="Electrónicos">
-        <i class="fas fa-plug"></i>
-        <span>Electrónicos</span>
-      </div>
-      <div class="categoria-item" data-categoria="Descuentos">
-        <i class="fas fa-tags"></i>
-        <span>Descuentos</span>
-      </div>
-      <div class="categoria-item" data-categoria="Belleza & Moda">
-        <i class="fas fa-tshirt"></i>
-        <span>Belleza & Moda</span>
+    <!-- Menú Principal Fin -->
+    <div id="container">
+      <div class="container">
+        <!-- Breadcrumb Start -->
+        <ul class="breadcrumb">
+          <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+          <li><a href="registro-usu.html">Registro</a></li>
+        </ul>
+        <!-- Breadcrumb End -->
+        <div class="row">
+          <!--Middle Part Start-->
+          <div class="col-sm-9" id="content">
+            <h1 class="title">Registro de Usuario</h1>
+            <p>Por favor, completa el formulario para registrarte como usuario en nuestra tienda.</p>
+            <form class="form-horizontal" id="form-registro-usuario">
+              <fieldset id="account">
+                <legend>Detalles de tu cuenta</legend>
+                <div class="form-group required">
+                  <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label for="email" class="col-sm-2 control-label">E-Mail</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" placeholder="E-Mail" name="email" required>
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <label for="contrasena" class="col-sm-2 control-label">Contraseña</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="contrasena" placeholder="Contraseña" name="contrasena" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="direccion" class="col-sm-2 control-label">Dirección</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="direccion" placeholder="Dirección" name="direccion">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="telefono" class="col-sm-2 control-label">Teléfono</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="telefono" placeholder="Teléfono" name="telefono">
+                  </div>
+                </div>
+              </fieldset>
+              <div class="buttons">
+                <div class="pull-right">
+                  <input type="checkbox" value="1" name="agree" required>
+                  &nbsp;He leído y estoy de acuerdo con la <a class="agree" href="politica.html"><b>Política de Privacidad</b></a> &nbsp;
+                  <input type="submit" class="btn btn-primary" value="Registrarse">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
+    <!--Footer Start-->
+    <footer id="footer">
+      <p>&copy; 2024 Click Store | <a href="index.html">Inicio</a> | <a href="contact.html">Contacto</a></p>
+    </footer>
   </div>
 
-      <div class="main-container">
-        <!-- Contenedor de Filtros -->
-        <div class="filters-container">
-          <h3>Opciones de compra</h3>
-          <div class="filter-section">
-            <label>Precio</label>
-            <input type="range" min="0" max="10000000" value="5000000" id="price-range" onchange="filtrarPorPrecio()">
-            <span id="price-label"></span>
-          </div>
-          <div class="filter-section">
-            <label>Comercio</label>
-            <select id="comercio-select" onchange="filtrarPorComercio()">
-              <option value="">Todos</option>
-            </select>
-          </div>
-          <div class="filter-section">
-            <label>Categoría</label>
-            <select id="categoria-select" onchange="cambiarCantidadProductos()">
-              <option value="12">12 productos</option>
-              <option value="24">24 productos</option>
-              <option value="36">36 productos</option>
-              <option value="48">48 productos</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="products-container">
-          <h2 class="productos-titulo">Todos los Productos</h2>
-          <div class="filter-container">
-            <input type="text" id="search-bar" placeholder="Buscar producto..." class="form-control" oninput="filtrarProductos()">
-            <label for="ordenar">Ordenar por:</label>
-            <select id="ordenar" class="form-control" onchange="ordenarProductos()">
-              <option value="nombre">Nombre</option>
-              <option value="precio-asc">Precio: Menor a Mayor</option>
-              <option value="precio-desc">Precio: Mayor a Menor</option>
-              <option value="todos">Todos</option>
-            </select>
-          </div>
-          <div id="productos-lista">
-            <!-- Los productos se mostrarán aquí -->
-          </div>
-        </div>
-        
-      </div>
-      
+  <!-- JS Part Start-->
+   <!-- SweetAlert2 CSS and JS -->
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easing-1.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
+  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="js/api.js"></script> <!-- Archivo JS -->
 
-    <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
-    <div class="container" id="comerciante-section" style="display: none;">
-      <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
-    </div>
-
-    <!-- Pie de Página Inicio -->
-    <footer id="footer">
-      <div class="fpart-first">
-        <div class="container">
-          <div class="row">
-            <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
-              <h5>Detalles de Contacto</h5>
-              <ul>
-                <li class="address"><i class="fa fa-map-marker"></i> Central Square, 22 Hoi Wing Road, New Delhi, India
-                </li>
-                <li class="mobile"><i class="fa fa-phone"></i> +91 9898777656</li>
-                <li class="email"><i class="fa fa-envelope"></i> Enviar correo a través de nuestro <a
-                    href="contact-us.html">Contáctanos</a></li>
-              </ul>
-            </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-              <h5>Información</h5>
-              <ul>
-                <li><a href="about-us.html">Acerca de Nosotros</a></li>
-                <li><a href="about-us.html">Información de Entrega</a></li>
-                <li><a href="about-us.html">Política de Privacidad</a></li>
-                <li><a href="about-us.html">Términos &amp; Condiciones</a></li>
-              </ul>
-            </div>
-            <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-              <h5>Servicio al Cliente</h5>
-              <ul>
-                <li><a href="contact-us.html">Contáctanos</a></li>
-                <li><a href="returns.html">Devoluciones</a></li>
-                <li><a href="sitemap.html">Mapa del Sitio</a></li>
-              </ul>
-            </div>
-            
-            <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
-              <h5>Boletín Informativo</h5>
-              <div class="form-group">
-                <label class="control-label" for="subscribe">Regístrate para recibir las últimas noticias y
-                  actualizaciones.</label>
-                <input id="signup" type="email" required="" placeholder="Dirección de correo electrónico" name="email"
-                  class="form-control">
-              </div>
-              <input type="submit" value="Suscribirse" class="btn btn-primary">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fpart-second">
-        <div class="container">
-          <div id="powered" class="clearfix">
-            <div class="powered_text pull-left flip">
-              <p>click Store © 2024</p>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-      <div id="back-top"><a data-toggle="tooltip" title="Volver Arriba" href="javascript:void(0)" class="backtotop"><i
-            class="fa fa-chevron-up"></i></a></div>
-    </footer>
-    <!-- Pie de Página Fin -->
-
-    <!-- Parte JS Inicio -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing-1.3.min.js"></script>
-    <script src="js/jquery.dcjqaccordion.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/api.js"></script> <!-- Incluir api.js aquí -->
-    <!-- Parte JS Fin -->
-
-    <script>
-      // Mostrar mensaje de inicio de sesión o registro exitoso
-      document.addEventListener('DOMContentLoaded', function () {
-        const params = new URLSearchParams(window.location.search);
-        if (params.has('mensaje')) {
-          alert(params.get('mensaje'));
-        }
-
-        // Mostrar botón "Subir Artículo" si el usuario es comerciante
-        const tipoUsuario = sessionStorage.getItem('tipoUsuario');
-        if (tipoUsuario === 'comerciante') {
-          document.getElementById('comerciante-section').style.display = 'block';
-          document.getElementById('productos-nav').style.display = 'block'; // Mostrar botón en el menú
-        }
-        fetchProductos();
-      });
-
-      function fetchProductos() {
-        fetch('http://localhost:3000/api/productos')
-          .then(response => response.json())
-          .then(data => {
-            displayProductos(data);
-            populateAutocomplete(data);
-          })
-          .catch(err => console.error('Error fetching productos:', err));
-      }
-
-      function displayProductos(productos) {
-        const container = document.getElementById('productos-lista');
-        container.innerHTML = '';
-        productos.forEach(producto => {
-          const item = document.createElement('div');
-          item.className = 'product-item';
-          item.innerHTML = `
-            <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
-            <h3>${producto.nombre}</h3>
-            <p>${producto.descripcion.substring(0, 60)}...</p>
-            <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
-            <div class="action-buttons">
-                <button onclick="addToWishlist(${producto.id}, 1)" class="wishlist-button">
-                    <i class="fa fa-heart"></i>
-                </button>
-                <button onclick="addToCart(${producto.id}, 1)" class="cart-button">
-                    <i class="fa fa-shopping-cart"></i>
-                </button>
-            </div>
-            <a href="product.html?id=${producto.id}" class="ver-mas">Ver más</a>
-        `;
-          container.appendChild(item);
-        });
-      }
-
-      function populateAutocomplete(productos) {
-        const list = document.getElementById('autocomplete-list');
-        list.innerHTML = ''; // Limpiar el contenido previo
-        if (productos.length === 0) {
-          list.style.display = 'none';
-          return;
-        }
-        productos.forEach(producto => {
-          const item = document.createElement('div');
-          item.className = 'autocomplete-item';
-          item.innerHTML = `
-            <img src="${producto.foto_url}" alt="${producto.nombre}">
-            <h4>${producto.nombre}</h4>
-            <span class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</span>
-          `;
-          item.addEventListener('click', () => {
-            document.getElementById('filter_name').value = producto.nombre;
-            list.style.display = 'none';
-            performSearch();
-          });
-          list.appendChild(item);
-        });
-        list.style.display = 'block'; // Mostrar el contenedor de resultados
-      }
-
-      function filterProductos() {
-        const query = document.getElementById('filter_name').value.toLowerCase();
-        if (query === "") {
-          document.getElementById('autocomplete-list').style.display = 'none';
-          return;
-        }
-        fetch('http://localhost:3000/api/productos')
-          .then(response => response.json())
-          .then(data => {
-            const filtered = data.filter(producto => producto.nombre.toLowerCase().includes(query));
-            populateAutocomplete(filtered);
-          })
-          .catch(err => console.error('Error filtering productos:', err));
-      }
-
-      function performSearch() {
-        const query = document.getElementById('filter_name').value.toLowerCase();
-        if (query) {
-          filterProductos();
-        } else {
-          fetchProductos();
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', function () {
-        const userId = 1;
-        updateWishlistCount(userId);
-        updateCartCount(userId);
-      });
-
-      // Función para actualizar el contador de la lista de deseos
-      function updateWishlistCount(userId) {
-        fetch(`/api/wishlist/${userId}`)
-          .then(response => response.json())
-          .then(data => {
-            document.getElementById('wishlist-count').innerText = data.length;
-          })
-          .catch(error => console.error('Error:', error));
-      }
-
-      // Función para actualizar el contador del carrito
-      function updateCartCount(userId) {
-        fetch(`/api/cart/${userId}`)
-          .then(response => response.json())
-          .then(data => {
-            document.getElementById('cart-count').innerText = data.length;
-          })
-          .catch(error => console.error('Error:', error));
-      }
-
-      // Llamar a estas funciones cuando se cargue la página
-      document.addEventListener('DOMContentLoaded', function () {
-        const userId = 1; // Aquí debes poner el ID del usuario actual
-        updateWishlistCount(userId);
-        updateCartCount(userId);
-      });
-
-      // Función para agregar un producto a la lista de deseos
-      function addToWishlist(productId, userId) {
-        fetch('/api/wishlist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ id_usuario: userId, id_producto: productId }),
-        })
-          .then(response => response.json())
-          .then(data => {
-            console.log('Producto agregado a la lista de deseos:', data);
-            updateWishlistCount(userId);
-          })
-          .catch(error => console.error('Error:', error));
-      }
-
-      // Función para agregar un producto al carrito
-      function addToCart(productId, userId) {
-        fetch('/api/cart', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ id_usuario: userId, id_producto: productId }),
-        })
-          .then(response => response.json())
-          .then(data => {
-            console.log('Producto agregado al carrito:', data);
-            updateCartCount(userId);// Actualiza el contador después de agregar el producto
-          })
-          .catch(error => console.error('Error:', error));
-      }
-
-      // Cerrar sugerencias al hacer clic fuera de ellas
-      document.addEventListener('click', function (e) {
-        const target = e.target;
-        if (!target.closest('.search-bar')) {
-          document.getElementById('autocomplete-list').style.display = 'none';
-        }
-      });
-
-//       function toggleDropdown() {
-//   var dropdown = document.getElementById("categories-dropdown");
-//   if (dropdown.style.display === "none") {
-//     dropdown.style.display = "block";
-//   } else {
-//     dropdown.style.display = "none";
-//   }
-// }
-// Función para filtrar productos en "Todos los Productos"
-function filtrarProductosTodos() {
-  const input = document.getElementById("search-bar-todos").value.toLowerCase();
-  const productos = document.querySelectorAll("#productos-lista .product-item");
-
-  productos.forEach(producto => {
-    const nombreProducto = producto.querySelector("h3").innerText.toLowerCase();
-    if (nombreProducto.includes(input)) {
-      producto.style.display = "inline-block"; 
-    } else {
-      producto.style.display = "none"; 
-    }
-  });
-}
-
-// Función para ordenar productos en "Todos los Productos"
-function ordenarProductosTodos() {
-  const productosContainer = document.getElementById("productos-lista");
-  const productos = Array.from(productosContainer.querySelectorAll(".product-item"));
-  const criterio = document.getElementById("ordenar-todos").value;
-
-  productos.sort((a, b) => {
-    const nombreA = a.querySelector("h3").innerText;
-    const nombreB = b.querySelector("h3").innerText;
-    const precioA = parseFloat(a.querySelector(".price").innerText.replace(/[^\d]/g, ""));
-    const precioB = parseFloat(b.querySelector(".price").innerText.replace(/[^\d]/g, ""));
-
-    if (criterio === "nombre") {
-      return nombreA.localeCompare(nombreB);
-    } else if (criterio === "precio-asc") {
-      return precioA - precioB;
-    } else if (criterio === "precio-desc") {
-      return precioB - precioA;
-    }
-  });
-
-  // Reordenar los productos en el contenedor
-  productos.forEach(producto => productosContainer.appendChild(producto));
-}
-let productos = []; // Lista de productos cargados desde la base de datos
-
-// Función para cargar productos (modificar cuando funcione el registro de comerciante porque es de prueba)
-function cargarProductos() {
-  productos = [
-    { nombre: "Celular Samsung", precio: 2000000, comercio: "Nueva Americana", categoria: "Celulares" },
-    { nombre: "Laptop Dell", precio: 5000000, comercio: "Nueva Americana", categoria: "Informática" },
-    { nombre: "Tv Samsung", precio: 1000000, comercio: "ElectroHouse", categoria: "Tv" },
-  ];
-  mostrarProductos(productos); // Mostrar todos los productos inicialmente
-}
-
-// Función para mostrar los productos en el contenedor
-function mostrarProductos(listaProductos) {
-  const contenedorProductos = document.getElementById("productos-lista");
-  contenedorProductos.innerHTML = ""; 
-
-  listaProductos.forEach((producto) => {
-    const divProducto = document.createElement("div");
-    divProducto.classList.add("product-item");
-    divProducto.innerHTML = `
-      <img src="image-placeholder.png" class="product-image" alt="${producto.nombre}">
-      <h3>${producto.nombre}</h3>
-      <p>Comercio: ${producto.comercio}</p>
-      <p class="price">₲${producto.precio.toLocaleString()}</p>
-      <button class="ver-mas">Ver más</button>
-    `;
-    contenedorProductos.appendChild(divProducto);
-  });
-}
-
-// Función para filtrar productos
-function filtrarProductos() {
-  const textoBusqueda = document.getElementById("search-bar").value.toLowerCase();
-  const productosFiltrados = productos.filter(producto =>
-    producto.nombre.toLowerCase().includes(textoBusqueda)
-  );
-  mostrarProductos(productosFiltrados);
-}
-
-// Función para ordenar productos
-function ordenarProductos() {
-  const criterioOrden = document.getElementById("ordenar").value;
-  let productosOrdenados = [...productos];
-
-  if (criterioOrden === "nombre") {
-    productosOrdenados.sort((a, b) => a.nombre.localeCompare(b.nombre));
-  } else if (criterioOrden === "precio-asc") {
-    productosOrdenados.sort((a, b) => a.precio - b.precio);
-  } else if (criterioOrden === "precio-desc") {
-    productosOrdenados.sort((a, b) => b.precio - a.precio);
-  } else if (criterioOrden === "todos los prod") {
-    mostrarProductos(productos); // Mostrar todos los productos si se selecciona "Todos"
-    return; // Terminar la función
-  }
-
-  mostrarProductos(productosOrdenados);
-}
-
-// Llamar a la función para cargar los productos inicialmente
-window.onload = () => {
-  cargarProductos();
-  filtrarPorComercio(); 
-};
-
-
-// Función para filtrar productos por comercio
-function filtrarPorComercio() {
-  const comercioSeleccionado = document.getElementById("comercio-select").value;
-  if (comercioSeleccionado === "") {
-    mostrarProductos(productos); // Mostrar todos los productos si no se selecciona ningún comercio
-  } else {
-    const productosFiltrados = productos.filter(producto => producto.comercio === comercioSeleccionado);
-    mostrarProductos(productosFiltrados);
-  }
-}
-
-
-// Función para cambiar la cantidad de productos a mostrar
-function cambiarCantidadProductos() {
-  const cantidad = parseInt(document.getElementById("categoria-select").value);
-  mostrarProductos(productos.slice(0, cantidad)); // Mostrar solo la cantidad seleccionada de productos
-}
-
-// Función para cargar los nombres de los comerciantes en el select
-function cargarComerciantes() {
-  fetch('/ruta_de_tu_api/comerciantes/nombres')
-    .then(response => response.json())
-    .then(nombres => {
-      const comercioSelect = document.getElementById("comercio-select");
-      comercioSelect.innerHTML = '<option value="">Todos</option>'; // Opción predeterminada
-
-      nombres.forEach(comerciante => {
-        const option = document.createElement('option');
-        option.value = comerciante.nombre;
-        option.textContent = comerciante.nombre;
-        comercioSelect.appendChild(option);
-      });
-    })
-    .catch(error => console.error('Error al cargar los comerciantes:', error));
-}
-
-// Llamar a la función al cargar la página
-window.onload = () => {
-  cargarProductos();
-  cargarComerciantes(); // Cargar los nombres de los comerciantes en el select
-};
-
-function filtrarPorPrecio() {
-  // Obtener el valor máximo y mínimo del input de rango
-  const maxPrecio = parseInt(document.getElementById("price-range").value, 10);
+  <script>
+    // Manejo del envío del formulario de registro
+    document.getElementById('form-registro-usuario').addEventListener('submit', async function (event) {
+      event.preventDefault();
   
-  // Mostrar el valor seleccionado en la etiqueta de precio
-  document.getElementById("price-label").innerText = `Hasta ₲${maxPrecio.toLocaleString()}`;
-
-  // Filtrar productos por el rango de precios seleccionado
-  const productosFiltrados = productos.filter(producto => producto.precio <= maxPrecio);
-
-  mostrarProductos(productosFiltrados);
-}
-async function registrarUsuario(event) {
-            event.preventDefault();
-      
-            const nombre = document.getElementById('input-usuario').value;
-            const email = document.getElementById('input-email').value;
-            const contrasena = document.getElementById('input-password').value;
-            const direccion = document.getElementById('input-direccion').value;
-            const telefono = document.getElementById('input-telefono').value;
-      
-            const data = {
-                nombre,
-                email,
-                contrasena,
-                direccion,
-                telefono
-            };
-      
-            try {
-                const response = await fetch('http://localhost:3000/api/usuarios', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-      
-                if (response.ok) {
-                    const responseData = await response.json();
-      
-                    // Guardar las variables de sesión para el usuario
-                    sessionStorage.setItem('nombre', nombre);
-                    sessionStorage.setItem('Id', responseData.id);
-                    sessionStorage.setItem('tipo', "usuario");
-      
-                    Swal.fire({
-                        title: '¡Registrado!',
-                        text: 'Usuario registrado exitosamente',
-                        icon: 'success',
-                        confirmButtonText: 'Aceptar'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = 'index-usuario.html'; // Redirigir a la página de usuario
-                        }
-                    });
-                } else if (response.status === 409) {
-                    Swal.fire({
-                        title: 'Error',
-                        text: 'El email ya está registrado. Por favor, utiliza otro email.',
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    });
-                } else {
-                    const errorData = await response.json();
-                    Swal.fire({
-                        title: 'Error',
-                        text: errorData.message,
-                        icon: 'error',
-                        confirmButtonText: 'Aceptar'
-                    });
-                }
-            } catch (error) {
-                Swal.fire({
-                    title: 'Error',
-                    text: 'Hubo un error al registrar el usuario. Por favor, intente nuevamente.',
-                    icon: 'error',
-                    confirmButtonText: 'Aceptar'
-                });
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+      const contrasena = document.getElementById('contrasena').value;
+      const direccion = document.getElementById('direccion').value || null;
+      const telefono = document.getElementById('telefono').value || null;
+  
+      const data = { nombre, email, contrasena, direccion, telefono };
+  
+      try {
+        const response = await fetch('http://localhost:3000/api/usuarios', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+  
+        if (response.ok) {
+          const responseData = await response.json();
+  
+          // Guardar los datos del usuario en sessionStorage
+          sessionStorage.setItem('nombre', responseData.nombre);
+          sessionStorage.setItem('Id', responseData.id);
+          sessionStorage.setItem('tipo', 'usuario');
+  
+          // Mostrar el mensaje de éxito usando SweetAlert2
+          Swal.fire({
+            icon: 'success',
+            title: '¡Registrado!',
+            text: 'Usuario registrado exitosamente',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = 'index-usuario.html'; 
             }
+          });
+        } else if (response.status === 409) {
+          const errorData = await response.json();
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: errorData.message,
+            confirmButtonText: 'Aceptar'
+          });
+        } else {
+          const errorData = await response.json();
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: errorData.message,
+            confirmButtonText: 'Aceptar'
+          });
         }
-      
-        document.getElementById('form-registro').addEventListener('submit', registrarUsuario);
-   
-</script>
-  
- 
-      
+      } catch (error) {
+        console.error('Error de conexión:', error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error de conexión',
+          text: 'Hubo un problema al conectar con el servidor. Inténtalo de nuevo más tarde.',
+          confirmButtonText: 'Aceptar'
+        });
+      }
+    });
+  </script>
 </body>
-
 </html>

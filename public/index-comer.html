@@ -805,22 +805,24 @@
         });
       }
 
-      function cargarRecomendaciones() {
-        axios.get('http://127.0.0.1:5000/recomendaciones')
-          .then(response => {
-            const recomendaciones = response.data;
-            mostrarRecomendaciones(recomendaciones);
-            mostrarTotalProductosSimilares(recomendaciones);
-          })
-          .catch(error => {
-            console.error('Error al cargar recomendaciones:', error);
-          });
-      }
+ function cargarRecomendaciones() {
+  const comercianteId = sessionStorage.getItem('Id'); // Asegúrate de obtener el ID correctamente
+  axios.get(`http://127.0.0.1:5002/recomendaciones?comercianteId=${comercianteId}`)
+    .then(response => {
+      const recomendaciones = response.data;
+      mostrarRecomendaciones(recomendaciones);
+      mostrarTotalProductosSimilares(recomendaciones);
+    })
+    .catch(error => {
+      console.error('Error al cargar recomendaciones:', error);
+    });
+}
+
 
       function mostrarRecomendaciones(recomendaciones) {
         const contenedor = document.getElementById('productos-recomendados');
         contenedor.innerHTML = '';
-        const limite = 6;
+        const limite = 6; // Limitar el número de productos a mostrar
         const recomendacionesLimitadas = recomendaciones.slice(0, limite);
 
         recomendacionesLimitadas.forEach(recomendacion => {
@@ -883,6 +885,7 @@
             alert('Hubo un error al agregar el producto');
           });
       }
+      
     </script>
   </div>
 </body>
