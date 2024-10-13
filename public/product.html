@@ -806,6 +806,113 @@
         .footer-bottom a:hover {
             text-decoration: underline;
         }
+        #container {
+    padding: 40px 20px; /* Espacio en la parte superior e inferior */
+    background-color: #f8f9fa; /* Fondo claro */
+}
+
+.breadcrumb {
+    margin-bottom: 30px;
+}
+
+.breadcrumb li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.breadcrumb li a {
+    color: #007bff; /* Color de los enlaces */
+    text-decoration: none;
+}
+
+.breadcrumb li a:hover {
+    text-decoration: underline;
+}
+
+.product-info {
+    background-color: #fff; /* Fondo blanco para el área del producto */
+    padding: 20px;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    display: flex; /* Usar flexbox para un mejor diseño */
+    gap: 20px; /* Espacio entre imagen y texto */
+}
+
+.image {
+    flex: 1; /* La imagen ocupa el espacio disponible */
+    max-width: 300px; /* Limitar el tamaño máximo de la imagen */
+    text-align: center; /* Centrar la imagen */
+}
+
+#product-image {
+    max-width: 100%; /* Asegura que la imagen sea responsiva */
+    height: auto; /* Mantener la proporción */
+    border-radius: 12px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para la imagen */
+}
+
+.description {
+    flex: 2; /* La descripción ocupa más espacio */
+}
+
+.description li {
+    font-size: 20px;
+    margin-bottom: 15px; /* Mayor espacio entre las líneas */
+    color: #333; /* Color del texto */
+}
+
+.qty-container {
+    margin-top: 20px;
+}
+
+.input-quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Espacio superior */
+}
+
+.qtyBtn {
+    background-color: #007bff; /* Color de los botones */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 40px; /* Ancho fijo para botones */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.qtyBtn:hover {
+    background-color: #0056b3; /* Color de fondo en hover */
+}
+
+#button-cart {
+    background-color: #28a745; /* Color del botón "Añadir al carrito" */
+    color: white;
+    padding: 12px 25px; /* Espacio del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+#button-cart:hover {
+    background-color: #218838; /* Color en hover */
+}
+
+.wishlist-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; /* Aumentar tamaño del icono */
+}
+
+.wishlist-btn:hover {
+    color: #ff5c5c; /* Color al pasar el mouse */
+}
+
+        
     </style>
 
 
@@ -827,6 +934,9 @@
         </header>
         <!-- Encabezado End -->
 
+
+
+
         <div id="container">
             <div class="container">
                 <ul class="breadcrumb">
@@ -834,7 +944,7 @@
                     <li><a>Electronica</a></li>
                     <li><a>Producto</a></li>
                 </ul>
-
+        
                 <div class="row">
                     <div id="content" class="col-sm-12">
                         <h1 id="product-title" class="title">Product</h1>
@@ -846,39 +956,35 @@
                                         alt="Product Image" />
                                 </div>
                             </div>
-
+        
                             <!-- Información del producto -->
                             <div class="col-sm-6">
                                 <ul class="list-unstyled description">
-                                    <li style="font-size: 20px;"><b>Nombre del Producto:</b> <span
-                                            id="product-name">Product</span></li>
-                                    <li style="font-size: 20px;"><b>Precio:</b> <span id="product-price">$0.00</span>
-                                    </li>
-                                    <li style="font-size: 20px;"><b>Descripción:</b> <span
-                                            id="product-description">N/A</span></li>
-                                    <li style="font-size: 20px; margin-bottom: 20px;">
+                                    <li><b>Nombre del Producto:</b> <span id="product-name">Product</span></li>
+                                    <li><b>Precio:</b> <span id="product-price">$0.00</span></li>
+                                    <li><b>Descripción:</b> <span id="product-description">N/A</span></li>
+                                    <li>
                                         <b>Stock:</b>
                                         <span id="product-availability" class="label label-success">En stock</span>
                                     </li>
                                 </ul>
-
+        
                                 <!-- Contenedor de Cantidad -->
                                 <div class="qty-container">
-                                    <label for="input-quantity" style="font-size: 20px;"><b>Cantidad:</b></label>
+                                    <label for="input-quantity"><b>Cantidad:</b></label>
                                     <div class="input-quantity">
                                         <button class="qtyBtn mines">-</button>
                                         <input type="text" value="1" id="input-quantity">
                                         <button class="qtyBtn plus">+</button>
                                     </div>
                                 </div>
-
+        
                                 <!-- Botones de Acción -->
                                 <div class="cart-buttons-container">
                                     <button id="button-cart" class="btn-cart">AÑADIR AL CARRITO</button>
                                     <button id="wishlist-button" class="wishlist-btn"><i class="fa fa-heart"
                                             aria-hidden="true"></i></button>
                                     <!-- <button id="button-buy" class="btn-buy">COMPRAR AHORA</button> -->
-
                                 </div>
                             </div>
                         </div>
@@ -886,6 +992,9 @@
                 </div>
             </div>
         </div>
+        
+
+
 
 
         <!-- Sección de Productos Recomendados -->
