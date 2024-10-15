@@ -560,18 +560,19 @@ ul li input {
         <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
       </div>
       <div class="search-bar">
-        <select>
-          <option value="Todos">Todos</option>
-          <option value="Electrónica">Electrónica</option>
-          <option value="Informática">Informática</option>
-          <option value="Ropa">Ropa</option>
-          <option value="Automóviles">Automóviles</option>
-          <option value="Belleza">Belleza</option>
+        <select id="category-select" onchange="redirectToCategory()">
+            <option value="index.html">Todos</option>
+            <option value="electronica.html">Electrónica</option>
+            <option value="informatica.html">Informática</option>
+            <option value="ropa.html">Ropa</option>
+            <option value="automoviles.html">Automóviles</option>
+            <option value="belleza.html">Belleza</option>
         </select>
         <input id="filter_name" type="text" name="search" placeholder="Buscar Producto" oninput="filterProductos()" autocomplete="off"/>
         <div id="autocomplete-list"></div>
         <button type="button" class="button-search" onclick="performSearch()"><i class="fa fa-search"></i></button>
-      </div>
+    </div>
+    
       <div class="nav-links">
         <a href="login.html">Iniciar Sesión</a>
         <div class="dropdown">
@@ -1107,7 +1108,56 @@ function filtrarPorPrecio() {
 
   mostrarProductos(productosFiltrados);
 }
+// Función para redirigir cuando se cambia la categoría
+function redirectToCategory() {
+    const category = document.getElementById('category-select').value;
+    window.location.href = category; // Redirige a la página correspondiente
+  }
 
+  // Función para manejar la búsqueda cuando el usuario hace clic en el botón de búsqueda
+  function performSearch() {
+    const category = document.getElementById('category-select').value;  // Obtener la categoría seleccionada
+    const searchQuery = document.getElementById('filter_name').value;  // Obtener el nombre del producto escrito
+
+    if (searchQuery) {
+      // Si hay un término de búsqueda, redirigir a la página de la categoría con el término de búsqueda como parámetro
+      window.location.href = `${category}?search=${encodeURIComponent(searchQuery)}`;
+    } else {
+      // Si no hay término de búsqueda, solo redirigir a la página de la categoría seleccionada
+      window.location.href = category;
+    }
+  }
+
+  // Función para obtener los parámetros de la URL y buscar productos si hay un término de búsqueda
+  function getSearchQuery() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+
+    if (searchQuery) {
+      // Llamar a una función para mostrar los productos filtrados según el nombre de producto
+      filterProductos(searchQuery);
+    }
+  }
+
+  // Función para filtrar productos (aquí puedes hacer una llamada a tu base de datos o filtrar los productos en el frontend)
+  function filterProductos(query) {
+    console.log(`Filtrar productos con el término de búsqueda: ${query}`);
+
+    const productos = document.querySelectorAll('.product-item');
+    productos.forEach(producto => {
+      const nombreProducto = producto.querySelector('h3').textContent.toLowerCase();
+      if (nombreProducto.includes(query.toLowerCase())) {
+        producto.style.display = 'block';
+      } else {
+        producto.style.display = 'none';
+      }
+    });
+  }
+
+  // Llamar a la función para obtener los parámetros de búsqueda cuando se carga la página
+  window.onload = function() {
+    getSearchQuery();
+  };
     </script>
 </body>
 
