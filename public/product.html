@@ -911,33 +911,228 @@
 .wishlist-btn:hover {
     color: #ff5c5c; /* Color al pasar el mouse */
 }
+/* Ajustes de íconos */
+.icon-container {
+      display: flex;
+      align-items: center;
+    }
+    .product-container {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    padding: 20px;
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-        
+/* Estilo para los iconos en la cabecera */
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000; /* Borde negro */
+    border-radius: 50%; /* Circular */
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.icon-container i {
+    font-size: 20px;
+    color: #000;
+}
+
+/* Cambio de color al pasar el mouse */
+.icon-container:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estilo para los enlaces de navegación */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-links {
+        justify-content: center;
+    }
+}
+
+
+    /* Estilos generales para el header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Icono del logo */
+    .logo img {
+      height: 90px;
+    }
+
+    /* Ajustes de la barra de búsqueda */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+      padding: 5px;
+    }
+
+    .search-bar select {
+      background-color: #f7f7f7;
+      color: #333;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      appearance: none;
+      width: 130px;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 10 10%22%3E%3Cpolygon points=%220,0 10,0 5,7%22 fill=%22%23333%22/%3E%3C/svg%3E'); /* Flecha hacia abajo con color negro */
+      background-repeat: no-repeat;
+      background-size: 60px; 
+      background-position: right 10px center;
+      background-size: 12px;
+      -webkit-appearance: none;
+      -moz-appearance: none; 
+    }
+
+.search-bar select:focus {
+  border-color: #0f0e0a;
+  outline: none; 
+}
+
+/* Estilo de las opciones del desplegable */
+.search-bar select option {
+  background-color: #fff;
+  color: #333; 
+}
+
+/* Estilo cuando el select está abierto */
+.search-bar select:active, 
+.search-bar select:hover {
+  background-color: #fff; 
+  color: #333; 
+}
+
+/* Estilo de las opciones seleccionadas */
+.search-bar select option:checked {
+  background-color: #f7f7f7; 
+  color: #333;
+}
+
+    .search-bar input {
+      flex-grow: 1;
+      border: 1px solid #602f2f;
+    }
+
+    .button-search {
+      border: none;
+      padding: 10px 15px;
+      color:#ffffff; ;
+      cursor: pointer;
+    
+    
+    }
+
+    .button-search:hover {
+      background-color: #444;
+    }
+
+  
+    #welcome-message {
+      color: #a14f1d;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+  
+    .icon-link i {
+      font-size: 28px;
+      color: #111;
+      border: 2px solid #111;
+      border-radius: 50%;
+      padding: 5px;
+    }
+
+    .icon-link:hover i {
+      color: #ed7553;
+      border-color: #171715;
+    }
+
+    /* Ajustar el contenedor de los íconos */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 20px;
+    }
+
+    /* Quitar el texto debajo de los íconos */
+    .icon-text {
+      display: none;
+    }
+
+    /* Ajustes de íconos */
+    .icon-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .container {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
     </style>
-
-
 </head>
-
-<body class="amazon-style">
-    <div class="wrapper-wide">
-        <!-- Inicio del encabezado -->
-        <header class="header">
-            <div class="logo">
-                <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store"
-                        alt="Click Store" /></a>
-            </div>
-
-            <div class="nav-links">
-                <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos<span id="wishlist-count">0</span></a>
-                <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito<span id="cart-count">0</span></a>
-            </div>
-        </header>
-        <!-- Encabezado End -->
-
-
-
-
-        <div id="container">
+<body>
+   <!-- Header -->
+   <header class="header">
+    <div class="logo">
+      <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+    </div>
+    <div class="search-bar">
+      <select id="category-select" onchange="redirectToCategory()">
+        <option value="index.html">Todos</option>
+        <option value="electronica.html">Electrónica</option>
+        <option value="informatica.html">Informática</option>
+        <option value="ropa.html">Ropa</option>
+        <option value="automoviles.html">Automóviles</option>
+        <option value="belleza.html">Belleza</option>
+        </select>
+        <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
+        <button type="button" class="button-search"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="nav-links">
+      <span id="welcome-message"></span>
+      <a href="wishlist.html" class="icon-link">
+          <div class="icon-container">
+              <i class="fa fa-heart"></i>
+              <span class="icon-text">Favoritos</span>
+          </div>
+      </a>
+      <a href="cart.html" class="icon-link">
+          <div class="icon-container">
+              <i class="fa fa-shopping-cart"></i>
+              <span class="icon-text">Mi carrito</span>
+          </div>
+      </a>
+  </div>
+</header> 
             <div class="container">
                 <ul class="breadcrumb">
                     <li><a href="index.html"><i class="fa fa-home"></i></a></li>
@@ -978,20 +1173,12 @@
                                         <button class="qtyBtn plus">+</button>
                                     </div>
                                 </div>
-        
-                                <!-- Botones de Acción -->
-                                <div class="cart-buttons-container">
-                                    <button id="button-cart" class="btn-cart">AÑADIR AL CARRITO</button>
-                                    <button id="wishlist-button" class="wishlist-btn"><i class="fa fa-heart"
-                                            aria-hidden="true"></i></button>
-                                    <!-- <button id="button-buy" class="btn-buy">COMPRAR AHORA</button> -->
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+      
         
 
 

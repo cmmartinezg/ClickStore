@@ -35,23 +35,23 @@ body {
     margin: 0 auto;
     padding: 0 15px;
 }
-
-/* Header */
 .header {
     width: 100%;
     background-color: #fbfbfb;
-    color: #ffffff;
+    color: #000;
     padding: 10px 0;
     display: flex;
-    align-items: center ;
+    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+    position: relative; /* Necesario para el dropdown */
+    font-family: Arial, sans-serif;
 }
 
+/* Logo */
 .header .logo img {
     height: 60px;
 }
-
 
 .header .search-bar {
     display: flex;
@@ -97,11 +97,13 @@ body {
     flex-wrap: wrap; /* Añadir para responsividad */
 }
 
+/* Links de navegación */
 .header .nav-links a {
-    color: #ffffff;
+    font-weight: bold; /* Negrita */
+    color: #000;
     margin-left: 20px;
     text-decoration: none;
-    font-size: 16px; /* Tamaño de letra incrementado */
+    font-size: 16px;
 }
 
 .header .nav-links a:hover {
@@ -274,8 +276,8 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #232f3e; /* Fondo azul */
-    color: #ffffff;
+    background-color: #ffffff; /* Fondo azul */
+    color: #000000;
     border: none;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     display: none;
@@ -286,12 +288,12 @@ body {
 }
 
 .header .nav-links .dropdown-menu li a {
-    color: #ffffff; /* Texto blanco */
+    color: #000000; /* Texto blanco */
     text-decoration: none;
 }
 
 .header .nav-links .dropdown-menu li a:hover {
-    background-color: #232f3e; /* Fondo al hacer hover */
+    background-color: #ffffff; /* Fondo al hacer hover */
 }
 
 .header .nav-links .dropdown:hover .dropdown-menu,
@@ -503,7 +505,7 @@ body {
 /* Header */
 .header {
     width: 100%;
-    background-color: #232f3e;
+    background-color: #ffffff;
     color: #ffffff;
     padding: 10px 0;
     display: flex;
