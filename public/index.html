@@ -1054,6 +1054,150 @@ body {
     display: block; /* Mostrar al hacer hover */
 }
 
+/* Estilo del título */
+.productos-titulo, .category-title {
+    text-align: left;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* Estilo del carrusel */
+.carousel {
+    position: relative;
+    width: 500%; 
+    max-width: 900px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Imágenes del carrusel */
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 210%; 
+  
+}
+
+.carousel-images img {
+    width: 50%; 
+    object-fit: cover;
+    display: none;
+}
+
+.carousel-images img.active {
+    display: block; /* Mostrar solo la imagen activa */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Contenedor de las recomendaciones */
+.recomendaciones-container {
+    width: 30%; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Producto recomendado */
+.producto-recomendado {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.producto-imagen {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.producto-info h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.producto-info .precio {
+    color: #ff5722;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.ver-mas {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.ver-mas:hover {
+    text-decoration: underline;
+}
+/* Contenedor del encabezado */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilo del título de categoría */
+.category-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+    margin: 0;
+}
+
+/* Estilo del título de recomendados */
+.section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+    margin: 0;
+}
+.main-container {
+    margin-bottom: 40px; 
+}
+
   </style>
 </head>
 <body>
@@ -1139,16 +1283,6 @@ body {
     </div>
 </div>
 
-  
-  <!-- Contenedor del carrusel en el centro -->
-  <!-- <div class="slider-container">
-    <div id="carousel-example" class="owl-carousel">
-      <div class="item"><a href="/categoria/carrusel1"><img src="image/c1.jpg" alt="Carrusel 1"></a></div>
-      <div class="item"><a href="/categoria/carrusel2"><img src="image/nuevo2.png" alt="Carrusel 2"></a></div>
-      <div class="item"><a href="/categoria/carrusel3"><img src="image/nuevo5.png" alt="Carrusel 3"></a></div>
-      <div class="item"><a href="/categoria/carrusel4"><img src="image/nuevo4.png" alt="Carrusel 4"></a></div>
-    </div>
-  </div> -->
 
   <!-- Contenedor de imágenes pequeñas a la derecha -->
   <div class="small-images">
@@ -1164,42 +1298,103 @@ body {
   </div>
 </div>
 
+<!-- Electrónica -->
+<div class="header-container">
+  <div class="category-title">Electrónica</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/elec.jpg" alt="Carrusel Electrónica 1" class="active">
+          <img src="image/elect1.jpg" alt="Carrusel Electrónica 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-electrónica" class="productos-recomendados-list"></div>
+  </div>
+</div>
+<!-- Belleza -->
+<div class="header-container">
+  <div class="category-title">Belleza</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/m1.jpg" alt="Carrusel Belleza 1" class="active">
+          <img src="image/nuevo1.png" alt="Carrusel Belleza 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-belleza" class="productos-recomendados-list"></div>
+  </div>
+</div>
+<!-- Informática -->
+<div class="header-container">
+  <div class="category-title">Informática</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/c22.jpg" alt="Carrusel Informática 1" class="active">
+          <img src="image/c22.jpg" alt="Carrusel Informática 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-informática" class="productos-recomendados-list"></div>
+  </div>
+</div>
 
-    <!-- Contenedor de la lista de productos -->
-     <!-- <div class="container"> -->
-    <!-- Título de Productos Principales -->
-    <!-- <h2 class="categorias-titulo">Productos Principales</h2>
-    <div class="categorias-grid">
-      <div class="categoria-item" data-categoria="Celulares">
-        <i class="fas fa-mobile-alt"></i>
-        <span>Celulares</span>
+
+<!-- Ropa -->
+<div class="header-container">
+  <div class="category-title">Ropa</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/r.jpg" alt="Carrusel Ropa 1" class="active">
+          <img src="image/r.jpg" alt="Carrusel Ropa 2">
       </div>
-      <div class="categoria-item" data-categoria="Informática">
-        <i class="fas fa-laptop"></i>
-        <span>Informática</span>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-ropa" class="productos-recomendados-list"></div>
+  </div>
+</div>
+
+
+<!-- Automóviles -->
+<div class="header-container">
+  <div class="category-title">Automóviles</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/c22.jpg" alt="Carrusel Automóviles 1" class="active">
+          <img src="image/c22.jpg" alt="Carrusel Automóviles 2">
       </div>
-      <div class="categoria-item" data-categoria="Tv">
-        <i class="fas fa-tv"></i>
-        <span>Tv</span>
-      </div>
-      <div class="categoria-item" data-categoria="Perfumes">
-        <i class="fas fa-spray-can"></i>
-        <span>Perfumes</span>
-      </div>
-      <div class="categoria-item" data-categoria="Electrónicos">
-        <i class="fas fa-plug"></i>
-        <span>Electrónicos</span>
-      </div>
-      <div class="categoria-item" data-categoria="Descuentos">
-        <i class="fas fa-tags"></i>
-        <span>Descuentos</span>
-      </div>
-      <div class="categoria-item" data-categoria="Belleza & Moda">
-        <i class="fas fa-tshirt"></i>
-        <span>Belleza & Moda</span>
-      </div>
-    </div>
-  </div> -->
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-automóviles" class="productos-recomendados-list"></div>
+  </div>
+</div>
+
+
+
 
       <div class="main-container">
         <!-- Contenedor de Filtros -->
@@ -1729,29 +1924,165 @@ function filtrarProductosTodos() {
     });
 }
 
-// Iniciar el carrusel automáticamente
-$(document).ready(function () {
-    $("#carousel-example").owlCarousel({
-        items: 1,
-        loop: true,
-        autoplay: true,
-        autoplayTimeout: 3000, // Cambiar cada 3 segundos
-        autoplayHoverPause: true,
-        nav: true,
-        dots: true,
-        navText: [
-            "<i class='fa fa-chevron-left'></i>",
-            "<i class='fa fa-chevron-right'></i>"
-        ]
+
+;function obtenerRecomendacionesPorCategoria(categoria) {
+    const backendURL = `http://127.0.0.1:5001/recomendaciones_categoria/${categoria.toLowerCase()}`;
+
+    fetch(backendURL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error en la API: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(recomendaciones => {
+            mostrarRecomendaciones(categoria, recomendaciones);
+        })
+        .catch(error => {
+            console.error(`Error al cargar las recomendaciones para ${categoria}:`, error);
+        });
+}
+
+
+function mostrarRecomendaciones(categoria, recomendaciones) {
+    const contenedorRecomendaciones = document.getElementById(`productos-recomendados-${categoria.toLowerCase()}`);
+    contenedorRecomendaciones.innerHTML = ''; // Limpiar contenido anterior
+
+    if (recomendaciones.length === 0) {
+        contenedorRecomendaciones.innerHTML = '<p>No se encontraron productos recomendados para esta categoría.</p>';
+        return;
+    }
+
+    const productosParaMostrar = recomendaciones.slice(0, 5); // Limitar a 5 productos
+
+    productosParaMostrar.forEach(producto => {
+        const tarjetaProducto = `
+            <div class="producto-recomendado">
+                <img src="${producto.foto_url || 'image-placeholder.png'}" alt="${producto.nombre}" class="producto-imagen" />
+                <div class="producto-info">
+                    <h3>${producto.nombre}</h3>
+                    <p class="precio">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+                    <a href="product.html?id=${producto.id}" class="ver-mas">Ver detalles</a>
+                </div>
+            </div>
+        `;
+
+        contenedorRecomendaciones.insertAdjacentHTML('beforeend', tarjetaProducto);
     });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const categorias = ['electrónica', 'informática', 'automóviles', 'belleza', 'ropa']; 
+    categorias.forEach(categoria => obtenerRecomendacionesPorCategoria(categoria));
+});
+let currentIndex = 0; // Índice actual del carrusel
+let debounceTimeout; // Timeout para el debounce
+
+function mostrarImagen(index, carouselImages) {
+    // Asegurar que el índice se mantenga dentro de los límites
+    const totalImages = carouselImages.length;
+    currentIndex = (index + totalImages) % totalImages;
+
+    // Ocultar todas las imágenes
+    carouselImages.forEach(img => img.classList.remove('active'));
+
+    // Mostrar la imagen correspondiente
+    carouselImages[currentIndex].classList.add('active');
+}
+
+function cambiarImagen(direccion, carouselImages) {
+    clearTimeout(debounceTimeout); // Limpiar cualquier timeout anterior
+
+    // Aplicar un debounce de 500ms para evitar cambios rápidos
+    debounceTimeout = setTimeout(() => {
+        mostrarImagen(currentIndex + direccion, carouselImages);
+    }, 500);
+}
+document.querySelectorAll('.carousel').forEach(carousel => {
+    let currentIndex = 0; // Índice para este carrusel
+    let debounceTimeout; // Timeout para el debounce en este carrusel
+
+    const images = carousel.querySelectorAll('.carousel-images img');
+    const arrowLeft = carousel.querySelector('.arrow-left');
+    const arrowRight = carousel.querySelector('.arrow-right');
+
+    function mostrarImagen(index) {
+        const totalImages = images.length;
+        currentIndex = (index + totalImages) % totalImages;
+
+        // Ocultar todas las imágenes
+        images.forEach(img => img.classList.remove('active'));
+
+        // Mostrar la imagen correspondiente
+        images[currentIndex].classList.add('active');
+    }
+
+    function cambiarImagen(direccion) {
+        clearTimeout(debounceTimeout); // Limpiar cualquier timeout anterior
+
+        debounceTimeout = setTimeout(() => {
+            mostrarImagen(currentIndex + direccion);
+        }, 500);
+    }
+
+    // Agregar eventos a los botones
+    arrowLeft.addEventListener('click', () => cambiarImagen(-1));
+    arrowRight.addEventListener('click', () => cambiarImagen(1));
+});
+// Seleccionar todos los carruseles en la página
+document.querySelectorAll('.main-container').forEach(container => {
+    let currentIndex = 0; // Índice inicial para cada carrusel
+    const images = container.querySelectorAll('.carousel-images img');
+    const arrowLeft = container.querySelector('.arrow-left');
+    const arrowRight = container.querySelector('.arrow-right');
+    const totalImages = images.length;
+    let interval; // Variable para el intervalo automático
+
+    // Función para mostrar la imagen con efecto fade
+    function mostrarImagen(index) {
+        // Ajustar el índice dentro de los límites
+        currentIndex = (index + totalImages) % totalImages;
+
+        // Ocultar todas las imágenes con opacidad 0
+        images.forEach(img => {
+            img.style.opacity = '0';
+            img.classList.remove('active');
+        });
+
+        // Mostrar la imagen correspondiente con opacidad 1
+        images[currentIndex].style.opacity = '1';
+        images[currentIndex].classList.add('active');
+    }
+
+    // Eventos para los botones de navegación manual
+    arrowLeft.addEventListener('click', () => {
+        mostrarImagen(currentIndex - 1);
+        reiniciarIntervalo(); // Reiniciar el intervalo al hacer clic
+    });
+
+    arrowRight.addEventListener('click', () => {
+        mostrarImagen(currentIndex + 1);
+        reiniciarIntervalo(); // Reiniciar el intervalo al hacer clic
+    });
+
+    // Cambio automático cada 3 segundos
+    function iniciarIntervalo() {
+        interval = setInterval(() => {
+            mostrarImagen(currentIndex + 1); // Avanzar automáticamente
+        }, 3000);
+    }
+
+    // Reinicia el intervalo para evitar cambios inmediatos después del clic
+    function reiniciarIntervalo() {
+        clearInterval(interval);
+        iniciarIntervalo();
+    }
+
+    // Mostrar la primera imagen al cargar
+    mostrarImagen(currentIndex);
+    iniciarIntervalo(); // Iniciar el cambio automático
 });
 
-// Cerrar la lista de sugerencias al hacer clic fuera
-document.addEventListener('click', function (e) {
-    if (!e.target.closest('.search-bar')) {
-        document.getElementById('autocomplete-list').style.display = 'none';
-    }
-});
 
     </script>
 </body>
