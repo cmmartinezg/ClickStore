@@ -156,7 +156,55 @@
       font-size: 15px;
     }
 
-  
+/* Eliminar completamente la subrayado y borde */
+.icon-link {
+  text-decoration: none !important; /* Quitar subrayado */
+  outline: none !important; /* Quitar contorno al hacer clic */
+  border: none !important; /* Quitar cualquier borde */
+  background: transparent; /* Eliminar fondo si existe */
+}
+
+.icon-link i {
+  font-size: 28px;
+  color: #111;
+  border: 2px solid #111;
+  border-radius: 50%;
+  padding: 5px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Cambiar color al hacer hover sin mostrar borde o fondo extra */
+.icon-link:hover i {
+  color: #ed7553;
+  border-color: #ed7553;
+}
+
+/* Ajuste del contenedor de enlaces */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+/* Asegurar que no haya texto visible */
+.icon-text {
+  display: none !important;
+}
+
+/* Contenedor de íconos sin efectos visuales no deseados */
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Eliminar cualquier estilo de foco en los íconos */
+.icon-link:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+
     .icon-link i {
       font-size: 28px;
       color: #111;
@@ -167,7 +215,6 @@
 
     .icon-link:hover i {
       color: #ed7553;
-      border-color: #171715;
     }
 
     /* Ajustar el contenedor de los íconos */
@@ -956,17 +1003,184 @@ body {
 
 /* Responsividad */
 @media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .search-bar {
-        flex-direction: column;
+        width: 100%;
+        margin: 10px 0;
     }
+
     .nav-links {
-        flex-direction: column;
-    }
-    .main-content {
-        flex-direction: column;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
     }
 }
 
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Aparece debajo del header */
+    left: 4;
+    background-color: #cecece;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    display: none; /* Oculto por defecto */
+    z-index: 1000; /* Aparece sobre otros elementos */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Mostrar al hacer hover */
+}
+
+/* Estilo del título */
+.productos-titulo, .category-title {
+    text-align: left;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* Estilo del carrusel */
+.carousel {
+    position: relative;
+    flex: 1 1 calc(60% - 20px);
+    width: 500%; 
+    max-width: 900px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Imágenes del carrusel */
+.carousel-images {
+    display: flex;
+    transition: opacity 1s ease-in-out;
+    height: 100%; 
+    width: 210%; 
+    position: relative;
+  
+}
+
+.carousel-images img {
+    width: 50%; 
+    object-fit: cover;
+    display: none;
+}
+
+.carousel-images img.active {
+    display: block; /* Mostrar solo la imagen activa */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Contenedor de las recomendaciones */
+.recomendaciones-container {
+    width: 30%; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Producto recomendado */
+.producto-recomendado {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.producto-imagen {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.producto-info h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.producto-info .precio {
+    color: #ff5722;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.ver-mas {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.ver-mas:hover {
+    text-decoration: underline;
+}
+/* Contenedor del encabezado */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilo del título de categoría */
+.category-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+    margin: 0;
+}
+
+/* Estilo del título de recomendados */
+.section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+    margin: 0;
+}
+.main-container {
+    margin-bottom: 40px; 
+}
 
   </style>
 </head>
@@ -1063,6 +1277,103 @@ body {
     </div>
   </div>
 </div>
+
+
+<!-- Electrónica -->
+<div class="header-container">
+  <div class="category-title">Electrónica</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/elec.jpg" alt="Carrusel Electrónica 1" class="active">
+          <img src="image/elect1.jpg" alt="Carrusel Electrónica 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-electrónica" class="productos-recomendados-list"></div>
+  </div>
+</div>
+<!-- Belleza -->
+<div class="header-container">
+  <div class="category-title">Belleza</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/m1.jpg" alt="Carrusel Belleza 1" class="active">
+          <img src="image/nuevo1.png" alt="Carrusel Belleza 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-belleza" class="productos-recomendados-list"></div>
+  </div>
+</div>
+<!-- Informática -->
+<div class="header-container">
+  <div class="category-title">Informática</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/c22.jpg" alt="Carrusel Informática 1" class="active">
+          <img src="image/c22.jpg" alt="Carrusel Informática 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-informática" class="productos-recomendados-list"></div>
+  </div>
+</div>
+
+
+<!-- Ropa -->
+<div class="header-container">
+  <div class="category-title">Ropa</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/r.jpg" alt="Carrusel Ropa 1" class="active">
+          <img src="image/r.jpg" alt="Carrusel Ropa 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-ropa" class="productos-recomendados-list"></div>
+  </div>
+</div>
+
+
+<!-- Automóviles -->
+<div class="header-container">
+  <div class="category-title">Automóviles</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/c22.jpg" alt="Carrusel Automóviles 1" class="active">
+          <img src="image/c22.jpg" alt="Carrusel Automóviles 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-automóviles" class="productos-recomendados-list"></div>
+  </div>
+</div>
+
 
 
 
@@ -1703,6 +2014,141 @@ document.addEventListener('click', function (e) {
     if (!e.target.closest('.search-bar')) {
         document.getElementById('autocomplete-list').style.display = 'none';
     }
+});
+
+;function obtenerRecomendacionesPorCategoria(categoria) {
+    const backendURL = `http://127.0.0.1:5001/recomendaciones_categoria/${categoria.toLowerCase()}`;
+
+    fetch(backendURL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error en la API: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(recomendaciones => {
+            mostrarRecomendaciones(categoria, recomendaciones);
+        })
+        .catch(error => {
+            console.error(`Error al cargar las recomendaciones para ${categoria}:`, error);
+        });
+}
+
+
+function mostrarRecomendaciones(categoria, recomendaciones) {
+    const contenedorRecomendaciones = document.getElementById(`productos-recomendados-${categoria.toLowerCase()}`);
+    contenedorRecomendaciones.innerHTML = ''; // Limpiar contenido anterior
+
+    if (recomendaciones.length === 0) {
+        contenedorRecomendaciones.innerHTML = '<p>No se encontraron productos recomendados para esta categoría.</p>';
+        return;
+    }
+
+    const productosParaMostrar = recomendaciones.slice(0, 5); // Limitar a 5 productos
+
+    productosParaMostrar.forEach(producto => {
+        const tarjetaProducto = `
+            <div class="producto-recomendado">
+                <img src="${producto.foto_url || 'image-placeholder.png'}" alt="${producto.nombre}" class="producto-imagen" />
+                <div class="producto-info">
+                    <h3>${producto.nombre}</h3>
+                    <p class="precio">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+                    <a href="product.html?id=${producto.id}" class="ver-mas">Ver detalles</a>
+                </div>
+            </div>
+        `;
+
+        contenedorRecomendaciones.insertAdjacentHTML('beforeend', tarjetaProducto);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const categorias = ['electrónica', 'informática', 'automóviles', 'belleza', 'ropa']; 
+    categorias.forEach(categoria => obtenerRecomendacionesPorCategoria(categoria));
+});
+let currentIndex = 0; // Índice actual del carrusel
+let debounceTimeout; // Timeout para el debounce
+
+function mostrarImagen(index, carouselImages) {
+    // Asegurar que el índice se mantenga dentro de los límites
+    const totalImages = carouselImages.length;
+    currentIndex = (index + totalImages) % totalImages;
+
+    // Ocultar todas las imágenes
+    carouselImages.forEach(img => img.classList.remove('active'));
+
+    // Mostrar la imagen correspondiente
+    carouselImages[currentIndex].classList.add('active');
+}
+
+function cambiarImagen(direccion, carouselImages) {
+    clearTimeout(debounceTimeout); // Limpiar cualquier timeout anterior
+
+    // Aplicar un debounce de 500ms para evitar cambios rápidos
+    debounceTimeout = setTimeout(() => {
+        mostrarImagen(currentIndex + direccion, carouselImages);
+    }, 500);
+}
+document.querySelectorAll('.carousel').forEach(carousel => {
+    let currentIndex = 0; // Índice para este carrusel
+    let debounceTimeout; // Timeout para el debounce en este carrusel
+
+    const images = carousel.querySelectorAll('.carousel-images img');
+    const arrowLeft = carousel.querySelector('.arrow-left');
+    const arrowRight = carousel.querySelector('.arrow-right');
+
+    function mostrarImagen(index) {
+        const totalImages = images.length;
+        currentIndex = (index + totalImages) % totalImages;
+
+        // Ocultar todas las imágenes
+        images.forEach(img => img.classList.remove('active'));
+
+        // Mostrar la imagen correspondiente
+        images[currentIndex].classList.add('active');
+    }
+
+    function cambiarImagen(direccion) {
+        clearTimeout(debounceTimeout); // Limpiar cualquier timeout anterior
+
+        debounceTimeout = setTimeout(() => {
+            mostrarImagen(currentIndex + direccion);
+        }, 500);
+    }
+
+    // Agregar eventos a los botones
+    arrowLeft.addEventListener('click', () => cambiarImagen(-1));
+    arrowRight.addEventListener('click', () => cambiarImagen(1));
+});
+
+document.querySelectorAll('.main-container').forEach(container => {
+    let currentIndex = 0;
+    const images = container.querySelectorAll('.carousel-images img');
+    const arrowLeft = container.querySelector('.arrow-left');
+    const arrowRight = container.querySelector('.arrow-right');
+    const totalImages = images.length;
+
+    // Función para mostrar la imagen actual
+    function mostrarImagen(index) {
+        currentIndex = (index + totalImages) % totalImages;
+
+        images.forEach(img => img.classList.remove('active'));
+        images[currentIndex].classList.add('active');
+    }
+
+    // Eventos para los botones
+    arrowLeft.addEventListener('click', () => {
+        mostrarImagen(currentIndex - 1);
+    });
+
+    arrowRight.addEventListener('click', () => {
+        mostrarImagen(currentIndex + 1);
+    });
+
+    // Cambio automático cada 3 segundos
+    setInterval(() => {
+        mostrarImagen(currentIndex + 1);
+    }, 3000);
 });
 
 

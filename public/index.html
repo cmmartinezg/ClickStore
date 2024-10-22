@@ -446,6 +446,7 @@ body, html {
 
 .main-container {
   display: flex; 
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 20px;
 }
@@ -751,15 +752,15 @@ body {
     }
 }
 
-    /* Estilos generales para el header */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 30px;
-      background-color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+  /* Contenedor del encabezado */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
 
     /* Icono del logo */
     .logo img {
@@ -840,7 +841,19 @@ body {
       font-size: 15px;
     }
 
-  
+ /* Eliminar cualquier estilo de foco en los íconos */
+.icon-link:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+.icon-link {
+  text-decoration: none !important; /* Quitar subrayado */
+  outline: none !important; /* Quitar contorno al hacer clic */
+  border: none !important; /* Quitar cualquier borde */
+  background: transparent; /* Eliminar fondo si existe */
+}
+
     .icon-link i {
       font-size: 28px;
       color: #111;
@@ -851,7 +864,6 @@ body {
 
     .icon-link:hover i {
       color: #ed7553;
-      border-color: #171715;
     }
 
     /* Ajustar el contenedor de los íconos */
@@ -1066,6 +1078,7 @@ body {
 /* Estilo del carrusel */
 .carousel {
     position: relative;
+    flex: 1 1 calc(60% - 20px);
     width: 500%; 
     max-width: 900px;
     overflow: hidden;
@@ -1078,8 +1091,10 @@ body {
 /* Imágenes del carrusel */
 .carousel-images {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: opacity 1s ease-in-out;
+    height: 100%; 
     width: 210%; 
+    position: relative;
   
 }
 
@@ -2029,62 +2044,42 @@ document.querySelectorAll('.carousel').forEach(carousel => {
     arrowLeft.addEventListener('click', () => cambiarImagen(-1));
     arrowRight.addEventListener('click', () => cambiarImagen(1));
 });
-// Seleccionar todos los carruseles en la página
+
 document.querySelectorAll('.main-container').forEach(container => {
-    let currentIndex = 0; // Índice inicial para cada carrusel
+    let currentIndex = 0;
     const images = container.querySelectorAll('.carousel-images img');
     const arrowLeft = container.querySelector('.arrow-left');
     const arrowRight = container.querySelector('.arrow-right');
     const totalImages = images.length;
-    let interval; // Variable para el intervalo automático
 
-    // Función para mostrar la imagen con efecto fade
+    // Función para mostrar la imagen actual
     function mostrarImagen(index) {
-        // Ajustar el índice dentro de los límites
         currentIndex = (index + totalImages) % totalImages;
 
-        // Ocultar todas las imágenes con opacidad 0
-        images.forEach(img => {
-            img.style.opacity = '0';
-            img.classList.remove('active');
-        });
-
-        // Mostrar la imagen correspondiente con opacidad 1
-        images[currentIndex].style.opacity = '1';
+        images.forEach(img => img.classList.remove('active'));
         images[currentIndex].classList.add('active');
     }
 
-    // Eventos para los botones de navegación manual
+    // Eventos para los botones
     arrowLeft.addEventListener('click', () => {
         mostrarImagen(currentIndex - 1);
-        reiniciarIntervalo(); // Reiniciar el intervalo al hacer clic
     });
 
     arrowRight.addEventListener('click', () => {
         mostrarImagen(currentIndex + 1);
-        reiniciarIntervalo(); // Reiniciar el intervalo al hacer clic
     });
 
     // Cambio automático cada 3 segundos
-    function iniciarIntervalo() {
-        interval = setInterval(() => {
-            mostrarImagen(currentIndex + 1); // Avanzar automáticamente
-        }, 3000);
-    }
-
-    // Reinicia el intervalo para evitar cambios inmediatos después del clic
-    function reiniciarIntervalo() {
-        clearInterval(interval);
-        iniciarIntervalo();
-    }
-
-    // Mostrar la primera imagen al cargar
-    mostrarImagen(currentIndex);
-    iniciarIntervalo(); // Iniciar el cambio automático
+    setInterval(() => {
+        mostrarImagen(currentIndex + 1);
+    }, 3000);
 });
 
 
+
     </script>
+
+
 </body>
 
 </html>

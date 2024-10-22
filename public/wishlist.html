@@ -16,282 +16,616 @@
     <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
     <!-- CSS Parte Fin -->
-  </head>
-  <body>
-  
-      <body class="amazon-style">
-          <div class="wrapper-wide">
-            <!-- Inicio del encabezado --> 
-            <header class="header">
-              <div class="logo">
-                <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
-              </div>
-              <div class="search-bar">
-                <select>
-                  <option value="Todos">Todos</option>
-                  <option value="Electrónica">Electrónica</option>
-                  <option value="Informática">Informática</option>
-                  <option value="Ropa">Ropa</option>
-                  <option value="Automóviles">Automóviles</option>
-                  <option value="Belleza">Belleza</option>
-                  <!-- Agregar más opciones -->
-                </select>
-                <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
-                <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-              </div>
-              <div class="nav-links">
-                <a href="login.html">Iniciar Sesión</a>
-                <div class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-plus"></i>Registro <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="registro-usu.html">Usuario</a></li>
-                    <li><a href="registro-comer.html">Comerciante</a></li>
-                  </ul>
-                </div>
-                <a href="wishlist.html"><i class="fa fa-heart"></i>Favoritos</a>
-                <a href="cart.html"><i class="fa fa-shopping-cart"></i>Carrito</a>
-              </div>
-            </header>
-            <!-- Encabezado End -->
+    <style>
+    .table {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .table thead {
+      background-color: #f1f1f1;
+      font-weight: bold;
+    }
+
+    .table td {
+      vertical-align: middle;
+    }
+
+    .table .btn {
+      margin: 5px;
+    }
+
+    .breadcrumb {
+      background: none;
+      padding: 0;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+
+      /* Estilos generales para el header */
+      .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 30px;
+          background-color: #ffffff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Icono del logo */
+        .logo img {
+          height: 90px;
+        }
+
+        /* Ajustes de la barra de búsqueda */
+        .search-bar {
+          display: flex;
+          align-items: center;
+          margin-right: auto;
+          padding: 5px;
+        }
+
+        .search-bar select {
+          background-color: #f7f7f7;
+          color: #333;
+          padding: 10px;
+          border-radius: 5px;
+          font-weight: bold;
+          appearance: none;
+          width: 130px;
+          background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 10 10%22%3E%3Cpolygon points=%220,0 10,0 5,7%22 fill=%22%23333%22/%3E%3C/svg%3E'); /* Flecha hacia abajo con color negro */
+          background-repeat: no-repeat;
+          background-size: 60px; 
+          background-position: right 10px center;
+          background-size: 12px;
+          -webkit-appearance: none;
+          -moz-appearance: none; 
+        }
+
+    .search-bar select:focus {
+      border-color: #0f0e0a;
+      outline: none; 
+    }
+
+    /* Estilo de las opciones del desplegable */
+    .search-bar select option {
+      background-color: #fff;
+      color: #333; 
+    }
+
+    /* Estilo cuando el select está abierto */
+    .search-bar select:active, 
+    .search-bar select:hover {
+      background-color: #fff; 
+      color: #333; 
+    }
+
+    /* Estilo de las opciones seleccionadas */
+    .search-bar select option:checked {
+      background-color: #f7f7f7; 
+      color: #333;
+    }
+
+        .search-bar input {
+          flex-grow: 1;
+          border: 1px solid #602f2f;
+        }
+
+        .button-search {
+          border: none;
+          padding: 10px 15px;
+          color:#ffffff; ;
+          cursor: pointer; 
+        }
+
+        .button-search:hover {
+          background-color: #444;
+        }
+
+    /* Eliminar completamente la subrayado y borde */
+    .icon-link {
+      text-decoration: none !important; 
+      outline: none !important;
+      border: none !important; 
+      background: transparent; 
+    }
+
+    .icon-link i {
+      font-size: 28px;
+      color: #111;
+      border: 2px solid #111;
+      border-radius: 50%;
+      padding: 5px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Cambiar color al hacer hover sin mostrar borde o fondo extra */
+    .icon-link:hover i {
+      color: #ed7553;
+      border-color: #ed7553;
+    }
+
+    /* Ajuste del contenedor de enlaces */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 20px;
+    }
+
+    /* Asegurar que no haya texto visible */
+    .icon-text {
+      display: none !important;
+    }
+
+    /* Contenedor de íconos sin efectos visuales no deseados */
+    .icon-container {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Eliminar cualquier estilo de foco en los íconos */
+    .icon-link:focus {
+      outline: none !important;
+      border: none !important;
+    }
+
+
+        .icon-link i {
+          font-size: 28px;
+          color: #111;
+          border: 2px solid #111;
+          border-radius: 50%;
+          padding: 5px;
+        }
+
+        .icon-link:hover i {
+          color: #ed7553;
+        }
+
+        /* Ajustar el contenedor de los íconos */
+        .nav-links {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          margin-right: 20px;
+        }
+
+        /* Quitar el texto debajo de los íconos */
+        .icon-text {
+          display: none;
+        }
+
+    /* Estilo del pie de página */
+    footer #main-footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;  
+        padding: 20px 0;   
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+    }
+
+    footer {
+          background-color: #333;
+          color: white;
+          padding: 20px;
+          text-align: center;
+          position: relative;
+          bottom: 0;
+          width: 100%;
+        }
+
+        footer a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        footer a:hover {
+          text-decoration: underline;
+        }
+
+    /* Ajustes adicionales para dispositivos más pequeños */
+    @media (max-width: 768px) {
+        footer#main-footer {
+            font-size: 12px; 
+        }
+    }
+    .wishlist-container {
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+
+        .product-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .wishlist-btn {
+            background-color: #e04f3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .wishlist-btn i {
+            margin-right: 5px;
+        }
+
+        .wishlist-btn:hover {
+            background-color: #d75252;
+        }
+        /* Contenedor de íconos sin efectos visuales no deseados */
+.icon-container {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+}
+
+/* Estilo del ícono dentro del contenedor */
+.icon-container i {
+    font-size: 28px;
+    color: #111;
+}
+
+/* Estilo del contador */
+.icon-container span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #f19c25; 
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    z-index: 1;
+}
+.products-container {
+ width: 100%;
+ height: auto; 
+ padding: 10px;
+ background: #ffffff;
+ border-radius: 10px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* Contenedor principal de los productos */
+#productos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Asegura espacio entre los productos */
+    gap: 20px; /* Espacio entre los productos */
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%; 
+}
+
+
+/* Contenedor del producto */
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: calc(25% - 20px); /* 4 productos por fila */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    text-align: center;
+    overflow: hidden;
+    height: 450px; /* Ajustar altura fija del producto */
+}
+
+.product-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Título del producto */
+.product-item h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Descripción del producto */
+.product-item p {
+    font-size: 12px;
+    color: #555;
+    height: auto; 
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis; 
+    line-height: 1.4em; 
+}
+
+html, body {
+    height: 100%; /* Asegura que la altura de la página sea 100% */
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    min-height: 100%; /* Asegura que el contenido ocupe al menos el 100% de la pantalla */
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1; /* Hace que el contenido principal ocupe todo el espacio disponible */
+}
+
+/* Precio del producto */
+.product-item .price {
+    font-size: 18px;
+    color: #b12704;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+/* Estilo del botón eliminar */
+.delete-btn {
+    background-color: coral;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: auto; 
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #e35b48;
+}
+/* Responsividad */
+@media (max-width: 768px) {
+    .product-item {
+        width: calc(50% - 20px); /* 2 productos por fila */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item {
+        width: 100%; /* 1 producto por fila */
+    }
+}
+
+.product-item:hover {
+  transform: scale(1.05); 
+}
+
+.product-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; 
+}
+
+
+.product-actions {
+  display: flex;
+  justify-content: space-around; 
+  margin-top: 2px;
+  gap: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .product-item {
+    width: calc(50% - 20px); 
+  }
+}
+
+@media (max-width: 480px) {
+  .product-item {
+    width: 100%; 
+  }
+}
+
+#autocomplete-list {
+    position: absolute;
+    top: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 1000;
+}
+
+.autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.autocomplete-item:hover {
+    background-color: #f0f0f0;
+}
+
+    </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+    </div>
+    <div class="search-bar">
+      <select id="category-select" onchange="redirectToCategory()">
+        <option value="index-usuario.html">Todos</option>
+        <option value="electronica.html" >Electrónica</option>
+        <option value="informatica.html">Informática</option>
+        <option value="ropa.html">Ropa</option>
+        <option value="automoviles.html">Automóviles</option>
+        <option value="belleza.html">Belleza</option>
+      </select>
+      <input id="filter_name" type="text" name="search" placeholder="Buscar por Nombre " oninput="filterProductos()" autocomplete="off" />
+      <div id="autocomplete-list"></div>
+      <button type="button" class="button-search" onclick="performSearch()"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="nav-links">
+      <a href="wishlist.html" class="icon-link">
+          <div class="icon-container">
+              <i class="fa fa-heart"></i>
+              <span id="wishlist-count">0</span> 
+          </div>
+      </a>
+      <a href="cart.html" class="icon-link">
+          <div class="icon-container">
+              <i class="fa fa-shopping-cart"></i>
+              <span id="cart-count">0</span> 
+          </div>
+      </a>
+  </div> 
+</header>
+        <div class="products-container">
             <div class="container">
-              <nav id="menu" class="navbar">
-                <div class="navbar-header"> <span class="visible-xs visible-sm">Menu <b></b></span></div>
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
-                  <ul class="nav navbar-nav">
-                    <li><a class="home_link" title="Home" href="index.html"><span>Home</span></a></li>
-                    <li class="mega-menu dropdown"><a>Categorias</a>
-                      <div class="dropdown-menu">
-                        <div class="column col-lg-2 col-md-3"> 
-                           <!-- Categoria Electrónica-->
-                          <a href="category.html">Electrónica</a>
-                          <div>
-                            <ul>
-                                <li><a href="category.html">Accesorios</a></li>
-                                <li><a href="category.html">Cámaras</a></li>
-                                <li><a href="category.html">Celulares</a></li>
-                                <li><a href="category.html">Tv y Audio</a></li>
-                            </ul>
-                        </div>
-                      </div>         
-                        <div class="column col-lg-2 col-md-3"><a href="category.html">Informática</a>
-                          <div>
-                            <ul>
-                              <li> <a href="category.html">Monitores</a> </li>
-                                    <li> <a href="category.html">Notebook</a> </li>
-                                    <li> <a href="category.html">Impresoras</a> </li>
-                                    <li> <a href="category.html">Almacenamiento</a> </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="column col-lg-2 col-md-3"><a href="category.html">Ropa</a>
-                          <div>
-                            <ul>
-                              <li><a href="category.html">Mujer</a> </li>
-                              <li><a href="category.html">Hombre</a> </li>
-                              <li><a href="category.html">bebé</a> </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="column col-lg-2 col-md-3"> <a href="category.html">Automóviles</a>
-                          <div>
-                            <ul>
-                              <li> <a href="category.html">Neumáticos</a></li>
-                              <li> <a href="category.html">Sonido y Video</a></li>
-                              <li> <a href="category.html">Accesorios</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="column col-lg-2 col-md-3">
-                          <a href="category.html">Belleza</a>
-                          <div>
-                              <ul>
-                                  <li><a href="category.html">Cosméticos</a></li>
-                                  <li><a href="category.html">Perfumes</a></li>
-                                  <li><a href="category.html">Cuidado Personal</a></li>
-                              </ul>
-                          </div>
-                      </div>
-                      <li class="menu_brands dropdown"><a href="#">Tiendas Oficiales</a>
-                        <div class="dropdown-menu">
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/apple_logo-60x60.jpg" title="Apple" alt="Apple" /></a><a href="#">Apple</a>
-                          </div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/canon_logo-60x60.jpg" title="Canon" alt="Canon" /></a><a href="#">Canon</a>
-                          </div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"> <a href="#"><img
-                                src="image/product/hp_logo-60x60.jpg" title="Hewlett-Packard" alt="Hewlett-Packard" /></a><a
-                              href="#">Hewlett-Packard</a></div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/htc_logo-60x60.jpg" title="HTC" alt="HTC" /></a><a href="#">HTC</a></div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/palm_logo-60x60.jpg" title="Palm" alt="Palm" /></a><a href="#">Palm</a></div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/sony_logo-60x60.jpg" title="Sony" alt="Sony" /></a><a href="#">Sony</a>
-                          </div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/canon_logo-60x60.jpg" title="test" alt="test" /></a><a href="#">test</a>
-                          </div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/apple_logo-60x60.jpg" title="test 3" alt="test 3" /></a><a href="#">test
-                              3</a></div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/canon_logo-60x60.jpg" title="test 5" alt="test 5" /></a><a href="#">test
-                              5</a> </div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/canon_logo-60x60.jpg" title="test 6" alt="test 6" /></a><a href="#">test
-                              6</a></div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/apple_logo-60x60.jpg" title="test 7" alt="test 7" /></a><a href="#">test
-                              7</a> </div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/canon_logo-60x60.jpg" title="test1" alt="test1" /></a><a href="#">test1</a>
-                          </div>
-                          <div class="col-lg-1 col-md-2 col-sm-3 col-xs-6"><a href="#"><img
-                                src="image/product/apple_logo-60x60.jpg" title="test2" alt="test2" /></a><a href="#">test2</a>
-                          </div>
-                        </div>
-                      </li>   
-                      <li class="dropdown"><a href="blog.html">Blog</a>
-                      <li class="custom-link-right"><a href="search.html" target="_blank"> ¡Comprar Ahora!</a></li>
-                      <li id="productos-nav" style="display: none;"><a href="productos.html">Subir Artículo</a></li> <!-- Botón de Subir Artículo -->
-                    </ul>
-                  </div>
-                </nav>
-              </div>
-         <!-- Menú Principal Fin -->
-    <!-- Main Menu End-->
-
-  <div id="container">
-    <div class="container">
-      <!-- Breadcrumb Start-->
-      <ul class="breadcrumb">
-        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-        <li><a href="#">Cuenta</a></li>
-        <li><a href="wishlist.html">Lista de Deseos</a></li>
-      </ul>
-      <!-- Breadcrumb End-->
-      <div class="row">
-        <!--Middle Part Start-->
-        <div id="content" class="col-sm-12">
-          <h1 class="title">Mi Lista de Deseos</h1>
-          <div class="table-responsive">
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <td class="text-center">Image</td>
-                  <td class="text-left">Product Name</td>
-                  <td class="text-left">Model</td>
-                  <td class="text-right">Stock</td>
-                  <td class="text-right">Unit Price</td>
-                  <td class="text-right">Action</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="text-center"><a href="product.html"><img src="image/product/samsung_tab_1-50x50.jpg" alt="Aspire Ultrabook Laptop" title="Aspire Ultrabook Laptop" /></a></td>
-                  <td class="text-left"><a href="product.html">iPod Classic</a></td>
-                  <td class="text-left">product 20</td>
-                  <td class="text-right">In Stock</td>
-                  <td class="text-right"><div class="price"> 109.21€ </div></td>
-                  <td class="text-right"><button class="btn btn-primary" title="" data-toggle="tooltip" onClick="cart.add('48');" type="button" data-original-title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-                    <a class="btn btn-danger" title="" data-toggle="tooltip" href="http://localhost/2.2.0.0-compiled/index.php?route=account/wishlist&amp;remove=48" data-original-title="Remove"><i class="fa fa-times"></i></a></td>
-                </tr>
-                <tr>
-                  <td class="text-center"><a href="product.html"><img src="image/product/sony_vaio_1-50x50.jpg" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" /></a></td>
-                  <td class="text-left"><a href="product.html">Samsung Galaxy Tab 10.1</a></td>
-                  <td class="text-left">SAM1</td>
-                  <td class="text-right">Pre-Order</td>
-                  <td class="text-right"><div class="price"> 216.63€ </div></td>
-                  <td class="text-right"><button class="btn btn-primary" title="" data-toggle="tooltip" onClick="" type="button" data-original-title="Add to Cart"><i class="fa fa-shopping-cart"></i></button>
-                    <a class="btn btn-danger" title="" data-toggle="tooltip" href="" data-original-title="Remove"><i class="fa fa-times"></i></a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <!--Middle Part End -->
-      </div>
-    </div>
-  </div>
-  <!--Footer Start-->
-  <footer id="footer">
-    <div class="fpart-first">
-      <div class="container">
-        <div class="row">
-          <div class="contact col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <h5>Contact Details</h5>
-            <ul>
-              <li class="address"><i class="fa fa-map-marker"></i>Central Square, 22 Hoi Wing Road, New Delhi, India</li>
-              <li class="mobile"><i class="fa fa-phone"></i>+91 9898777656</li>
-              <li class="email"><i class="fa fa-envelope"></i>Send email via our <a href="contact-us.html">Contact Us</a>
-            </ul>
-          </div>
-          <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-            <h5>Information</h5>
-            <ul>
-              <li><a href="about-us.html">About Us</a></li>
-              <li><a href="about-us.html">Delivery Information</a></li>
-              <li><a href="about-us.html">Privacy Policy</a></li>
-              <li><a href="about-us.html">Terms &amp; Conditions</a></li>
-            </ul>
-          </div>
-          <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-            <h5>Customer Service</h5>
-            <ul>
-              <li><a href="contact-us.html">Contact Us</a></li>
-              <li><a href="returns.html">Returns</a></li>
-              <li><a href="sitemap.html">Site Map</a></li>
-            </ul>
-          </div>
-          <div class="column col-lg-2 col-md-2 col-sm-3 col-xs-12">
-            <h5>Extras</h5>
-            <ul>
-              <li><a href="manufacturer.html">Brands</a></li>
-              <li><a href="gift-voucher.html">Gift Vouchers</a></li>
-              <li><a href="#">Affiliates</a></li>
-              <li><a href="#">Specials</a></li>
-            </ul>
-          </div>
-          <div class="column col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <h5>Newsletter</h5>
-            <div class="form-group">
-            <label class="control-label" for="subscribe">Sign up to receive latest news and updates.</label>
-            <input id="signup" type="email" required="" placeholder="Email address" name="email" class="form-control">
+              <h2>Mi Lista de Deseos</h2>
+              <div id="productos-lista"></div>
             </div>
-            <input type="submit" value="Subscribe" class="btn btn-primary">
-          </div>
         </div>
-      </div>
-    </div>
-    <div class="fpart-second">
-      <div class="container">
-        <div id="powered" class="clearfix">
-          <div class="powered_text pull-left flip">
-            <p>Marketshop Ecommerce Template © 2016 | Template By <a href="http://harnishdesign.net" target="_blank">Harnish Design</a></p>
-          </div>
-          <div class="social pull-right flip"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/facebook.png" alt="Facebook" title="Facebook"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/twitter.png" alt="Twitter" title="Twitter"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/google_plus.png" alt="Google+" title="Google+"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/pinterest.png" alt="Pinterest" title="Pinterest"> </a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/socialicons/rss.png" alt="RSS" title="RSS"> </a> </div>
-        </div>
-        <div class="bottom-row">
-          <div class="custom-text text-center">
-            <p>This is a CMS block. You can insert any content (HTML, Text, Images) Here. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-          </div>
-          <div class="payments_types"> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_paypal.png" alt="paypal" title="PayPal"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_american.png" alt="american-express" title="American Express"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_2checkout.png" alt="2checkout" title="2checkout"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_maestro.png" alt="maestro" title="Maestro"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_discover.png" alt="discover" title="Discover"></a> <a href="#" target="_blank"> <img data-toggle="tooltip" src="image/payment/payment_mastercard.png" alt="mastercard" title="MasterCard"></a> </div>
-        </div>
-      </div>
-    </div>
-    <div id="back-top"><a data-toggle="tooltip" title="Back to Top" href="javascript:void(0)" class="backtotop"><i class="fa fa-chevron-up"></i></a></div>
-  </footer>
-  <!--Footer End-->
 
-</div>
-<!-- JS Part Start-->
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing-1.3.min.js"></script>
-<script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
-<!-- JS Part End-->
+
+
+            <footer id="main-footer">
+              <p>&copy; 2024 Click Store. Todos los derechos reservados.</p>
+            </footer>
+          </div>
+
+  <script>
+    // Cargar datos desde localStorage y mostrar la lista de deseos
+    function cargarWishlist() {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const contenedorProductos = document.getElementById('productos-lista');
+        contenedorProductos.innerHTML = '';
+
+        if (wishlist.length === 0) {
+            contenedorProductos.innerHTML = '<p>No hay productos en la lista de deseos.</p>';
+            return;
+        }
+
+        wishlist.forEach(producto => {
+            const productoDiv = `
+                <div class="product-item">
+                <img src="${producto.foto_url || 'image/not-found.png'}" alt="${producto.nombre}" class="product-image">
+                <h3>${producto.nombre}</h3>
+                <p>${producto.descripcion}</p>
+                <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+                <button class="delete-btn" onclick='eliminarDeWishlist(${producto.id})'>Eliminar</button>
+            </div>
+
+            `;
+            contenedorProductos.innerHTML += productoDiv;
+        });
+    }
+
+    // Función para eliminar un producto de la lista de deseos
+    function eliminarDeWishlist(idProducto) {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        wishlist = wishlist.filter(producto => producto.id !== idProducto);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        cargarWishlist(); // Recargar la lista de deseos después de eliminar
+    }
+
+    // Cargar la wishlist al inicio
+    document.addEventListener('DOMContentLoaded', cargarWishlist);
+
+    // Redirige a la categoría seleccionada al cambiar el select
+function redirectToCategory() {
+    const category = document.getElementById('category-select').value;
+    window.location.href = category;
+}
+
+// Filtrar productos por nombre en tiempo real
+function filterProductos() {
+    const searchQuery = document.getElementById('filter_name').value.toLowerCase();
+    const productos = document.querySelectorAll('.product-item');
+
+    productos.forEach(producto => {
+        const nombreProducto = producto.querySelector('h3').textContent.toLowerCase();
+        if (nombreProducto.includes(searchQuery)) {
+            producto.style.display = 'block';
+        } else {
+            producto.style.display = 'none';
+        }
+    });
+}
+
+// Realiza la búsqueda al hacer clic en el botón de búsqueda
+function performSearch() {
+    const category = document.getElementById('category-select').value;
+    const searchQuery = document.getElementById('filter_name').value;
+
+    // Redirige a la categoría con el parámetro de búsqueda
+    if (searchQuery) {
+        window.location.href = `${category}?search=${encodeURIComponent(searchQuery)}`;
+    } else {
+        window.location.href = category;
+    }
+}
+
+// Función para manejar autocompletado (opcional)
+function autocompleteSearch() {
+    const searchQuery = document.getElementById('filter_name').value.toLowerCase();
+    const autocompleteList = document.getElementById('autocomplete-list');
+
+    // Simulación de datos para autocompletado (puedes reemplazar esto con una API)
+    const productosSimulados = ['iPhone', 'Samsung Galaxy', 'Teclado MSI', 'Auriculares Sony'];
+
+    autocompleteList.innerHTML = ''; // Limpiar lista previa
+
+    productosSimulados.forEach(producto => {
+        if (producto.toLowerCase().includes(searchQuery)) {
+            const item = document.createElement('div');
+            item.classList.add('autocomplete-item');
+            item.textContent = producto;
+
+            // Evento al hacer clic en un elemento del autocompletado
+            item.addEventListener('click', () => {
+                document.getElementById('filter_name').value = producto;
+                autocompleteList.innerHTML = ''; // Limpiar lista
+            });
+
+            autocompleteList.appendChild(item);
+        }
+    });
+}
+
+// Evento para autocompletar al escribir en el campo de búsqueda
+document.getElementById('filter_name').addEventListener('input', autocompleteSearch);
+
+</script>
+<script src="../header.js"></script>
+
+
+
+
 </body>
+
 </html>
