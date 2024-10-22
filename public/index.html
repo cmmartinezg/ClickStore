@@ -1212,7 +1212,41 @@ body {
 .main-container {
     margin-bottom: 40px; 
 }
+/* Contenedor de íconos sin efectos visuales no deseados */
+.icon-container {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+}
 
+/* Estilo del ícono dentro del contenedor */
+.icon-container i {
+    font-size: 28px;
+    color: #111;
+}
+
+/* Estilo del contador */
+.icon-container span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #f19c25; 
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    z-index: 1;
+}
   </style>
 </head>
 <body>
@@ -1246,7 +1280,7 @@ body {
               <i class="fa fa-search"></i>
           </button>
       </div>
-  
+
       <div class="nav-links">
           <a href="login.html">Iniciar Sesión</a>
           <div class="dropdown">
@@ -1259,16 +1293,19 @@ body {
               </ul>
           </div>
           <a href="wishlist.html" class="icon-link">
-              <div class="icon-container">
-                  <i class="fa fa-heart"></i>
-              </div>
-          </a>
-          <a href="cart.html" class="icon-link">
-              <div class="icon-container">
-                  <i class="fa fa-shopping-cart"></i>
-              </div>
-          </a>
-      </div>
+            <div class="icon-container">
+                <i class="fa fa-heart"></i>
+                <span id="wishlist-count">0</span> 
+            </div>
+        </a>
+    
+        <a href="cart.html" class="icon-link">
+            <div class="icon-container">
+                <i class="fa fa-shopping-cart"></i>
+                <span id="cart-count">0</span> 
+            </div>
+        </a>
+    </div>
   </header>
 
 <!-- Contenedor principal --> 
@@ -1689,15 +1726,6 @@ body {
         }
       });
 
-//       function toggleDropdown() {
-//   var dropdown = document.getElementById("categories-dropdown");
-//   if (dropdown.style.display === "none") {
-//     dropdown.style.display = "block";
-//   } else {
-//     dropdown.style.display = "none";
-//   }
-// }
-// Función para filtrar productos en "Todos los Productos"
 function filtrarProductosTodos() {
   const input = document.getElementById("search-bar-todos").value.toLowerCase();
   const productos = document.querySelectorAll("#productos-lista .product-item");
@@ -2074,12 +2102,7 @@ document.querySelectorAll('.main-container').forEach(container => {
         mostrarImagen(currentIndex + 1);
     }, 3000);
 });
-
-
-
-    </script>
-
-
+</script>
+<script src="../header.js"></script>
 </body>
-
 </html>
