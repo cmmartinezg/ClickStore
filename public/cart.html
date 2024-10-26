@@ -17,8 +17,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
-            background-color: #2C3E50;
-            color: #fff;
+            background-color: #ffffff;
+            color: #000000;
         }
 
         .header .logo img {
@@ -29,7 +29,7 @@
         .header .secure-payment {
             display: flex;
             align-items: center;
-            color: #fff;
+            color: #000000;
             gap: 10px;
         }
 
@@ -51,7 +51,7 @@
 
         .header .shopping-link {
             margin-left: 15px;
-            color: #fff;
+            color: #000000;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -59,7 +59,7 @@
 
         .header .shopping-link:hover {
             text-decoration: underline;
-            color: #ddd;
+            color: #000000;
         }
 
         .header .user-info {
@@ -79,7 +79,7 @@
             font-size: 28px;
             font-weight: bold;
             margin-bottom: 20px;
-            color: #34495e;
+            color: #000000;
         }
 
         /* Estilos del carrito */
@@ -186,7 +186,24 @@
     .payment-form.active {
         display: block;
     }
-     
+    .carrito-productos img {
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.lista-carrito .row {
+    margin-bottom: 10px;
+}
+
+.producto-cantidad {
+    width: 80px;
+}
+
+.eliminar-item {
+    width: 100%;
+    text-align: center;
+}
+
   </style>
 </head>
 <body>
@@ -198,20 +215,29 @@
             </a>
         </div>
         <div class="secure-payment">
-            <span class="icon-secure">🔒</span>
-            <span>Pago Seguro</span>
             <span class="shopping-link" id="seguir-comprando">Seguir Comprando &rsaquo;</span>
         </div>
     </header>
     <div class="container mt-4">
-      <h2 class="section-title">Carrito de Compras</h2>
-      <div class="row">
+        <h2 class="section-title">Carrito de Compras</h2>
+        <div class="row">
           <div class="col-md-8 carrito-productos">
               <div class="carrito-titulo">
                   <h4>Todos los artículos</h4>
               </div>
+          
+              <div class="row font-weight-bold text-center py-2" style="border-bottom: 1px solid #ddd;">
+                  <div class="col-5">Artículo</div>
+                  <div class="col-2">Precio</div>
+                  <div class="col-2">Cantidad</div>
+                  <div class="col-2">Subtotal</div>
+                  <div class="col-1">Eliminar</div>
+              </div>
+          
               <div id="lista-carrito" class="lista-carrito"></div>
           </div>
+        
+        
           <div class="col-md-4 carrito-resumen">
               <div class="resumen-titulo">
                   <h4>Resumen del Pedido</h4>
@@ -339,6 +365,76 @@
             alert(`Compra realizada con el método de pago: ${metodoPagoSeleccionado}`);
         }
     });
+});
+document.addEventListener('DOMContentLoaded', async function () {
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalPrecio = document.getElementById('total-precio');
+    const totalCantidad = document.getElementById('total-cantidad');
+    const idUsuario = 1; // Ajusta esto según la lógica de tu aplicación.
+
+    try {
+        const response = await fetch(`/api/carrito/${idUsuario}`);
+        const productos = await response.json();
+
+        if (productos.length === 0) {
+            listaCarrito.innerHTML = `
+                <div class="text-center py-5">
+                    <p>No tienes ningún artículo en tu carrito de compras.</p>
+                    <a href="index.html" class="btn btn-warning">Buscar productos</a>
+                </div>`;
+            return;
+        }
+
+        let total = 0;
+        let cantidadTotal = 0;
+
+        productos.forEach(producto => {
+            const subtotal = producto.precio * producto.cantidad;
+            total += subtotal;
+            cantidadTotal += producto.cantidad;
+
+            const productoHTML = `
+                <div class="row align-items-center text-center py-3" style="border-bottom: 1px solid #ddd;">
+                    <div class="col-5 d-flex align-items-center">
+                        <img src="/uploads/${producto.imagen || 'not-found.png'}" 
+                             alt="${producto.nombre}" 
+                             style="width: 60px; height: auto; margin-right: 10px; border-radius: 8px;">
+                        <span>${producto.nombre}</span>
+                    </div>
+                    <div class="col-2">₲${producto.precio.toLocaleString()}</div>
+                    <div class="col-2">
+                        <input type="number" value="${producto.cantidad}" 
+                               min="1" class="form-control text-center producto-cantidad">
+                    </div>
+                    <div class="col-2">₲${subtotal.toLocaleString()}</div>
+                    <div class="col-1">
+                        <button class="btn btn-danger btn-sm eliminar-item" data-id="${producto.id_producto}">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            `;
+            listaCarrito.innerHTML += productoHTML;
+        });
+
+        totalPrecio.textContent = `₲${total.toLocaleString()}`;
+        totalCantidad.textContent = cantidadTotal;
+    } catch (error) {
+        console.error('Error al cargar el carrito:', error);
+    }
+});
+document.addEventListener('click', async function (event) {
+    if (event.target.classList.contains('eliminar-item')) {
+        const idProducto = event.target.getAttribute('data-id');
+        const idUsuario = 1; // Ajusta esto según tu lógica.
+
+        try {
+            await fetch(`/api/carrito/${idUsuario}/${idProducto}`, { method: 'DELETE' });
+            location.reload(); // Recargar la página para actualizar el carrito.
+        } catch (error) {
+            console.error('Error al eliminar el producto:', error);
+        }
+    }
 });
 
   </script>

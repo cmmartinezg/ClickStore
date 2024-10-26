@@ -1797,7 +1797,7 @@ visibility:hidden;
 	transition: all 0.3s ease-in-out;
 }
 #back-top a:hover {
-	background-color:#3e7cb4;
+	background-color:#d0663f;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -2133,8 +2133,8 @@ div.required .control-label:before {
   /* PARA MODIFICAR*/
 .amazon-style .header {
 	width: 100%;
-	background-color: #232f3e;
-	color: #ffffff;
+	background-color: #ffffff;
+	color: #000000;
 	padding: 10px 0;
 	display: flex;
 	align-items: center;
@@ -2199,10 +2199,45 @@ div.required .control-label:before {
   
   .amazon-style .footer {
 	width: 100%;
-	background-color: #232f3e;
+	background-color: #000000;
 	color: #ffffff;
 	text-align: center;
 	padding: 20px 0;
 	margin-top: 20px;
   }
-  
+    /* Estilo del pie de página */
+    footer #main-footer {
+        background-color: #333;
+        color: #f0f0f0;
+        text-align: center;  
+        padding: 20px 0;   
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+    }
+
+    footer {
+          background-color: #333;
+          color: white;
+          padding: 20px;
+          text-align: center;
+          position: relative;
+          bottom: 0;
+          width: 100%;
+        }
+
+        footer a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        footer a:hover {
+          text-decoration: underline;
+        }
+
+    /* Ajustes adicionales para dispositivos más pequeños */
+    @media (max-width: 768px) {
+        footer#main-footer {
+            font-size: 12px; 
+        }
+    }
