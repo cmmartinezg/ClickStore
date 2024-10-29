@@ -496,19 +496,93 @@
         width: 100%;
     }
 }
+/* Ajuste general del modal */
 .modal-content {
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
 }
 
+/* Ajuste del header */
 .modal-header h4 {
     font-weight: bold;
     color: var(--primary-color);
+    margin: 0;
+}
+
+/* Ajuste del form-group para alinear los campos */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Estilo específico para el select de categoría */
+#producto-categoria {
+    width: 100%; /* Asegura que ocupe todo el espacio del form-group */
+    max-width: 400px; /* Limita el ancho máximo */
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#producto-categoria:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Ajuste general del modal */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Alinear y dar espacio uniforme entre los elementos */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Asegurar que todos los inputs, selects y textarea se alineen */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegura que el padding no desajuste el tamaño */
+    font-size: 16px;
+}
+
+/* Ajuste del select para igualarlo con los inputs */
+.form-group select {
+    appearance: none; /* Eliminar estilos predeterminados del navegador */
+    height: 42px; /* Asegurar que tenga la misma altura que los inputs */
+}
+
+/* Ajustes del modal-footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 .modal-footer .btn {
     border-radius: 5px;
     padding: 10px 15px;
+    font-size: 16px;
 }
 
 .modal-footer .btn-primary {
@@ -520,6 +594,8 @@
 .modal-footer .btn-primary:hover {
     background-color: #e65b54;
 }
+
+
 
 /* Contenedor de productos */
 #productos-lista {
@@ -581,6 +657,12 @@
     .product-item {
         width: 100%; /* 1 producto por fila */
     }
+}
+
+#producto-categoria {
+    display: block; /* Asegura que ocupe todo el bloque */
+    width: 100%;  /* Ocupa todo el ancho disponible */
+    max-width: 100%; /* No exceder el contenedor */
 }
 
   </style>
@@ -716,6 +798,17 @@
           <label for="stock">Stock</label>
           <input type="number" id="stock" name="stock" class="form-control" min="0" required>
         </div>
+        <div class="form-group">
+          <label for="producto-categoria">Categoría</label>
+          <select class="form-control" id="producto-categoria">
+            <option value="" disabled>Selecciona una categoría</option>
+            <option value="Electrónica">Electrónica</option>
+            <option value="Informática">Informática</option>
+            <option value="Ropa">Ropa</option>
+            <option value="Automóviles">Automóviles</option>
+            <option value="Belleza">Belleza</option>
+          </select>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" onclick="eliminarProducto()">Eliminar</button>
@@ -828,52 +921,75 @@
       fetch(`http://localhost:3000/api/productos/${id}`)
         .then(response => response.json())
         .then(data => {
+          // Cargar los datos del producto en los campos del modal
           document.getElementById('producto-id').value = data.id;
           document.getElementById('producto-nombre').value = data.nombre;
           document.getElementById('producto-descripcion').value = data.descripcion;
           document.getElementById('producto-precio').value = data.precio;
           document.getElementById('producto-foto').value = data.foto_url;
-          document.getElementById('stock').value = data.stock; // Cargar el stock
+          document.getElementById('stock').value = data.stock;
+
+          const selectCategoria = document.getElementById('producto-categoria');
+
+          // Intentar seleccionar la categoría guardada
+          const categoriaGuardada = data.categoria || "";
+          const optionToSelect = Array.from(selectCategoria.options).find(
+            option => option.value.toLowerCase() === categoriaGuardada.toLowerCase()
+          );
+
+          if (optionToSelect) {
+            // Si la opción existe, seleccionarla
+            selectCategoria.value = optionToSelect.value;
+          } else {
+            // Si no coincide, seleccionar la opción por defecto
+            selectCategoria.value = "";
+            console.warn(`La categoría "${categoriaGuardada}" no coincide con ninguna opción disponible.`);
+          }
+
           $('#editarProductoModal').modal('show');
         })
         .catch(err => console.error('Error al cargar producto para editar:', err));
     }
 
-    function guardarCambiosProducto() {
-      const productoId = document.getElementById('producto-id').value;
-      const nombre = document.getElementById('producto-nombre').value;
-      const descripcion = document.getElementById('producto-descripcion').value;
-      const precio = parseFloat(document.getElementById('producto-precio').value);
-      const fotoUrl = document.getElementById('producto-foto').value;
-      const stock = parseInt(document.getElementById('stock').value); // Obtener el stock
-      const idComerciante = sessionStorage.getItem('Id'); // Obtener el `id_comerciante`
 
-      fetch(`http://localhost:3000/api/productos/${productoId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nombre,
-          descripcion,
-          precio,
-          foto_url: fotoUrl,
-          stock, // Incluir el stock
-          id_comerciante: idComerciante,
-        }),
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.producto) {
-            alert('Producto actualizado exitosamente');
-            $('#editarProductoModal').modal('hide');
-            fetchProductos(); // Recargar los productos
-          } else {
-            alert('Hubo un error al actualizar el producto');
-          }
-        })
-        .catch(err => console.error('Error al actualizar producto:', err));
-    }
+function guardarCambiosProducto() {
+  const productoId = document.getElementById('producto-id').value;
+  const nombre = document.getElementById('producto-nombre').value;
+  const descripcion = document.getElementById('producto-descripcion').value;
+  const precio = parseFloat(document.getElementById('producto-precio').value);
+  const fotoUrl = document.getElementById('producto-foto').value;
+  const stock = parseInt(document.getElementById('stock').value);
+  const categoria = document.getElementById('producto-categoria').value; // Obtener la categoría seleccionada
+  const idComerciante = sessionStorage.getItem('Id');
+
+  fetch(`http://localhost:3000/api/productos/${productoId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      nombre,
+      descripcion,
+      precio,
+      foto_url: fotoUrl,
+      stock,
+      categoria, // Enviar la categoría seleccionada
+      id_comerciante: idComerciante,
+    }),
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.producto) {
+        alert('Producto actualizado exitosamente');
+        $('#editarProductoModal').modal('hide');
+        fetchProductos(); // Recargar los productos
+      } else {
+        alert('Hubo un error al actualizar el producto');
+      }
+    })
+    .catch(err => console.error('Error al actualizar producto:', err));
+}
+
 
     function eliminarProducto() {
       const productoId = document.getElementById('producto-id').value;
