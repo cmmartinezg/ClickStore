@@ -20,7 +20,7 @@ async function añadirAlCarrito(productoId, cantidad) {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/api/carrito', {
+        const response = await fetch('https://tcc-api-nodejs.onrender.com/api/carrito', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ async function mostrarCarrito() {
     const usuarioId = sessionStorage.getItem('id');
 
     try {
-        const response = await fetch(`http://localhost:3000/api/carrito/${usuarioId}`);
+        const response = await fetch(`https://tcc-api-nodejs.onrender.com/api/carrito/${usuarioId}`);
         const carrito = await response.json();
 
         const listaCarrito = document.getElementById('lista-carrito');
@@ -100,7 +100,7 @@ async function mostrarCarrito() {
 // Función para eliminar un producto del carrito
 async function eliminarProductoDelCarrito(carritoId) {
     try {
-        const response = await fetch(`http://localhost:3000/api/carrito/${carritoId}`, {
+        const response = await fetch(`https://tcc-api-nodejs.onrender.com/api/carrito/${carritoId}`, {
             method: 'DELETE'
         });
 
@@ -123,7 +123,7 @@ async function actualizarContadorCarrito() {
     if (!usuarioId) return;
 
     try {
-        const response = await fetch(`http://localhost:3000/api/carrito/count/${usuarioId}`);
+        const response = await fetch(`https://tcc-api-nodejs.onrender.com/api/carrito/count/${usuarioId}`);
         const data = await response.json();
         document.getElementById('cart-count').textContent = data.total || 0;
     } catch (error) {
@@ -137,7 +137,7 @@ async function finalizarCompra() {
     if (!usuarioId) return;
 
     try {
-        const response = await fetch(`http://localhost:3000/api/compras/${usuarioId}`, {
+        const response = await fetch(`https://tcc-api-nodejs.onrender.com/api/compras/${usuarioId}`, {
             method: 'POST'
         });
 

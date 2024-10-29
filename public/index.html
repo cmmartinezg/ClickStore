@@ -1568,7 +1568,7 @@ body {
       });
 
       function fetchProductos() {
-        fetch('http://localhost:3000/api/productos')
+        fetch('https://tcc-api-nodejs.onrender.com/api/productos')
           .then(response => response.json())
           .then(data => {
             displayProductos(data);
@@ -1633,7 +1633,7 @@ body {
           document.getElementById('autocomplete-list').style.display = 'none';
           return;
         }
-        fetch('http://localhost:3000/api/productos')
+        fetch('https://tcc-api-nodejs.onrender.com/api/productos')
           .then(response => response.json())
           .then(data => {
             const filtered = data.filter(producto => producto.nombre.toLowerCase().includes(query));

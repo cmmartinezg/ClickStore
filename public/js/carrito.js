@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const productId = params.get('id');
 
         if (productId) {
-            fetch(`http://localhost:3000/api/productos/${productId}`)
+            fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productId}`)
                 .then(response => response.json())
                 .then(producto => {
                     if (producto) {

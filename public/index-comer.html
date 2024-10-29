@@ -852,7 +852,7 @@
 
       function fetchProductos() {
         const comercianteId = sessionStorage.getItem('Id');
-        fetch(`http://localhost:3000/api/productos?comercianteId=${comercianteId}`)
+        fetch(`https://tcc-api-nodejs.onrender.com/api/productos?comercianteId=${comercianteId}`)
           .then(response => response.json())
           .then(data => {
             displayProductos(data);
@@ -864,7 +864,7 @@
 
       function fetchComercianteInfo() {
         const comercianteId = sessionStorage.getItem('Id');
-        fetch(`http://localhost:3000/api/comerciantes/${comercianteId}`)
+        fetch(`https://tcc-api-nodejs.onrender.com/api/comerciantes/${comercianteId}`)
           .then(response => response.json())
           .then(data => displayComercianteInfo(data))
           .catch(err => console.error('Error fetching comerciante info:', err));
@@ -918,7 +918,7 @@
 
 
       function editarProducto(id) {
-      fetch(`http://localhost:3000/api/productos/${id}`)
+      fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${id}`)
         .then(response => response.json())
         .then(data => {
           // Cargar los datos del producto en los campos del modal
@@ -962,7 +962,7 @@ function guardarCambiosProducto() {
   const categoria = document.getElementById('producto-categoria').value; // Obtener la categoría seleccionada
   const idComerciante = sessionStorage.getItem('Id');
 
-  fetch(`http://localhost:3000/api/productos/${productoId}`, {
+  fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productoId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -994,7 +994,7 @@ function guardarCambiosProducto() {
     function eliminarProducto() {
       const productoId = document.getElementById('producto-id').value;
 
-      fetch(`http://localhost:3000/api/productos/${productoId}`, {
+      fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productoId}`, {
         method: 'DELETE',
       })
         .then(response => {
