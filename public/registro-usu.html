@@ -184,34 +184,24 @@
         if (response.ok) {
             const responseData = await response.json();
 
-            // Guardar los datos del usuario en sessionStorage
-            sessionStorage.setItem('userId', responseData.Id);
+            // Guardar el ID del usuario en sessionStorage
+            sessionStorage.setItem('userId', responseData.id); // Usa `responseData.id` según el nombre de la clave en la respuesta
             sessionStorage.setItem('userName', responseData.nombre);
 
-            // Confirmar que los datos se guardaron correctamente
-            if (sessionStorage.getItem('userId') && sessionStorage.getItem('userName')) {
-                Swal.fire({
-                    icon: 'success',
-                    title: '¡Registrado!',
-                    text: 'Usuario registrado exitosamente',
-                    confirmButtonText: 'Aceptar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = 'preferencias.html'; 
-                    }
-                });
-            } else {
-                console.error('Error al guardar datos en sessionStorage');
-            }
-        } else if (response.status === 409) {
-            const errorData = await response.json();
+            console.log("userId guardado en sessionStorage:", responseData.id); // Verifica el ID guardado en la consola
+
             Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: errorData.message,
+                icon: 'success',
+                title: '¡Registrado!',
+                text: 'Usuario registrado exitosamente',
                 confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'preferencias.html'; 
+                }
             });
         } else {
+            // Manejo de errores en caso de que el correo ya exista o haya un problema
             const errorData = await response.json();
             Swal.fire({
                 icon: 'error',
@@ -230,6 +220,7 @@
         });
     }
 });
+
 
   </script>
 </body>
