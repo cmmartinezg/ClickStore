@@ -128,7 +128,7 @@
         #wishlist-count,
         #cart-count {
             background-color: #f7941d;
-            color: #fff;
+            color: #000000;
             border-radius: 50%;
             padding: 2px 8px;
             font-size: 14px;
@@ -387,11 +387,7 @@
             font-size: 18px;
         }
 
-        .input-quantity {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      
 
         .qtyBtn {
             background-color: #ddd;
@@ -407,14 +403,7 @@
             background-color: #ccc;
         }
 
-        #input-quantity {
-            width: 50px;
-            text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 0 5px;
-        }
-
+      
         /* Estilo para el formulario de calificación */
         #rating {
             height: 36px;
@@ -442,7 +431,7 @@
 
         /* Contenedor de cantidad */
         .qty-container {
-            margin-top: 20px;
+            margin-top: 12px;
             display: flex;
             align-items: center;
         }
@@ -453,82 +442,13 @@
             font-weight: bold;
         }
 
-        .input-quantity {
-            display: flex;
-            align-items: center;
-        }
-
-        .qtyBtn {
-            background-color: #ddd;
-            border: none;
-            font-size: 16px;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-
-        /* Estilo y alineación de botones */
-        .cart-buttons-container {
-            align-items: center;
-            gap: 20px;
-            margin-top: 80px;
-
-        }
-
-        .wishlist-btn {
-            font-size: 32px;
-            background: none;
-            margin-right: 30px;
-            border: none;
-            color: #f7941d;
-            cursor: pointer;
-        }
-
-        .wishlist-btn:hover {
-            color: #ff4500;
-        }
-
-        .btn-cart,
-        .btn-buy {
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-
-        }
-
-        /* Estilo para botón de AÑADIR AL CARRITO */
-        .btn-cart {
-            background-color: #ffc107;
-            border: none;
-            color: #000;
-            margin-right: 15px;
-        }
-
-        .btn-cart:hover {
-            background-color: #ff9f07;
-        }
-
-        /* Estilo para botón de COMPRAR AHORA */
-        .btn-buy {
-            background-color: #ffc107;
-            border: none;
-            color: #000;
-        }
-
-        .btn-buy:hover {
-            background-color: #ff9f07;
-        }
-
+     
         /* Estilo para el texto de Stock*/
         .label-success {
             background-color: #28a745 !important;
             color: #fff !important;
             padding: 5px 10px;
-            font-size: 16px;
+            font-size: 15px;
             border-radius: 5px;
         }
 
@@ -551,50 +471,7 @@
             margin: 20px 0;
         }
 
-        .owl-carousel .owl-item {
-            margin: 0px;
-        }
-
-        .owl-carousel .producto {
-            width: 400px;
-            border-radius: 3px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(216, 123, 9, 0.1);
-        }
-
-        .owl-carousel .producto:hover {
-            transform: scale(1.05);
-        }
-
-        .owl-nav .owl-prev,
-        .owl-nav .owl-next {
-            position: absolute;
-            top: 40%;
-            transform: translateY(-50%);
-            background: #007bff;
-            color: white;
-            border-radius: 50%;
-            width: 40px;
-            height: 50px;
-            line-height: 40px;
-            text-align: center;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        .owl-nav .owl-prev {
-            left: -30px;
-        }
-
-        .owl-nav .owl-next {
-            right: -30px;
-        }
-
-        .owl-nav .owl-prev:hover,
-        .owl-nav .owl-next:hover {
-            background: #0056b3;
-            ;
-        }
+    
 
         /* Contenedor principal de opiniones */
         #opiniones-container {
@@ -727,86 +604,8 @@
             margin-top: 5px;
         }
 
-        /* Estilo general del pie de página */
-        #main-footer {
-            background: #333;
-            color: #fff;
-            padding: 40px 0;
-            font-family: 'Open Sans', sans-serif;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Sección del pie de página */
-        .footer-section {
-            flex: 1;
-            margin: 0 20px;
-        }
-
-        .footer-section h4 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #ffc107;
-        }
-
-        .footer-section p,
-        .footer-section ul {
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section ul li a {
-            text-decoration: none;
-            color: #ccc;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #ffc107;
-        }
-
-        /* Estilos de los íconos de contacto */
-        .footer-section ul li i {
-            margin-right: 10px;
-            color: #ffc107;
-        }
-
-        /* Estilo del contenedor inferior */
-        .footer-bottom {
-            background: #222;
-            color: #aaa;
-            text-align: center;
-            padding: 15px 20px;
-            margin-top: 30px;
-            font-size: 14px;
-        }
-
-        .footer-bottom a {
-            color: #ffc107;
-            text-decoration: none;
-            margin-left: 5px;
-        }
-
-        .footer-bottom a:hover {
-            text-decoration: underline;
-        }
-        #container {
+       
+#container {
     padding: 40px 20px; /* Espacio en la parte superior e inferior */
     background-color: #f8f9fa; /* Fondo claro */
 }
@@ -821,7 +620,7 @@
 }
 
 .breadcrumb li a {
-    color: #007bff; /* Color de los enlaces */
+    color: #b6a7a3; 
     text-decoration: none;
 }
 
@@ -865,90 +664,43 @@
     margin-top: 20px;
 }
 
-.input-quantity {
-    display: flex;
-    align-items: center;
-    margin-top: 10px; /* Espacio superior */
+
+
+/* Estilo del pie de página */
+footer #main-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;  
+    padding: 20px 0;   
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
 }
 
-.qtyBtn {
-    background-color: #007bff; /* Color de los botones */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    width: 40px; /* Ancho fijo para botones */
-    transition: background-color 0.3s; /* Transición suave */
-}
-
-.qtyBtn:hover {
-    background-color: #0056b3; /* Color de fondo en hover */
-}
-
-#button-cart {
-    background-color: #28a745; /* Color del botón "Añadir al carrito" */
-    color: white;
-    padding: 12px 25px; /* Espacio del botón */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s; /* Transición suave */
-}
-
-#button-cart:hover {
-    background-color: #218838; /* Color en hover */
-}
-
-.wishlist-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px; /* Aumentar tamaño del icono */
-}
-
-.wishlist-btn:hover {
-    color: #ff5c5c; /* Color al pasar el mouse */
-}
-/* Ajustes de íconos */
-.icon-container {
-      display: flex;
-      align-items: center;
+footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
     }
-    .product-container {
-    background-color: #fff; /* Fondo blanco */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    padding: 20px;
-    margin: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
 
-/* Estilo para los iconos en la cabecera */
-.icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #000; /* Borde negro */
-    border-radius: 50%; /* Circular */
-    margin-left: 10px;
-    transition: background-color 0.3s ease;
-}
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.icon-container i {
-    font-size: 20px;
-    color: #000;
-}
+    footer a:hover {
+      text-decoration: underline;
+    }
 
-/* Cambio de color al pasar el mouse */
-.icon-container:hover {
-    background-color: #f0f0f0;
+/* Ajustes adicionales para dispositivos más pequeños */
+@media (max-width: 768px) {
+    footer#main-footer {
+        font-size: 12px; 
+    }
 }
 
 /* Estilo para los enlaces de navegación */
@@ -1084,20 +836,438 @@
     .icon-text {
       display: none;
     }
-
-    /* Ajustes de íconos */
-    .icon-container {
-      display: flex;
-      align-items: center;
+    /* Eliminar completamente la subrayado y borde */
+    .icon-link {
+    text-decoration: none !important; /* Quitar subrayado */
+    outline: none !important; /* Quitar contorno al hacer clic */
+    border: none !important; /* Quitar cualquier borde */
+    background: transparent; /* Eliminar fondo si existe */
     }
+
+    .icon-link i {
+    font-size: 28px;
+    color: #111;
+    border: 2px solid #111;
+    border-radius: 50%;
+    padding: 5px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
     
-    .container {
-    width: 100%;
+    .icon-container {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.icon-container i {
+    font-size: 20px;
+    color: #000;
+}
+
+.icon-container span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #f19c25; /* Color anaranjado */
+    color: #000; /* Texto en negro */
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    z-index: 1;
+}
+
+  .product-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
-  }
-    </style>
+}
+
+.row {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.image {
+    flex: 1;
+    max-width: 400px;
+    text-align: center;
+}
+
+.image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 15px;
+}
+
+#product-price {
+    font-size: 28px;
+    color: rgb(208, 54, 34);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.qty-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.qtyBtn {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.qtyBtn:hover {
+    background-color: black;
+}
+
+#input-quantity {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd7d7;
+    border-radius: 12px;
+}
+
+.cart-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-cart,
+.wishlist-btn {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cart:hover,
+.wishlist-btn:hover {
+    background-color: black;
+}
+
+
+/* Efecto hover para "Añadir al Carrito" */
+#button-cart:hover {
+    background-color: #444; 
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image img {
+        max-width: 300px;
+    }
+
+    .btn-cart,
+    .wishlist-btn {
+        width: 100%;
+    }
+}
+/* Estilo para los botones con el mismo tamaño */
+.btn-cart, 
+.wishlist-btn {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    flex: 1; 
+    top: 10;
+    padding: 15px 10px;
+    text-align: center;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%; 
+}
+
+
+
+/* Ajuste del tamaño para dispositivos móviles */
+@media (max-width: 768px) {
+    .btn-cart, .wishlist-btn {
+        width: 100%; /* En pantallas pequeñas ocupan el 100% del ancho */
+    }
+}
+
+/* Título y descripción en negro */
+.title, .description {
+    color: rgb(53, 49, 49); 
+}
+
+/* Ajuste de los contenedores para mantener proporción */
+.qty-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Botones de cantidad */
+.qtyBtn {
+    background-color: rgb(198, 198, 197);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.icon-link:hover i {
+  color: #ed7553;
+  border-color: #ed7553;
+}
+
+.qtyBtn:hover {
+    background-color: rgb(213, 89, 89);
+}
+
+#button-cart {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    width: 50%; 
+}
+
+#wishlist-button:hover {
+    background-color: #444; 
+}
+.wishlist-btn {
+    width: 50%; 
+}
+/* Ajuste de la descripción del producto */
+.description {
+    max-width: 500px; 
+    line-height: 1.6; 
+    color: black;
+}
+
+/* Título para los detalles del producto */
+.description-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Ajuste del contenedor para mantener la estructura */
+.product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+    /* Ajustar el contenedor de los íconos */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 20px;
+    }
+/* Estilos para la sección de reseñas */
+.review-section {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.review-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.rating-input p {
+    font-weight: bold;
+    color: #333;
+}
+
+.stars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rating-category {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stars span {
+    font-size: 18px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.stars span:hover, .stars span:hover ~ span {
+    color: #ffc107;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-group, .form-group-wide {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-group-wide {
+    flex-basis: 100%;
+}
+
+.review-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.review-form input, .review-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.review-form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.submit-btn {
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #ffc107;
+    border: none;
+    color: #333;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+}
+/* Estilos para las estrellas */
+.rating-input {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 28px;
+}
+
+.stars input[type="radio"] {
+    display: none;
+}
+
+.stars label {
+    color: #ccc;
+    cursor: pointer;
+}
+
+.stars input[type="radio"]:checked ~ label {
+    color: #ffcc00;
+}
+
+.stars label:hover,
+.stars label:hover ~ label {
+    color: #ffcc00;
+}
+</style>
 </head>
 <body>
    <!-- Header -->
@@ -1106,86 +1276,71 @@
       <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
     </div>
     <div class="search-bar">
-      <select id="category-select" onchange="redirectToCategory()">
-        <option value="index.html">Todos</option>
-        <option value="electronica.html">Electrónica</option>
-        <option value="informatica.html">Informática</option>
-        <option value="ropa.html">Ropa</option>
-        <option value="automoviles.html">Automóviles</option>
-        <option value="belleza.html">Belleza</option>
+        <select id="category-select" onchange="redirectToCategory()">
+            <option value="index.html">Todos</option>
+            <option value="electronica.html">Electrónica</option>
+            <option value="informatica.html">Informática</option>
+            <option value="ropa.html">Ropa</option>
+            <option value="automoviles.html">Automóviles</option>
+            <option value="belleza.html">Belleza</option>
         </select>
-        <input id="filter_name" type="text" name="search" value="" placeholder="Buscar Producto" />
+    
+        <input id="filter_name" type="text" name="search" placeholder="Buscar Producto" />
         <button type="button" class="button-search"><i class="fa fa-search"></i></button>
     </div>
+    
     <div class="nav-links">
-      <span id="welcome-message"></span>
-      <a href="wishlist.html" class="icon-link">
+        <a href="wishlist.html" class="icon-link">
           <div class="icon-container">
               <i class="fa fa-heart"></i>
-              <span class="icon-text">Favoritos</span>
+              <span id="wishlist-count">0</span> 
           </div>
       </a>
       <a href="cart.html" class="icon-link">
           <div class="icon-container">
               <i class="fa fa-shopping-cart"></i>
-              <span class="icon-text">Mi carrito</span>
+              <span id="cart-count">0</span> 
           </div>
       </a>
   </div>
 </header> 
-            <div class="container">
-                <ul class="breadcrumb">
-                    <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-                    <li><a>Electronica</a></li>
-                    <li><a>Producto</a></li>
-                </ul>
-        
-                <div class="row">
-                    <div id="content" class="col-sm-12">
-                        <h1 id="product-title" class="title">Product</h1>
-                        <div class="row product-info">
-                            <!-- Imagen del producto -->
-                            <div class="col-sm-6">
-                                <div class="image">
-                                    <img id="product-image" class="img-responsive" src="image/no_image.png"
-                                        alt="Product Image" />
-                                </div>
-                            </div>
-        
-                            <!-- Información del producto -->
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled description">
-                                    <li><b>Nombre del Producto:</b> <span id="product-name">Product</span></li>
-                                    <li><b>Precio:</b> <span id="product-price">$0.00</span></li>
-                                    <li><b>Descripción:</b> <span id="product-description">N/A</span></li>
-                                    <li>
-                                        <b>Stock:</b>
-                                        <span id="product-availability" class="label label-success">En stock</span>
-                                    </li>
-                                </ul>
-        
-                                <!-- Contenedor de Cantidad -->
-                                <div class="qty-container">
-                                    <label for="input-quantity"><b>Cantidad:</b></label>
-                                    <div class="input-quantity">
-                                        <button class="qtyBtn mines">-</button>
-                                        <input type="text" value="1" id="input-quantity">
-                                        <button class="qtyBtn plus">+</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+        <li>Producto</li>
+    </ul>
+    <div class="row">
+        <div class="image">
+            <img id="product-image" src="image/no_image.png" alt="Imagen del Producto">
+        </div>
+
+        <div class="product-details">
+            <h1 id="product-title" class="title">Cargando...</h1>
+            <div id="product-price">₲0.00</div>
+            <p><b>Detalles del Producto:</b> <span id="product-description">N/A</span></p>
+            <p><b>Stock:</b> <span id="product-availability" class="label label-success">En stock</span></p>
+
+            <div class="qty-container">
+                <label for="input-quantity"><b>Cantidad:</b></label>
+                <div class="input-quantity">
+                    <button class="qtyBtn mines">-</button>
+                    <input type="text" value="1" id="input-quantity">
+                    <button class="qtyBtn plus">+</button>
                 </div>
             </div>
-      
-        
 
-
-
+            <!-- Botones de Acción -->
+            <div class="cart-buttons">
+                <button id="button-cart" class="btn-cart">Añadir al Carrito</button>
+                <button id="wishlist-button" class="wishlist-btn">Añadir a Favoritos</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="review-section"></div>
 
         <!-- Sección de Productos Recomendados -->
-        <h2 class="section-title">Productos Recomendados</h2>
+        <h2 class="section-title"> Productos relacionados con este artículo</h2>
         <div id="recomendaciones-wrapper">
             <div id="recomendaciones-container">
                 <div id="productos-recomendados" class="owl-carousel owl-theme">
@@ -1194,335 +1349,64 @@
             </div>
         </div>
 
-        <h3 class="section-title">Opiniones de Clientes</h3>
-        <div id="opiniones-container">
-            <!-- Distribución de calificaciones -->
-            <div id="rating-summary">
-                <h4>Calificación de clientes</h4>
-                <div class="rating-overall">
-                    <span class="stars">★★★★☆</span>
-                    <span class="score">4.4 de 5</span>
-                </div>
-                <p>Basado en 30,994 calificaciones</p>
-                <!-- Distribución -->
-                <div class="rating-distribution">
-                    <div class="rating-bar">
-                        <span>5 estrellas</span>
-                        <div class="bar">
-                            <div class="fill" style="width: 70%;"></div>
-                        </div>
-                        <span>69%</span>
-                    </div>
-                    <div class="rating-bar">
-                        <span>4 estrellas</span>
-                        <div class="bar">
-                            <div class="fill" style="width: 15%;"></div>
-                        </div>
-                        <span>15%</span>
-                    </div>
-                    <div class="rating-bar">
-                        <span>3 estrellas</span>
-                        <div class="bar">
-                            <div class="fill" style="width: 9%;"></div>
-                        </div>
-                        <span>9%</span>
-                    </div>
-                    <div class="rating-bar">
-                        <span>2 estrellas</span>
-                        <div class="bar">
-                            <div class="fill" style="width: 3%;"></div>
-                        </div>
-                        <span>3%</span>
-                    </div>
-                    <div class="rating-bar">
-                        <span>1 estrella</span>
-                        <div class="bar">
-                            <div class="fill" style="width: 4%;"></div>
-                        </div>
-                        <span>4%</span>
-                    </div>
-                </div>
-            </div>
+<!-- Sección de Reseñas -->
+<div class="review-section">
+    <h2>Reseñas de clientes</h2>
+    <div class="rating-input">
+        <p>Califica este producto</p>
+        <div class="stars">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5">★</label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3">★</label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2">★</label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1">★</label>
+        </div>
+    </div>
 
-            <!-- Sección para escribir una nueva opinión -->
-            <div id="review-form">
-                <h4>Escribir opinión de este producto</h4>
-                <form id="ratingForm" class="rating-container">
-                    <label for="rating">Califica este producto:</label>
-                    <select name="rating" id="rating">
-                        <option value="1">1 estrella</option>
-                        <option value="2">2 estrellas</option>
-                        <option value="3">3 estrellas</option>
-                        <option value="4">4 estrellas</option>
-                        <option value="5">5 estrellas</option>
-                    </select>
-                    <textarea id="review-text" placeholder="Escribe tu opinión aquí..."></textarea>
-                    <button type="button" onclick="submitRating()">Enviar</button>
-                </form>
+    <form id="review-form" class="review-form">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="nickname">Apodo *</label>
+                <input type="text" id="nickname" name="nickname" required>
             </div>
-
-            <!-- Sección de opiniones destacadas -->
-            <div id="featured-reviews">
-                <h4>Opiniones destacadas</h4>
-                <div class="review">
-                    <span class="user-name">Juan Pérez</span>
-                    <span class="stars">★★★★★</span>
-                    <p class="review-text">Excelente producto, cumplió con todas mis expectativas. La calidad es muy
-                        buena y el envío fue rápido.</p>
-                </div>
-                <div class="review">
-                    <span class="user-name">Ana Gómez</span>
-                    <span class="stars">★★★★☆</span>
-                    <p class="review-text">Muy buen producto, pero el empaque llegó un poco dañado. Aparte de eso, todo
-                        bien.</p>
-                </div>
+            <div class="form-group">
+                <label for="summary">Resumen *</label>
+                <input type="text" id="summary" name="summary" required>
+            </div>
+            <div class="form-group-wide">
+                <label for="review">Comentario *</label>
+                <textarea id="review" name="review" required></textarea>
             </div>
         </div>
+        <button type="submit" class="submit-btn">Enviar mi reseña</button>
+    </form>
+</div>
 
-
-
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
-    <script src="js/carrito.js"></script>
 </body>
 
-<!-- Modal de compra -->
-<div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="buyModalLabel">Completar Compra</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h6>Seleccione el método de pago:</h6>
-                <button type="button" class="btn btn-primary payment-btn" id="payWithCard">Tarjeta de
-                    Crédito/Débito</button>
-                <button type="button" class="btn btn-primary payment-btn" id="payWithEfectivo">Efectivo</button>
-                <button type="button" class="btn btn-primary payment-btn" id="payWithTransferencia">Transferencia
-                    Bancaria</button>
-
-                <!-- Formulario para Tarjeta -->
-                <div id="cardForm" class="payment-form">
-                    <h6>Pago con Tarjeta:</h6>
-                    <div class="form-group">
-                        <label for="cardNumber">Número de Tarjeta:</label>
-                        <input type="text" id="cardNumber" class="form-control" placeholder="Número de Tarjeta"
-                            maxlength="19">
-                        <div class="card-icons">
-                            <img id="visaIcon" class="hidden" src="https://img.icons8.com/color/48/000000/visa.png" />
-                            <img id="mastercardIcon" class="hidden"
-                                src="https://img.icons8.com/color/48/000000/mastercard.png" />
-                            <img id="amexIcon" class="hidden" src="https://img.icons8.com/color/48/000000/amex.png" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="cardExpiry">Fecha de Expiración:</label>
-                        <input type="text" id="cardExpiry" class="form-control" placeholder="MM/AA">
-                    </div>
-                    <div class="form-group">
-                        <label for="cardCVC">CVC:</label>
-                        <input type="text" id="cardCVC" class="form-control" placeholder="CVC">
-                    </div>
-                    <button type="button" class="btn btn-success btn-block" id="confirmTarjeta">Confirmar Pago</button>
-                </div>
-
-                <!-- Información para Efectivo -->
-                <div id="efectivoForm" class="payment-form">
-                    <h6>Pago en Efectivo:</h6>
-                    <p>Por favor, acérquese a cualquiera de nuestras tiendas físicas para realizar el pago.</p>
-                    <button type="button" class="btn btn-success btn-block" id="confirmEfectivo">Confirmar Pago</button>
-                </div>
-
-                <!-- Información para Transferencia -->
-                <div id="transferenciaForm" class="payment-form">
-                    <h6>Pago por Transferencia Bancaria:</h6>
-                    <p>Realice la transferencia a la siguiente cuenta:</p>
-                    <ul>
-                        <li><b>Banco:</b> Banco XYZ</li>
-                        <li><b>Número de Cuenta:</b> 123456789</li>
-                        <li><b>Nombre del Titular:</b> Click Store</li>
-                        <li><b>Concepto:</b> Compra #<span id="orderNumber">12345</span></li>
-                    </ul>
-                    <button type="button" class="btn btn-success btn-block" id="confirmTransferencia">Confirmar
-                        Pago</button>
-                </div>
-
-                <!-- Animación de Procesamiento -->
-                <div id="processing" class="text-center">
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="sr-only">Procesando...</span>
-                    </div>
-                    <p>Procesando su pago, por favor espere...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-<!--Footer Inicio-->
-
-<footer id="main-footer">
-    <div class="footer-container">
-        <!-- Contenedor de información de la compañía -->
-        <div class="footer-section">
-            <h4>Sobre Nosotros</h4>
-            <p>Click Store es una tienda en línea dedicada a ofrecer productos de calidad y un servicio excepcional a
-                nuestros clientes. Nuestro objetivo es satisfacer todas tus necesidades con la mejor experiencia de
-                compra.</p>
-        </div>
-
-        <!-- Contenedor de enlaces rápidos -->
-        <div class="footer-section">
-            <h4>Enlaces Rápidos</h4>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Tienda</a></li>
-                <li><a href="#">Acerca de</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Política de Privacidad</a></li>
-            </ul>
-        </div>
-
-        <!-- Contenedor de contacto -->
-        <div class="footer-section">
-            <h4>Contáctanos</h4>
-            <ul>
-                <li><i class="fa fa-map-marker"></i> Asunción, Paraguay</li>
-                <li><i class="fa fa-phone"></i> +595 21 123 4567</li>
-                <li><i class="fa fa-envelope"></i> contacto@clickstore.com</li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 Click Store. Todos los derechos reservados | <a href="#">Términos y Condiciones</a></p>
-    </div>
-</footer>
+  
+   <!-- Pie de página -->
+   <footer id="main-footer">
+    <p>&copy; 2024 Click Store. Todos los derechos reservados.</p>
+  </footer>
+  
 
 <!--Footer Fin-->
-</div>
+
 <!-- JS Parte Inicio -->
+<script src="js/carrito.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-        const params = new URLSearchParams(window.location.search);
-        const productId = params.get('id');
 
-        if (productId) {
-            fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productId}`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('product-title').textContent = data.nombre;
-                    document.getElementById('product-image').src = data.foto_url;
-                    document.getElementById('product-name').textContent = data.nombre;
-                    document.getElementById('product-price').textContent = `₲${Number(data.precio).toLocaleString('es-PY')}`;
-                    document.getElementById('product-description').textContent = data.descripcion || 'N/A';
-                    document.getElementById('product-availability').cardNumber = data.stock;
-                    document.getElementById('product-availability').cardNumber = data.stock;
-                })
-                .catch(err => console.error('Error fetching product:', err));
-        }
 
-        // Botón Comprar Ahora
-        document.getElementById('button-buy').addEventListener('click', function () {
-            $('#buyModal').modal('show');
-        });
-
-        // Mostrar el formulario correcto según el método de pago seleccionado
-        document.getElementById('payWithCard').addEventListener('click', function () {
-            document.getElementById('cardForm').classList.add('active');
-            document.getElementById('efectivoForm').classList.remove('active');
-            document.getElementById('transferenciaForm').classList.remove('active');
-        });
-
-        document.getElementById('payWithEfectivo').addEventListener('click', function () {
-            document.getElementById('efectivoForm').classList.add('active');
-            document.getElementById('cardForm').classList.remove('active');
-            document.getElementById('transferenciaForm').classList.remove('active');
-        });
-
-        document.getElementById('payWithTransferencia').addEventListener('click', function () {
-            document.getElementById('transferenciaForm').classList.add('active');
-            document.getElementById('cardForm').classList.remove('active');
-            document.getElementById('efectivoForm').classList.remove('active');
-        });
-
-        // Detectar tipo de tarjeta
-        document.getElementById('cardNumber').addEventListener('input', function (e) {
-            const cardNumber = e.target.value.replace(/\s+/g, '');
-
-            // Ocultar todos los íconos
-            document.querySelectorAll('.card-icons img').forEach(img => img.classList.add('hidden'));
-
-            // Detectar tipo de tarjeta
-            const visa = /^4[0-9]{12}(?:[0-9]{3})?$/;
-            const mastercard = /^5[1-5][0-9]{14}$/;
-            const amex = /^3[47][0-9]{13}$/;
-
-            if (visa.test(cardNumber)) {
-                document.getElementById('visaIcon').classList.remove('hidden');
-            } else if (mastercard.test(cardNumber)) {
-                document.getElementById('mastercardIcon').classList.remove('hidden');
-            } else if (amex.test(cardNumber)) {
-                document.getElementById('amexIcon').classList.remove('hidden');
-            }
-        });
-
-        // Simulación de pago
-        const processPayment = (method) => {
-            document.querySelectorAll('.payment-form').forEach(form => form.classList.add('hidden'));
-            document.getElementById('processing').classList.add('active');
-
-            setTimeout(() => {
-                document.getElementById('processing').classList.remove('active');
-                $('#buyModal').modal('hide');
-                alert(`Pago con ${method} procesado exitosamente!`);
-            }, 3000);
-        };
-
-        document.getElementById('confirmTarjeta').addEventListener('click', () => processPayment('Tarjeta'));
-        document.getElementById('confirmEfectivo').addEventListener('click', () => processPayment('Efectivo'));
-        document.getElementById('confirmTransferencia').addEventListener('click', () => processPayment('Transferencia'));
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-        let cartCount = 0;
-        let wishlistCount = 0;
-
-        document.getElementById('button-cart').addEventListener('click', function () {
-            let quantity = parseInt(document.getElementById('input-quantity').value, 10);
-            cartCount += quantity;
-            document.getElementById('cart-count').textContent = cartCount;
-            alert('Producto añadido al carrito.');
-        });
-
-        document.getElementById('button-wishlist').addEventListener('click', function () {
-            wishlistCount++;
-            document.getElementById('wishlist-count').textContent = wishlistCount;
-            alert('Producto añadido a la lista de deseos.');
-        });
-
-        document.querySelector('.qtyBtn.plus').addEventListener('click', function () {
-            let input = document.getElementById('input-quantity');
-            input.value = parseInt(input.value, 10) + 1;
-        });
-
-        document.querySelector('.qtyBtn.mines').addEventListener('click', function () {
-            let input = document.getElementById('input-quantity');
-            if (parseInt(input.value, 10) > 1) {
-                input.value = parseInt(input.value, 10) - 1;
-            }
-        });
-    });
+  // Función  recomendaciones
     document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         const productId = params.get('id');
@@ -1604,47 +1488,190 @@
     }
 
 
-    document.addEventListener('DOMContentLoaded', function () {
-        let cartCount = 0;
-        let wishlistCount = 0;
-
-        // Botón "Añadir al Carrito"
-        document.getElementById('button-cart').addEventListener('click', function () {
-            let quantity = parseInt(document.getElementById('input-quantity').value, 10);
-            cartCount += quantity;
-            alert('Producto añadido al carrito.');
-            console.log(`Productos en el carrito: ${cartCount}`);
-        });
-
-        // Botón "Lista de Deseos"
-        document.getElementById('wishlist-button').addEventListener('click', function () {
-            wishlistCount++;
-            document.getElementById('wishlist-count').textContent = wishlistCount;
-            alert('Producto añadido a la lista de deseos.');
-        });
-
-        // Incrementar cantidad
-        document.querySelector('.qtyBtn.plus').addEventListener('click', function () {
-            let input = document.getElementById('input-quantity');
-            input.value = parseInt(input.value, 10) + 1;
-        });
-
-        // Disminuir cantidad
-        document.querySelector('.qtyBtn.mines').addEventListener('click', function () {
-            let input = document.getElementById('input-quantity');
-            if (parseInt(input.value, 10) > 1) {
-                input.value = parseInt(input.value, 10) - 1;
-            }
-        });
-    });
-
     function submitRating() {
         const rating = document.getElementById('rating').value;
         alert(`Gracias por calificar con ${rating} estrella(s).`);
     }
-</script>
-</script>
+// Función para redirigir según la categoría seleccionada
+function redirectToCategory() {
+    const selectElement = document.getElementById('category-select');
+    const selectedCategory = selectElement.value;
+    window.location.href = selectedCategory; // Redirige a la categoría seleccionada
+}
 
+
+
+// Función para mostrar los resultados de búsqueda en la página
+function mostrarResultadosBusqueda(productos) {
+    const contenedorResultados = document.getElementById('resultados-busqueda');
+    contenedorResultados.innerHTML = ''; 
+
+    productos.forEach(producto => {
+        const productoHTML = `
+            <div class="producto">
+                <img src="${producto.foto_url}" alt="${producto.nombre}" class="producto-imagen" />
+                <h3>${producto.nombre}</h3>
+                <p>${producto.descripcion || 'Descripción no disponible'}</p>
+                <p class="precio">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+                <a href="product.html?id=${producto.id}" class="ver-mas">Ver detalles</a>
+            </div>
+        `;
+        contenedorResultados.innerHTML += productoHTML;
+    });
+}
+
+// Función para realizar la búsqueda de productos
+function performSearch() {
+  const searchQuery = document.getElementById('filter_name').value.trim().toLowerCase();
+  const url = `https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(searchQuery)}`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.length === 0) {
+        document.getElementById('productos-lista').innerHTML = '<p>No se encontraron productos.</p>';
+      } else {
+        mostrarProductos(data);
+      }
+    })
+    .catch(error => {
+      console.error('Error al buscar productos:', error);
+    });
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get('id');
+
+    if (productId) {
+        fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productId}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('product-title').textContent = data.nombre;
+                document.getElementById('product-image').src = data.foto_url;
+                document.getElementById('product-price').textContent = 
+                    `₲${Number(data.precio).toLocaleString('es-PY')}`;
+                document.getElementById('product-description').textContent = data.descripcion || 'N/A';
+                const stockElement = document.getElementById('product-availability');
+                stockElement.textContent = data.stock > 0 ? 'En stock' : 'Agotado';
+                stockElement.className = data.stock > 0 ? 'label label-success' : 'label label-danger';
+            })
+            .catch(err => console.error('Error fetching product:', err));
+    }
+
+    document.querySelector('.qtyBtn.plus').addEventListener('click', function () {
+        const input = document.getElementById('input-quantity');
+        input.value = parseInt(input.value, 10) + 1;
+    });
+
+    document.querySelector('.qtyBtn.mines').addEventListener('click', function () {
+        const input = document.getElementById('input-quantity');
+        if (parseInt(input.value, 10) > 1) {
+            input.value = parseInt(input.value, 10) - 1;
+        }
+    });
+
+    // Inicializar contadores
+    let wishlistCount = parseInt(localStorage.getItem('wishlist-count')) || 0;
+    let cartCount = parseInt(localStorage.getItem('cart-count')) || 0;
+
+    // Actualizar contadores en el DOM
+    document.getElementById('wishlist-count').textContent = wishlistCount;
+    document.getElementById('cart-count').textContent = cartCount;
+
+    // Funciones para actualizar el contador en localStorage y en el DOM
+    function actualizarContadorCarrito() {
+        document.getElementById('cart-count').textContent = cartCount;
+        localStorage.setItem('cart-count', cartCount);
+    }
+
+    function actualizarContadorWishlist() {
+        document.getElementById('wishlist-count').textContent = wishlistCount;
+        localStorage.setItem('wishlist-count', wishlistCount);
+    }
+
+    // Función para añadir a la lista de deseos
+    document.getElementById('wishlist-button').addEventListener('click', function() {
+        wishlistCount++;
+        actualizarContadorWishlist();
+    });
+
+    // Función para añadir al carrito 
+    document.getElementById('button-cart').addEventListener('click', function() {
+        cartCount++;
+        actualizarContadorCarrito();
+    });
+
+    // Escuchar cambios en localStorage para actualizar los contadores
+    window.addEventListener('storage', () => {
+        wishlistCount = parseInt(localStorage.getItem('wishlist-count')) || 0;
+        cartCount = parseInt(localStorage.getItem('cart-count')) || 0;
+        actualizarContadorWishlist();
+        actualizarContadorCarrito();
+    });
+
+    // Función para buscar productos
+    function performSearch() {
+        const searchQuery = document.getElementById('filter_name').value.trim().toLowerCase();
+        const url = `https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(searchQuery)}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length === 0) {
+                    document.getElementById('productos-lista').innerHTML = '<p>No se encontraron productos.</p>';
+                } else {
+                    mostrarResultadosBusqueda(data);
+                }
+            })
+            .catch(error => console.error('Error al buscar productos:', error));
+    }
+
+    // Evento para el botón de búsqueda y el campo de búsqueda al presionar "Enter"
+    document.querySelector('.button-search').addEventListener('click', performSearch);
+    document.getElementById('filter_name').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    });
+});
+// JavaScript para enviar el formulario y capturar la calificación
+document.getElementById("review-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Captura los valores del formulario
+    const rating = document.querySelector('input[name="rating"]:checked').value;
+    const nickname = document.getElementById("nickname").value;
+    const summary = document.getElementById("summary").value;
+    const review = document.getElementById("review").value;
+
+    // Datos que se enviarán a la base de datos
+    const reviewData = {
+        calificacion: rating,
+        comentario: summary + " - " + review, // Combina resumen y comentario
+        apodo: nickname,
+        fecha: new Date().toISOString() // Añade la fecha actual
+    };
+
+    // Enviar los datos a la API
+    fetch("https://tu-api-url.com/reviews", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(reviewData)
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Reseña enviada con éxito.");
+        } else {
+            alert("Hubo un error al enviar tu reseña.");
+        }
+    })
+    .catch(error => {
+        console.error("Error al enviar la reseña:", error);
+        alert("Error al enviar la reseña.");
+    });
+});
+</script>
 </body>
-
 </html>
