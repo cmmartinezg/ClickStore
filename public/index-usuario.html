@@ -1769,11 +1769,8 @@ async function registrarUsuario(event) {
         if (response.ok) {
             const responseData = await response.json();
 
-            // Borrar sessionStorage antes de guardar los datos nuevos
-            sessionStorage.clear();
-
-            // Guardar el nombre en sessionStorage o localStorage
-            sessionStorage.setItem('nombre', responseData.nombre); // Cambia esto a localStorage si el problema persiste
+            // Guardar las variables de sesión para el usuario
+            sessionStorage.setItem('nombre', nombre);
             sessionStorage.setItem('Id', responseData.id);
             sessionStorage.setItem('tipo', "usuario");
 
@@ -1812,18 +1809,18 @@ async function registrarUsuario(event) {
         });
     }
 }
-document.addEventListener("DOMContentLoaded", () => {
-    const userName = sessionStorage.getItem('userName');
-    if (userName) {
-        document.getElementById('welcome-message').innerHTML = `Hola, ${userName}!`;
-    } else {
-        // Si no hay nombre, redirige al login para forzar una nueva sesión
-        console.error("No se encontró el nombre del usuario en sessionStorage");
-        window.location.href = 'login.html';
-    }
+
+document.addEventListener('DOMContentLoaded', function () { 
+  const nombreUsuario = sessionStorage.getItem('nombre');
+  console.log("Nombre del usuario en sessionStorage:", nombreUsuario); // Verifica si el valor es correcto
+  
+  if (nombreUsuario) {
+      document.getElementById('welcome-message').innerHTML = `Hola ${nombreUsuario}`;
+  } else {
+      console.log("No se encontró el nombre en sessionStorage. Redirigiendo a login...");
+      window.location.href = 'login.html';
+  }
 });
-
-
 
 setTimeout(() => {
   if (responseData.tipo === 'comerciante') {
@@ -1833,6 +1830,17 @@ setTimeout(() => {
   }
 }, 100); // Agrega un retardo de 100 milisegundos
 
+document.addEventListener('DOMContentLoaded', function () {
+  const nombreUsuario = sessionStorage.getItem('nombre');
+
+  if (!nombreUsuario) {
+    // Si no hay usuario logueado, redirigir al login
+    window.location.href = 'login.html';
+  } else {
+    // Mostrar el nombre del usuario en la página
+    document.getElementById('bienvenida-usuario').textContent = `Bienvenido, ${nombreUsuario}`;
+  }
+});
 
 $(document).ready(function(){
   $("#carousel-example").owlCarousel({
@@ -2023,39 +2031,6 @@ document.querySelectorAll('.main-container').forEach(container => {
     setInterval(() => {
         mostrarImagen(currentIndex + 1);
     }, 3000);
-});
-document.addEventListener("DOMContentLoaded", async () => {
-    const userId = sessionStorage.getItem('userId');
-    
-    if (!userId) {
-        console.error("Usuario no autenticado");
-        return;
-    }
-
-    const response = await fetch(`http://localhost:5003/recomendaciones_svd_personalizadas?usuarioId=${userId}`);
-    const recomendaciones = await response.json();
-
-    const contenedorRecomendaciones = document.getElementById('contenedor-recomendaciones');
-    recomendaciones.forEach(producto => {
-        const productoHTML = `
-            <div class="producto-card">
-                <img src="${producto.imagen}" alt="${producto.nombre}">
-                <div class="info">
-                    <h3>${producto.nombre}</h3>
-                    <p>Precio: ${producto.precio}€</p>
-                    <p>Rating: ${producto.rating.toFixed(2)}</p>
-                    <button class="btn-ver-mas">Añadir al carrito</button>
-                </div>
-            </div>
-        `;
-        contenedorRecomendaciones.insertAdjacentHTML("beforeend", productoHTML);
-    });
-
-    // Botón "Ver Más"
-    const btnVerMas = document.getElementById("btn-ver-mas");
-    btnVerMas.addEventListener("click", async () => {
-        // Código para cargar más productos si es necesario
-    });
 });
 
 
