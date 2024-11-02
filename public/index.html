@@ -1247,6 +1247,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
     z-index: 1;
 }
+
   </style>
 </head>
 <body>
@@ -1446,52 +1447,6 @@ body {
 </div>
 
 
-
-
-      <div class="main-container">
-        <!-- Contenedor de Filtros -->
-        <div class="filters-container">
-          <h3>Opciones de compra</h3>
-          <div class="filter-section">
-            <label>Precio</label>
-            <input type="range" min="0" max="10000000" value="5000000" id="price-range" onchange="filtrarPorPrecio()">
-            <span id="price-label"></span>
-          </div>
-          <div class="filter-section">
-            <label>Comercio</label>
-            <select id="comercio-select" onchange="filtrarPorComercio()">
-              <option value="">Todos</option>
-            </select>
-          </div>
-          <div class="filter-section">
-            <label>Categoría</label>
-            <select id="categoria-select" onchange="cambiarCantidadProductos()">
-              <option value="12">12 productos</option>
-              <option value="24">24 productos</option>
-              <option value="36">36 productos</option>
-              <option value="48">48 productos</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="products-container">
-          <h2 class="productos-titulo">Todos los Productos</h2>
-          <div class="filter-container">
-            <input type="text" id="search-bar" placeholder="Buscar producto..." class="form-control" oninput="filtrarProductos()">
-            <label for="ordenar">Ordenar por:</label>
-            <select id="ordenar" class="form-control" onchange="ordenarProductos()">
-              <option value="nombre">Nombre</option>
-              <option value="precio-asc">Precio: Menor a Mayor</option>
-              <option value="precio-desc">Precio: Mayor a Menor</option>
-              <option value="todos">Todos</option>
-            </select>
-          </div>
-          <div id="productos-lista">
-            <!-- Los productos se mostrarán aquí -->
-          </div>
-        </div>
-        
-      </div>
       
 
     <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
