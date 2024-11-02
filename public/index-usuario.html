@@ -2024,6 +2024,39 @@ document.querySelectorAll('.main-container').forEach(container => {
         mostrarImagen(currentIndex + 1);
     }, 3000);
 });
+document.addEventListener("DOMContentLoaded", async () => {
+    const userId = sessionStorage.getItem('userId');
+    
+    if (!userId) {
+        console.error("Usuario no autenticado");
+        return;
+    }
+
+    const response = await fetch(`http://localhost:5003/recomendaciones_svd_personalizadas?usuarioId=${userId}`);
+    const recomendaciones = await response.json();
+
+    const contenedorRecomendaciones = document.getElementById('contenedor-recomendaciones');
+    recomendaciones.forEach(producto => {
+        const productoHTML = `
+            <div class="producto-card">
+                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <div class="info">
+                    <h3>${producto.nombre}</h3>
+                    <p>Precio: ${producto.precio}€</p>
+                    <p>Rating: ${producto.rating.toFixed(2)}</p>
+                    <button class="btn-ver-mas">Añadir al carrito</button>
+                </div>
+            </div>
+        `;
+        contenedorRecomendaciones.insertAdjacentHTML("beforeend", productoHTML);
+    });
+
+    // Botón "Ver Más"
+    const btnVerMas = document.getElementById("btn-ver-mas");
+    btnVerMas.addEventListener("click", async () => {
+        // Código para cargar más productos si es necesario
+    });
+});
 
 
     </script>
