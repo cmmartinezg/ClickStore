@@ -164,69 +164,73 @@
   <script>
     // Manejo del envío del formulario de registro
     document.getElementById('form-registro-usuario').addEventListener('submit', async function (event) {
-      event.preventDefault();
-  
-      const nombre = document.getElementById('nombre').value;
-      const email = document.getElementById('email').value;
-      const contrasena = document.getElementById('contrasena').value;
-      const direccion = document.getElementById('direccion').value || null;
-      const telefono = document.getElementById('telefono').value || null;
-  
-      const data = { nombre, email, contrasena, direccion, telefono };
-  
-      try {
+    event.preventDefault();
+
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const contrasena = document.getElementById('contrasena').value;
+    const direccion = document.getElementById('direccion').value || null;
+    const telefono = document.getElementById('telefono').value || null;
+
+    const data = { nombre, email, contrasena, direccion, telefono };
+
+    try {
         const response = await fetch('https://tcc-api-nodejs.onrender.com/api/usuarios', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
         });
-  
+
         if (response.ok) {
-          const responseData = await response.json();
-  
-          // Guardar los datos del usuario en sessionStorage
-          sessionStorage.setItem('nombre', responseData.nombre);
-          sessionStorage.setItem('Id', responseData.id);
-          sessionStorage.setItem('tipo', 'usuario');
-  
-          // Mostrar el mensaje de éxito usando SweetAlert2
-          Swal.fire({
-            icon: 'success',
-            title: '¡Registrado!',
-            text: 'Usuario registrado exitosamente',
-            confirmButtonText: 'Aceptar'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              window.location.href = 'index-usuario.html'; 
+            const responseData = await response.json();
+
+            // Guardar los datos del usuario en sessionStorage
+            sessionStorage.setItem('userId', responseData.Id);
+            sessionStorage.setItem('userName', responseData.nombre);
+
+            // Confirmar que los datos se guardaron correctamente
+            if (sessionStorage.getItem('userId') && sessionStorage.getItem('userName')) {
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Registrado!',
+                    text: 'Usuario registrado exitosamente',
+                    confirmButtonText: 'Aceptar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = 'preferencias.html'; 
+                    }
+                });
+            } else {
+                console.error('Error al guardar datos en sessionStorage');
             }
-          });
         } else if (response.status === 409) {
-          const errorData = await response.json();
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: errorData.message,
-            confirmButtonText: 'Aceptar'
-          });
+            const errorData = await response.json();
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: errorData.message,
+                confirmButtonText: 'Aceptar'
+            });
         } else {
-          const errorData = await response.json();
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: errorData.message,
-            confirmButtonText: 'Aceptar'
-          });
+            const errorData = await response.json();
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: errorData.message,
+                confirmButtonText: 'Aceptar'
+            });
         }
-      } catch (error) {
+    } catch (error) {
         console.error('Error de conexión:', error);
         Swal.fire({
-          icon: 'error',
-          title: 'Error de conexión',
-          text: 'Hubo un problema al conectar con el servidor. Inténtalo de nuevo más tarde.',
-          confirmButtonText: 'Aceptar'
+            icon: 'error',
+            title: 'Error de conexión',
+            text: 'Hubo un problema al conectar con el servidor. Inténtalo de nuevo más tarde.',
+            confirmButtonText: 'Aceptar'
         });
-      }
-    });
+    }
+});
+
   </script>
 </body>
 </html>
