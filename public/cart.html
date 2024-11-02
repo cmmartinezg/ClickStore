@@ -207,6 +207,67 @@
             width: 100%;
             text-align: center;
         }
+        .container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.carrito-titulo h4 {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.lista-carrito {
+    max-height: 400px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.carrito-resumen {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.resumen-titulo h4 {
+    color: #28a745;
+}
+
+#boton-comprar {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#boton-comprar:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    .carrito-productos,
+    .carrito-resumen {
+        flex: 1 1 100%; /* Hacer que cada columna ocupe el 100% en pantallas pequeñas */
+        margin-bottom: 20px; /* Espacio entre las columnas en vista móvil */
+    }
+
+    .carrito-resumen {
+        margin-left: 0; /* Remover margen izquierdo en móvil */
+    }
+}
+
     </style>
 </head>
 
@@ -222,38 +283,38 @@
                 <span class="shopping-link" id="seguir-comprando">Seguir Comprando &rsaquo;</span>
             </div>
         </header>
+        
         <div class="container mt-4">
-            <h2 class="section-title">Carrito de Compras</h2>
+            <h2 class="section-title text-center">Carrito de Compras</h2>
             <div class="row">
                 <div class="col-md-8 carrito-productos">
-                    <div class="carrito-titulo">
+                    <div class="carrito-titulo text-center mb-3">
                         <h4>Todos los artículos</h4>
                     </div>
-
+        
                     <div class="row font-weight-bold text-center py-2" style="border-bottom: 1px solid #ddd;">
                         <div class="col-5">Artículo</div>
-                     
-                      
                     </div>
-
+        
                     <div id="lista-carrito" class="lista-carrito"></div>
                 </div>
-
-
+        
                 <div class="col-md-4 carrito-resumen">
-                    <div class="resumen-titulo">
+                    <div class="resumen-titulo text-center mb-3">
                         <h4>Resumen del Pedido</h4>
                     </div>
-                    <div id="resumen-pedido">
+                    <div id="resumen-pedido" class="border p-3 rounded">
                         <p><b>Precio Estimado:</b> <span id="total-precio">₲0</span></p>
                         <p><b>Cantidad Total:</b> <span id="total-cantidad">0</span></p>
-                        <p><b id="metodo-pago-texto" style="cursor: pointer; color: blue;">Método de Pago: No
-                                seleccionado</b></p>
-                        <button class="btn btn-success" id="boton-comprar">Comprar Ahora</button>
+                        <p>
+                            <b id="metodo-pago-texto" style="cursor: pointer; color: blue;">Método de Pago: No seleccionado</b>
+                        </p>
+                        <button class="btn btn-success w-100" id="boton-comprar">Comprar Ahora</button>
                     </div>
                 </div>
             </div>
         </div>
+        
 
         <!-- Modal de Selección de Pago -->
         <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel"
