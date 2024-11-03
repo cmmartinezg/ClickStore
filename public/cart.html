@@ -9,10 +9,206 @@
 
 
     <style>
+
+
+
+body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f7f9;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        .carrito-productos {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .carrito-item {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .carrito-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .carrito-item img {
+            border-radius: 10px;
+            max-width: 100px;
+        }
+
+        #boton-comprar {
+            background: linear-gradient(90deg, #28a745, #218838);
+            border: none;
+            border-radius: 25px;
+            padding: 15px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            width: 100%;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        #boton-comprar:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #218838, #28a745);
+        }
+
+        .lista-carrito {
+            max-height: 400px;
+            overflow-y: auto;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #f8f9fa;
+        }
+
+        .resumen-titulo h4 {
+            color: #28a745;
+            font-size: 1. 75em;
+            margin-bottom: 15px;
+        }
+
+        .resumen-pedido p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .resumen-pedido span {
+            font-weight: bold;
+            color: #28a745;
+        }
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: #f8f9fa;
         }
+        .carrito-productos {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    transition: transform 0.2s; /* Animación al pasar el mouse */
+}
+
+.carrito-productos:hover {
+    transform: scale(1.02); /* Efecto de zoom */
+}
+
+#boton-comprar {
+    background: linear-gradient(90deg, #28a745, #218838); /* Botón con gradiente */
+    border-radius: 25px; /* Bordes redondeados */
+    transition: background 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+#boton-comprar:hover {
+    transform: scale(1.05); /* Efecto de pulsación */
+}
+
+.lista-carrito {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px; /* Relleno interno */
+}
+
+.resumen-titulo h4 {
+    color: #28a745;
+    font-size: 1.5em; /* Tamaño de fuente más grande */
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f9;
+}
+
+.header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-productos {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.carrito-productos:hover {
+    transform: scale(1.02);
+}
+
+.carrito-item {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.carrito-item img {
+    border-radius: 10px;
+    max-width: 80px;
+}
+
+#boton-comprar {
+    background: linear-gradient(90deg, #28a745, #218838);
+    border: none;
+    border-radius: 25px;
+    padding: 15px;
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#boton-comprar:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #218838, #28a745);
+}
+
+.lista-carrito {
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.resumen-titulo h4 {
+    color: #28a745;
+    font-size: 1.75em;
+    margin-bottom: 15px;
+}
+
+.resumen-pedido p {
+    font-size: 18px;
+    color : #333;
+    margin-bottom: 10px;
+}
+
+.resumen-pedido span {
+    font-weight: bold;
+    color: #28a745;
+}
 
         .header {
             display: flex;
