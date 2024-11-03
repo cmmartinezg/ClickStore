@@ -356,9 +356,10 @@
     color: #555;
     height: auto; 
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; 
-    -webkit-box-orient: vertical;
+    display: -webkit-box; /* Necesario para que funcione line-clamp */
+    -webkit-box-orient: vertical; /* Necesario para que funcione line-clamp */
+    -webkit-line-clamp: 2; /* Número de líneas que deseas mostrar */
+    line-clamp: 2; /* Propiedad estándar (no es necesaria en todos los navegadores) */
     text-overflow: ellipsis; 
     line-height: 1.4em; 
 }
