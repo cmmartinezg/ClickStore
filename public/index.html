@@ -1326,6 +1326,120 @@ body {
     z-index: 1;
 }
 
+
+
+
+
+
+/* Estilos del modal */
+.modal-content {
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+}
+
+.modal-header {
+    border-bottom: none; /* Quitar la línea inferior */
+}
+
+.modal-title {
+    font-size: 24px; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Color del texto */
+}
+
+.logo-container img {
+    width: 100px; /* Ajustar el tamaño del logo */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espaciado entre los campos */
+}
+
+.form-control {
+    border-radius: 5px; /* Bordes redondeados para los inputs */
+    border: 1px solid #ccc; /* Bordes suaves */
+    padding: 10px; /* Espaciado interno */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Color del borde al hacer foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra de enfoque */
+}
+
+.toggle-password {
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+    position: absolute;
+    right: 10px;
+    top: 35px; /* Ajustar la posición del icono */
+}
+
+.forgot-password {
+    margin-top: 10px; /* Espaciado superior */
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre botones */
+}
+
+#login-error {
+    margin-top: 10px; /* Espaciado superior */
+    color: red; /* Color del texto de error */
+    display: none; /* Ocultar inicialmente */
+}
+
+
+
+/* Estilos del modal */
+.modal-content {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.modal-header {
+    border-bottom: none; /* Quitar la línea inferior */
+}
+
+.modal-title {
+    font-size: 24px; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Color del texto */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espaciado entre los campos */
+}
+
+.form-control {
+    border-radius: 5px; /* Bordes redondeados para los inputs */
+    border: 1px solid #ccc; /* Bordes suaves */
+    padding: 10px; /* Espaciado interno */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Color del borde al hacer foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra de enfoque */
+}
+
+.toggle-password {
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+}
+
+.forgot-password {
+    margin-top: 10px; /* Espaciado superior */
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre botones */
+}
+
+#login-error {
+    margin-top: 10px; /* Espaciado superior */
+    color: red; /* Color del texto de error */
+    display: none; /* Ocultar inicialmente */
+}
+
   </style>
 </head>
 <body>
@@ -1361,7 +1475,111 @@ body {
       </div>
 
       <div class="nav-links">
-          <a href="login.html">Iniciar Sesión</a>
+
+
+
+<!-- Enlace que activa el modal -->
+<a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-primary">Iniciar Sesión</a>
+
+<!-- Modal de Inicio de Sesión -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-4">
+                    <img src="image/logo.png" alt="Click Store" class="logo" style="width: 80px;">
+                </div>
+                <form id="form-login">
+                    <div class="form-group">
+                        <label for="login-email">Correo electrónico</label>
+                        <input type="email" class="form-control" id="login-email" placeholder="Correo electrónico" name="email" required>
+                    </div>
+                    <div class="form-group position-relative">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" class="form-control" id="login-password" placeholder="Contraseña" name="contrasena" required>
+                        <i class="fa fa-eye toggle-password" onclick="togglePasswordVisibility()" style="cursor: pointer; position: absolute; right: 10px; top: 35px;"></i>
+                    </div>
+                    <div class="forgot-password text-right">
+                        <a href="recuperar-contra.html">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <div id="login-error" class="text-danger mt-2" style="display: none;"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <input type="submit" class="btn btn-primary" value="Continuar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Función para mostrar/ocultar la contraseña
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('login-password');
+        const passwordToggleIcon = document.querySelector('.toggle-password');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordToggleIcon.classList.remove('fa-eye');
+            passwordToggleIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            passwordToggleIcon.classList.remove('fa-eye-slash');
+            passwordToggleIcon.classList.add('fa-eye');
+        }
+    }
+
+    // Limpiar el sessionStorage al cargar la página
+    sessionStorage.clear();
+
+    document.getElementById('form-login').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Evitar la acción predeterminada del formulario
+        
+        const email = document.getElementById('login-email').value;
+        const contrasena = document.getElementById('login-password').value;
+        const data = { email, contrasena };
+
+        try {
+            const response = await fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Error al iniciar sesión:', errorData);
+                document.getElementById('login-error').innerText = 'Error: ' + errorData.message;
+                document.getElementById('login-error').style.display = 'block';
+                return;
+            }
+
+            const responseData = await response.json();
+            console.log("Datos de respuesta del servidor:", responseData);
+
+ sessionStorage.clear();
+            sessionStorage.setItem('nombre', responseData.nombre);
+            sessionStorage.setItem('Id', responseData.Id);
+            sessionStorage.setItem('tipo', responseData.tipo);
+
+            if (responseData.tipo === 'comerciante') {
+                window.location.href = 'index-comer.html';
+            } else if (responseData.tipo === 'usuario') {
+                window.location.href = 'index-usuario.html';
+            }
+        } catch (error) {
+            console.error('Error de conexión o problema con la API:', error);
+            document.getElementById('login-error').innerText = 'Ocurrió un error al intentar iniciar sesión. Por favor, intenta nuevamente.';
+            document.getElementById('login-error').style.display = 'block';
+        }
+    });
+</script>
           <div class="dropdown">
               <a href="#" class="dropdown-toggle">
                   <i class="fa fa-user-plus"></i> Registro
