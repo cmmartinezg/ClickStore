@@ -2131,10 +2131,10 @@ document.querySelectorAll('.main-container').forEach(container => {
     }, 3000);
 });
 document.addEventListener("DOMContentLoaded", async () => {
-            const usuarioId = localStorage.getItem("usuarioId");
-            console.log("usuarioId desde localStorage:", usuarioId); // Verificación
+            const usuarioId = localStorage.getItem("Id");
+            console.log("usuarioId desde localStorage:", Id); // Verificación
 
-            if (!usuarioId) {
+            if (!Id) {
                 alert("usuarioId no encontrado en localStorage");
                 return;
             }
