@@ -1138,15 +1138,14 @@ function mostrarTotalProductosSimilares(total) {
 }
 
 
+// Cargar recomendaciones
 function cargarRecomendaciones(comercianteId) {
   axios.get(`http://127.0.0.1:5002/recomendaciones?comercianteId=${comercianteId}`)
     .then(response => {
       const recomendaciones = response.data;
-      mostrarRecomendaciones(recomendaciones);  
-        // Mostrar el total de recomendaciones en el dashboard
-        mostrarTotalProductosSimilares(recomendaciones.length);
+      mostrarRecomendaciones(recomendaciones);
+      mostrarTotalProductosSimilares(recomendaciones.length);
     })
-
     .catch(error => {
       console.error('Error al cargar recomendaciones:', error);
     });
