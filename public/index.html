@@ -1327,25 +1327,596 @@ body {
 }
 
 
+/* Estilos para el Modal de Inicio de Sesión */
+/* Estilos Personalizados para el Modal de Inicio de Sesión */
 
+/* Fondo Transparente del Modal */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
-
-
-/* Estilos del modal */
+/* Contenido del Modal */
 .modal-content {
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 20px; /* Espaciado interno */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background: #ffffff;
+    animation: fadeInDown 0.5s ease;
+    padding: 20px;
 }
 
-.modal-header {
-    border-bottom: none; /* Quitar la línea inferior */
+/* Animación de Aparición */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.modal-title {
-    font-size: 24px; /* Tamaño de fuente más grande */
-    font-weight: bold; /* Negrita */
-    color: #333; /* Color del texto */
+/* Estilo del Botón de Cerrar */
+.close-button {
+    font-size: 1.5rem;
+    color: #aaa;
+    transition: color 0.3s;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
+
+.close-button:hover {
+    color: #fa8072;
+}
+
+/* Estilo del Logo */
+.logo {
+    width: 120px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Estilo de las Etiquetas */
+.form-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Estilo de los Campos de Entrada */
+.form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus {
+    border-color: #fa8072;
+    box-shadow: 0 0 5px rgba(250, 128, 114, 0.2);
+}
+
+/* Icono de Mostrar/Ocultar Contraseña */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 40px;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.toggle-password:hover {
+    color: #fa8072;
+}
+
+/* Enlace de "¿Olvidaste tu contraseña?" */
+.forgot-password a {
+    color: #fa8072;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #e06450;
+    text-decoration: underline;
+}
+
+/* Botones del Modal */
+.modal-footer .btn {
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary {
+    background-color: #fa8072;
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #e06450;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #fa8072;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Mensaje de Error */
+#login-error {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Responsividad para Dispositivos Pequeños */
+@media (max-width: 576px) {
+    .modal-content {
+        margin: 10px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .toggle-password {
+        right: 10px;
+    }
+}
+
+
+
+
+
+/* Animación de Aparición */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo del Botón de Cerrar */
+.close-button {
+    font-size: 1.5rem;
+    color: #aaa;
+    transition: color 0.3s;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-button:hover {
+    color: #fa8072;
+}
+
+/* Estilo del Logo */
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Estilo de las Etiquetas */
+.form-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem; /* Aumenta el tamaño de las etiquetas */
+}
+
+/* Estilo de los Campos de Entrada */
+.form-control-lg {
+    border-radius: 30px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control-lg:focus {
+    border-color: #fa8072;
+    box-shadow: 0 0 10px rgba(250, 128, 114, 0.2);
+}
+
+
+
+.toggle-password:hover {
+    color: #fa8072;
+}
+
+/* Enlace de "¿Olvidaste tu contraseña?" */
+.forgot-password a {
+    color: #fa8072;
+    font-weight: 500;
+    font-size: 1rem; /* Aumenta el tamaño del enlace */
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #e06450;
+    text-decoration: underline;
+}
+
+
+
+.btn-primary {
+    background-color: #fa8072;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e06450;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #fa8072;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Mensaje de Error */
+#login-error {
+    font-size: 0.9rem;
+}
+
+
+
+
+
+/* Animación de Aparición */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo del Botón de Cerrar */
+.close-button {
+    font-size: 1.5rem;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: #fa8072;
+}
+
+/* Estilo del Logo */
+.logo {
+    width: 120px; /* Ajusta el tamaño según tus necesidades */
+    height: auto;
+}
+
+/* Estilo de las Etiquetas */
+.form-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem; /* Aumenta el tamaño de las etiquetas */
+}
+
+/* Estilo de los Campos de Entrada */
+.form-control-lg {
+    border-radius: 30px;
+    padding: 15px 20px;
+    font-size: 1.1rem; /* Aumenta el tamaño de la fuente */
+    transition: all 0.3s ease;
+}
+
+.form-control-lg:focus {
+    border-color: #fa8072;
+    box-shadow: 0 0 10px rgba(250, 128, 114, 0.2);
+}
+
+
+
+.toggle-password:hover {
+    color: #fa8072;
+}
+
+/* Enlace de "¿Olvidaste tu contraseña?" */
+.forgot-password a {
+    color: #fa8072;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #e06450;
+    text-decoration: underline;
+}
+
+
+
+.btn-primary {
+    background-color: #fa8072;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e06450;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #fa8072;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Mensaje de Error */
+#login-error {
+    font-size: 0.9rem;
+}
+
+
+
+
+/* Animación de Aparición */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo del Botón de Cerrar */
+.close-button {
+    font-size: 1.5rem;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: #fa8072;
+}
+
+/* Estilo del Logo */
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Estilo de las Etiquetas */
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Estilo de los Campos de Entrada */
+.form-control-lg {
+    border-radius: 30px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control-lg:focus {
+    border-color: #fa8072;
+    box-shadow: 0 0 10px rgba(250, 128, 114, 0.2);
+}
+
+
+
+.toggle-password:hover {
+    color: #fa8072;
+}
+
+/* Enlace de "¿Olvidaste tu contraseña?" */
+.forgot-password a {
+    color: #fa8072;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #e06450;
+    text-decoration: underline;
+}
+
+
+
+.btn-primary {
+    background-color: #fa8072;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e06450;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #fa8072;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Mensaje de Error */
+#login-error {
+    font-size: 0.9rem;
+}
+
+
+
+
+/* Animación de Aparición */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo del Botón de Cerrar */
+.close-button {
+    font-size: 1.5rem;
+    color: #aaa;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: #fa8072;
+}
+
+/* Estilo del Logo */
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Estilo de las Etiquetas */
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Estilo de los Campos de Entrada */
+.form-control-lg {
+    border-radius: 30px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control-lg:focus {
+    border-color: #fa8072;
+    box-shadow: 0 0 10px rgba(250, 128, 114, 0.2);
+}
+
+
+
+.toggle-password:hover {
+    color: #fa8072;
+}
+
+/* Enlace de "Olvidaste tu contraseña?" */
+.forgot-password a {
+    color: #fa8072;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #e06450;
+    text-decoration: underline;
+}
+
+
+
+.btn-primary {
+    background-color: #fa8072;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e06450;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #fa8072;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Mensaje de Error */
+#login-error {
+    font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+.toggle-password:hover {
+    color: #fa8072;
+}
+
+
+
+
+/* Estilo para el enlace "¿Olvidaste tu contraseña?" */
+.forgot-password a {
+    color: #fa8072;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #e06450;
+    text-decoration: underline;
+}
+
+/* Mensaje de error personalizado */
+#login-error {
+    font-size: 14px;
+}
+
+
+
+
+
+
+
 
 .logo-container img {
     width: 100px; /* Ajustar el tamaño del logo */
@@ -1377,10 +1948,7 @@ body {
     margin-top: 10px; /* Espaciado superior */
 }
 
-.modal-footer {
-    display: flex;
-    justify-content: space-between; /* Espaciado entre botones */
-}
+
 
 #login-error {
     margin-top: 10px; /* Espaciado superior */
@@ -1390,21 +1958,7 @@ body {
 
 
 
-/* Estilos del modal */
-.modal-content {
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
 
-.modal-header {
-    border-bottom: none; /* Quitar la línea inferior */
-}
-
-.modal-title {
-    font-size: 24px; /* Tamaño de fuente más grande */
-    font-weight: bold; /* Negrita */
-    color: #333; /* Color del texto */
-}
 
 .form-group {
     margin-bottom: 20px; /* Espaciado entre los campos */
@@ -1429,10 +1983,7 @@ body {
     margin-top: 10px; /* Espaciado superior */
 }
 
-.modal-footer {
-    display: flex;
-    justify-content: space-between; /* Espaciado entre botones */
-}
+
 
 #login-error {
     margin-top: 10px; /* Espaciado superior */
@@ -1479,45 +2030,50 @@ body {
 
 
 <!-- Enlace que activa el modal -->
-<a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-primary">Iniciar Sesión</a>
+<div class="text-center mt-5">
+  <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-lg">Iniciar Sesión</a>
+</div>
 
 <!-- Modal de Inicio de Sesión -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="text-center mb-4">
-                    <img src="image/logo.png" alt="Click Store" class="logo" style="width: 80px;">
-                </div>
-                <form id="form-login">
-                    <div class="form-group">
-                        <label for="login-email">Correo electrónico</label>
-                        <input type="email" class="form-control" id="login-email" placeholder="Correo electrónico" name="email" required>
-                    </div>
-                    <div class="form-group position-relative">
-                        <label for="login-password">Contraseña</label>
-                        <input type="password" class="form-control" id="login-password" placeholder="Contraseña" name="contrasena" required>
-                        <i class="fa fa-eye toggle-password" onclick="togglePasswordVisibility()" style="cursor: pointer; position: absolute; right: 10px; top: 35px;"></i>
-                    </div>
-                    <div class="forgot-password text-right">
-                        <a href="recuperar-contra.html">¿Olvidaste tu contraseña?</a>
-                    </div>
-                    <div id="login-error" class="text-danger mt-2" style="display: none;"></div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <input type="submit" class="btn btn-primary" value="Continuar">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+    <div class="modal-content">
+          <div class="modal-header border-0">
+              <button type="button" class="close close-button" data-dismiss="modal" aria-label="Cerrar">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="text-center mb-4">
+                  <img src="image/logo.png" alt="Click Store" class="logo img-fluid">
+              </div>
+              <form id="form-login">
+                  <div class="form-group">
+                      <label for="login-email" class="form-label">Correo Electrónico</label>
+                      <input type="email" class="form-control" id="login-email" placeholder="Ingresa tu correo electrónico" name="email" required>
+                  </div>
+                  <div class="form-group position-relative">
+                      <label for="login-password" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" id="login-password" placeholder="Ingresa tu contraseña" name="contrasena" required>
+                  </div>
+                  <div class="forgot-password text-right mb-3">
+                      <a href="recuperar-contra.html">¿Olvidaste tu contraseña?</a>
+                  </div>
+                  <div id="login-error" class="text-danger mb-3" style="display: none;"></div>
+                  <div class="modal-footer justify-content-center border-0">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      <button type="submit" class="btn btn-primary">Continuar</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
 </div>
+
+
+
+
+
 
 <script>
     // Función para mostrar/ocultar la contraseña

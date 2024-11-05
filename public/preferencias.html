@@ -227,7 +227,7 @@ p {
 
             if (!userId || !userName) {
                 alert('Por favor, inicia sesión primero.');
-                window.location.href = 'login.html'; // Redirigir al inicio de sesión
+                window.location.href = 'index.html'; // Redirigir al inicio de sesión
                 return;
             }
         
@@ -263,7 +263,7 @@ p {
 
     if (!userId) {
         alert("Error: No se encontró el ID de usuario. Por favor, inicia sesión nuevamente.");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
         return;
     }
 
@@ -287,7 +287,7 @@ p {
                 icon: "success",
                 confirmButtonText: "Aceptar"
             }).then(() => {
-                window.location.href = "login.html";
+                window.location.href = "index.html";
             });
         } else {
             response.json().then(errorData => {

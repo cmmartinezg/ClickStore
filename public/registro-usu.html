@@ -1,178 +1,304 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href="image/favicon.png" rel="icon" />
-  <title>Registro de Usuario</title>
-  <!-- CSS Parte Inicio -->
+  <title>Registro de Usuario - Click Store</title>
+  
+  <!-- CSS Bootstrap y Fuentes -->
   <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-  <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
-  <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
-  <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-  <link rel="stylesheet" type="text/css" href="css/estilop.css" />
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-  <!-- CSS Parte Fin -->
-</head>
-<style>
-/* Formulario */
-.form-content {
-    width: 60%;
-    max-width: 800px;
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  
+  <style>
+    /* Animaciones */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes scaleUp {
+        0% {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Fondo con gradiente */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #f9fafb, #2c2c2c); /* Gradiente refinado */
+    background-attachment: fixed; /* Para mantener el gradiente fijo en scroll */
+    color: #333;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+    transition: background 0.5s ease-in-out; /* Transición para cambio suave de fondo */
 }
 
-/* Campos del formulario */
-.form-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-    color: #333;
-    font-size: 16px;
+/* Efecto de sombra suave */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 70%),
+                radial-gradient(circle at bottom left, rgba(0, 0, 0, 0.2), transparent 70%);
+    z-index: -1;
 }
 
-.form-control {
-    width: 100%;
-    border-radius: 20px;
-    padding: 10px 15px;
-    font-size: 14px;
-    border: 1px solid #bfb2b2;
+/* Suavizado del texto */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Transición de opacidad en el contenido */
+.fade-in {
+    opacity: 0;
+    animation: fadeInContent 1s forwards;
+}
+
+@keyframes fadeInContent {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Añadir efecto de profundidad en dispositivos de pantalla grande */
+@media (min-width: 768px) {
+    body {
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+    }
 }
 
 
-.btn-primary {
-    background-color: #fa8072;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-size: 18px;
-    transition: background-color 0.3s ease;
-}
+    /* Encabezado */
+    .header {
+        background-color: #333;
+        padding: 15px;
+        text-align: center;
+    }
+    .header .logo img {
+        max-width: 140px;
+    }
 
-.btn-primary:hover {
-    background-color: #e06450;
-}
+    /* Breadcrumb */
+    .breadcrumb {
+        background-color: transparent;
+        padding: 15px 0;
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+    }
+    .breadcrumb a {
+        color: #4f4f4e;
+        font-weight: 600;
+        text-decoration: none;
+    }
 
-/* Responsivo */
-@media (max-width: 768px) {
+    /* Estilos del Formulario */
     .form-content {
         width: 90%;
+        max-width: 6000px;
+        background-color: #ffffff;
+        padding: 40px 50px;
+        border-radius: 15px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        margin: 30px auto;
+        animation: scaleUp 0.8s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    .form-content:hover {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
+    .form-content h1 {
+        font-size: 2.4em;
+        font-weight: 700;
+        color: #333;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .form-content p {
+        text-align: center;
+        color: #555;
+        font-size: 1rem;
+        margin-bottom: 20px;
     }
 
+    .form-group label {
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+    }
+    .form-group label i {
+        margin-right: 10px;
+        color: #000000;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        padding: 15px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    .form-control:focus {
+        border-color: #d4c6c5;
+        box-shadow: 0 0 5px rgba(250, 128, 114, 0.2);
+        transform: scale(1.02);
+    }
+
+    /* Botones */
     .btn-primary {
-        font-size: 16px;
+        background-color: #fa8072;
+        border: none;
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        width: 100%;
+    }
+    .btn-primary:hover {
+        background-color: #e06450;
+        transform: scale(1.03);
     }
 
-    .logo {
-        width: 100px;
+    /* Sección de Checkbox */
+    .checkbox {
+        text-align: left;
+        margin-bottom: 15px;
     }
-}
-</style>
-<body class="amazon-style">
-  <div class="wrapper-wide">
-    <!-- Inicio del encabezado -->
-    <header class="header">
-      <div class="logo">
-        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
-      </div>
-    </header>
+    .agree a {
+        color: #fa8072;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+    }
+    .agree a:hover {
+        color: #e06450;
+    }
 
-    <!-- Menú Principal Fin -->
-    <div id="container">
-      <div class="container">
-        <!-- Breadcrumb Start -->
-        <ul class="breadcrumb">
-          <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-          <li><a href="registro-usu.html">Registro</a></li>
-        </ul>
-        <!-- Breadcrumb End -->
-        <div class="row">
-          <!--Middle Part Start-->
-          <div class="col-sm-9" id="content">
-            <h1 class="title">Registro de Usuario</h1>
-            <p>Por favor, completa el formulario para registrarte como usuario en nuestra tienda.</p>
-            <form class="form-horizontal" id="form-registro-usuario">
-              <fieldset id="account">
-                <legend>Detalles de tu cuenta</legend>
-                <div class="form-group required">
-                  <label for="nombre" class="col-sm-2 control-label">Nombre</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
-                  </div>
-                </div>
-                <div class="form-group required">
-                  <label for="email" class="col-sm-2 control-label">E-Mail</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" placeholder="E-Mail" name="email" required>
-                  </div>
-                </div>
-                <div class="form-group required">
-                  <label for="contrasena" class="col-sm-2 control-label">Contraseña</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="contrasena" placeholder="Contraseña" name="contrasena" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="direccion" class="col-sm-2 control-label">Dirección</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="direccion" placeholder="Dirección" name="direccion">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="telefono" class="col-sm-2 control-label">Teléfono</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="telefono" placeholder="Teléfono" name="telefono">
-                  </div>
-                </div>
-              </fieldset>
-              <div class="buttons">
-                <div class="pull-right">
-                  <input type="checkbox" value="1" name="agree" required>
-                  &nbsp;He leído y estoy de acuerdo con la <a class="agree" href="politica.html"><b>Política de Privacidad</b></a> &nbsp;
-                  <input type="submit" class="btn btn-primary" value="Registrarse">
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+    /* Footer */
+    #main-footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    #main-footer a {
+        color: #fa8072;
+        text-decoration: none;
+    }
+    #main-footer a:hover {
+        color: #e06450;
+    }
+
+    /* Ajustes Responsivos */
+    @media (max-width: 768px) {
+        .form-content {
+            padding: 30px 20px;
+            margin: 20px;
+        }
+        .btn-primary {
+            font-size: 1rem;
+        }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img src="image/logo.png" title="Click Store" alt="Click Store" /></a>
     </div>
-    <!--Footer Start-->
-    <footer id="main-footer">
-      <p>&copy; 2024 Click Store. Todos los derechos reservados.</p>
-    </footer>
+  </header>
+
+  <!-- Breadcrumb -->
+  <ul class="breadcrumb">
+    <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+    <li><a href="registro-usu.html">Registro</a></li>
+  </ul>
+
+  <!-- Formulario de Registro -->
+  <div class="form-content">
+    <h1>Registro de Usuario</h1>
+    <p>Por favor, completa el formulario para registrarte como usuario en nuestra tienda.</p>
+    <form id="form-registro-usuario">
+      <fieldset id="account">
+        <legend class="sr-only">Detalles de tu cuenta</legend>
+        <div class="form-group required">
+          <label for="nombre"><i class="fas fa-user"></i>Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Nombre completo" name="nombre" required>
+        </div>
+        <div class="form-group required">
+          <label for="email"><i class="fas fa-envelope"></i>Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" placeholder="correo@ejemplo.com" name="email" required>
+        </div>
+        <div class="form-group required">
+          <label for="contrasena"><i class="fas fa-lock"></i>Contraseña</label>
+          <input type="password" class="form-control" id="contrasena" placeholder="Contraseña" name="contrasena" required>
+        </div>
+        <div class="form-group">
+          <label for="direccion"><i class="fas fa-map-marker-alt"></i>Dirección</label>
+          <input type="text" class="form-control" id="direccion" placeholder="Dirección" name="direccion">
+        </div>
+        <div class="form-group">
+          <label for="telefono"><i class="fas fa-phone"></i>Teléfono</label>
+          <input type="text" class="form-control" id="telefono" placeholder="Teléfono" name="telefono">
+        </div>
+      </fieldset>
+      <div class="checkbox mb-3">
+        <input type="checkbox" value="1" name="agree" required>
+        <span> He leído y estoy de acuerdo con la <a href="politica.html"><b>Política de Privacidad</b></a></span>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Registrarse">
+    </form>
   </div>
 
-  <!-- JS Part Start-->
-   <!-- SweetAlert2 CSS and JS -->
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/jquery.easing-1.3.min.js"></script>
-  <script type="text/javascript" src="js/jquery.dcjqaccordion.min.js"></script>
-  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-  <script type="text/javascript" src="js/custom.js"></script>
-  <script type="text/javascript" src="js/api.js"></script> <!-- Archivo JS -->
+  <!-- Footer -->
+  <footer id="main-footer">
+    <p>&copy; 2024 Click Store. Todos los derechos reservados. | <a href="#">Términos y Condiciones</a></p>
+  </footer>
 
+  <!-- JS y SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/bootstrap/js/bootstrap.min.js"></script>
   <script>
-    // Manejo del envío del formulario de registro
+    // Envío del formulario de registro
     document.getElementById('form-registro-usuario').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    const nombre = document.getElementById('nombre').value;
-    const email = document.getElementById('email').value;
-    const contrasena = document.getElementById('contrasena').value;
-    const direccion = document.getElementById('direccion').value || null;
-    const telefono = document.getElementById('telefono').value || null;
-
-    const data = { nombre, email, contrasena, direccion, telefono };
+    const data = {
+        nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        contrasena: document.getElementById('contrasena').value,
+        direccion: document.getElementById('direccion').value || null,
+        telefono: document.getElementById('telefono').value || null
+    };
 
     try {
         const response = await fetch('https://tcc-api-nodejs.onrender.com/api/usuarios', {
@@ -183,45 +309,69 @@
 
         if (response.ok) {
             const responseData = await response.json();
-
-            // Guardar el ID del usuario en sessionStorage
-            sessionStorage.setItem('userId', responseData.id); // Usa `responseData.id` según el nombre de la clave en la respuesta
+            sessionStorage.setItem('userId', responseData.id);
             sessionStorage.setItem('userName', responseData.nombre);
-
-            console.log("userId guardado en sessionStorage:", responseData.id); // Verifica el ID guardado en la consola
 
             Swal.fire({
                 icon: 'success',
-                title: '¡Registrado!',
-                text: 'Usuario registrado exitosamente',
-                confirmButtonText: 'Aceptar'
+                title: '¡Registro Exitoso!',
+                html: `<p style="font-size: 1.1em; color: #444;">Bienvenido, <strong>${responseData.nombre}</strong>!</p>
+                       <p style="color: #888;">Tu cuenta ha sido creada correctamente.</p>`,
+                background: '#f9f9f9',
+                backdrop: `
+                    rgba(0, 0, 0, 0.6)
+                    url("https://media.giphy.com/media/3oz8xIsloV7zOmt81G/giphy.gif") center left no-repeat
+                `,
+                confirmButtonText: 'Explorar preferencias',
+                confirmButtonColor: '#fa8072',
+                padding: '2em',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = 'preferencias.html'; 
+                    window.location.href = 'preferencias.html';
                 }
             });
         } else {
-            // Manejo de errores en caso de que el correo ya exista o haya un problema
             const errorData = await response.json();
             Swal.fire({
                 icon: 'error',
-                title: 'Error',
+                title: 'Error en el Registro',
                 text: errorData.message,
-                confirmButtonText: 'Aceptar'
+                background: '#fff3f3',
+                confirmButtonText: 'Intentar de nuevo',
+                confirmButtonColor: '#d9534f',
+                padding: '1.5em',
+                showClass: {
+                    popup: 'animate__animated animate__shakeX'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOut'
+                }
             });
         }
     } catch (error) {
-        console.error('Error de conexión:', error);
         Swal.fire({
             icon: 'error',
-            title: 'Error de conexión',
+            title: 'Error de Conexión',
             text: 'Hubo un problema al conectar con el servidor. Inténtalo de nuevo más tarde.',
-            confirmButtonText: 'Aceptar'
+            background: '#fff3f3',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#d9534f',
+            padding: '1.5em',
+            showClass: {
+                popup: 'animate__animated animate__shakeX'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOut'
+            }
         });
     }
 });
-
-
   </script>
 </body>
 </html>
