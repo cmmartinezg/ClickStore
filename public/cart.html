@@ -110,6 +110,23 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+        .shopping-link {
+    background: none;
+    border: none;
+    color: #fa8072; /* Color de texto deseado */
+    font-weight: 600; /* Para hacer el texto más destacado */
+    cursor: pointer; /* Cambia el cursor para indicar interactividad */
+    transition: color 0.3s ease; /* Transición suave al pasar el cursor */
+    padding: 0; /* Remueve el padding por defecto del botón */
+    font-size: 1rem; /* Ajusta el tamaño de fuente según necesidad */
+}
+
+.shopping-link:hover {
+    color: #e06450; /* Color al pasar el cursor */
+    text-decoration: underline; /* Opcional: añade subrayado al pasar el cursor */
+}
+
+
     </style>
 </head>
 
@@ -122,8 +139,9 @@
                 </a>
             </div>
             <div class="secure-payment">
-                <span class="shopping-link" id="seguir-comprando">Seguir Comprando &rsaquo;</span>
+                <button type="button" class="shopping-link" id="seguir-comprando">Seguir Comprando &rsaquo;</button>
             </div>
+            
         </header>
         
         <div class="container mt-4">
