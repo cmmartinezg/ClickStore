@@ -248,57 +248,58 @@
             }
         }
 
-        /* Contenedor general para la sección de recomendaciones */
-        #recomendaciones-wrapper {
-            background: #f7941d;
-            /* Fondo color naranja */
-            width: 100%;
-            /* Ocupa el ancho completo de la página */
-            display: flex;
-            justify-content: center;
-            /* Centrar el contenedor */
-            padding: 40px 0;
-            /* Espaciado superior e inferior */
-        }
-
-        /* Contenedor interno que contiene los productos */
-        #recomendaciones-container {
-            width: 80%;
-            /* Ajustar el ancho del contenedor */
-            max-width: 1200px;
-            /* Máximo ancho */
-            display: flex;
-            justify-content: center;
-            background: white;
-            /* Fondo blanco */
-            padding: 20px;
-            border-radius: 10px;
-            /* Bordes redondeados */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            /* Sombra */
-        }
-
-        /* Ajuste para el contenedor del carrusel */
         #productos-recomendados {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: center;
-            overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 0; 
+        padding-bottom: 0;
+        justify-items: center;
+        padding: 20px;
+    }
+        /* Ajuste responsivo para diferentes tamaños de pantalla */
+        @media (max-width: 1024px) {
+            #productos-recomendados {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
         }
 
-        /* Ajuste de las tarjetas del producto */
+        @media (max-width: 768px) {
+            #productos-recomendados {
+                grid-template-columns: repeat(2, 1fr); /* 2 productos por fila en pantallas más pequeñas */
+            }
+        }
+
+        @media (max-width: 480px) {
+            #productos-recomendados {
+                grid-template-columns: 1fr; /* 1 producto por fila en pantallas muy pequeñas */
+            }
+        }
+  
         .producto {
-            flex: 0 0 220px;
-            /* Forzar a cada tarjeta a tener un ancho fijo */
-            max-width: 220px;
-            /* Evitar que crezcan más allá de este valor */
-            margin: 15px;
-            /* Espacio entre tarjetas */
-            height: 500px;
-            /* Altura uniforme para todas las tarjetas */
-        }
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-
+        .producto-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .producto-info h3 {
+        font-size: 16px;
+        color: #333;
+        margin: 10px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
         /* Estilo para las imágenes de los productos */
         .producto img {
             width: 100%;
@@ -306,7 +307,14 @@
             object-fit: cover;
             border-radius: 10px;
         }
-
+        .producto-info p {
+        font-size: 14px;
+        color: #666;
+        margin: 5px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
         /* Estilo para el título del producto */
         .producto h3 {
             font-size: 18px;
@@ -329,49 +337,58 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 4;
         }
-
+        /* Precio del producto */
+        .producto-info .precio {
+            font-size: 16px;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+     /* Estilo de cada tarjeta de producto */
         .producto-card {
+            background-color: #ffffff;
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
-            padding: 10px;
-            transition: all 0.3s ease;
-
+            padding: 15px;
+            width: 100%;
+            max-width: 220px;
         }
 
-
+        /* Efecto hover para las tarjetas de producto */
         .producto-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* Precio del producto */
-        .producto .precio {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: auto;
-            color: #28a745;
-        }
 
-        /* Botón "Ver detalles" */
-        .producto .ver-mas {
-            display: block;
-            margin-top: 10px;
-            padding: 10px 20px;
+
+            /* Botón "Ver detalles" */
+        .producto-info .ver-mas {
+            display: inline-block;
+            padding: 8px 16px;
             background-color: #ff6f61;
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px;
             transition: background-color 0.3s ease;
         }
 
-        .producto .ver-mas:hover {
-            background-color: #dd827a;
+        .producto-info .ver-mas:hover {
+            background-color: #e65b54;
         }
+    
 
+        .producto-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
         .qty-container,
         .rating-container {
             display: flex;
@@ -452,26 +469,41 @@
             border-radius: 5px;
         }
 
-        /* Alineación del título de productos recomendados */
+       /* Estilo general del contenedor */
+       #recomendaciones-wrapper {
+        background-color: transparent; 
+        border: none;
+        box-shadow: none; 
+        padding: 0; 
+    }
+
+        #recomendaciones-container {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+    }
+     
+        
+  /* Estilo del título en color negro y no en mayúsculas */
         .section-title {
-            text-align: left;
-            font-size: 32px;
-            margin-right: 12px;
+            font-size: 26px;
+            color: #ff6f61; 
             font-weight: bold;
-            margin: 40px 10;
-            color: #000000;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-            padding-bottom: 10px;
-            display: inline-block;
-            border-bottom: 3px solid #ff6f61;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: none; 
+            letter-spacing: normal; 
         }
 
-        #recomendaciones-wrapper {
-            background: none;
-            margin: 20px 0;
-        }
+    /* Estilo de la cuadrícula de productos */
+    #productos-recomendados.productos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+        justify-items: center;
+        padding: 10px;
+    }
 
-    
 
         /* Contenedor principal de opiniones */
         #opiniones-container {
@@ -1339,15 +1371,16 @@ body {
 </div>
 <div class="review-section"></div>
 
-        <!-- Sección de Productos Recomendados -->
-        <h2 class="section-title"> Productos relacionados con este artículo</h2>
-        <div id="recomendaciones-wrapper">
-            <div id="recomendaciones-container">
-                <div id="productos-recomendados" class="owl-carousel owl-theme">
-                    <!-- Aquí se agregarán dinámicamente las tarjetas de productos recomendados -->
-                </div>
-            </div>
+     <!-- Sección de Productos Recomendados -->
+<div id="recomendaciones-wrapper">
+    <h2 class="section-title">Productos relacionados con este artículo</h2>
+    <div id="recomendaciones-container">
+        <div id="productos-recomendados" class="productos-grid">
+            <!-- Aquí se agregarán dinámicamente las tarjetas de productos recomendados -->
         </div>
+    </div>
+</div>
+ 
 
 <!-- Sección de Reseñas -->
 <div class="review-section">
@@ -1406,86 +1439,66 @@ body {
 <script type="text/javascript">
 
 
-  // Función  recomendaciones
-    document.addEventListener('DOMContentLoaded', () => {
-        const params = new URLSearchParams(window.location.search);
-        const productId = params.get('id');
+ // Función para cargar recomendaciones al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get('id');
 
-        // Verifica si el ID del producto es válido
-        if (productId) {
-            console.log(`ID del producto actual: ${productId}`);
-            obtenerRecomendaciones(productId);
-        } else {
-            console.error('No se encontró el ID del producto en la URL.');
-        }
-    });
-
-    // Función para obtener recomendaciones desde la API correcta
-    function obtenerRecomendaciones(idProducto) {
-        console.log(`Intentando obtener recomendaciones para el producto con ID: ${idProducto}`);
-
-        // URL de la API Flask que devuelve las recomendaciones
-        const backendURL = `http://127.0.0.1:5001/recomendaciones_knn/${idProducto}`;
-
-        fetch(backendURL)
-            .then(response => {
-                console.log(`Respuesta de la API recibida: ${response.status}`);
-                if (!response.ok) {
-                    throw new Error(`Error en la API: ${response.statusText}`);
-                }
-                return response.json();
-            })
-            .then(recomendaciones => {
-                console.log('Recomendaciones obtenidas:', recomendaciones);
-                mostrarRecomendaciones(recomendaciones);
-            })
-            .catch(error => {
-                console.error('Error al cargar las recomendaciones:', error);
-            });
+    // Verifica si el ID del producto es válido
+    if (productId) {
+        console.log(`ID del producto actual: ${productId}`);
+        obtenerRecomendaciones(productId);
+    } else {
+        console.error('No se encontró el ID del producto en la URL.');
     }
-    function mostrarRecomendaciones(recomendaciones) {
-        const contenedorRecomendaciones = $('#productos-recomendados');
-        contenedorRecomendaciones.empty(); // Limpiar cualquier contenido anterior
+});
 
-        recomendaciones.forEach(producto => {
-            const tarjetaProducto = `
-            <div class="item producto">
-                <div class="producto-card">
-                    <img src="${producto.foto_url || 'image-placeholder.png'}" alt="${producto.nombre}" class="producto-imagen" />
-                    <div class="producto-info">
-                        <h3>${producto.nombre}</h3>
-                        <p>${producto.descripcion || 'Descripción no disponible'}</p>
-                        <p class="precio">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
-                        <a href="product.html?id=${producto.id}" class="ver-mas">Ver detalles</a>
-                    </div>
+// Función para obtener recomendaciones desde la API correcta
+function obtenerRecomendaciones(idProducto) {
+    console.log(`Intentando obtener recomendaciones para el producto con ID: ${idProducto}`);
+
+    // URL de la API Flask que devuelve las recomendaciones
+    const backendURL = `http://127.0.0.1:5001/recomendaciones_knn/${idProducto}`;
+
+    fetch(backendURL)
+        .then(response => {
+            console.log(`Respuesta de la API recibida: ${response.status}`);
+            if (!response.ok) {
+                throw new Error(`Error en la API: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(recomendaciones => {
+            console.log('Recomendaciones obtenidas:', recomendaciones);
+            mostrarRecomendaciones(recomendaciones.slice(0, 10)); // Limitar a 10 recomendaciones
+        })
+        .catch(error => {
+            console.error('Error al cargar las recomendaciones:', error);
+        });
+}
+
+// Función para mostrar recomendaciones en un formato de cuadrícula
+function mostrarRecomendaciones(recomendaciones) {
+    const contenedorRecomendaciones = document.getElementById('productos-recomendados');
+    contenedorRecomendaciones.innerHTML = ''; // Limpiar cualquier contenido anterior
+
+    recomendaciones.forEach(producto => {
+        const tarjetaProducto = `
+            <div class="producto-card">
+                <img src="${producto.foto_url || 'image-placeholder.png'}" alt="${producto.nombre}" class="producto-imagen" />
+                <div class="producto-info">
+                    <h3>${producto.nombre}</h3>
+                    <p>${producto.descripcion || 'Descripción no disponible'}</p>
+                    <p class="precio">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+                    <a href="product.html?id=${producto.id}" class="ver-mas">Ver detalles</a>
                 </div>
             </div>
         `;
 
-            // Agregar la tarjeta de producto al contenedor de recomendaciones
-            contenedorRecomendaciones.append(tarjetaProducto);
-        });
-
-        // Inicializar el carrusel Owl Carousel con las opciones deseadas
-        contenedorRecomendaciones.owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: true,
-            dots: true,
-            navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-            responsive: {
-                0: {
-                    items: 1,
-                },
-                600: {
-                    items: 2,
-                },
-                1000: {
-                    items: 4,
-                }
-            }
-        });
-    }
+        // Agregar la tarjeta de producto al contenedor de recomendaciones
+        contenedorRecomendaciones.innerHTML += tarjetaProducto;
+    });
+}
 
 
     function submitRating() {
@@ -1634,44 +1647,78 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-// JavaScript para enviar el formulario y capturar la calificación
-document.getElementById("review-form").addEventListener("submit", function(event) {
+
+document.addEventListener('DOMContentLoaded', () => {
+    const productosRecomendados = document.querySelectorAll('#productos-recomendados .producto');
+
+    // Limita a mostrar solo 6 productos si hay más de 6
+    if (productosRecomendados.length > 6) {
+        productosRecomendados.forEach((producto, index) => {
+            if (index >= 6) {
+                producto.style.display = 'none';
+            }
+        });
+    }
+});
+
+document.getElementById('review-form').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    // Captura los valores del formulario
-    const rating = document.querySelector('input[name="rating"]:checked').value;
-    const nickname = document.getElementById("nickname").value;
-    const summary = document.getElementById("summary").value;
-    const review = document.getElementById("review").value;
+    // Obtener el ID del usuario logueado y el ID del producto desde la URL o variables de contexto
+    const usuarioId = sessionStorage.getItem('usuarioid');
+    const params = new URLSearchParams(window.location.search);
+    const productoId = params.get('id');
 
-    // Datos que se enviarán a la base de datos
-    const reviewData = {
-        calificacion: rating,
-        comentario: summary + " - " + review, // Combina resumen y comentario
-        apodo: nickname,
-        fecha: new Date().toISOString() // Añade la fecha actual
+    if (!usuarioId || !productoId) {
+        alert("Error: No se pudo obtener la información del usuario o producto.");
+        return;
+    }
+
+    // Recopilar los datos del formulario
+    const data = {
+        usuario_id: usuarioId,
+        producto_id: productoId,
+        calificacion: document.querySelector('input[name="rating"]:checked').value,
+        comentario: document.getElementById('review').value,
+        apodo: document.getElementById('nickname').value,
+        resumen: document.getElementById('summary').value
     };
 
-    // Enviar los datos a la API
-    fetch("https://tu-api-url.com/reviews", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(reviewData)
-    })
-    .then(response => {
+    try {
+        const response = await fetch('https://tcc-api-nodejs.onrender.com/api/calificaciones', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
         if (response.ok) {
-            alert("Reseña enviada con éxito.");
+            Swal.fire({
+                icon: 'success',
+                title: 'Gracias por tu reseña',
+                text: 'Tu reseña ha sido enviada correctamente.',
+                confirmButtonColor: '#fa8072'
+            });
+            document.getElementById('review-form').reset();
         } else {
-            alert("Hubo un error al enviar tu reseña.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al enviar la reseña',
+                text: 'Hubo un problema al enviar tu reseña. Intenta nuevamente.',
+                confirmButtonColor: '#d9534f'
+            });
         }
-    })
-    .catch(error => {
-        console.error("Error al enviar la reseña:", error);
-        alert("Error al enviar la reseña.");
-    });
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de Conexión',
+            text: 'No se pudo conectar con el servidor. Inténtalo más tarde.',
+            confirmButtonColor: '#d9534f'
+        });
+    }
 });
+
+
 </script>
+
 </body>
 </html>
