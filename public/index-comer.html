@@ -36,21 +36,22 @@
 
     /* Variables de colores para fácil modificación */
     :root {
-      --primary-color: #121212; /* Negro muy oscuro */
-      --secondary-color: #1e1e1e; /* Gris oscuro */
+      --primary-color: #3e3e3e; /* Negro muy oscuro */
+      --secondary-color: #ffffff; /* Gris oscuro */
       --accent-color: #ff6f61; /* Color de acento vibrante */
       --text-color: #ffffff; /* Blanco para texto */
-      --background-gradient: linear-gradient(135deg, #121212, #1e1e1e);
+      --background-gradient: linear-gradient(135deg, #ffffff, #1e1e1e);
       --font-family: 'Roboto', sans-serif; /* Fuente moderna */
     }
 
     body {
-      font-family: var(--font-family);
-      background: var(--background-gradient);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-    }
+  font-family: var(--font-family);
+  background: transparent; /* Fondo completamente transparente */
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
 
     h1, h2, h3, h4, h5, h6 {
       font-weight: 500;
@@ -62,7 +63,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #444;
+      border-bottom: 1px solid #fbfbfb;
     }
 
     .logo img {
