@@ -23,7 +23,7 @@
   <!-- CSS Parte Fin -->
   <style>
  .top-banner {
-    background: linear-gradient(90deg, #ff7f50, #ffcc70);
+    background: linear-gradient(90deg, #ea7617, #62594c);
     padding: 10px 0;
     text-align: center;
     color: white;
@@ -1017,7 +1017,7 @@ body {
     position: absolute;
     top: 100%; /* Aparece debajo del header */
     left: 4;
-    background-color: #cecece;
+    background-color: #392e2e;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     display: none; /* Oculto por defecto */
@@ -1276,6 +1276,86 @@ body {
     background-color: #e67a56;
 }
 
+/* Estilo general del pie de página */
+#main-footer {
+    background: #333;
+    color: #fff;
+    padding: 40px 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Sección del pie de página */
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffc107;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffc107;
+}
+
+/* Estilos de los íconos de contacto */
+.footer-section ul li i {
+    margin-right: 10px;
+    color: #ffc107;
+}
+
+/* Estilo del contenedor inferior */
+.footer-bottom {
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #ffc107;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
   </style>
 </head>
 <body>
@@ -1321,55 +1401,43 @@ body {
       </a>
   </div>
   </header> 
+
 <!-- Contenedor principal --> 
 <div class="main-content">
   <!-- Contenedor de imágenes pequeñas a la izquierda -->
   <div class="small-images">
     <div class="image-box">
-      <a href="/categoria/producto1"><img src="image/im2.jpg" alt="Producto 1"></a>
+        <a href="electronica.html"><img src="image/imag(5).jpg" alt="Producto 1"></a>
     </div>
     <div class="image-box">
-      <a href="/categoria/producto2"><img src="image/im1.jpg" alt="Producto 2"></a>
-    </div>
-    <div class="image-box">
-      <a href="/categoria/producto3"><img src="image/imag(2).jpg" alt="Producto 3"></a>
-    </div>
+      <a href="ropa.html"><img src="image/boxRopa.png" alt="Producto 3"></a>
   </div>
-
-  <div class="slider-container">
-    <div id="carousel-example" class="owl-carousel owl-theme">
-        <div class="item"><img src="image/c9.jpg" alt="Carrusel 1"></div>
-        <div class="item"><img src="image/c19.jpg" alt="Carrusel 2"></div>
-        <div class="item"><img src="image/c15.jpg" alt="Carrusel 3"></div>
-        <div class="item"><img src="image/c5.jpg" alt="Carrusel 4"></div>
-        <div class="item"><img src="image/c14.jpg" alt="Carrusel 4"></div>
-        <div class="item"><img src="image/c22.jpg" alt="Carrusel 4"></div>
-        <div class="item"><img src="image/c23.jpg" alt="Carrusel 4"></div>
+    <div class="image-box">
+        <a href="informatica.html"><img src="image/boxinfo.png" alt="Producto 2"></a>
     </div>
 </div>
-
+  <div class="slider-container">
+    <div id="carousel-example" class="owl-carousel owl-theme">
+        <div class="item"><img src="image/elect.png" alt="Carrusel 1"></div>
+        <div class="item"><img src="image/c5.jpg" alt="Carrusel 2"></div>
+        <div class="item"><img src="image/c22.jpg" alt="Carrusel 3"></div>
+        <div class="item"><img src="image/c19.jpg" alt="Carrusel 4"></div>
+    </div>
+</div>
 
   <!-- Contenedor de imágenes pequeñas a la derecha -->
   <div class="small-images">
     <div class="image-box">
-      <a href="/categoria/producto4"><img src="image/imag(4).jpg" alt="Producto 4"></a>
-    </div>
+      <a href="index.html"><img src="image/boxTodos.png" alt="Producto 6"></a>
+  </div>  
     <div class="image-box">
-      <a href="/categoria/producto5"><img src="image/imag(5).jpg" alt="Producto 5"></a>
-    </div>
+        <a href="belleza.html"><img src="image/boxmaqui.png" alt="Producto 5"></a>
+    </div> 
     <div class="image-box">
-      <a href="/categoria/producto6"><img src="image/imag(3).jpg" alt="Producto 6"></a>
-    </div>
+      <a href="automoviles.html"><img src="image/box2.jpg" alt="Producto 4"></a>
   </div>
 </div>
-
-<!-- 
-<div class="recommended-section">
-  <h2 class="recommended-title">Basado en tus categorías preferidas</h2>
-  <div class="recommended-products">
-  </div>
-</div>  -->
-
+</div>
 
 <!-- Electrónica -->
 <div class="header-container">
@@ -1467,6 +1535,7 @@ body {
 </div>
 
 
+
   
 
     <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
@@ -1474,12 +1543,42 @@ body {
       <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
     </div>
 
-   
-   <!-- Pie de página -->
-   <footer id="main-footer">
-    <p>&copy; 2024 Click Store. Todos los derechos reservados.</p>
+    <footer id="main-footer">
+      <div class="footer-container">
+          <!-- Contenedor de información de la compañía -->
+          <div class="footer-section">
+              <h4>Sobre Nosotros</h4>
+              <p>Click Store es una tienda en línea dedicada a ofrecer productos de calidad y un servicio excepcional a nuestros clientes. Nuestro objetivo es satisfacer todas tus necesidades con la mejor experiencia de compra.</p>
+          </div>
+  
+          <!-- Contenedor de enlaces rápidos -->
+          <div class="footer-section">
+              <h4>Enlaces Rápidos</h4>
+              <ul>
+                  <li><a href="#">Inicio</a></li>
+                  <li><a href="#">Tienda</a></li>
+                  <li><a href="#">Acerca de</a></li>
+                  <li><a href="#">Contacto</a></li>
+                  <li><a href="#">Política de Privacidad</a></li>
+              </ul>
+          </div>
+  
+          <!-- Contenedor de contacto -->
+          <div class="footer-section">
+              <h4>Contáctanos</h4>
+              <ul>
+                  <li><i class="fa fa-map-marker"></i> Asunción, Paraguay</li>
+                  <li><i class="fa fa-phone"></i> +595 21 123 4567</li>
+                  <li><i class="fa fa-envelope"></i> contacto@clickstore.com</li>
+              </ul>
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2024 Click Store. Todos los derechos reservados | <a href="#">Términos y Condiciones</a></p>
+      </div>
   </footer>
   
+<!--Footer Fin-->
 
     <!-- Parte JS Inicio -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

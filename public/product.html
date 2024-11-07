@@ -1250,9 +1250,9 @@ body {
 .submit-btn {
     width: fit-content;
     padding: 10px 20px;
-    background-color: #ffc107;
+    background-color: #000000;
     border: none;
-    color: #333;
+    color: #ffffff;
     font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
@@ -1260,7 +1260,7 @@ body {
 }
 
 .submit-btn:hover {
-    background-color: #e0a800;
+    background-color: #000000;
 }
 
 /* Responsividad */
@@ -1299,6 +1299,69 @@ body {
 .stars label:hover ~ label {
     color: #ffcc00;
 }
+.review-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-container {
+    display: flex;
+    gap: 20px;
+}
+
+.review-form-container {
+    flex: 1;
+}
+
+.comment-list {
+    flex: 1;
+    border-left: 1px solid #e0e0e0;
+    padding-left: 20px;
+}
+
+.comment-title {
+    font-size: 1.4em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ff6f61;
+    padding-bottom: 5px;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.user-icon {
+    font-size: 1.5em;
+    color: #888;
+}
+
+.comment p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.4;
+    margin: 0;
+    flex: 1;
+}
+
+.comment strong {
+    color: #333;
+}
+
+.comment-stars {
+    font-size: 1em;
+    color: #ffa500; 
+    font-family: Arial, sans-serif;
+}
+
+
 </style>
 </head>
 <body>
@@ -1381,44 +1444,74 @@ body {
     </div>
 </div>
  
-
 <!-- Sección de Reseñas -->
 <div class="review-section">
     <h2>Reseñas de clientes</h2>
-    <div class="rating-input">
-        <p>Califica este producto</p>
-        <div class="stars">
-            <input type="radio" id="star5" name="rating" value="5" />
-            <label for="star5">★</label>
-            <input type="radio" id="star4" name="rating" value="4" />
-            <label for="star4">★</label>
-            <input type="radio" id="star3" name="rating" value="3" />
-            <label for="star3">★</label>
-            <input type="radio" id="star2" name="rating" value="2" />
-            <label for="star2">★</label>
-            <input type="radio" id="star1" name="rating" value="1" />
-            <label for="star1">★</label>
+    <div class="review-container">
+        <!-- Columna izquierda: Formulario para agregar reseña -->
+        <div class="review-form-container">
+            <div class="rating-input">
+                <p>Califica este producto</p>
+                <div class="stars">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1">★</label>
+                </div>
+            </div>
+
+            <form id="review-form" class="review-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nickname">Apodo *</label>
+                        <input type="text" id="nickname" name="nickname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">Resumen *</label>
+                        <input type="text" id="summary" name="summary" required>
+                    </div>
+                    <div class="form-group-wide">
+                        <label for="review">Comentario *</label>
+                        <textarea id="review" name="review" required></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Enviar mi reseña</button>
+            </form>
+        </div>
+
+        <!-- Columna derecha: Mostrar comentarios -->
+        <div class="comment-list">
+            <h3 class="comment-title">Comentarios de Usuarios</h3>
+            <div class="comment">
+                <div class="user-icon">👤</div>
+                <p><strong>Samantha:</strong> Muy buen producto, lo recomiendo.</p>
+                <div class="comment-stars">★★★★★</div>
+            </div>
+            <div class="comment">
+                <div class="user-icon">👤</div>
+                <p><strong>Anai Lugo:</strong> Cumple con lo esperado, buen material.</p>
+                <div class="comment-stars">★★★★☆</div>
+            </div>
+            <div class="comment">
+                <div class="user-icon">👤</div>
+                <p><strong>Carlos:</strong> Excelente calidad y precio.</p>
+                <div class="comment-stars">★★★★★</div>
+            </div>
+            <div class="comment">
+                <div class="user-icon">👤</div>
+                <p><strong>Alejandra:</strong> Podria Mejorar.</p>
+                <div class="comment-stars">★★☆☆☆</div>
+            </div>
         </div>
     </div>
-
-    <form id="review-form" class="review-form">
-        <div class="form-row">
-            <div class="form-group">
-                <label for="nickname">Apodo *</label>
-                <input type="text" id="nickname" name="nickname" required>
-            </div>
-            <div class="form-group">
-                <label for="summary">Resumen *</label>
-                <input type="text" id="summary" name="summary" required>
-            </div>
-            <div class="form-group-wide">
-                <label for="review">Comentario *</label>
-                <textarea id="review" name="review" required></textarea>
-            </div>
-        </div>
-        <button type="submit" class="submit-btn">Enviar mi reseña</button>
-    </form>
 </div>
+
 
 </body>
 

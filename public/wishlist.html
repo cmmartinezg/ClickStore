@@ -469,7 +469,50 @@ html, body {
 .autocomplete-item:hover {
     background-color: #f0f0f0;
 }
+        /* Estructura general de la página */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
 
+        .wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .products-container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Footer pegado al fondo */
+        footer#main-footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: auto;
+        }
+
+       
+
+        @media (max-width: 768px) {
+            .product-item {
+                width: calc(50% - 20px); /* 2 productos por fila */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-item {
+                width: 100%; /* 1 producto por fila */
+            }
+        }
     </style>
 </head>
 <body>
@@ -491,12 +534,12 @@ html, body {
       <button type="button" class="button-search" onclick="performSearch()"><i class="fa fa-search"></i></button>
     </div>
     <div class="nav-links">
-      <a href="wishlist.html" class="icon-link">
+      <!-- <a href="wishlist.html" class="icon-link">
           <div class="icon-container">
               <i class="fa fa-heart"></i>
               <span id="wishlist-count">0</span> 
           </div>
-      </a>
+      </a> -->
       <a href="cart.html" class="icon-link">
           <div class="icon-container">
               <i class="fa fa-shopping-cart"></i>

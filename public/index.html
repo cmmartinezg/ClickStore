@@ -762,7 +762,7 @@ body {
     }
 }
 .top-banner {
-    background: linear-gradient(90deg, #ff7f50, #ffcc70);
+    background: linear-gradient(90deg, #ea7617, #62594c);
     padding: 10px 0;
     text-align: center;
     color: white;
@@ -1191,42 +1191,24 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+
 /* Contenedor de las recomendaciones */
 .recomendaciones-container {
-  margin: 20px; /* Espaciado alrededor del contenedor */
-    padding: 20px; /* Espaciado interno */
-    background-color: #f9f9f9; /* Color de fondo */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    width: 30%; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-.productos-recomendados-list {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
-    justify-content: space-between; /* Espaciado entre elementos */
-}
-.productos-recomendados {
-    display: flex; /* Usar flexbox para alinear los productos */
-    flex-wrap: wrap; /* Permitir que los productos se envuelvan */
-    justify-content: space-between; /* Espaciado entre productos */
-    margin: 0 -10px; /* Margen negativo para ajustar el espaciado */
-}
-
 
 /* Producto recomendado */
 .producto-recomendado {
-  flex: 1 1 calc(33.333% - 20px); /* Tres columnas en pantallas grandes */
-    margin: 10px; /* Espaciado entre productos */
-    border: 1px solid #ddd; /* Borde para el producto */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 10px; /* Espaciado interno */
-    background-color: #fff; /* Fondo blanco */
-    transition: transform 0.3s; /* Efecto de transición */
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
 }
-.producto-recomendado:hover {
-    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
-}
-
 .producto-recomendado img {
     max-width: 100%; /* Imagen responsiva */
     height: auto; /* Mantiene la proporción */
@@ -1269,7 +1251,6 @@ body {
     padding: 10px 20px;
     border-bottom: 1px solid #ddd;
 }
-
 /* Estilo del título de categoría */
 .category-title {
     font-size: 24px;
@@ -1371,13 +1352,7 @@ body {
     color: #fa8072;
 }
 
-/* Estilo del Logo */
-.logo {
-    width: 120px;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-}
+
 
 /* Estilo de las Etiquetas */
 .form-label {
@@ -1512,11 +1487,6 @@ body {
     color: #fa8072;
 }
 
-/* Estilo del Logo */
-.logo {
-    width: 100px;
-    height: auto;
-}
 
 /* Estilo de las Etiquetas */
 .form-label {
@@ -1588,8 +1558,6 @@ body {
 
 
 
-
-
 /* Animación de Aparición */
 @keyframes fadeInDown {
     from {
@@ -1613,11 +1581,7 @@ body {
     color: #fa8072;
 }
 
-/* Estilo del Logo */
-.logo {
-    width: 120px; /* Ajusta el tamaño según tus necesidades */
-    height: auto;
-}
+
 
 /* Estilo de las Etiquetas */
 .form-label {
@@ -1712,11 +1676,6 @@ body {
     color: #fa8072;
 }
 
-/* Estilo del Logo */
-.logo {
-    width: 100px;
-    height: auto;
-}
 
 /* Estilo de las Etiquetas */
 .form-label {
@@ -1757,15 +1716,6 @@ body {
 
 
 
-.btn-primary {
-    background-color: #fa8072;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: #e06450;
-    transform: translateY(-2px);
-}
 
 .btn-secondary {
     background-color: #ddd;
@@ -1810,12 +1760,6 @@ body {
     color: #fa8072;
 }
 
-/* Estilo del Logo */
-.logo {
-    width: 100px;
-    height: auto;
-}
-
 /* Estilo de las Etiquetas */
 .form-label {
     font-weight: 600;
@@ -1854,46 +1798,15 @@ body {
 }
 
 
-
-.btn-primary {
-    background-color: #fa8072;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: #e06450;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: #ddd;
-    color: #333;
-}
-
-.btn-secondary:hover {
-    background-color: #fa8072;
-    color: #fff;
-    transform: translateY(-2px);
-}
-
 /* Mensaje de Error */
 #login-error {
     font-size: 0.9rem;
 }
 
 
-
-
-
-
-
-
 .toggle-password:hover {
     color: #fa8072;
 }
-
-
-
 
 /* Estilo para el enlace "¿Olvidaste tu contraseña?" */
 .forgot-password a {
@@ -1911,52 +1824,11 @@ body {
     font-size: 14px;
 }
 
-
-
-
-
-
-
-
-.logo-container img {
-    width: 100px; /* Ajustar el tamaño del logo */
-}
-
-.form-group {
-    margin-bottom: 15px; /* Espaciado entre los campos */
-}
-
-.form-control {
-    border-radius: 5px; /* Bordes redondeados para los inputs */
-    border: 1px solid #ccc; /* Bordes suaves */
-    padding: 10px; /* Espaciado interno */
-}
-
-.form-control:focus {
-    border-color: #007bff; /* Color del borde al hacer foco */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra de enfoque */
-}
-
-.toggle-password {
-    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
-    position: absolute;
-    right: 10px;
-    top: 35px; /* Ajustar la posición del icono */
-}
-
-.forgot-password {
-    margin-top: 10px; /* Espaciado superior */
-}
-
-
-
 #login-error {
     margin-top: 10px; /* Espaciado superior */
     color: red; /* Color del texto de error */
     display: none; /* Ocultar inicialmente */
 }
-
-
 
 
 
@@ -1970,10 +1842,6 @@ body {
     padding: 10px; /* Espaciado interno */
 }
 
-.form-control:focus {
-    border-color: #007bff; /* Color del borde al hacer foco */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra de enfoque */
-}
 
 .toggle-password {
     cursor: pointer; /* Cambiar el cursor al pasar el mouse */
@@ -1983,6 +1851,19 @@ body {
     margin-top: 10px; /* Espaciado superior */
 }
 
+.btn-login {
+    background-color: white; 
+    color: #333; 
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.btn-login:hover,
+.btn-login:focus {
+    background-color: white; 
+    color: #333; 
+    border-color: #333; 
+    box-shadow: none; 
+}
 
 
 #login-error {
@@ -1990,6 +1871,32 @@ body {
     color: red; /* Color del texto de error */
     display: none; /* Ocultar inicialmente */
 }
+
+/* Estilo para el título en el modal */
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Contenedor del icono */
+.toggle-password {
+    position: absolute;
+    top: 58%;
+    right: 25px; 
+    transform: translateY(-50%); 
+    cursor: pointer;
+    color: #aaa; 
+    font-size: 1.2rem; 
+    transition: color 0.3s;
+}
+
+/* Cambia el color cuando el cursor está sobre el icono */
+.toggle-password:hover {
+    color: #fa8072; /* Color al pasar el mouse */
+}
+
 
   </style>
 </head>
@@ -2003,7 +1910,7 @@ body {
   </div>
 
     <!-- Inicio del encabezado -->
-    <header class="header">
+<header class="header">
       <div class="logo">
           <a href="index.html">
               <img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" />
@@ -2024,118 +1931,50 @@ body {
               <i class="fa fa-search"></i>
           </button>
       </div>
+           <div class="nav-links">
 
-      <div class="nav-links">
-
-
-
-<!-- Enlace que activa el modal -->
-<div class="text-center mt-5">
-  <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-lg">Iniciar Sesión</a>
-</div>
-
-<!-- Modal de Inicio de Sesión -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-    <div class="modal-content">
-          <div class="modal-header border-0">
-              <button type="button" class="close close-button" data-dismiss="modal" aria-label="Cerrar">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <div class="text-center mb-4">
-                  <img src="image/logo.png" alt="Click Store" class="logo img-fluid">
-              </div>
-              <form id="form-login">
-                  <div class="form-group">
-                      <label for="login-email" class="form-label">Correo Electrónico</label>
-                      <input type="email" class="form-control" id="login-email" placeholder="Ingresa tu correo electrónico" name="email" required>
-                  </div>
-                  <div class="form-group position-relative">
-                      <label for="login-password" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" id="login-password" placeholder="Ingresa tu contraseña" name="contrasena" required>
-                  </div>
-                  <div class="forgot-password text-right mb-3">
-                      <a href="recuperar-contra.html">¿Olvidaste tu contraseña?</a>
-                  </div>
-                  <div id="login-error" class="text-danger mb-3" style="display: none;"></div>
-                  <div class="modal-footer justify-content-center border-0">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                      <button type="submit" class="btn btn-primary">Continuar</button>
-                  </div>
-              </form>
-          </div>
-      </div>
-  </div>
-</div>
+    <!-- Enlace que activa el modal -->
+    <div class="text-center mt-5">
+      <a href="#" data-toggle="modal" data-target="#loginModal" class="btn btn-login">Iniciar Sesión</a>
+    </div>
+      <!-- Modal de Inicio de Sesión -->
+      <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+          <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="close close-button" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <h2 class="modal-title text-center">Inicio de Sesión</h2>
+                    <form id="form-login">
+                        <div class="form-group">
+                            <label for="login-email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="login-email" placeholder="Ingresa tu correo electrónico" name="email" required>
+                        </div>
+                        <div class="form-group position-relative">
+                          <label for="login-password" class="form-label">Contraseña</label>
+                          <input type="password" class="form-control" id="login-password" placeholder="Ingresa tu contraseña" name="contrasena" required>
+                          <span class="toggle-password" id="togglePasswordIcon" onclick="togglePasswordVisibility()">👁️</span>
+                      </div>
+                      
+                        <div class="forgot-password text-right mb-3">
+                            <a href="recuperar-contra.html">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        <div id="login-error" class="text-danger mb-3" style="display: none;"></div>
+                        <div class="modal-footer justify-content-center border-0">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Continuar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+   </div>
 
 
 
-
-
-
-<script>
-    // Función para mostrar/ocultar la contraseña
-    function togglePasswordVisibility() {
-        const passwordInput = document.getElementById('login-password');
-        const passwordToggleIcon = document.querySelector('.toggle-password');
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            passwordToggleIcon.classList.remove('fa-eye');
-            passwordToggleIcon.classList.add('fa-eye-slash');
-        } else {
-            passwordInput.type = 'password';
-            passwordToggleIcon.classList.remove('fa-eye-slash');
-            passwordToggleIcon.classList.add('fa-eye');
-        }
-    }
-
-    // Limpiar el sessionStorage al cargar la página
-    sessionStorage.clear();
-
-    document.getElementById('form-login').addEventListener('submit', async function (event) {
-        event.preventDefault(); // Evitar la acción predeterminada del formulario
-        
-        const email = document.getElementById('login-email').value;
-        const contrasena = document.getElementById('login-password').value;
-        const data = { email, contrasena };
-
-        try {
-            const response = await fetch('http://localhost:3000/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                console.error('Error al iniciar sesión:', errorData);
-                document.getElementById('login-error').innerText = 'Error: ' + errorData.message;
-                document.getElementById('login-error').style.display = 'block';
-                return;
-            }
-
-            const responseData = await response.json();
-            console.log("Datos de respuesta del servidor:", responseData);
-
- sessionStorage.clear();
-            sessionStorage.setItem('nombre', responseData.nombre);
-            sessionStorage.setItem('Id', responseData.Id);
-            sessionStorage.setItem('tipo', responseData.tipo);
-
-            if (responseData.tipo === 'comerciante') {
-                window.location.href = 'index-comer.html';
-            } else if (responseData.tipo === 'usuario') {
-                window.location.href = 'index-usuario.html';
-            }
-        } catch (error) {
-            console.error('Error de conexión o problema con la API:', error);
-            document.getElementById('login-error').innerText = 'Ocurrió un error al intentar iniciar sesión. Por favor, intenta nuevamente.';
-            document.getElementById('login-error').style.display = 'block';
-        }
-    });
-</script>
           <div class="dropdown">
               <a href="#" class="dropdown-toggle">
                   <i class="fa fa-user-plus"></i> Registro
@@ -2166,75 +2005,38 @@ body {
   <!-- Contenedor de imágenes pequeñas a la izquierda -->
   <div class="small-images">
     <div class="image-box">
-        <a href="electronica.html"><img src="image/electronica.png" alt="Producto 1"></a>
+        <a href="electronica.html"><img src="image/imag(5).jpg" alt="Producto 1"></a>
     </div>
     <div class="image-box">
-        <a href="informatica.html"><img src="image/informatica.png" alt="Producto 2"></a>
-    </div>
+      <a href="ropa.html"><img src="image/boxRopa.png" alt="Producto 3"></a>
+  </div>
     <div class="image-box">
-        <a href="ropa.html"><img src="image/ropa.png" alt="Producto 3"></a>
+        <a href="informatica.html"><img src="image/imag(4).jpg" alt="Producto 2"></a>
     </div>
 </div>
   <div class="slider-container">
     <div id="carousel-example" class="owl-carousel owl-theme">
-        <div class="item"><img src="image/c9.jpg" alt="Carrusel 1"></div>
-        <div class="item"><img src="image/c19.jpg" alt="Carrusel 2"></div>
-        <div class="item"><img src="image/c15.jpg" alt="Carrusel 3"></div>
-        <div class="item"><img src="image/c5.jpg" alt="Carrusel 4"></div>
-        <div class="item"><img src="image/c14.jpg" alt="Carrusel 4"></div>
-        <div class="item"><img src="image/c22.jpg" alt="Carrusel 4"></div>
-        <div class="item"><img src="image/c23.jpg" alt="Carrusel 4"></div>
+        <div class="item"><img src="image/elect.png" alt="Carrusel 1"></div>
+        <div class="item"><img src="image/c5.jpg" alt="Carrusel 2"></div>
+        <div class="item"><img src="image/c22.jpg" alt="Carrusel 3"></div>
+        <div class="item"><img src="image/c19.jpg" alt="Carrusel 4"></div>
     </div>
 </div>
-
 
   <!-- Contenedor de imágenes pequeñas a la derecha -->
   <div class="small-images">
     <div class="image-box">
-        <a href="automoviles.html"><img src="image/auto.png" alt="Producto 4"></a>
-    </div>
+      <a href="index.html"><img src="image/boxTodos.png" alt="Producto 6"></a>
+  </div>  
     <div class="image-box">
-        <a href="belleza.html"><img src="image/bellez.png" alt="Producto 5"></a>
-    </div>
+        <a href="belleza.html"><img src="image/boxmaqui.png" alt="Producto 5"></a>
+    </div> 
+    <div class="image-box">
+      <a href="automoviles.html"><img src="image/box2.jpg" alt="Producto 4"></a>
+  </div>
 </div>
 </div>
 
-<!-- Electrónica -->
-<div class="header-container">
-  <div class="category-title">Electrónica</div>
-  <h2 class="section-title">Recomendados para ti</h2>
-</div>
-<div class="main-container">
-  <div class="carousel">
-      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
-      <div class="carousel-images">
-          <img src="image/elec.jpg" alt="Carrusel Electrónica 1" class="active">
-          <img src="image/elect1.jpg" alt="Carrusel Electrónica 2">
-      </div>
-      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="recomendaciones-container">
-      <div id="productos-recomendados-electrónica" class="productos-recomendados-list"></div>
-  </div>
-</div>
-<!-- Belleza -->
-<div class="header-container">
-  <div class="category-title">Belleza</div>
-  <h2 class="section-title">Recomendados para ti</h2>
-</div>
-<div class="main-container">
-  <div class="carousel">
-      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
-      <div class="carousel-images">
-          <img src="image/m1.jpg" alt="Carrusel Belleza 1" class="active">
-          <img src="image/nuevo1.png" alt="Carrusel Belleza 2">
-      </div>
-      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="recomendaciones-container">
-      <div id="productos-recomendados-belleza" class="productos-recomendados-list"></div>
-  </div>
-</div>
 <!-- Informática -->
 <div class="header-container">
   <div class="category-title">Informática</div>
@@ -2251,6 +2053,44 @@ body {
   </div>
   <div class="recomendaciones-container">
       <div id="productos-recomendados-informática" class="productos-recomendados-list"></div>
+  </div>
+</div>
+
+<!-- Belleza -->
+<div class="header-container">
+  <div class="category-title">Belleza</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/bellez.png" alt="Carrusel Belleza 1" class="active">
+          <img src="image/bellez.png" alt="Carrusel Belleza 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-belleza" class="productos-recomendados-list"></div>
+  </div>
+</div>
+
+<!-- Electrónica -->
+<div class="header-container">
+  <div class="category-title">Electrónica</div>
+  <h2 class="section-title">Recomendados para ti</h2>
+</div>
+<div class="main-container">
+  <div class="carousel">
+      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-images">
+          <img src="image/elect.png" alt="Carrusel Electrónica 1" class="active">
+          <img src="image/elect.png" alt="Carrusel Electrónica 2">
+      </div>
+      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="recomendaciones-container">
+      <div id="productos-recomendados-electrónica" class="productos-recomendados-list"></div>
   </div>
 </div>
 
@@ -2284,8 +2124,8 @@ body {
   <div class="carousel">
       <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
       <div class="carousel-images">
-          <img src="image/c22.jpg" alt="Carrusel Automóviles 1" class="active">
-          <img src="image/c22.jpg" alt="Carrusel Automóviles 2">
+          <img src="image/box2.jpg" alt="Carrusel Automóviles 1" class="active">
+          <img src="image/box2.jpg" alt="Carrusel Automóviles 2">
       </div>
       <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
   </div>
@@ -2293,9 +2133,7 @@ body {
       <div id="productos-recomendados-automóviles" class="productos-recomendados-list"></div>
   </div>
 </div>
-
-
-      
+    
 
     <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
     <div class="container" id="comerciante-section" style="display: none;">
@@ -2905,6 +2743,64 @@ document.querySelectorAll('.main-container').forEach(container => {
         mostrarImagen(currentIndex + 1);
     }, 3000);
 });
+
+  // Limpiar el sessionStorage al cargar la página
+  sessionStorage.clear();
+
+  document.getElementById('form-login').addEventListener('submit', async function (event) {
+      event.preventDefault(); // Evitar la acción predeterminada del formulario
+      
+      const email = document.getElementById('login-email').value;
+      const contrasena = document.getElementById('login-password').value;
+      const data = { email, contrasena };
+
+      try {
+          const response = await fetch('http://localhost:3000/api/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+          });
+
+          if (!response.ok) {
+              const errorData = await response.json();
+              console.error('Error al iniciar sesión:', errorData);
+              document.getElementById('login-error').innerText = 'Error: ' + errorData.message;
+              document.getElementById('login-error').style.display = 'block';
+              return;
+          }
+
+          const responseData = await response.json();
+          console.log("Datos de respuesta del servidor:", responseData);
+
+sessionStorage.clear();
+          sessionStorage.setItem('nombre', responseData.nombre);
+          sessionStorage.setItem('Id', responseData.Id);
+          sessionStorage.setItem('tipo', responseData.tipo);
+
+          if (responseData.tipo === 'comerciante') {
+              window.location.href = 'index-comer.html';
+          } else if (responseData.tipo === 'usuario') {
+              window.location.href = 'index-usuario.html';
+          }
+      } catch (error) {
+          console.error('Error de conexión o problema con la API:', error);
+          document.getElementById('login-error').innerText = 'Ocurrió un error al intentar iniciar sesión. Por favor, intenta nuevamente.';
+          document.getElementById('login-error').style.display = 'block';
+      }
+  });
+
+  function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('login-password');
+        const toggleIcon = document.getElementById('togglePasswordIcon');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleIcon.textContent = '🙈'; // Cambia el icono para indicar que la contraseña está visible
+        } else {
+            passwordInput.type = 'password';
+            toggleIcon.textContent = '👁️'; // Cambia el icono de nuevo para ocultar la contraseña
+        }
+    }
 </script>
 <script src="../header.js"></script>
 </body>

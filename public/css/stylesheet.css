@@ -893,17 +893,7 @@ border-color:#eae9e9;
 	padding:0px;
 	color:#333;
 }
-.product-thumb h4 a:hover { text-decoration:underline; }
-.product-thumb .button-group button { border: none; }
-.product-thumb .button-group .btn-primary {
-	padding:4px 8px;
-	margin-bottom:7px;
-	font-size:11px;
-	height:auto;
-	text-transform:uppercase;
-	font-family:Arial, Helvetica, sans-serif;
-	line-height:normal;
-}
+
 .product-thumb .button-group .add-to-links button {
 	background:none;
 	color:#666;
@@ -1346,10 +1336,7 @@ visibility:hidden;
 	background:#444;
 	color:#fff;
 }
-.btn-primary {
-	background-color:#d2661f;
-	color:#ffffff;
-}
+
 .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
 	background:#444;
 	color:#fff;
