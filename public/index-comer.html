@@ -411,7 +411,8 @@
 
 .product-item-carousel {
   width: 300px;
-  padding: 15px;
+  width: 80%; /* Ajustar el ancho del producto en pantallas medianas */
+  padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   background-color: #ffffff;
   border-radius: 10px;
@@ -426,13 +427,15 @@
   background-color: #f1f1f1;
 }
 
+/* Imagen de productos */
 .product-item-carousel img {
-  width: 80%;
+  width: 80%; 
+  height: 150px; /* Reducir altura de la imagen en pantallas medianas */
   height: 180px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-speed) ease;
 }
 
 .product-item-carousel:hover img {
@@ -608,10 +611,10 @@
     }
 
     @media (max-width: 768px) {
-      .container-main {
-        flex-direction: column;
-        align-items: center;
-      }
+  .swiper-container {
+    padding: 15px;
+    max-width: 100%; /* Ancho completo en pantallas pequeñas */
+  }
 
       .comerciante-recuadro {
         margin-right: 0;
@@ -623,9 +626,19 @@
         width: calc(100% - 40px);
       }
 
-      .swiper-container {
-        width: 100%;
-      }
+      /* Carrusel responsivo */
+.swiper-container {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%; /* Ajuste para ocupar el 100% en móviles */
+  max-width: 90%; /* En pantallas grandes, un límite de ancho */
+  height: auto;
+  min-height: 30px;
+  margin: 0 auto 40px auto;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
     }
 
     @media (max-width: 480px) {
@@ -1345,7 +1358,7 @@ function mostrarRecomendaciones(recomendaciones) {
 // Inicializar Swiper
 function inicializarSwiper() {
   new Swiper('#productos-recomendados', {
-    slidesPerView: 3, // Número de productos visibles por página
+    slidesPerView: 3, // Número de productos visibles por defecto
     spaceBetween: 20, // Espacio entre los productos
     navigation: {
       nextEl: '.swiper-button-next',
@@ -1356,12 +1369,29 @@ function inicializarSwiper() {
       clickable: true,
     },
     autoplay: {
-      delay: 3000, 
+      delay: 3000,
     },
-    loop: true, 
+    loop: true,
+    breakpoints: {
+      // Configuración para pantallas grandes
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      // Configuración para pantallas medianas (tablets)
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+      // Configuración para pantallas pequeñas (móviles)
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+    },
   });
 }
- 
+
     
     function obtenerTotalProductosSinStock() {
       const sinStockElement = document.getElementById('total-productos-sin-stock');
