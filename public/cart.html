@@ -15,6 +15,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- jsPDF-AutoTable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -373,331 +375,367 @@
                 window.location.href = 'index-usuario.html';
             });
 
-            document.addEventListener('DOMContentLoaded', async function () {
+            document.addEventListener('DOMContentLoaded', () => {
+                // Definir variables y obtener elementos del DOM
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
                 const listaCarrito = document.getElementById('lista-carrito');
-                const totalPrecio = document.getElementById('total-precio');
-                const totalCantidad = document.getElementById('total-cantidad');
+                const totalPrecioElemento = document.getElementById('total-precio');
+                const totalCantidadElemento = document.getElementById('total-cantidad');
                 const metodoPagoTexto = document.getElementById('metodo-pago-texto');
                 const metodoSeleccionadoTexto = document.getElementById('metodo-seleccionado');
                 const qrConfirmacion = document.getElementById('qr-confirmacion');
-                const idUsuario = 1;
+                const botonComprar = document.getElementById('boton-comprar');
+                const descargarPDF = document.getElementById('descargarPDF');
+                const idUsuario = 1; // Simulación de ID de usuario
 
-                metodoPagoTexto.addEventListener('click', () => {
-                    $('#modalMetodoPago').modal('show');
-                });
-
-                document.getElementById('guardarMetodoPago').addEventListener('click', () => {
-                    const metodoSeleccionado = document.getElementById('metodo-pago').value;
-                    if (metodoSeleccionado) {
-                        // Actualizar el texto del método de pago
-                        metodoPagoTexto.textContent = `Método de Pago: ${metodoSeleccionado}`;
-                        metodoPagoTexto.style.color = '#28a745';
-
-                        // Guardar el método de pago seleccionado en localStorage
-                        localStorage.setItem('metodoPago', metodoSeleccionado);
-
-                        // Mostrar u ocultar la sección QR en el modal de confirmación
-                        if (metodoSeleccionado === 'QR') {
-                            qrConfirmacion.style.display = 'flex';
-                        } else {
-                            qrConfirmacion.style.display = 'none';
-                        }
-
-                        // Actualizar el texto en el modal de confirmación
-                        metodoSeleccionadoTexto.textContent = metodoSeleccionado;
-
-                        // Cerrar el modal de método de pago y abrir el de confirmación
-                        $('#modalMetodoPago').modal('hide');
-                        $('#modalConfirmacion').modal('show');
-                    } else {
-                        alert('Por favor, selecciona un método de pago.');
+                // Inicializar la página actual
+                function init() {
+                    const path = window.location.pathname;
+                    if (path.includes('cart.html') || path.endsWith('/cart.html')) {
+                        mostrarCarrito();
+                        botonComprar.addEventListener('click', manejarCompra);
+                    } else if (path.includes('product.html') || path.endsWith('/product.html')) {
+                        cargarProductoYAgregarAlCarrito();
                     }
-                });
 
-                document.getElementById('confirmarCompra').addEventListener('click', () => {
-                    $('#modalConfirmacion').modal('hide');
-                    $('#modalLoading').modal('show');
-                    // Simular proceso de compra
-                    setTimeout(() => {
-                        $('#modalLoading').modal('hide');
-                        generarResumenCompra(); // Generar el resumen antes de mostrar el modal de éxito
-                        $('#modalExito').modal('show');
-                        // Limpiar el carrito después de la compra
+                    configurarModalPagos();
+                    configurarDescargaPDF();
+                }
+
+                // Función para mostrar los productos del carrito en `cart.html`
+                function mostrarCarrito() {
+                    listaCarrito.innerHTML = '';
+                    let totalCantidad = 0;
+                    let totalPrecio = 0;
+
+                    console.log('Carrito:', carrito); // Verificar contenido del carrito
+
+                    if (carrito.length === 0) {
                         listaCarrito.innerHTML = `
                             <div class="text-center py-5">
                                 <p>No tienes ningún artículo en tu carrito de compras.</p>
                                 <a href="index.html" class="btn btn-warning"><i class="fas fa-search"></i> Buscar Productos</a>
                             </div>`;
-                        totalPrecio.textContent = '₲0';
-                        totalCantidad.textContent = '0';
-                        metodoPagoTexto.textContent = 'Método de Pago: No seleccionado';
-                        metodoPagoTexto.style.color = '#28a745';
-                        metodoSeleccionadoTexto.textContent = '';
-                        qrConfirmacion.style.display = 'none';
-                        // Limpiar el carrito en localStorage
-                        localStorage.removeItem('carrito');
-                        localStorage.removeItem('metodoPago');
-                    }, 2000);
-                });
+                        actualizarTotales(totalPrecio, totalCantidad);
+                        return;
+                    }
 
-                // Función para generar un resumen del pedido
+                    carrito.forEach(producto => {
+                        totalCantidad += producto.cantidad;
+                        totalPrecio += producto.precio * producto.cantidad; // Calcular el total
+                        agregarProductoAlCarrito(producto);
+                    });
+
+                    console.log(`Total cantidad: ${totalCantidad}`);
+                    console.log(`Total precio: ₲${totalPrecio.toLocaleString('es-PY')}`);
+
+                    actualizarTotales(totalPrecio, totalCantidad); // Actualiza los totales en el DOM
+                }
+
+                // Función para actualizar los totales en el carrito
+                function actualizarTotales(totalPrecio, totalCantidad) {
+                    totalPrecioElemento.textContent = `₲${Number(totalPrecio).toLocaleString('es-PY')}`; // Formatear el precio
+                    totalCantidadElemento.textContent = totalCantidad; // Actualizar cantidad total
+                }
+
+                // Función para agregar un producto al DOM
+                function agregarProductoAlCarrito(producto) {
+                    const item = document.createElement('div');
+                    item.classList.add('carrito-item');
+                    item.innerHTML = `
+                        <div class="row w-100">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <img src="${producto.foto_url || 'image/no_image.png'}" class="img-thumbnail" width="100" alt="${producto.nombre}">
+                                <div class="ml-3">
+                                    <h5>${producto.nombre}</h5>
+                                    <p>Precio: ₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Cantidad</span>
+                                        </div>
+                                        <input type="number" class="form-control cantidad-input" min="1" value="${producto.cantidad}" data-id="${producto.id}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-center">
+                                <p>₲${(producto.precio * producto.cantidad).toLocaleString('es-PY')}</p>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                <button class="eliminar-item btn btn-danger btn-sm" data-id="${producto.id}"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+                    `;
+                    listaCarrito.appendChild(item);
+
+                    // Evento para eliminar el producto
+                    item.querySelector('.eliminar-item').addEventListener('click', () => {
+                        eliminarProducto(producto.id);
+                    });
+
+                    // Evento para actualizar la cantidad
+                    item.querySelector('.cantidad-input').addEventListener('change', (e) => {
+                        const nuevaCantidad = parseInt(e.target.value);
+                        if (isNaN(nuevaCantidad) || nuevaCantidad < 1) {
+                            mostrarNotificacion('Cantidad inválida. Debe ser un número positivo.');
+                            e.target.value = producto.cantidad; // Restaurar valor anterior
+                            return;
+                        }
+                        actualizarCantidad(producto.id, nuevaCantidad);
+                    });
+                }
+
+                // Función para eliminar un producto del carrito
+                function eliminarProducto(idProducto) {
+                    carrito = carrito.filter(p => p.id !== idProducto);
+                    localStorage.setItem('carrito', JSON.stringify(carrito));
+                    mostrarCarrito(); // Actualizar el carrito después de eliminar
+                }
+
+                // Función para actualizar la cantidad de un producto en el carrito
+                function actualizarCantidad(idProducto, nuevaCantidad) {
+                    const index = carrito.findIndex(p => p.id === idProducto);
+                    if (index !== -1) {
+                        carrito[index].cantidad = nuevaCantidad;
+                        localStorage.setItem('carrito', JSON.stringify(carrito));
+                        mostrarCarrito(); // Actualizar el carrito para reflejar los cambios
+                    }
+                }
+
+                // Función para agregar productos al carrito desde `product.html`
+                function agregarAlCarrito(producto) {
+                    const cantidadInput = document.getElementById('input-quantity');
+                    const cantidad = parseInt(cantidadInput.value, 10);
+
+                    if (isNaN(cantidad) || cantidad <= 0) {
+                        mostrarNotificacion('Cantidad inválida. Debe ser un número positivo.');
+                        return;
+                    }
+
+                    const index = carrito.findIndex(item => item.id === producto.id);
+                    if (index >= 0) {
+                        carrito[index].cantidad += cantidad; // Aumenta la cantidad si ya existe
+                    } else {
+                        carrito.push({
+                            id: producto.id,
+                            nombre: producto.nombre,
+                            precio: producto.precio,
+                            foto_url: producto.foto_url || 'image/no_image.png',
+                            cantidad: cantidad
+                        }); // Agrega el nuevo producto al carrito
+                    }
+
+                    localStorage.setItem('carrito', JSON.stringify(carrito));
+                    mostrarNotificacion(`Se agregó ${producto.nombre} al carrito.`);
+                    mostrarCarrito();
+                }
+
+                // Función para cargar el producto actual desde `product.html` y agregar al carrito
+                function cargarProductoYAgregarAlCarrito() {
+                    const params = new URLSearchParams(window.location.search);
+                    const productId = params.get('id');
+
+                    if (productId) {
+                        fetch(`http://127.0.0.1:3000/api/productos/${productId}`)
+                            .then(response => response.json())
+                            .then(producto => {
+                                if (producto) {
+                                    const botonAgregar = document.getElementById('button-cart');
+                                    if (botonAgregar) {
+                                        botonAgregar.addEventListener('click', () => {
+                                            agregarAlCarrito(producto);
+                                        });
+                                    }
+                                } else {
+                                    mostrarNotificacion('Producto no encontrado.');
+                                }
+                            })
+                            .catch(err => {
+                                console.error('Error al cargar el producto:', err);
+                                mostrarNotificacion('Error al cargar el producto.');
+                            });
+                    }
+                }
+
+                // Función para manejar la compra en `cart.html`
+                function manejarCompra() {
+                    if (carrito.length === 0) {
+                        mostrarNotificacion('El carrito está vacío.');
+                        return;
+                    }
+
+                    // Guardar una copia del carrito antes de vaciarlo para el resumen y PDF
+                    localStorage.setItem('carritoAntesDeCompra', JSON.stringify(carrito));
+
+                    // Mostrar modal de métodos de pago
+                    $('#modalMetodoPago').modal('show');
+                }
+
+                // Configuración del modal de métodos de pago
+                function configurarModalPagos() {
+                    // Al guardar el método de pago
+                    document.getElementById('guardarMetodoPago').addEventListener('click', () => {
+                        const metodoSeleccionado = document.getElementById('metodo-pago').value;
+                        if (metodoSeleccionado) {
+                            // Actualizar el texto del método de pago
+                            metodoPagoTexto.textContent = `Método de Pago: ${metodoSeleccionado}`;
+                            metodoPagoTexto.style.color = '#28a745';
+
+                            // Guardar el método de pago seleccionado en localStorage
+                            localStorage.setItem('metodoPago', metodoSeleccionado);
+
+                            // Mostrar u ocultar la sección QR en el modal de confirmación
+                            if (metodoSeleccionado === 'QR') {
+                                qrConfirmacion.style.display = 'flex';
+                            } else {
+                                qrConfirmacion.style.display = 'none';
+                            }
+
+                            // Actualizar el texto en el modal de confirmación
+                            metodoSeleccionadoTexto.textContent = metodoSeleccionado;
+
+                            // Cerrar el modal de método de pago y abrir el de confirmación
+                            $('#modalMetodoPago').modal('hide');
+                            $('#modalConfirmacion').modal('show');
+                        } else {
+                            alert('Por favor, selecciona un método de pago.');
+                        }
+                    });
+
+                    // Al confirmar la compra en el modal de confirmación
+                    document.getElementById('confirmarCompra').addEventListener('click', () => {
+                        $('#modalConfirmacion').modal('hide');
+                        $('#modalLoading').modal('show');
+                        // Simular proceso de compra
+                        setTimeout(() => {
+                            $('#modalLoading').modal('hide');
+                            generarResumenCompra(); // Generar el resumen antes de mostrar el modal de éxito
+                            $('#modalExito').modal('show');
+                            // Limpiar el carrito después de la compra
+                            carrito = [];
+                            localStorage.setItem('carrito', JSON.stringify(carrito));
+                            mostrarCarrito(); // Actualizar visualmente el carrito
+                            metodoPagoTexto.textContent = 'Método de Pago: No seleccionado';
+                            metodoPagoTexto.style.color = '#28a745';
+                            metodoSeleccionadoTexto.textContent = '';
+                            qrConfirmacion.style.display = 'none';
+                        }, 2000);
+                    });
+                }
+
+                // Función para generar un resumen del pedido en el modal de éxito
                 function generarResumenCompra() {
                     const resumenCompra = document.getElementById('resumen-compra');
                     resumenCompra.innerHTML = ''; // Limpiar contenido previo
 
-                    // Obtener los productos del carrito antes de limpiarlo
-                    const productos = JSON.parse(localStorage.getItem('carrito')) || [];
+                    // Obtener los productos del carrito antes de vaciarlo
+                    const carritoAntesDeCompra = JSON.parse(localStorage.getItem('carritoAntesDeCompra')) || [];
 
-                    productos.forEach(producto => {
+                    carritoAntesDeCompra.forEach(producto => {
                         const item = document.createElement('li');
                         item.classList.add('list-group-item');
                         item.innerHTML = `
                             <div class="d-flex justify-content-between">
                                 <span>${producto.nombre} x${producto.cantidad}</span>
-                                <span>₲${(producto.precio * producto.cantidad).toLocaleString()}</span>
+                                <span>₲${(producto.precio * producto.cantidad).toLocaleString('es-PY')}</span>
                             </div>
                         `;
                         resumenCompra.appendChild(item);
                     });
 
                     // Agregar totales
+                    const total = carritoAntesDeCompra.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
                     const totalItem = document.createElement('li');
                     totalItem.classList.add('list-group-item', 'font-weight-bold');
                     totalItem.innerHTML = `
                         <div class="d-flex justify-content-between">
                             <span>Total</span>
-                            <span>₲${totalPrecio.textContent.replace('₲', '').replace(/,/g, '').toLocaleString()}</span>
+                            <span>₲${total.toLocaleString('es-PY')}</span>
                         </div>
                     `;
                     resumenCompra.appendChild(totalItem);
+
+                    // Guardar el carrito antes de compra para la generación del PDF
+                    localStorage.setItem('carritoAntesDeCompra', JSON.stringify(carritoAntesDeCompra));
                 }
 
-                // Simulación de productos almacenados en el carrito usando localStorage
-                // Esto es para propósitos de demostración. Reemplaza esto con tu lógica real.
-                if (!localStorage.getItem('carrito')) {
-                    const productosSimulados = [
-                        {
-                            id_producto: 1,
-                            nombre: 'Producto A',
-                            precio: 5000,
-                            cantidad: 2,
-                            foto_url: 'producto-a.jpg'
-                        },
-                        {
-                            id_producto: 2,
-                            nombre: 'Producto B',
-                            precio: 3000,
-                            cantidad: 1,
-                            foto_url: 'producto-b.jpg'
-                        },
-                        {
-                            id_producto: 3,
-                            nombre: 'Producto C',
-                            precio: 1500,
-                            cantidad: 3,
-                            foto_url: 'producto-c.jpg'
+                // Función para configurar la descarga del PDF
+                function configurarDescargaPDF() {
+                    descargarPDF.addEventListener('click', () => {
+                        const { jsPDF } = window.jspdf;
+                        const doc = new jsPDF();
+
+                        // Título
+                        doc.setFontSize(18);
+                        doc.text('Resumen de la Compra', 105, 20, null, null, 'center');
+
+                        // Subtítulo
+                        doc.setFontSize(14);
+                        doc.text('Productos:', 20, 30);
+
+                        // Obtener los productos del carrito antes de vaciarlo
+                        const carritoAntesDeCompra = JSON.parse(localStorage.getItem('carritoAntesDeCompra')) || [];
+
+                        // Tabla de productos
+                        const columnas = ["Producto", "Cantidad", "Precio"];
+                        const datos = carritoAntesDeCompra.map(p => [p.nombre, p.cantidad.toString(), `₲${(p.precio * p.cantidad).toLocaleString('es-PY')}`]);
+
+                        if (carritoAntesDeCompra.length > 0) {
+                            doc.autoTable({
+                                head: [columnas],
+                                body: datos,
+                                startY: 35,
+                                styles: { fontSize: 12 },
+                                headStyles: { fillColor: [40, 167, 69] },
+                                theme: 'striped'
+                            });
+
+                            // Totales
+                            const total = carritoAntesDeCompra.reduce((acc, p) => acc + (p.precio * p.cantidad), 0);
+                            doc.setFontSize(14);
+                            doc.text(`Total: ₲${total.toLocaleString('es-PY')}`, 20, doc.lastAutoTable.finalY + 10);
+
+                            // Guardar el PDF
+                            doc.save('Resumen_Compra.pdf');
+                        } else {
+                            // Si no hay productos, generar un PDF simple
+                            doc.setFontSize(12);
+                            doc.text('No hay productos en el carrito.', 20, 30);
+                            doc.save('Resumen_Compra.pdf');
                         }
-                    ];
-                    localStorage.setItem('carrito', JSON.stringify(productosSimulados));
-                }
 
-                // Función para obtener productos del carrito (simulada)
-                async function obtenerCarrito(idUsuario) {
-                    // Simular un retraso de la API
-                    return new Promise((resolve) => {
-                        setTimeout(() => {
-                            const productos = JSON.parse(localStorage.getItem('carrito')) || [];
-                            resolve(productos);
-                        }, 500);
+                        // Limpiar el carritoAntesDeCompra después de generar el PDF
+                        localStorage.removeItem('carritoAntesDeCompra');
                     });
                 }
 
-                // Función para actualizar el carrito en localStorage
-                async function actualizarCarrito(idUsuario, idProducto, cantidad) {
-                    const productos = JSON.parse(localStorage.getItem('carrito')) || [];
-                    const index = productos.findIndex(p => p.id_producto == idProducto);
-                    if (index !== -1) {
-                        productos[index].cantidad = cantidad;
-                        localStorage.setItem('carrito', JSON.stringify(productos));
-                    }
-                }
-
-                // Función para eliminar un producto del carrito en localStorage
-                async function eliminarDelCarrito(idUsuario, idProducto) {
-                    let productos = JSON.parse(localStorage.getItem('carrito')) || [];
-                    productos = productos.filter(p => p.id_producto != idProducto);
-                    localStorage.setItem('carrito', JSON.stringify(productos));
-                }
-
-                try {
-                    const productos = await obtenerCarrito(idUsuario);
-
-                    if (productos.length === 0) {
-                        listaCarrito.innerHTML = `
-                            <div class="text-center py-5">
-                                <p>No tienes ningún artículo en tu carrito de compras.</p>
-                                <a href="index.html" class="btn btn-warning"><i class="fas fa-search"></i> Buscar Productos</a>
-                            </div>`;
+                // Función para manejar la compra y guardar una copia del carrito antes de vaciarlo
+                function manejarCompra() {
+                    if (carrito.length === 0) {
+                        mostrarNotificacion('El carrito está vacío.');
                         return;
                     }
 
-                    let total = 0;
-                    let cantidadTotal = 0;
+                    // Guardar una copia del carrito antes de vaciarlo para el resumen y PDF
+                    localStorage.setItem('carritoAntesDeCompra', JSON.stringify(carrito));
 
-                    productos.forEach(producto => {
-                        const subtotal = producto.precio * producto.cantidad;
-                        total += subtotal;
-                        cantidadTotal += producto.cantidad;
-
-                        const productoHTML = `
-                            <div class="row align-items-center carrito-item">
-                                <div class="col-5 d-flex align-items-center">
-        <img src="${producto.foto_url || 'image/not-found.png'}" alt="${producto.nombre}" class="product-image">
-                                    <div>
-                                        <h5>${producto.nombre}</h5>
-                                        <span class="text-muted">₲${producto.precio.toLocaleString()}</span>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <input type="number" value="${producto.cantidad}" min="1" class="form-control text-center producto-cantidad" data-id="${producto.id_producto}">
-                                </div>
-                                <div class="col-2">₲${subtotal.toLocaleString()}</div>
-                                <div class="col-1">
-                                    <button class="eliminar-item btn" data-id="${producto.id_producto}"><i class="fas fa-times"></i></button>
-                                </div>
-                            </div>`;
-                        listaCarrito.innerHTML += productoHTML;
-                    });
-
-                    totalPrecio.textContent = `₲${total.toLocaleString()}`;
-                    totalCantidad.textContent = cantidadTotal;
-
-                    // Manejar cambios en la cantidad de productos
-                    document.querySelectorAll('.producto-cantidad').forEach(input => {
-                        input.addEventListener('change', async function () {
-                            const nuevaCantidad = parseInt(this.value);
-                            const idProducto = this.getAttribute('data-id');
-                            if (nuevaCantidad < 1) {
-                                this.value = 1;
-                                return;
-                            }
-                            try {
-                                await actualizarCarrito(idUsuario, idProducto, nuevaCantidad);
-                                actualizarTotales();
-                            } catch (error) {
-                                console.error('Error al actualizar la cantidad:', error);
-                            }
-                        });
-                    });
-                } catch (error) {
-                    console.error('Error al cargar el carrito:', error);
+                    // Mostrar modal de métodos de pago
+                    $('#modalMetodoPago').modal('show');
                 }
 
-                document.addEventListener('click', async function (event) {
-                    if (event.target.closest('.eliminar-item')) {
-                        const botonEliminar = event.target.closest('.eliminar-item');
-                        const idProducto = botonEliminar.getAttribute('data-id');
-                        const carritoItem = botonEliminar.closest('.carrito-item');
-                        carritoItem.classList.add('fade-out');
-
-                        setTimeout(async () => {
-                            carritoItem.remove();
-                            try {
-                                await eliminarDelCarrito(1, idProducto);
-                                await actualizarTotales();
-
-                                // Verificar si el carrito está vacío
-                                const productos = JSON.parse(localStorage.getItem('carrito')) || [];
-                                if (productos.length === 0) {
-                                    listaCarrito.innerHTML = `
-                                        <div class="text-center py-5">
-                                            <p>No tienes ningún artículo en tu carrito de compras.</p>
-                                            <a href="index.html" class="btn btn-warning"><i class="fas fa-search"></i> Buscar Productos</a>
-                                        </div>`;
-                                }
-                            } catch (error) {
-                                console.error('Error al eliminar el producto:', error);
-                            }
-                        }, 300);
-                    }
-                });
-
-                async function actualizarTotales() {
-                    const totalPrecio = document.getElementById('total-precio');
-                    const totalCantidad = document.getElementById('total-cantidad');
-                    const idUsuario = 1;
-
-                    try {
-                        const productos = await obtenerCarrito(idUsuario);
-
-                        let total = 0;
-                        let cantidadTotal = 0;
-
-                        productos.forEach(producto => {
-                            const subtotal = producto.precio * producto.cantidad;
-                            total += subtotal;
-                            cantidadTotal += producto.cantidad;
-                        });
-
-                        totalPrecio.textContent = `₲${total.toLocaleString()}`;
-                        totalCantidad.textContent = cantidadTotal;
-                    } catch (error) {
-                        console.error('Error al actualizar los totales:', error);
-                    }
+                // Función para mostrar notificaciones al usuario
+                function mostrarNotificacion(mensaje) {
+                    const notificacion = document.createElement('div');
+                    notificacion.classList.add('alert', 'alert-info', 'position-fixed', 'top-0', 'end-0', 'm-3', 'fade', 'show');
+                    notificacion.setAttribute('role', 'alert');
+                    notificacion.textContent = mensaje;
+                    document.body.appendChild(notificacion);
+                    setTimeout(() => {
+                        $(notificacion).alert('close');
+                    }, 3000); // La notificación se elimina después de 3 segundos
                 }
-            });
 
-            document.getElementById('boton-comprar').addEventListener('click', () => {
-                $('#modalMetodoPago').modal('show');
-            });
-
-            // Manejar la descarga del PDF
-            document.getElementById('descargarPDF').addEventListener('click', () => {
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
-
-                // Título
-                doc.setFontSize(18);
-                doc.text('Resumen de la Compra', 105, 20, null, null, 'center');
-
-                // Subtítulo
-                doc.setFontSize(14);
-                doc.text('Productos:', 20, 30);
-
-                // Tabla de productos
-                const productos = JSON.parse(localStorage.getItem('carrito')) || [];
-                const columnas = ["Producto", "Cantidad", "Precio"];
-                const datos = productos.map(p => [p.nombre, p.cantidad.toString(), `₲${(p.precio * p.cantidad).toLocaleString()}`]);
-
-                // Agregar la tabla usando jsPDF-AutoTable (Necesario incluir la biblioteca)
-                if (productos.length > 0) {
-                    // Incluir jsPDF-AutoTable
-                    const scriptAutoTable = document.createElement('script');
-                    scriptAutoTable.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js";
-                    scriptAutoTable.onload = function () {
-                        doc.autoTable({
-                            head: [columnas],
-                            body: datos,
-                            startY: 35,
-                            styles: { fontSize: 12 },
-                            headStyles: { fillColor: [40, 167, 69] },
-                        });
-
-                        // Totales
-                        const total = parseInt(document.getElementById('total-precio').textContent.replace('₲', '').replace(/,/g, '')) || 0;
-                        doc.setFontSize(14);
-                        doc.text(`Total: ₲${total.toLocaleString()}`, 20, doc.lastAutoTable.finalY + 10);
-
-                        // Guardar el PDF
-                        doc.save('Resumen_Compra.pdf');
-                    };
-                    document.body.appendChild(scriptAutoTable);
-                } else {
-                    // Si no hay productos, generar un PDF simple
-                    doc.setFontSize(12);
-                    doc.text('No hay productos en el carrito.', 20, 30);
-                    doc.save('Resumen_Compra.pdf');
-                }
+                // Ejecutar la inicialización
+                init();
             });
         </script>
     </div>
