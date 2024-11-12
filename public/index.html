@@ -868,112 +868,80 @@
       transition: color 0.3s;
     }
 
-.forgot-password a:hover {
-    color: #e06450;
-    text-decoration: underline;
-}
+    .wishlist-button:hover,
+    .cart-button:hover {
+      color: #ff6f61;
+    }
 
+    .ver-mas {
+      align-self: center;
+      padding: 10px 20px;
+      background-color: #ff6f61;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+      font-size: 14px;
+    }
 
-/* Mensaje de Error */
-#login-error {
-    font-size: 0.9rem;
-}
+    .ver-mas:hover {
+      background-color: #e55b4d;
+      transform: scale(1.05);
+    }
 
+    /* Media Queries para pantallas más pequeñas */
+    @media (max-width: 1200px) {
+      .product-item {
+        width: calc(33.33% - 30px);
+      }
+    }
 
-.toggle-password:hover {
-    color: #fa8072;
-}
+    @media (max-width: 992px) {
+      .product-item {
+        width: calc(50% - 30px);
+      }
+    }
 
-/* Estilo para el enlace "¿Olvidaste tu contraseña?" */
-.forgot-password a {
-    color: #fa8072;
-    transition: color 0.3s;
-}
+    @media (max-width: 768px) {
+      .product-item {
+        width: 100%;
+      }
 
-.forgot-password a:hover {
-    color: #e06450;
-    text-decoration: underline;
-}
+      .search-bar {
+        flex-direction: column;
+        margin: 10px 0;
+        width: 100%;
+      }
 
-/* Mensaje de error personalizado */
-#login-error {
-    font-size: 14px;
-}
+      .search-bar input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
 
-#login-error {
-    margin-top: 10px; /* Espaciado superior */
-    color: red; /* Color del texto de error */
-    display: none; /* Ocultar inicialmente */
-}
+      .small-images .image-box img {
+        height: 80px;
+      }
 
+      .owl-carousel .item img {
+        height: 200px;
+      }
 
+      .category-title {
+        font-size: 24px;
+      }
 
-.form-group {
-    margin-bottom: 20px; /* Espaciado entre los campos */
-}
+      .section-title {
+        font-size: 18px;
+      }
 
-.form-control {
-    border-radius: 5px; /* Bordes redondeados para los inputs */
-    border: 1px solid #ccc; /* Bordes suaves */
-    padding: 10px; /* Espaciado interno */
-}
+      .header-container {
+        text-align: center;
+      }
 
-
-.toggle-password {
-    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
-}
-
-.forgot-password {
-    margin-top: 10px; /* Espaciado superior */
-}
-
-.btn-login {
-    background-color: white; 
-    color: #333; 
-    transition: color 0.3s, background-color 0.3s;
-}
-
-.btn-login:hover,
-.btn-login:focus {
-    background-color: white; 
-    color: #333; 
-    border-color: #333; 
-    box-shadow: none; 
-}
-
-
-#login-error {
-    margin-top: 10px; /* Espaciado superior */
-    color: red; /* Color del texto de error */
-    display: none; /* Ocultar inicialmente */
-}
-
-/* Estilo para el título en el modal */
-.modal-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Contenedor del icono */
-.toggle-password {
-    position: absolute;
-    top: 58%;
-    right: 25px; 
-    transform: translateY(-50%); 
-    cursor: pointer;
-    color: #aaa; 
-    font-size: 1.2rem; 
-    transition: color 0.3s;
-}
-
-/* Cambia el color cuando el cursor está sobre el icono */
-.toggle-password:hover {
-    color: #fa8072; /* Color al pasar el mouse */
-}
-
-
+      .recomendaciones-container {
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1112,38 +1080,6 @@
   </div>
 </div>
 </div>
-<div class="category-section"> 
-  <div class="category-item" onclick="redirectToCategory('electronica.html')">
-      <div class="image-circle">
-          <img src="image/elf.png" alt="Electrónica">
-      </div>
-      <p>Electrónica</p>
-  </div>
-  <div class="category-item" onclick="redirectToCategory('informatica.html')">
-      <div class="image-circle">
-          <img src="image/informatica.png" alt="Informática">
-      </div>
-      <p>Informática</p>
-  </div>
-  <div class="category-item" onclick="redirectToCategory('ropa.html')">
-      <div class="image-circle">
-          <img src="image/ropaf.png" alt="Ropa">
-      </div>
-      <p>Ropa</p>
-  </div>
-  <div class="category-item" onclick="redirectToCategory('automoviles.html')">
-      <div class="image-circle">
-          <img src="image/autf.png" alt="Automóviles">
-      </div>
-      <p>Automóviles</p>
-  </div>
-  <div class="category-item" onclick="redirectToCategory('belleza.html')">
-      <div class="image-circle">
-          <img src="image/bellez.png" alt="Belleza">
-      </div>
-      <p>Belleza</p>
-  </div>
-</div>
 
 <!-- Informática -->
 <div class="header-container">
@@ -1162,7 +1098,7 @@
   <div class="recomendaciones-container">
       <div id="productos-recomendados-informática" class="productos-recomendados-list"></div>
   </div>
-</div> 
+</div>
 
 <!-- Belleza -->
 <div class="header-container">
@@ -1703,10 +1639,6 @@ function redirectToCategory() {
     const select = document.getElementById('category-select');
     const category = select.value;
     window.location.href = category;
-}
-
-function redirectToCategory(page) {
-  window.location.href = page;
 }
 
 // Filtrar productos en tiempo real
