@@ -1044,57 +1044,6 @@ footer {
 .footer-bottom a:hover {
     text-decoration: underline;
 }
-.category-section {
-            display: flex;
-            justify-content: center;
-            gap: 100px; 
-            padding: 20px 0;
-        }
-
-        .category-item {
-            text-align: center;
-            color: #333;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .category-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .image-circle {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background-color: #e6e1e1; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-            margin-bottom: 10px;
-            overflow: hidden;
-            transition: background-color 0.3s ease;
-        }
-
-        .image-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .category-item p {
-            font-size: 16px;
-            font-weight: bold;
-            color: #2e2828;
-            margin: 5px 0 0 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .category-item:hover .image-circle {
-            background-color: #e0e0e0; 
-        }
 
   </style>
 </head>
@@ -1207,96 +1156,103 @@ footer {
       <p>Belleza</p>
   </div>
 </div>
+                           <!-- Novedades  -->
+<div class="contenedor-principal">
+  <!-- Sección Belleza -->
+  <div class="seccion-productos novedades-belleza">
+      <h2>Novedades en Belleza</h2>
+      <div class="productos-grid">
+          <div class="producto-item" onclick="irAProducto('public/belleza.html')">
+              <img src="image/belleza1.png" alt="Maquillaje">
+              <p>Maquillaje</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/belleza2.html')">
+              <img src="image/brochas1.png" alt="Brochas">
+              <p>Brochas</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/belleza3.html')">
+              <img src="image/esponja1.png" alt="Esponjas">
+              <p>Esponjas</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/belleza4.html')">
+              <img src="image/espejo1.png" alt="Espejos">
+              <p>Espejos</p>
+          </div>
+      </div>
+      <a href="public/todos_los_productos_belleza.html" class="enlace-mas">Compra lo último en belleza</a>
+  </div>
 
-<div class="seccion-productos novedades-belleza">
-  <h2>Novedades en Belleza</h2>
-  <div class="productos-grid">
-    <div class="producto-item" onclick="irAProducto('belleza.html')">
-      <img src="image/belleza1.png" alt="Maquillaje">
-      <p>Maquillaje</p>
-    </div>
-    <div class="producto-item" onclick="irAProducto('belleza2')">
-      <img src="image/brochas1.png" alt="Brochas">
-      <p>Brochas</p>
-    </div>
-    <div class="producto-item" onclick="irAProducto('belleza3')">
-      <img src="image/esponja1.png" alt="Esponjas">
-      <p>Esponjas</p>
-    </div>
-    <div class="producto-item" onclick="irAProducto('belleza4')">
-      <img src="image/espejo1.png" alt="Espejos">
-      <p>Espejos</p>
-    </div>
+  <!-- Sección Informática -->
+  <div class="seccion-productos explora-informatica">
+      <h2>Explora Informática</h2>
+      <div class="productos-grid">
+          <div class="producto-item" onclick="irAProducto('public/informatica1.html')">
+              <img src="image/notebook1.png" alt="Laptops">
+              <p>Laptops</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/informatica2.html')">
+              <img src="image/teclado1.png" alt="Teclados">
+              <p>Teclados</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/informatica3.html')">
+              <img src="image/monitor.png" alt="Monitores">
+              <p>Monitores</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/informatica4.html')">
+              <img src="image/auricular1.png" alt="Auriculares">
+              <p>Auriculares</p>
+          </div>
+      </div>
+      <a href="public/todos_los_productos_informatica.html" class="enlace-mas">Explorar más en informática</a>
   </div>
-  <a href="todos_los_productos_belleza.html" class="enlace-mas">Compra lo último en belleza</a>
-</div>
 
-<div class="seccion-productos explora-informatica">
-  <h2>Explora Informática</h2>
-  <div class="productos-grid">
-    <div class="producto-item" onclick="irAProducto('informatica1')">
-      <img src="image/notebook1.png" alt="Laptops">
-      <p>Laptops</p>
-    </div>
-    <div class="producto-item" onclick="irAProducto('informatica2')">
-      <img src="image/teclado1.png" alt="Teclados">
-      <p>Teclados</p>
-    </div>
-    <div class="producto-item" onclick="irAProducto('informatica3')">
-      <img src="image/monitor.png" alt="Monitores">
-      <p>Monitores</p>
-    </div>
-    <div class="producto-item" onclick="irAProducto('informatica4')">
-      <img src="image/auricular1.png" alt="Auriculares">
-      <p>Auriculares</p>
-    </div>
+  <!-- Sección Electrónica -->
+  <div class="seccion-productos descubre-electronica">
+      <h2>Descubre Electrónica</h2>
+      <div class="productos-grid">
+          <div class="producto-item" onclick="irAProducto('public/electronica1.html')">
+              <img src="image/telefono1.png" alt="Teléfonos">
+              <p>Teléfonos</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/electronica2.html')">
+              <img src="image/televisor1.png" alt="Televisores">
+              <p>Televisores</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/electronica3.html')">
+              <img src="image/reloj1.png" alt="Relojes">
+              <p>Relojes</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/electronica4.html')">
+              <img src="image/camara1.png" alt="Cámaras">
+              <p>Cámaras</p>
+          </div>
+      </div>
+      <a href="public/todos_los_productos_electronica.html" class="enlace-mas">Ver más en electrónica</a>
   </div>
-  <a href="todos_los_productos_informatica.html" class="enlace-mas">Explorar más en informática</a>
-</div>
-<div class="electronica-container">
-  <h3>Descubre Electrónica</h3>
-  <div class="electronica-grid">
-    <div class="electronica-item">
-      <img src="image/telefono1.png" alt="Teléfonos">
-      <p>Teléfonos</p>
-    </div>
-    <div class="electronica-item">
-      <img src="url_de_imagen_televisores" alt="Televisores">
-      <p>Televisores</p>
-    </div>
-    <div class="electronica-item">
-      <img src="url_de_imagen_audifonos" alt="Audífonos">
-      <p>Audífonos</p>
-    </div>
-    <div class="electronica-item">
-      <img src="url_de_imagen_camaras" alt="Cámaras">
-      <p>Cámaras</p>
-    </div>
-  </div>
-  <a href="#" class="electronica-link">Ver más en electrónica</a>
-</div>
 
-<div class="ropa-container">
-  <h3>Explora Ropa</h3>
-  <div class="ropa-grid">
-    <div class="ropa-item">
-      <img src="url_de_imagen_camisas" alt="Camisas">
-      <p>Camisas</p>
-    </div>
-    <div class="ropa-item">
-      <img src="url_de_imagen_pantalones" alt="Pantalones">
-      <p>Pantalones</p>
-    </div>
-    <div class="ropa-item">
-      <img src="url_de_imagen_zapatos" alt="Zapatos">
-      <p>Zapatos</p>
-    </div>
-    <div class="ropa-item">
-      <img src="url_de_imagen_accesorios" alt="Accesorios">
-      <p>Accesorios</p>
-    </div>
+  <!-- Sección Ropa -->
+  <div class="seccion-productos explora-ropa">
+      <h2>Explora Ropa</h2>
+      <div class="productos-grid">
+          <div class="producto-item" onclick="irAProducto('public/ropa1.html')">
+              <img src="image/camisa1.png" alt="Camisas">
+              <p>Camisas</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/ropa2.html')">
+              <img src="image/pantalon1.png" alt="Pantalones">
+              <p>Pantalones</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/ropa3.html')">
+              <img src="image/zapatos1.png" alt="Zapatos">
+              <p>Zapatos</p>
+          </div>
+          <div class="producto-item" onclick="irAProducto('public/ropa4.html')">
+              <img src="image/accesorio1.png" alt="Accesorios">
+              <p>Accesorios</p>
+          </div>
+      </div>
+      <a href="public/todos_los_productos_ropa.html" class="enlace-mas">Explora más en ropa</a>
   </div>
-  <a href="#" class="ropa-link">Explora más en ropa</a>
 </div>
 
 <!-- Electrónica -->
