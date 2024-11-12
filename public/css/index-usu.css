@@ -9,7 +9,7 @@
 
 /* --- Banner Superior --- */
 .top-banner {
-    background: linear-gradient(90deg, #f77f3a, #fff3e8, #f77f3a);
+    background: linear-gradient(90deg, #4c453e, #fff3e8, #8e786b);
     color: rgb(116, 103, 103);
     font-weight: bold;
     font-size: 18px;
@@ -43,17 +43,19 @@
 
 /* --- Encabezado --- */
 .header {
-    background-color: #363131;
-    padding: 15px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
     position: fixed;
-    top: 30px; /* Para dejar espacio al banner superior */
+    top: 0;
     width: 100%;
-    z-index: 999;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
   
 /* Ajuste para que no se superpongan */
 body {
@@ -105,7 +107,7 @@ body {
 
 /* Estilo del logo */
 .header .logo img {
-  max-width: 160px;
+  max-width: 170px;
   height: auto;
 }
 
@@ -117,6 +119,7 @@ body {
   border-radius: 50px;
   padding: 5px 15px;
   max-width: 400px;
+  gap: 5px;
   width: 100%;
   margin: 0 auto;
 }
@@ -148,6 +151,19 @@ body {
 
 .button-search:hover {
   color: #ff6f61;
+}
+
+header.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 /* Estilos para los iconos de usuario y carrito */
@@ -196,29 +212,6 @@ body {
 }
 /* Media queries para hacer el diseño responsive */
 @media (max-width: 768px) {
-    /* Ajuste del banner superior */
-    .top-banner {
-        font-size: 14px;
-        padding: 5px 0;
-    }
-
-    /* Estructura del header en móvil */
-    .header {
-        flex-direction: column;
-        align-items: center;
-        padding: 8px 15px;
-        top: 0;
-    }
-
-    .header .logo {
-        margin-bottom: 5px;
-    }
-
-    /* Ajuste de la barra de búsqueda en móvil */
-    .search-bar {
-        margin: 5px 0;
-        width: 90%;
-    }
 
     /* Alineación de mensaje de bienvenida y iconos en línea */
     .nav-links {
@@ -232,6 +225,88 @@ body {
         color: white;
     }
 }
+/* Estilo del encabezado fijo */
+.compact-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    height: 60px;
+}
+
+/* Ajuste para el cuerpo del documento */
+body {
+    padding-top: 100px; 
+}
+
+/* Ajuste solo para dispositivos móviles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 200px; 
+    }
+}
+
+
+/* Otros estilos del encabezado */
+.compact-header .logo img {
+    max-width: 100px;
+    height: auto;
+}
+
+.compact-header .search-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.compact-header .search-bar input {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    font-size: 14px;
+}
+
+.compact-header .search-bar .button-search {
+    padding: 5px 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+}
+
+.compact-header .nav-icons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .compact-header .logo img {
+        max-width: 80px;
+    }
+
+    .compact-header .search-bar input {
+        font-size: 12px;
+    }
+
+    .compact-header .icon-image {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.rerender {
+    display: none;
+}
+
 
     /* Seccion de Novedades xd */
     .contenedor-principal {
@@ -277,6 +352,7 @@ body {
       transition: transform 0.2s;
       width: 100%;
       max-width: 120px;
+      
   }
   
   .producto-item img {
@@ -286,8 +362,13 @@ body {
       max-height: 80px;
       object-fit: cover;
       margin-bottom: 10px;
+      transition: transform 0.3s ease;
   }
-  
+
+  .producto-item:hover img {
+    transform: scale(1.1); 
+}
+
   .producto-item p {
       font-size: 14px;
       color: #555;
@@ -328,6 +409,10 @@ body {
     padding: 20px 0;
 }
 
+.category-item:hover .image-circle img {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al pasar el mouse */
+}
+
 .category-item {
     text-align: center;
     color: #333;
@@ -354,6 +439,7 @@ body {
     margin: 0 auto 10px auto;
     overflow: hidden;
     transition: background-color 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .image-circle img {
@@ -361,6 +447,7 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: transform 0.3s ease; 
 }
 
 .category-item p {
