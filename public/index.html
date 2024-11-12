@@ -1892,11 +1892,63 @@ body {
     transition: color 0.3s;
 }
 
-/* Cambia el color cuando el cursor está sobre el icono */
+
 .toggle-password:hover {
-    color: #fa8072; /* Color al pasar el mouse */
+    color: #fa8072; 
 }
 
+
+.category-section {
+            display: flex;
+            justify-content: center;
+            gap: 100px; 
+            padding: 20px 0;
+        }
+
+        .category-item {
+            text-align: center;
+            color: #333;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .category-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: #e6e1e1; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        .image-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .category-item p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2e2828;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-item:hover .image-circle {
+            background-color: #e0e0e0; 
+        }
 
   </style>
 </head>
@@ -2036,6 +2088,38 @@ body {
   </div>
 </div>
 </div>
+<div class="category-section"> 
+  <div class="category-item" onclick="redirectToCategory('electronica.html')">
+      <div class="image-circle">
+          <img src="image/elf.png" alt="Electrónica">
+      </div>
+      <p>Electrónica</p>
+  </div>
+  <div class="category-item" onclick="redirectToCategory('informatica.html')">
+      <div class="image-circle">
+          <img src="image/informatica.png" alt="Informática">
+      </div>
+      <p>Informática</p>
+  </div>
+  <div class="category-item" onclick="redirectToCategory('ropa.html')">
+      <div class="image-circle">
+          <img src="image/ropaf.png" alt="Ropa">
+      </div>
+      <p>Ropa</p>
+  </div>
+  <div class="category-item" onclick="redirectToCategory('automoviles.html')">
+      <div class="image-circle">
+          <img src="image/autf.png" alt="Automóviles">
+      </div>
+      <p>Automóviles</p>
+  </div>
+  <div class="category-item" onclick="redirectToCategory('belleza.html')">
+      <div class="image-circle">
+          <img src="image/bellez.png" alt="Belleza">
+      </div>
+      <p>Belleza</p>
+  </div>
+</div>
 
 <!-- Informática -->
 <div class="header-container">
@@ -2054,7 +2138,7 @@ body {
   <div class="recomendaciones-container">
       <div id="productos-recomendados-informática" class="productos-recomendados-list"></div>
   </div>
-</div>
+</div> 
 
 <!-- Belleza -->
 <div class="header-container">
@@ -2595,6 +2679,10 @@ function redirectToCategory() {
     const select = document.getElementById('category-select');
     const category = select.value;
     window.location.href = category;
+}
+
+function redirectToCategory(page) {
+  window.location.href = page;
 }
 
 // Filtrar productos en tiempo real
