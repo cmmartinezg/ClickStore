@@ -533,7 +533,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       max-width: 1200px;
-      margin: 0 ;
+      margin: 0;
       padding: 0 20px;
     }
 
@@ -989,196 +989,203 @@
       }
     }
 
-    
-
-/* Estilos generales */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-/* Contenedor principal */
-.main-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    border-radius: 8px;
-}
-
-/* Imágenes pequeñas */
-.small-images {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.image-box {
-  margin: 5; /* Elimina cualquier margen externo */
-  padding: 5; /* Elimina cualquier padding interno */
-  width: 200px;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.image-box img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block; /* Asegura que no haya espacio debajo de la imagen */
-}
-
-.image-box:hover {
-    transform: scale(1.05);
-}
-
-/* Sección central */
-.center-section {
-    flex: 1;
-    padding: 0 30px;
-    text-align: center;
-}
-
-.categories {
-    background-image: url('image/fondo_click.webp'); /* Background image */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    gap: 20px;
-    flex-wrap: wrap;
-    min-height: 500px; /* Set a minimum height or remove it */
-    padding: 20px; /* Add padding to separate content */
-}
 
 
+    /* Estilos generales */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
 
+    /* Contenedor principal */
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      border-radius: 8px;
+    }
 
+    /* Imágenes pequeñas */
+    .small-images {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
+    .image-box {
+      margin: 5;
+      /* Elimina cualquier margen externo */
+      padding: 5;
+      /* Elimina cualquier padding interno */
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
 
-.category {
-    flex: 0 1 20%; /* Adjust width as needed */
-    padding: 10px; /* Control spacing inside cards */
-    background-color: rgba(230, 169, 0, 0.8);
-    color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
-    margin: 10px;
-    opacity: 0;
-    animation: fadeInUp 0.5s ease-in-out forwards;
-    /* Remove height setting */
-}
+    .image-box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      /* Asegura que no haya espacio debajo de la imagen */
+    }
+
+    .image-box:hover {
+      transform: scale(1.05);
+    }
+
+    /* Sección central */
+    .center-section {
+      flex: 1;
+      padding: 0 30px;
+      text-align: center;
+    }
+
+    .categories {
+      background-image: url('image/fondo_click.webp');
+      /* Background image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+      min-height: 500px;
+      /* Set a minimum height or remove it */
+      padding: 20px;
+      /* Add padding to separate content */
+    }
 
 
 
 
 
-.category:hover {
-    transform: translateY(5px);
-    background-color: #b55b00;
-}
 
-.category h3 {
-    font-size: 1.2vw;
-    margin-bottom: 10px;
-    
-}
+    .category {
+      flex: 0 1 20%;
+      /* Adjust width as needed */
+      padding: 10px;
+      /* Control spacing inside cards */
+      background-color: rgba(230, 169, 0, 0.8);
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+      margin: 10px;
+      opacity: 0;
+      animation: fadeInUp 0.5s ease-in-out forwards;
+      /* Remove height setting */
+    }
 
-.category p {
-    font-size: 0.9vw;
-    line-height: 1.6;
-}
+
+
+
+
+    .category:hover {
+      transform: translateY(5px);
+      background-color: #b55b00;
+    }
+
+    .category h3 {
+      font-size: 1.2vw;
+      margin-bottom: 10px;
+
+    }
+
+    .category p {
+      font-size: 0.9vw;
+      line-height: 1.6;
+    }
 
 
 
 
 
-/* Sección de información ampliada   recuadros de imagen de la info ampliada*/
-.info-section {
-    padding: 100px 200px;
-    background-color: #fff;
-    margin-top: 30px;
-    border-top: 12px solid #e6a900;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    max-width: 800px;
-    margin: 30px auto;
-    position: relative;
-    overflow: hidden;
-    
-    animation: fadeInUp 1s ease-in-out;
-}
+    /* Sección de información ampliada   recuadros de imagen de la info ampliada*/
+    .info-section {
+      padding: 100px 200px;
+      background-color: #fff;
+      margin-top: 30px;
+      border-top: 12px solid #e6a900;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      max-width: 800px;
+      margin: 30px auto;
+      position: relative;
+      overflow: hidden;
 
-/* Animación de entrada */
-@keyframes fadeInUp {
-    from {
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    /* Animación de entrada */
+    @keyframes fadeInUp {
+      from {
         opacity: 0;
         transform: translateY(20px);
-    }
-    to {
+      }
+
+      to {
         opacity: 1;
         transform: translateY(0);
+      }
     }
-}
 
-/* Imagen de fondo */
-.info-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('image/info_ampliada.webp'); /* Ruta de la imagen de fondo */
-    background-size: cover; /* Escala la imagen para cubrir todo el contenedor */
-    background-position: center; /* Centra la imagen en el contenedor */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    opacity: 0.2; /* Ajusta la opacidad según prefieras */
-    z-index: 1;
-}
+    /* Imagen de fondo */
+    .info-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('image/info_ampliada.webp');
+      /* Ruta de la imagen de fondo */
+      background-size: cover;
+      /* Escala la imagen para cubrir todo el contenedor */
+      background-position: center;
+      /* Centra la imagen en el contenedor */
+      background-repeat: no-repeat;
+      /* Evita que la imagen se repita */
+      opacity: 0.2;
+      /* Ajusta la opacidad según prefieras */
+      z-index: 1;
+    }
 
-/* Contenido de la sección */
-.info-section p {
-    color: #333;
-    position: relative;
-    z-index: 2;
-    font-size: 1rem;
-    line-height: 1.6;
-}
+    /* Contenido de la sección */
+    .info-section p {
+      color: #333;
+      position: relative;
+      z-index: 2;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
 
-/* Responsividad */
-@media (max-width: 768px) {
-    .info-section {
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .info-section {
         padding: 20px 30px;
         max-width: 90%;
-    }
-    .info-section p {
+      }
+
+      .info-section p {
         font-size: 2rem;
+      }
     }
-}
-
-
-
-
-
-
-
-    
   </style>
 </head>
 
@@ -1219,7 +1226,7 @@ body {
       <div class="text-center mt-5">
         <a href="login.html" class="btn btn-login">Iniciar Sesión</a>
       </div>
-      
+
 
 
 
@@ -1292,9 +1299,9 @@ body {
     </div>
   </header>
 
- <!-- Contenedor principal -->
- <div class="main-content">
-  <!-- Contenedor de imágenes pequeñas a la izquierda 
+  <!-- Contenedor principal -->
+  <div class="main-content">
+    <!-- Contenedor de imágenes pequeñas a la izquierda 
   <div class="small-images">
       <div class="image-box">
           <a href="electronica.html"><img src="image/imag(5).jpg" alt="Producto 1"></a>
@@ -1307,35 +1314,37 @@ body {
       </div>
   </div>
 -->
- <!-- Contenedor central con tarjetas de categorías -->
-<div class="center-section">
-  <div class="categories">
-      <div class="category ofertas" onclick="scrollToSection('ofertas')">
+    <!-- Contenedor central con tarjetas de categorías -->
+    <div class="center-section">
+      <div class="categories">
+        <div class="category ofertas" onclick="scrollToSection('ofertas')">
           <h3>Millones de ofertas comerciales</h3>
           <p>Explora productos y proveedores para tu negocio entre millones de ofertas de todo el mundo.</p>
-      </div>
-      <div class="category calidad" onclick="scrollToSection('calidad')">
+        </div>
+        <div class="category calidad" onclick="scrollToSection('calidad')">
           <h3>Calidad y transacciones aseguradas</h3>
-          <p>Asegura la calidad de producción de los proveedores verificados, con tus pedidos protegidos desde el pago hasta la entrega.</p>
-      </div>
-      <div class="category solucion" onclick="scrollToSection('solucion')">
+          <p>Asegura la calidad de producción de los proveedores verificados, con tus pedidos protegidos desde el pago
+            hasta la entrega.</p>
+        </div>
+        <div class="category solucion" onclick="scrollToSection('solucion')">
           <h3>Solución comercial única</h3>
-          <p>Pide sin problemas desde la búsqueda de productos/proveedores hasta la gestión del pedido, el pago y la finalización.</p>
-      </div>
-      <div class="category experiencia" onclick="scrollToSection('experiencia')">
+          <p>Pide sin problemas desde la búsqueda de productos/proveedores hasta la gestión del pedido, el pago y la
+            finalización.</p>
+        </div>
+        <div class="category experiencia" onclick="scrollToSection('experiencia')">
           <h3>Experiencia comercial a medida</h3>
           <p>Obtén beneficios seleccionados, como descuentos exclusivos, protección mejorada y soporte adicional.</p>
+        </div>
+        <div class="category reportes" onclick="scrollToSection('reportes')">
+          <h3>reportes</h3>
+          <p>Obtén beneficios seleccionados, como descuentos exclusivos, protección mejorada y soporte adicional.</p>
+        </div>
       </div>
-      <div class="category reportes" onclick="scrollToSection('reportes')">
-        <h3>reportes</h3>
-        <p>Obtén beneficios seleccionados, como descuentos exclusivos, protección mejorada y soporte adicional.</p>
     </div>
-  </div>
-</div>
 
 
 
-  <!-- Contenedor de imágenes pequeñas a la derecha 
+    <!-- Contenedor de imágenes pequeñas a la derecha 
   <div class="small-images">
       <div class="image-box">
           <a href="index.html"><img src="image/boxTodos.png" alt="Producto 6"></a>
@@ -1349,9 +1358,9 @@ body {
   </div>
 -->
 
-</div>
+  </div>
 
-<!-- Secciones de información ampliada -->
+  <!-- Secciones de información ampliada -->
 
 
 
@@ -1457,11 +1466,11 @@ body {
       <div id="productos-recomendados-electrónica" class="productos-recomendados-list"></div>
     </div>
   </div>
-<!-- Secciones de información ampliada -->
-<div id="solucion" class="info-section">
-  <h2>Solución comercial única</h2>
-  <p>Descripción de la solución comercial integral que ofrecemos...</p>
-</div>
+  <!-- Secciones de información ampliada -->
+  <div id="solucion" class="info-section">
+    <h2>Solución comercial única</h2>
+    <p>Descripción de la solución comercial integral que ofrecemos...</p>
+  </div>
   <!-- Ropa -->
   <div class="header-container">
     <div class="category-title">Ropa</div>
@@ -1480,12 +1489,12 @@ body {
       <div id="productos-recomendados-ropa" class="productos-recomendados-list"></div>
     </div>
   </div>
-   <!-- Secciones de información ampliada -->
- <div id="reportes" class="info-section">
-  <h2>Experiencia comercial a medida</h2>
-  <p>Detalles sobre la experiencia personalizada para nuestros clientes...</p>
-</div>
-<!-- Secciones de información ampliada -->
+  <!-- Secciones de información ampliada -->
+  <div id="reportes" class="info-section">
+    <h2>Experiencia comercial a medida</h2>
+    <p>Detalles sobre la experiencia personalizada para nuestros clientes...</p>
+  </div>
+  <!-- Secciones de información ampliada -->
   <!-- Automóviles -->
   <div class="header-container">
     <div class="category-title">Automóviles</div>
@@ -1504,11 +1513,11 @@ body {
       <div id="productos-recomendados-automóviles" class="productos-recomendados-list"></div>
     </div>
   </div>
- <!-- Secciones de información ampliada -->
- <div id="experiencia" class="info-section">
-  <h2>Experiencia comercial a medida</h2>
-  <p>Detalles sobre la experiencia personalizada para nuestros clientes...</p>
-</div>
+  <!-- Secciones de información ampliada -->
+  <div id="experiencia" class="info-section">
+    <h2>Experiencia comercial a medida</h2>
+    <p>Detalles sobre la experiencia personalizada para nuestros clientes...</p>
+  </div>
 
 
   </div>
@@ -2178,6 +2187,7 @@ body {
         toggleIcon.textContent = '👁️'; // Cambia el icono de nuevo para ocultar la contraseña
       }
     }
+    ///funcion para ir a la seccion de la info seleccionada
 
     function scrollToSection(sectionId) {
       const section = document.getElementById(sectionId);
@@ -2185,6 +2195,53 @@ body {
         section.scrollIntoView({ behavior: 'smooth' });
       }
     }
+
+
+    // Función para pedir permiso de notificación notificacion de pagina
+    function solicitarPermisoNotificacion() {
+      if (Notification.permission === 'granted') {
+        mostrarNotificacion("¡Bienvenido! Activaste las notificaciones de nuevos productos.");
+      } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            mostrarNotificacion("Notificaciones activadas para nuevos productos.");
+          }
+        });
+      }
+    }
+
+    function mostrarNotificacion(mensaje) {
+      if (Notification.permission === 'granted') {
+        new Notification("Click Store - Nuevo Producto", {
+          body: mensaje,
+          icon: "image/logo.png" // Cambia a la ruta del icono de tu sitio web
+        });
+      }
+    }
+
+    let lastProductoId = 0; // Almacena el ID del último producto registrado
+
+    // Verificar nuevos productos
+    function verificarNuevosProductos() {
+      fetch('https://tcc-api-nodejs.onrender.com/api/productos')
+        .then(response => response.json())
+        .then(data => {
+          const nuevoProducto = data.productos[0];
+          if (nuevoProducto && nuevoProducto.id > lastProductoId) {
+            lastProductoId = nuevoProducto.id;
+            mostrarNotificacion(`Nuevo producto: ${nuevoProducto.nombre}`);
+          }
+        })
+        .catch(error => console.error('Error al verificar productos:', error));
+    }
+
+    // Ejecutar la verificación cada 5 minutos
+    setInterval(verificarNuevosProductos, 300000); // 300000ms = 5 minutos
+
+    document.addEventListener('DOMContentLoaded', function () {
+      solicitarPermisoNotificacion();
+    });
+
 
   </script>
   <script src="../header.js"></script>
