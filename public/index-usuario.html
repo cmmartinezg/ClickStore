@@ -119,49 +119,6 @@
 
 
 
-    #autocomplete-list {
-      position: absolute;
-      top: 100%; /* Coloca el autocompletado debajo del campo de texto */
-      background: white;
-      border: 1px solid #ddd;
-      max-height: 300px;
-      overflow-y: auto;
-      width: 100%;
-      z-index: 1; /* Asegura que esté debajo del campo de texto */
-      margin-top: 5px;
-    }
-
-    .autocomplete-item {
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .autocomplete-item img {
-      width: 50px;
-      height: 50px;
-      object-fit: cover;
-      margin-right: 10px;
-    }
-
-    .autocomplete-item:hover {
-      background-color: #f0f0f0;
-    }
-
-    .autocomplete-item h4 {
-      font-size: 14px;
-      margin: 0;
-      flex: 1;
-    }
-
-    .autocomplete-item .price {
-      font-size: 14px;
-      color: #b12704;
-      margin-left: 10px;
-    }
-
 
 /* --- Estilo para el segundo encabezado --- */
 .secondary-header {
@@ -532,8 +489,6 @@ footer {
 .wrapper-wide {
   width: 100%;
 }
-
-
 
 /* Contenedor principal para la página */
 .main-content {
@@ -1048,12 +1003,6 @@ footer {
   </style>
 </head>
 <body>
-  <div class="wrapper-wide">
-   
-    <div class="top-banner">
-        <span>A tan solo un click</span>
-    </div>
-  </div>
 
     <!-- Header -->
     <header class="header">
@@ -1061,15 +1010,22 @@ footer {
         <a href="index.html"><img class="img-responsive" src="image/logo2.png" title="Click Store" alt="Click Store" /></a>
       </div>
       <div class="search-bar">
-        <input id="filter_name" type="text" name="search" placeholder="Buscar por Nombre" autocomplete="off" />
-        <button type="button" class="button-search"><i class="fa fa-search"></i></button>
-        <div id="search-results"></div>
-      </div>
-      
+        <select id="category-select">
+            <option value="index-usuario.html">Todos</option>
+            <option value="electronica.html">Electrónica</option>
+            <option value="informatica.html">Informática</option>
+            <option value="ropa.html">Ropa</option>
+            <option value="automoviles.html">Automóviles</option>
+            <option value="belleza.html">Belleza</option>
+        </select>
+        <input id="filter_name" type="text" name="search" placeholder="Buscar Producto" oninput="filtrarProductosEnTiempoReal()" />
+        <button type="button" id="search-button" class="button-search" onclick="buscarProductoEnBackend()">
+            <i class="fa fa-search"></i>
+        </button>
+        <div id="autocomplete-list"></div>
+    </div>
     
-    
-    
-    
+        
       <div class="nav-links">
         <span id="welcome-message"></span>
 
@@ -1125,31 +1081,31 @@ footer {
 </div>
 </div>
 <div class="category-section"> 
-  <div class="category-item" onclick="redirectToCategory('electronica.html')">
+  <div class="category-item" onclick="redirigirCategoria('electronica.html')">
       <div class="image-circle">
           <img src="image/elf.png" alt="Electrónica">
       </div>
       <p>Electrónica</p>
   </div>
-  <div class="category-item" onclick="redirectToCategory('informatica.html')">
+  <div class="category-item" onclick="redirigirCategoria('informatica.html')">
       <div class="image-circle">
           <img src="image/informatica.png" alt="Informática">
       </div>
       <p>Informática</p>
   </div>
-  <div class="category-item" onclick="redirectToCategory('ropa.html')">
+  <div class="category-item" onclick="redirigirCategoria('ropa.html')">
       <div class="image-circle">
           <img src="image/ropaf.png" alt="Ropa">
       </div>
       <p>Ropa</p>
   </div>
-  <div class="category-item" onclick="redirectToCategory('automoviles.html')">
+  <div class="category-item" onclick="redirigirCategoria('automoviles.html')">
       <div class="image-circle">
           <img src="image/autf.png" alt="Automóviles">
       </div>
       <p>Automóviles</p>
   </div>
-  <div class="category-item" onclick="redirectToCategory('belleza.html')">
+  <div class="category-item" onclick="redirigirCategoria('belleza.html')">
       <div class="image-circle">
           <img src="image/bellez.png" alt="Belleza">
       </div>
@@ -1382,10 +1338,6 @@ footer {
   </div>
 </div>
 
-
-
-  
-
     <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
     <div class="container" id="comerciante-section" style="display: none;">
       <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
@@ -1410,7 +1362,6 @@ footer {
                   <li><a href="#">Política de Privacidad</a></li>
               </ul>
           </div>
-  
           <!-- Contenedor de contacto -->
           <div class="footer-section">
               <h4>Contáctanos</h4>
@@ -1425,9 +1376,7 @@ footer {
           <p>&copy; 2024 Click Store. Todos los derechos reservados | <a href="#">Términos y Condiciones</a></p>
       </div>
   </footer>
-  
 <!--Footer Fin-->
-
     <!-- Parte JS Inicio -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -1901,16 +1850,18 @@ $(document).ready(function(){
   });
 });
 
-// Redirigir a la categoría seleccionada
-function redirectToCategory() {
-    const select = document.getElementById('category-select');
-    const category = select.value;
-    window.location.href = category;
-}
+ // Redirigir a la categoría seleccionada en el selector de categorías
+ document.getElementById('category-select').addEventListener('change', function () {
+      const category = this.value;
+      if (category) {
+        window.location.href = category;
+      }
+    });
 
-function redirectToCategory(page) {
-  window.location.href = page;
-}
+    // Función para redirigir a una página específica al hacer clic en las categorías
+    function redirectToCategory(page) {
+      window.location.href = page;
+    }
 
 // Filtrar productos en tiempo real
 function filtrarProductosTodos() {
@@ -2119,22 +2070,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     contenedor.innerHTML += productoDiv;
   });
 }
-
 let lastScrollTop = 0;
 const header = document.querySelector('.header');
-const topBanner = document.querySelector('.top-banner');
 
 window.addEventListener('scroll', () => {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop) {
-        // Desplazamiento hacia abajo: ocultar header y banner
-        topBanner.style.top = '-50px'; // valor según la altura del banner
-        header.style.top = '-90px'; //  valor según la altura del header
+        // Desplazamiento hacia abajo: ocultar header
+        header.style.top = '-80px'; //valor según la altura del header
     } else {
-        // Desplazamiento hacia arriba: mostrar header y banner
-        topBanner.style.top = '0';
-        header.style.top = '30px'; //posición debajo del banner
+        // Desplazamiento hacia arriba: mostrar header
+        header.style.top = '0';
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Asegura que el valor de scroll no sea negativo
@@ -2162,6 +2109,149 @@ document.addEventListener('DOMContentLoaded', function () {
       fetchResults(query);
     }
   });
+  // Función para buscar productos en el backend
+async function buscarProductoEnBackend() {
+  const query = document.getElementById("filter_name").value.trim();
+
+  if (!query) {
+    alert("Por favor, ingresa un término de búsqueda.");
+    return;
+  }
+
+  try {
+    const response = await fetch(`http://localhost:3000/api/buscar?query=${encodeURIComponent(query)}`);
+
+    if (!response.ok) {
+      throw new Error("Error en la respuesta del servidor");
+    }
+
+    const data = await response.json();
+
+    if (data.length === 0) {
+      document.getElementById("productos-lista").innerHTML = "<p>No se encontraron productos para el criterio seleccionado.</p>";
+    } else {
+      mostrarProductosEnLista(data); // Llama a la función para mostrar los productos
+    }
+  } catch (error) {
+    console.error("Error en la búsqueda:", error);
+    document.getElementById("productos-lista").innerHTML = "<p>Error en la búsqueda. Intente nuevamente.</p>";
+  }
+}
+
+// Mostrar productos en el contenedor "productos-lista" con enlace a la página del producto
+function mostrarProductosEnLista(productos) {
+  const contenedor = document.getElementById("productos-lista");
+  contenedor.innerHTML = ""; // Limpia el contenedor
+
+  productos.forEach(producto => {
+    const productoDiv = `
+      <div class="product-item" onclick="redirigirProducto(${producto.id})">
+        <img src="${producto.foto_url || 'image/not-found.png'}" alt="${producto.nombre}" class="product-image">
+        <h3>${producto.nombre}</h3>
+        <p>${producto.descripcion}</p>
+        <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+      </div>
+    `;
+    contenedor.innerHTML += productoDiv;
+  });
+}
+function mostrarSugerencias(productos) {
+    const list = document.getElementById("autocomplete-list");
+    list.innerHTML = ''; // Limpiar el contenido previo
+
+    productos.forEach(producto => {
+        const item = document.createElement('div');
+        item.className = 'autocomplete-item';
+        item.textContent = producto.nombre; // Solo muestra el nombre del producto
+        item.addEventListener('click', () => {
+            document.getElementById("filter_name").value = producto.nombre; // Llena el campo de búsqueda con el nombre
+            list.style.display = 'none';
+            buscarProductoEnBackend(); // Llama a la búsqueda en el backend con el término seleccionado
+        });
+        list.appendChild(item);
+    });
+
+    list.style.display = 'block'; // Mostrar el contenedor de resultados
+}
+
+
+// Función para buscar productos al hacer clic en el botón de búsqueda
+function buscarProductoEnBackend() {
+    const query = document.getElementById("filter_name").value.trim().toLowerCase();
+    if (!query) {
+        alert("Por favor, ingresa un término de búsqueda.");
+        return;
+    }
+
+    // Llamada a la API para obtener productos que coincidan con el término de búsqueda
+    fetch(`http://localhost:3000/api/buscar?query=${encodeURIComponent(query)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                mostrarResultadosBusqueda(data); // Mostrar resultados de búsqueda
+            } else {
+                alert("No se encontraron productos para la búsqueda.");
+            }
+        })
+        .catch(error => console.error("Error en la búsqueda:", error));
+}
+
+// Función para mostrar los resultados de búsqueda
+function mostrarResultadosBusqueda(productos) {
+    const list = document.getElementById("autocomplete-list");
+    list.innerHTML = ''; // Limpiar el contenido previo
+
+    productos.forEach(producto => {
+        const item = document.createElement('div');
+        item.className = 'autocomplete-item';
+        item.textContent = producto.nombre; // Solo muestra el nombre del producto
+        item.addEventListener('click', () => {
+            window.location.href = `product.html?id=${producto.id}`; // Redirigir a la página del producto
+        });
+        list.appendChild(item);
+    });
+
+    list.style.display = 'block'; // Mostrar el contenedor de resultados
+}
+
+
+// Función para filtrar productos mientras escribes en el campo de búsqueda
+function filtrarProductosEnTiempoReal() {
+    const query = document.getElementById("filter_name").value.trim().toLowerCase();
+    if (query === "") {
+        document.getElementById("autocomplete-list").style.display = 'none';
+        return;
+    }
+
+    // Llamada a la API para obtener productos en tiempo real
+    fetch(`http://localhost:3000/api/buscar?query=${encodeURIComponent(query)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                mostrarResultadosBusqueda(data); // Mostrar productos en autocompletado
+            } else {
+                document.getElementById("autocomplete-list").style.display = 'none';
+            }
+        })
+        .catch(error => console.error("Error en la búsqueda:", error));
+}
+
+// Cerrar la lista de autocompletado al hacer clic fuera
+document.addEventListener('click', function (e) {
+    if (!e.target.closest('.search-bar')) {
+        document.getElementById('autocomplete-list').style.display = 'none';
+    }
+});
+
+// Escuchar el evento `input` para filtrar productos mientras escribe
+document.getElementById("filter_name").addEventListener('input', filtrarProductosEnTiempoReal);
+
+// Cerrar la lista de sugerencias al hacer clic fuera del campo de búsqueda
+document.addEventListener('click', function (e) {
+    if (!e.target.closest('.search-bar')) {
+        document.getElementById('autocomplete-list').style.display = 'none';
+    }
+});
 
   // Función para realizar la búsqueda
   async function fetchResults(query) {
@@ -2188,11 +2278,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Redirigir al producto al hacer clic en el resultado
-  function redirectToProduct(productId) {
-    window.location.href = `/public/product.html?id=${productId}`;
-  }
-
+ 
   // Cerrar la lista de resultados si se hace clic fuera de ella
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.search-bar')) {
@@ -2200,6 +2286,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+    function redirigirCategoria(page) {
+      window.location.href = page;
+    }
+      // Evento de búsqueda
+      document.getElementById("search-button").addEventListener("click", buscarProducto);
+
+// Búsqueda al presionar Enter en el campo de búsqueda
+document.getElementById("filter_name").addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    buscarProducto();
+  }
+});
+
+
  // Función para buscar productos en el backend
  async function buscarProducto() {
       const query = document.getElementById("filter_name").value.trim();
@@ -2263,7 +2363,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // Redirige a la URL de la página del producto específico
   window.location.href = `producto.html?id=${productId}`;
 }
-  
+
+function redirectToCategory() {
+    const select = document.getElementById("category-select");
+    const selectedCategory = select.value;
+    
+    // Redirige a la URL de la categoría seleccionada
+    if (selectedCategory) {
+        window.location.href = selectedCategory;
+    }
+} 
 </script>
 
  <script src="../header.js"></script>
