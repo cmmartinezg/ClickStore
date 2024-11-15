@@ -111,7 +111,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 20px;
-      background-color: #fff;
+      background-color: #6a5e5e;
       border-bottom: 1px solid #ddd;
       position: sticky;
       top: 0;
@@ -195,7 +195,7 @@
     }
 
     .search-bar .button-search:hover {
-      background-color: #e55b4d;
+      background-color: #664946;
     }
 
     /* Enlaces de navegación */
@@ -227,7 +227,7 @@
     }
 
     .nav-links a:hover .icon-container i {
-      color: #ff6f61;
+      color: #6d4744;
     }
 
     .nav-links a .icon-container span {
@@ -553,7 +553,7 @@
     }
 
     .footer-section h4:hover {
-      color: #ff6f61;
+      color: #91726f;
     }
 
     .footer-section p,
@@ -607,7 +607,7 @@
     }
 
     .footer-bottom a:hover {
-      color: #ff6f61;
+      color: #664744;
       text-decoration: underline;
     }
 
@@ -1202,7 +1202,7 @@
   <header class="header">
     <div class="logo">
       <a href="index.html">
-        <img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" />
+        <img class="img-responsive" src="image/logo2.png" title="Click Store" alt="Click Store" />
       </a>
     </div>
 
@@ -1222,11 +1222,11 @@
     </div>
     <div class="nav-links">
 
-      <!-- Enlace que activa el modal -->
+      <!-- Enlace que activa el modal 
       <div class="text-center mt-5">
         <a href="login.html" class="btn btn-login">Iniciar Sesión</a>
       </div>
-
+-->
 
 
 
@@ -1276,11 +1276,13 @@
 
       <div class="dropdown">
         <a href="#" class="dropdown-toggle">
-          <i class="fa fa-user-plus"></i> Registro
+          <i class="fa fa-user"></i> Usuario
         </a>
         <ul class="dropdown-menu">
-          <li><a href="registro-usu.html">Usuario</a></li>
-          <li><a href="registro-comer.html">Comerciante</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a class="fa fa-user-plus" href="registro-usu.html">Usuario</a></li>
+          <li><a class="fa fa-user-plus" href="registro-comer.html">Comerciante</a></li>
+          
         </ul>
       </div>
       <a href="wishlist.html" class="icon-link">
@@ -2133,61 +2135,7 @@
     // Limpiar el sessionStorage al cargar la página
     sessionStorage.clear();
 
-    document.getElementById('form-login').addEventListener('submit', async function (event) {
-      event.preventDefault(); // Evitar la acción predeterminada del formulario
-
-      const email = document.getElementById('login-email').value;
-      const contrasena = document.getElementById('login-password').value;
-      const data = { email, contrasena };
-
-      try {
-        const response = await fetch('http://localhost:3000/api/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          console.error('Error al iniciar sesión:', errorData);
-          document.getElementById('login-error').innerText = 'Error: ' + errorData.message;
-          document.getElementById('login-error').style.display = 'block';
-          return;
-        }
-
-        const responseData = await response.json();
-        console.log("Datos de respuesta del servidor:", responseData);
-
-        sessionStorage.clear();
-        sessionStorage.setItem('nombre', responseData.nombre);
-        sessionStorage.setItem('Id', responseData.Id);
-        sessionStorage.setItem('tipo', responseData.tipo);
-
-        if (responseData.tipo === 'comerciante') {
-          window.location.href = 'index-comer.html';
-        } else if (responseData.tipo === 'usuario') {
-          window.location.href = 'index-usuario.html';
-        }
-      } catch (error) {
-        console.error('Error de conexión o problema con la API:', error);
-        document.getElementById('login-error').innerText = 'Ocurrió un error al intentar iniciar sesión. Por favor, intenta nuevamente.';
-        document.getElementById('login-error').style.display = 'block';
-      }
-    });
-
-    function togglePasswordVisibility() {
-      const passwordInput = document.getElementById('login-password');
-      const toggleIcon = document.getElementById('togglePasswordIcon');
-
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        toggleIcon.textContent = '🙈'; // Cambia el icono para indicar que la contraseña está visible
-      } else {
-        passwordInput.type = 'password';
-        toggleIcon.textContent = '👁️'; // Cambia el icono de nuevo para ocultar la contraseña
-      }
-    }
-    ///funcion para ir a la seccion de la info seleccionada
+    
 
     function scrollToSection(sectionId) {
       const section = document.getElementById(sectionId);
