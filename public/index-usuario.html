@@ -891,8 +891,74 @@ footer {
   </div>
   </header> 
 
+<!-- Contenedor principal --> 
+<div class="main-content">
+  <!-- Contenedor de imágenes pequeñas a la izquierda -->
+  <div class="small-images">
+    <div class="image-box">
+        <a href="electronica.html"><img src="image/imag(5).jpg" alt="Producto 1"></a>
+    </div>
+    <div class="image-box">
+      <a href="ropa.html"><img src="image/boxRopa.png" alt="Producto 3"></a>
+  </div>
+    <div class="image-box">
+        <a href="informatica.html"><img src="image/boxinfo.png" alt="Producto 2"></a>
+    </div>
+</div>
+  <div class="slider-container">
+    <div id="carousel-example" class="owl-carousel owl-theme">
+        <div class="item"><img src="image/elect.png" alt="Carrusel 1"></div>
+        <div class="item"><img src="image/c5.jpg" alt="Carrusel 2"></div>
+        <div class="item"><img src="image/c22.jpg" alt="Carrusel 3"></div>
+        <div class="item"><img src="image/c19.jpg" alt="Carrusel 4"></div>
+    </div>
+</div>
 
-
+  <!-- Contenedor de imágenes pequeñas a la derecha -->
+  <div class="small-images">
+    <div class="image-box">
+      <a href="index-usuario.html"><img src="image/boxTodos.png" alt="Producto 6"></a>
+  </div>  
+    <div class="image-box">
+        <a href="belleza.html"><img src="image/boxmaqui.png" alt="Producto 5"></a>
+    </div> 
+    <div class="image-box">
+      <a href="automoviles.html"><img src="image/box2.jpg" alt="Producto 4"></a>
+  </div>
+</div>
+</div>
+<div class="category-section"> 
+  <div class="category-item" onclick="redirigirCategoria('electronica.html')">
+      <div class="image-circle">
+          <img src="image/elf.png" alt="Electrónica">
+      </div>
+      <p>Electrónica</p>
+  </div>
+  <div class="category-item" onclick="redirigirCategoria('informatica.html')">
+      <div class="image-circle">
+          <img src="image/informatica.png" alt="Informática">
+      </div>
+      <p>Informática</p>
+  </div>
+  <div class="category-item" onclick="redirigirCategoria('ropa.html')">
+      <div class="image-circle">
+          <img src="image/ropaf.png" alt="Ropa">
+      </div>
+      <p>Ropa</p>
+  </div>
+  <div class="category-item" onclick="redirigirCategoria('automoviles.html')">
+      <div class="image-circle">
+          <img src="image/autf.png" alt="Automóviles">
+      </div>
+      <p>Automóviles</p>
+  </div>
+  <div class="category-item" onclick="redirigirCategoria('belleza.html')">
+      <div class="image-circle">
+          <img src="image/bellez.png" alt="Belleza">
+      </div>
+      <p>Belleza</p>
+  </div>
+</div>
                            <!-- Novedades  -->
 <div class="contenedor-principal">
   <!-- Sección Belleza -->
@@ -927,9 +993,69 @@ footer {
       <a href="belleza.html" class="enlace-mas">Compra lo último en belleza</a>
   </div>
 
- 
+  <!-- Sección Informática -->
+  <div class="seccion-productos explora-informatica">
+      <h2>Explora Informática</h2>
+      <div class="productos-grid">
+          <div class="producto-item">
+            <a href="product.html?id=416"> 
+              <img src="image/notebook1.png" alt="Laptops">
+              <p>Laptops</p>
+            </a>
+          </div>
+          <div class="producto-item">
+            <a href="product.html?id=464">
+              <img src="image/teclado1.png" alt="Teclados">
+              <p>Teclados</p>
+            </a>
+          </div>
+          <div class="producto-item">
+            <a href="product.html?id=462">
+              <img src="image/monitor.png" alt="Monitores">
+              <p>Monitores</p>
+            </a>
+          </div>
+          <div class="producto-item">
+            <a href="product.html?id=481">
+              <img src="image/auricular1.png" alt="Auriculares">
+              <p>Auriculares</p>
+            </a>
+          </div>
+      </div>
+      <a href="informatica.html" class="enlace-mas">Explorar más en informática</a>
+  </div>
 
-
+  <!-- Sección Electrónica -->
+  <div class="seccion-productos descubre-electronica">
+      <h2>Descubre Electrónica</h2>
+      <div class="productos-grid">
+          <div class="producto-item">
+            <a href="product.html?id=456">
+              <img src="image/telefono1.png" alt="Teléfonos">
+              <p>Teléfonos</p>
+            </a>
+          </div>
+          <div class="producto-item">
+            <a href="product.html?id=482">
+              <img src="image/televisor1.png" alt="Televisores">
+              <p>Televisores</p>
+            </a>
+          </div>
+          <div class="producto-item">
+            <a href="product.html?id=483">
+              <img src="image/reloj1.png" alt="Relojes">
+              <p>Relojes</p>
+            </a>
+          </div>
+          <div class="producto-item">
+            <a href="product.html?id=484">
+              <img src="image/camara1.png" alt="Cámaras">
+              <p>Cámaras</p>
+            </a>
+          </div>
+      </div>
+      <a href="electronica.html" class="enlace-mas">Ver más en electrónica</a>
+  </div>
 
   <!-- Sección Ropa -->
   <div class="seccion-productos explora-ropa">
@@ -965,7 +1091,40 @@ footer {
 </div>
 
 
+<!-- Contenedor de Recomendados -->
+<div class="recomendaciones">
+  <h2 class="recomendaciones-title">Recomendados para ti</h2>
 
+  <!-- Electrónica -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Electrónica</h3>
+      <div id="productos-recomendados-electrónica" class="productos-recomendados-list"></div>
+  </div>
+
+  <!-- Belleza -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Belleza</h3>
+      <div id="productos-recomendados-belleza" class="productos-recomendados-list"></div>
+  </div>
+
+  <!-- Informática -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Informática</h3>
+      <div id="productos-recomendados-informática" class="productos-recomendados-list"></div>
+  </div>
+
+  <!-- Ropa -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Ropa</h3>
+      <div id="productos-recomendados-ropa" class="productos-recomendados-list"></div>
+  </div>
+
+  <!-- Automóviles -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Automóviles</h3>
+      <div id="productos-recomendados-automóviles" class="productos-recomendados-list"></div>
+  </div>
+</div>
 
 
 
