@@ -17,108 +17,11 @@
 
   <!-- CSS Parte Fin -->
   <style>
-
-/* Ajuste del contenedor de la lista de productos */
-#productos-lista {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; 
-  gap: 20px; /* Espacio entre productos */
-  margin-top: 40px; /* Espacio entre los filtros y la lista de productos */
-  padding: 20px; /* Espacio interno del contenedor */
-  width: 90%; /* Ancho ajustado para centrar y darle mayor visibilidad */
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #ordenar {
   width: 200px; 
   padding: 10px; 
   border-radius: 5px;
 }
-
-
-/* Estilo del título */
-.productos-titulo {
-  text-align: left; 
-  font-size: 26px; 
-  font-weight: bold; 
-  margin: 20px 0; 
-  color: #007bff;
-}
-
-
-.categorias-titulo, .productos-titulo {
-    text-align: left; 
-    font-size: 24px; 
-    font-weight: bold; 
-    margin-bottom: 20px; 
-    color: #000000; 
-  }
-    .product-item {
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      margin-bottom: 25px;
-      padding: 10px;
-      text-align: center;
-      width: 250px;
-      height: 420px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      display: inline-block;
-      vertical-align: top;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-
-    .product-item h3 {
-      font-size: 16px;
-      height: 40px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .product-item p {
-      font-size: 14px;
-      color: #555;
-      height: 60px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-
-
-    .product-item .price {
-      font-size: 18px;
-      color: #b12704;
-      margin-top: 10px;
-    }
-
-    .product-item .ver-mas {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #ff6f61;;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      text-decoration: none;
-      width: 80%;
-    }
-
-
-
 
 /* --- Estilo para el segundo encabezado --- */
 .secondary-header {
@@ -693,62 +596,6 @@ footer {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Contenedor de las recomendaciones */
-.recomendaciones-container {
-    width: 30%; 
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Producto recomendado */
-.producto-recomendado {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
-
-.producto-imagen {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    margin-right: 15px;
-    border-radius: 5px;
-}
-
-.producto-info h3 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.producto-info .precio {
-    color: #ff5722;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.ver-mas {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.ver-mas:hover {
-    text-decoration: underline;
-}
-
-
-/* Contenedor del encabezado */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
-}
 
 /* Estilo del título de categoría */
 .category-title {
@@ -1007,7 +854,7 @@ footer {
     <!-- Header -->
     <header class="header">
       <div class="logo">
-        <a href="index.html"><img class="img-responsive" src="image/logo2.png" title="Click Store" alt="Click Store" /></a>
+        <a href="index.html"><img class="img-responsive" src="image/logo-nr.png" title="Click Store" alt="Click Store" /></a>
       </div>
       <div class="search-bar">
         <select id="category-select">
@@ -1243,100 +1090,43 @@ footer {
   </div>
 </div>
 
-<!-- Electrónica -->
-<div class="header-container">
-  <div class="category-title">Electrónica</div>
-  <h2 class="section-title">Recomendados para ti</h2>
-</div>
-<div class="main-container">
-  <div class="carousel">
-      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
-      <div class="carousel-images">
-          <img src="image/electronica.png" alt="Carrusel Electrónica 1" class="active">
-          <img src="image/elec.jpg" alt="Carrusel Electrónica 2">
-      </div>
-      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="recomendaciones-container">
+
+<!-- Contenedor de Recomendados -->
+<div class="recomendaciones">
+  <h2 class="recomendaciones-title">Recomendados para ti</h2>
+
+  <!-- Electrónica -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Electrónica</h3>
       <div id="productos-recomendados-electrónica" class="productos-recomendados-list"></div>
   </div>
-</div>
-<!-- Belleza -->
-<div class="header-container">
-  <div class="category-title">Belleza</div>
-  <h2 class="section-title">Recomendados para ti</h2>
-</div>
-<div class="main-container">
-  <div class="carousel">
-      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
-      <div class="carousel-images">
-          <img src="image/bellez.png" alt="Carrusel Belleza 1" class="active">
-          <img src="image/m1.jpg" alt="Carrusel Belleza 2">
-      </div>
-      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="recomendaciones-container">
+
+  <!-- Belleza -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Belleza</h3>
       <div id="productos-recomendados-belleza" class="productos-recomendados-list"></div>
   </div>
-</div>
-<!-- Informática -->
-<div class="header-container">
-  <div class="category-title">Informática</div>
-  <h2 class="section-title">Recomendados para ti</h2>
-</div>
-<div class="main-container">
-  <div class="carousel">
-      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
-      <div class="carousel-images">
-          <img src="image/c22.jpg" alt="Carrusel Informática 1" class="active">
-          <img src="image/c22.jpg" alt="Carrusel Informática 2">
-      </div>
-      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="recomendaciones-container">
+
+  <!-- Informática -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Informática</h3>
       <div id="productos-recomendados-informática" class="productos-recomendados-list"></div>
   </div>
-</div>
 
-
-<!-- Ropa -->
-<div class="header-container">
-  <div class="category-title">Ropa</div>
-  <h2 class="section-title">Recomendados para ti</h2>
-</div>
-<div class="main-container">
-  <div class="carousel">
-      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
-      <div class="carousel-images">
-          <img src="image/r.jpg" alt="Carrusel Ropa 1" class="active">
-          <img src="image/r.jpg" alt="Carrusel Ropa 2">
-      </div>
-      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="recomendaciones-container">
+  <!-- Ropa -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Ropa</h3>
       <div id="productos-recomendados-ropa" class="productos-recomendados-list"></div>
   </div>
-</div>
 
-
-<!-- Automóviles -->
-<div class="header-container">
-  <div class="category-title">Automóviles</div>
-  <h2 class="section-title">Recomendados para ti</h2>
-</div>
-<div class="main-container">
-  <div class="carousel">
-      <button class="arrow arrow-left"><i class="fas fa-chevron-left"></i></button>
-      <div class="carousel-images">
-          <img src="image/c22.jpg" alt="Carrusel Automóviles 1" class="active">
-          <img src="image/c22.jpg" alt="Carrusel Automóviles 2">
-      </div>
-      <button class="arrow arrow-right"><i class="fas fa-chevron-right"></i></button>
-  </div>
-  <div class="recomendaciones-container">
+  <!-- Automóviles -->
+  <div class="recomendaciones-categoria">
+      <h3 class="categoria-titulo">Automóviles</h3>
       <div id="productos-recomendados-automóviles" class="productos-recomendados-list"></div>
   </div>
 </div>
+
+
 
     <!-- Botón de Subir Artículo (visible solo para comerciantes) -->
     <div class="container" id="comerciante-section" style="display: none;">
@@ -1916,7 +1706,6 @@ document.addEventListener('click', function (e) {
         });
 }
 
-
 function mostrarRecomendaciones(categoria, recomendaciones) {
     const contenedorRecomendaciones = document.getElementById(`productos-recomendados-${categoria.toLowerCase()}`);
     contenedorRecomendaciones.innerHTML = ''; // Limpiar contenido anterior
@@ -1926,23 +1715,22 @@ function mostrarRecomendaciones(categoria, recomendaciones) {
         return;
     }
 
-    const productosParaMostrar = recomendaciones.slice(0, 5); // Limitar a 5 productos
+    const productosParaMostrar = recomendaciones.slice(0, 10); // Limitar a 5 productos
 
     productosParaMostrar.forEach(producto => {
-        const tarjetaProducto = `
-            <div class="producto-recomendado">
-                <img src="${producto.foto_url || 'image-placeholder.png'}" alt="${producto.nombre}" class="producto-imagen" />
-                <div class="producto-info">
+        const productoHTML = `
+            <div class="producto-item-recomendado" onclick="window.location.href='product.html?id=${producto.id}'">
+                <img src="${producto.foto_url || 'image-placeholder.png'}" alt="${producto.nombre}" />
+                <div class="producto-info-recomendado">
                     <h3>${producto.nombre}</h3>
                     <p class="precio">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
-                    <a href="product.html?id=${producto.id}" class="ver-mas">Ver detalles</a>
                 </div>
             </div>
         `;
-
-        contenedorRecomendaciones.insertAdjacentHTML('beforeend', tarjetaProducto);
+        contenedorRecomendaciones.insertAdjacentHTML('beforeend', productoHTML);
     });
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const categorias = ['electrónica', 'informática', 'automóviles', 'belleza', 'ropa']; 

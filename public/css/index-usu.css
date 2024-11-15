@@ -614,4 +614,252 @@ body {
 #filter_name {
     color: black;
   }
+  .mejor-clasificados {
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 30px;
+  }
   
+  .mejor-clasificados-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .filter-button {
+    background: transparent;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .filter-button:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Estilo general para la sección de recomendados */
+.mejor-clasificados {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.mejor-clasificados-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.categoria-titulo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+
+/* Estilo de la lista de productos recomendados */
+.productos-recomendados-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+/* Estilo de cada producto recomendado */
+.producto-recomendado {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    max-width: 220px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-recomendado:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagen del producto */
+.producto-imagen {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Nombre del producto */
+.producto-info h3 {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Precio del producto */
+.producto-info .precio {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Contenedor general de Recomendados */
+.recomendaciones {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+
+.recomendaciones-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #2c3e50; 
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif; 
+}
+
+
+/* Título de cada categoría */
+.categoria-titulo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #3498db;
+    text-align: left;
+    padding-left: 15px;
+    border-left: 5px solid #2980b9;
+}
+
+
+/* Lista de productos recomendados */
+.productos-recomendados-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+/* Estilo para cada producto recomendado */
+.producto-item-recomendado {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    width: 200px; 
+    height: 310px; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.producto-item-recomendado:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del producto */
+.producto-item-recomendado img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Información del producto */
+.producto-info-recomendado {
+    margin-top: 10px;
+}
+
+/* Información del producto */
+.producto-info-recomendado h3 {
+    font-size: 15px;
+    font-weight: lighter;
+    color: #6a6464;
+    margin: 10px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  /* Limitar a dos líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 48px; /* Asegurar que solo quepan dos líneas */
+}
+
+
+.producto-info-recomendado .precio {
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+    margin-top: 5px;
+}
+/* Media Queries para Responsividad */
+@media (max-width: 1024px) {
+    .productos-recomendados-list {
+        justify-content: space-around;
+    }
+    .producto-item-recomendado {
+        width: 220px;
+        height: 390px;
+    }
+    .producto-info-recomendado h3 {
+        font-size: 16px;
+    }
+    .producto-info-recomendado .precio {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .recomendaciones {
+        max-width: 95%;
+    }
+    .productos-recomendados-list {
+        gap: 15px;
+    }
+    .producto-item-recomendado {
+        width: 180px;
+        height: 360px;
+    }
+    .producto-info-recomendado h3 {
+        font-size: 14px;
+    }
+    .producto-info-recomendado .precio {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .producto-item-recomendado {
+        width: 150px;
+        height: 330px;
+    }
+    .producto-info-recomendado h3 {
+        font-size: 12px;
+    }
+    .producto-info-recomendado .precio {
+        font-size: 14px;
+    }
+}
+
