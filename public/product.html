@@ -6,17 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Producto</title>
     <!-- CSS Parte Inicio -->
-    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-    <link rel="stylesheet" type="text/css" href="css/estilop.css" />
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <!-- Swiper Carousel Styles -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+  <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+  <link rel="stylesheet" type="text/css" href="css/estilop.css" />
     
-
     <style>
         .product-info {
             display: flex;
@@ -420,7 +427,7 @@
       
         /* Estilo para el formulario de calificación */
         #rating {
-            height: 36px;
+            height: 50px;
             padding: 5px 10px;
             border-radius: 5px;
             border: 1px solid #ddd;
@@ -492,7 +499,7 @@
 
         /* Resumen de calificaciones */
         #rating-summary {
-            width: 40%;
+            width: 100%;
         }
 
         #rating-summary h4 {
@@ -547,7 +554,7 @@
 
         /* Formulario de reseñas */
         #review-form {
-            width: 55%;
+            width: 100%;
         }
 
         #review-form h4 {
@@ -818,7 +825,97 @@ footer {
       font-size: 15px;
     }
 
-  
+    /* Footer */
+    #main-footer {
+      background: #333;
+      color: #fff;
+      padding: 40px 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    /* Sección del footer */
+    .footer-section {
+      flex: 1 1 30%;
+      margin: 0 20px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .footer-section h4 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #ffc107;
+      transition: color 0.3s;
+    }
+
+    .footer-section h4:hover {
+      color: #91726f;
+    }
+
+    .footer-section p,
+    .footer-section ul {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li a {
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: #ffc107;
+    }
+
+    /* Íconos de contacto */
+    .footer-section ul li i {
+      margin-right: 10px;
+      color: #ffc107;
+    }
+
+    /* Contenedor inferior del footer */
+    .footer-bottom {
+      background: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 15px 20px;
+      margin-top: 30px;
+      font-size: 14px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .footer-bottom a {
+      color: #ffc107;
+      text-decoration: none;
+      margin-left: 5px;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom a:hover {
+      color: #664744;
+      text-decoration: underline;
+    }
+
   
     /* Quitar el texto debajo de los íconos */
     .icon-text {
@@ -1255,16 +1352,16 @@ body {
 .comment-list {
     flex: 1;
     border-left: 1px solid #e0e0e0;
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 .comment-title {
     font-size: 1.4em;
-    color: #333;
+    color: #3e3e3e;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     border-bottom: 2px solid #ff6f61;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
 }
 
 .comment {
@@ -1294,11 +1391,10 @@ body {
 }
 
 .comment-stars {
-    font-size: 1em;
-    color: #ffa500; 
+    font-size: 2em;
+    color: #f7ab3a; 
     font-family: Arial, sans-serif;
 }
-
 
 
 body {
@@ -1368,7 +1464,7 @@ body {
 }
 
 .nav-links .icon-container span {
-    background-color: #f7f5f2;
+    background-color: #7f7361;
     color: black;
     font-size: 12px;
     font-weight: bold;
@@ -1553,7 +1649,208 @@ body {
 .product-card button:hover {
     background-color: #e57373;
 }
+/* Contenedor General de Estadísticas */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
 
+/* Cada Tarjeta */
+.stats-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Íconos */
+.stats-card i {
+    font-size: 36px;
+    color: #007bff;
+    margin-right: 15px;
+}
+
+/* Texto */
+.stats-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    font-weight: bold;
+}
+
+.stats-card p {
+    font-size: 16px;
+    font-weight: normal;
+    color: #555;
+    margin: 0;
+}
+
+/* Sección General */
+.review-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Título Principal */
+.review-section h2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e39820;
+    padding-bottom: 10px;
+}
+
+/* Contenedor Principal */
+.review-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Columna Izquierda: Formulario */
+.review-form-container {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de Inputs y Botón */
+.review-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    padding: 10px 10px;
+    background-color: #ee8b34;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    text-align: start;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: #ec591f;
+}
+
+/* Estilo de Calificación (Estrellas) */
+.rating-input p {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.stars input[type="radio"] {
+    display: none;
+}
+
+.stars label {
+    font-size: 28px;
+    color: #f8f273;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.stars input[type="radio"]:checked ~ label {
+    color: #ffd700;
+}
+
+.stars label:hover,
+.stars label:hover ~ label {
+    color: #ffc107;
+}
+
+/* Columna Derecha: Comentarios */
+.comment-list {
+    flex: 1;
+}
+
+.comment-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #1d1c1c;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.comment p {
+    margin: 0;
+    font-size: 15px;
+    color: #555;
+}
+
+.comment-stars {
+    font-size: 18px;
+    color: #ffd700;
+    margin-top: 5px;
+}
+
+.user-icon {
+    font-size: 30px;
+    color: #ff8c52; 
+    background-color: #fcc594; 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 </style>
 </head>
 <body>
@@ -1625,17 +1922,6 @@ body {
     </div>
 </div>
 <div class="review-section"></div>
-
-     <!-- Sección de Productos Recomendados -->
-<!-- <div id="recomendaciones-wrapper">
-    <h2 class="section-title">Productos relacionados con este artículo</h2>
-    <div id="recomendaciones-container">
-        <div id="productos-recomendados" class="productos-grid">
-          
-        </div>
-    </div>
-</div> -->
-
 <!-- Sección de Productos Recomendados -->
 <div id="recomendaciones-wrapper">
     <h2 class="section-title">Productos relacionados con este artículo</h2>
@@ -1713,6 +1999,11 @@ body {
                 <p><strong>Alejandra:</strong> Podria Mejorar.</p>
                 <div class="comment-stars">★★☆☆☆</div>
             </div>
+            <div class="comment">
+                <div class="user-icon">👤</div>
+                <p><strong>Manuel:</strong> No es compatible con todas las marcas.</p>
+                <div class="comment-stars">★☆☆☆☆</div>
+            </div>
         </div>
     </div>
 </div>
@@ -1724,20 +2015,53 @@ body {
 </body>
 
   
-   <!-- Pie de página -->
-   <footer id="main-footer">
-    <p>&copy; 2024 Click Store. Todos los derechos reservados.</p>
-  </footer>
-  
+<footer id="main-footer">
+    <div class="footer-container">
+      <!-- Contenedor de información de la compañía -->
+      <div class="footer-section">
+        <h4>Sobre Nosotros</h4>
+        <p>Click Store es una tienda en línea dedicada a ofrecer productos de calidad y un servicio excepcional a
+          nuestros clientes. Nuestro objetivo es satisfacer todas tus necesidades con la mejor experiencia de compra.
+        </p>
+      </div>
 
-<!--Footer Fin-->
+      <!-- Contenedor de enlaces rápidos -->
+      <div class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Tienda</a></li>
+          <li><a href="#">Acerca de</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+        </ul>
+      </div>
+
+      <!-- Contenedor de contacto -->
+      <div class="footer-section">
+        <h4>Contáctanos</h4>
+        <ul>
+          <li><i class="fa fa-map-marker"></i> Asunción, Paraguay</li>
+          <li><i class="fa fa-phone"></i> +595 21 123 4567</li>
+          <li><i class="fa fa-envelope"></i> contacto@clickstore.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Click Store. Todos los derechos reservados | <a href="#">Términos y Condiciones</a></p>
+    </div>
+  </footer>
+
 
 <!-- JS Parte Inicio -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script src="js/carrito.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script type="text/javascript">
+    
     
      $(document).ready(function(){
         $('.carousel-items').owlCarousel({
@@ -2005,32 +2329,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 document.getElementById('review-form').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    // Obtener el ID del usuario logueado y el ID del producto desde la URL o variables de contexto
-    const usuarioId = sessionStorage.getItem('usuarioid');
+    // Obtener el ID del producto desde la URL
     const params = new URLSearchParams(window.location.search);
     const productoId = params.get('id');
 
-    if (!usuarioId || !productoId) {
-        alert("Error: No se pudo obtener la información del usuario o producto.");
+    if (!productoId) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No se pudo obtener el ID del producto.',
+            confirmButtonColor: '#d9534f'
+        });
         return;
     }
 
     // Recopilar los datos del formulario
     const data = {
-        usuario_id: usuarioId,
         producto_id: productoId,
-        calificacion: document.querySelector('input[name="rating"]:checked').value,
-        comentario: document.getElementById('review').value,
-        apodo: document.getElementById('nickname').value,
-        resumen: document.getElementById('summary').value
+        calificacion: document.querySelector('input[name="rating"]:checked')?.value,
+        comentario: document.getElementById('review').value
     };
 
+    if (!data.calificacion || !data.comentario) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Faltan Datos',
+            text: 'Por favor, completa todos los campos requeridos.',
+            confirmButtonColor: '#d9534f'
+        });
+        return;
+    }
+
     try {
-        const response = await fetch('https://tcc-api-nodejs.onrender.com/api/calificaciones', {
+        const response = await fetch('http://localhost:3000/api/calificaciones', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -2039,24 +2373,25 @@ document.getElementById('review-form').addEventListener('submit', async function
         if (response.ok) {
             Swal.fire({
                 icon: 'success',
-                title: 'Gracias por tu reseña',
-                text: 'Tu reseña ha sido enviada correctamente.',
-                confirmButtonColor: '#fa8072'
+                title: 'Gracias por tu calificación',
+                text: 'Tu reseña se guardó exitosamente.',
+                confirmButtonColor: '#28a745'
+            }).then(() => {
+                document.getElementById('review-form').reset(); // Resetea el formulario después de enviar
             });
-            document.getElementById('review-form').reset();
         } else {
             Swal.fire({
                 icon: 'error',
-                title: 'Error al enviar la reseña',
-                text: 'Hubo un problema al enviar tu reseña. Intenta nuevamente.',
+                title: 'Error al guardar',
+                text: 'Hubo un problema al guardar tu calificación. Intenta nuevamente.',
                 confirmButtonColor: '#d9534f'
             });
         }
     } catch (error) {
         Swal.fire({
             icon: 'error',
-            title: 'Error de Conexión',
-            text: 'No se pudo conectar con el servidor. Inténtalo más tarde.',
+            title: 'Error de conexión',
+            text: 'No se pudo conectar con el servidor. Intenta nuevamente más tarde.',
             confirmButtonColor: '#d9534f'
         });
     }
