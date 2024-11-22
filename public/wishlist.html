@@ -1,670 +1,281 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="format-detection" content="telephone=no" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="image/favicon.png" rel="icon" />
-<title>Lista de Deseos</title>
-    <!-- CSS Parte Inicio -->
-    <link rel="stylesheet" type="text/css" href="js/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-    <link rel="stylesheet" type="text/css" href="css/estilop.css" /> 
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
-    <!-- CSS Parte Fin -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Deseos</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS for Animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
-    .table {
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    .table thead {
-      background-color: #f1f1f1;
-      font-weight: bold;
-    }
-
-    .table td {
-      vertical-align: middle;
-    }
-
-    .table .btn {
-      margin: 5px;
-    }
-
-    .breadcrumb {
-      background: none;
-      padding: 0;
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
-
-
-      /* Estilos generales para el header */
-      .header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 10px 30px;
-          background-color: #ffffff;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Icono del logo */
-        .logo img {
-          height: 90px;
-        }
-
-        /* Ajustes de la barra de búsqueda */
-        .search-bar {
-          display: flex;
-          align-items: center;
-          margin-right: auto;
-          padding: 5px;
-        }
-
-        .search-bar select {
-          background-color: #f7f7f7;
-          color: #333;
-          padding: 10px;
-          border-radius: 5px;
-          font-weight: bold;
-          appearance: none;
-          width: 130px;
-          background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 10 10%22%3E%3Cpolygon points=%220,0 10,0 5,7%22 fill=%22%23333%22/%3E%3C/svg%3E'); /* Flecha hacia abajo con color negro */
-          background-repeat: no-repeat;
-          background-size: 60px; 
-          background-position: right 10px center;
-          background-size: 12px;
-          -webkit-appearance: none;
-          -moz-appearance: none; 
-        }
-
-    .search-bar select:focus {
-      border-color: #0f0e0a;
-      outline: none; 
-    }
-
-    /* Estilo de las opciones del desplegable */
-    .search-bar select option {
-      background-color: #fff;
-      color: #333; 
-    }
-
-    /* Estilo cuando el select está abierto */
-    .search-bar select:active, 
-    .search-bar select:hover {
-      background-color: #fff; 
-      color: #333; 
-    }
-
-    /* Estilo de las opciones seleccionadas */
-    .search-bar select option:checked {
-      background-color: #f7f7f7; 
-      color: #333;
-    }
-
-        .search-bar input {
-          flex-grow: 1;
-          border: 1px solid #602f2f;
-        }
-
-        .button-search {
-          border: none;
-          padding: 10px 15px;
-          color:#ffffff; ;
-          cursor: pointer; 
-        }
-
-        .button-search:hover {
-          background-color: #444;
-        }
-
-    /* Eliminar completamente la subrayado y borde */
-    .icon-link {
-      text-decoration: none !important; 
-      outline: none !important;
-      border: none !important; 
-      background: transparent; 
-    }
-
-    .icon-link i {
-      font-size: 28px;
-      color: #111;
-      border: 2px solid #111;
-      border-radius: 50%;
-      padding: 5px;
-      transition: color 0.3s ease, border-color 0.3s ease;
-    }
-
-    /* Cambiar color al hacer hover sin mostrar borde o fondo extra */
-    .icon-link:hover i {
-      color: #ed7553;
-      border-color: #ed7553;
-    }
-
-    /* Ajuste del contenedor de enlaces */
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      margin-right: 20px;
-    }
-
-    /* Asegurar que no haya texto visible */
-    .icon-text {
-      display: none !important;
-    }
-
-    /* Contenedor de íconos sin efectos visuales no deseados */
-    .icon-container {
-      display: flex;
-      align-items: center;
-    }
-
-    /* Eliminar cualquier estilo de foco en los íconos */
-    .icon-link:focus {
-      outline: none !important;
-      border: none !important;
-    }
-
-
-        .icon-link i {
-          font-size: 28px;
-          color: #111;
-          border: 2px solid #111;
-          border-radius: 50%;
-          padding: 5px;
-        }
-
-        .icon-link:hover i {
-          color: #ed7553;
-        }
-
-        /* Ajustar el contenedor de los íconos */
-        .nav-links {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          margin-right: 20px;
-        }
-
-        /* Quitar el texto debajo de los íconos */
-        .icon-text {
-          display: none;
-        }
-
-    /* Estilo del pie de página */
-    footer #main-footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;  
-        padding: 20px 0;   
-        font-family: 'Open Sans', sans-serif;
-        font-size: 14px;
-    }
-
-    footer {
-          background-color: #333;
-          color: white;
-          padding: 20px;
-          text-align: center;
-          position: relative;
-          bottom: 0;
-          width: 100%;
-        }
-
-        footer a {
-          color: white;
-          text-decoration: none;
-          font-weight: bold;
-        }
-
-        footer a:hover {
-          text-decoration: underline;
-        }
-
-    /* Ajustes adicionales para dispositivos más pequeños */
-    @media (max-width: 768px) {
-        footer#main-footer {
-            font-size: 12px; 
-        }
-    }
-    .wishlist-container {
-            width: 80%;
-            margin: 20px auto;
-            text-align: center;
-        }
-
-
-        .product-item img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-        }
-
-        .wishlist-btn {
-            background-color: #e04f3c;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            margin-top: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .wishlist-btn i {
-            margin-right: 5px;
-        }
-
-        .wishlist-btn:hover {
-            background-color: #d75252;
-        }
-        /* Contenedor de íconos sin efectos visuales no deseados */
-.icon-container {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 36px;
-    cursor: pointer;
-}
-
-/* Estilo del ícono dentro del contenedor */
-.icon-container i {
-    font-size: 28px;
-    color: #111;
-}
-
-/* Estilo del contador */
-.icon-container span {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #f19c25; 
-    color: rgb(0, 0, 0);
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
-    z-index: 1;
-}
-.products-container {
- width: 100%;
- height: auto; 
- padding: 10px;
- background: #ffffff;
- border-radius: 10px;
- box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-/* Contenedor principal de los productos */
-#productos-lista {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Asegura espacio entre los productos */
-    gap: 20px; /* Espacio entre los productos */
-    padding: 10px;
-    margin-top: 10px;
-    width: 100%; 
-}
-
-
-/* Contenedor del producto */
-.product-item {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    width: calc(25% - 20px); /* 4 productos por fila */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    text-align: center;
-    overflow: hidden;
-    height: 450px; /* Ajustar altura fija del producto */
-}
-
-.product-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-/* Título del producto */
-.product-item h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 5px 0;
-}
-
-/* Descripción del producto */
-.product-item p {
-    font-size: 12px;
-    color: #555;
-    height: auto; 
-    overflow: hidden;
-    display: -webkit-box; /* Necesario para que funcione line-clamp */
-    -webkit-box-orient: vertical; /* Necesario para que funcione line-clamp */
-    -webkit-line-clamp: 2; /* Número de líneas que deseas mostrar */
-    line-clamp: 2; /* Propiedad estándar (no es necesaria en todos los navegadores) */
-    text-overflow: ellipsis; 
-    line-height: 1.4em; 
-}
-
-html, body {
-    height: 100%; /* Asegura que la altura de la página sea 100% */
-    margin: 0;
-    padding: 0;
-}
-
-.wrapper {
-    min-height: 100%; /* Asegura que el contenido ocupe al menos el 100% de la pantalla */
-    display: flex;
-    flex-direction: column;
-}
-
-.content {
-    flex: 1; /* Hace que el contenido principal ocupe todo el espacio disponible */
-}
-
-/* Precio del producto */
-.product-item .price {
-    font-size: 18px;
-    color: #b12704;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-
-/* Estilo del botón eliminar */
-.delete-btn {
-    background-color: coral;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: auto; 
-    transition: background-color 0.3s ease;
-}
-
-.delete-btn:hover {
-    background-color: #e35b48;
-}
-/* Responsividad */
-@media (max-width: 768px) {
-    .product-item {
-        width: calc(50% - 20px); /* 2 productos por fila */
-    }
-}
-
-@media (max-width: 480px) {
-    .product-item {
-        width: 100%; /* 1 producto por fila */
-    }
-}
-
-.product-item:hover {
-  transform: scale(1.05); 
-}
-
-.product-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain; 
-}
-
-
-.product-actions {
-  display: flex;
-  justify-content: space-around; 
-  margin-top: 2px;
-  gap: 10px;
-}
-
-
-@media (max-width: 768px) {
-  .product-item {
-    width: calc(50% - 20px); 
-  }
-}
-
-@media (max-width: 480px) {
-  .product-item {
-    width: 100%; 
-  }
-}
-
-#autocomplete-list {
-    position: absolute;
-    top: 100%;
-    background-color: white;
-    border: 1px solid #ddd;
-    max-height: 200px;
-    overflow-y: auto;
-    width: 100%;
-    z-index: 1000;
-}
-
-.autocomplete-item {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #ddd;
-}
-
-.autocomplete-item:hover {
-    background-color: #f0f0f0;
-}
-        /* Estructura general de la página */
-        html, body {
-            height: 100%;
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .wrapper {
-            flex: 1;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        .products-container {
-            flex: 1;
-            padding: 20px;
+        /* Header */
+        .header {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transform: translateY(-100%);
+            animation: slideDown 0.5s forwards;
         }
 
-        /* Footer pegado al fondo */
-        footer#main-footer {
-            background-color: #333;
-            color: #fff;
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .header .logo img {
+            width: 200px;
+            transition: transform 0.3s;
+        }
+
+        .header a {
+            color: #e04f3c;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .header a i {
+            margin-left: 5px;
+        }
+
+        .header a:hover {
+            color: #c0392b;
+        }
+
+        /* Title */
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333333;
+            margin: 30px 0;
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+            color: #e04f3c;
+            margin-left: 10px;
+        }
+
+        /* Wishlist Container */
+        .wishlist-container {
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            margin-top: 50px;
+            color: #666666;
+        }
+
+        .empty-state p {
+            font-size: 1.2rem;
+        }
+
+        .empty-state button {
+            background-color: #f39c12;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .empty-state button:hover {
+            background-color: #e67e22;
+        }
+
+        /* Product Item */
+        .product-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #fff8f0;
+            border: 1px solid #fce4d6;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #f5c6b3;
+        }
+
+        .product-info h5 {
+            font-size: 1.2rem;
+            color: #333333;
+            margin: 0;
+        }
+
+        .product-info .price {
+            font-size: 1rem;
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        .product-actions button {
+            background-color: #e04f3c;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .product-actions button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333333;
+            color: #ffffff;
             text-align: center;
             padding: 20px 0;
-            width: 100%;
             margin-top: auto;
         }
 
-       
-
-        @media (max-width: 768px) {
-            .product-item {
-                width: calc(50% - 20px); /* 2 productos por fila */
-            }
+        footer a {
+            color: #f39c12;
+            font-weight: bold;
+            text-decoration: none;
         }
 
-        @media (max-width: 480px) {
-            .product-item {
-                width: 100%; /* 1 producto por fila */
-            }
+        footer a:hover {
+            color: #e67e22;
         }
     </style>
 </head>
+
 <body>
-  <header class="header">
-    <div class="logo">
-      <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
-    </div>
-    <div class="search-bar">
-      <select id="category-select" onchange="redirectToCategory()">
-        <option value="index-usuario.html">Todos</option>
-        <option value="electronica.html" >Electrónica</option>
-        <option value="informatica.html">Informática</option>
-        <option value="ropa.html">Ropa</option>
-        <option value="automoviles.html">Automóviles</option>
-        <option value="belleza.html">Belleza</option>
-      </select>
-      <input id="filter_name" type="text" name="search" placeholder="Buscar por Nombre " oninput="filterProductos()" autocomplete="off" />
-      <div id="autocomplete-list"></div>
-      <button type="button" class="button-search" onclick="performSearch()"><i class="fa fa-search"></i></button>
-    </div>
-    <div class="nav-links">
-      <!-- <a href="wishlist.html" class="icon-link">
-          <div class="icon-container">
-              <i class="fa fa-heart"></i>
-              <span id="wishlist-count">0</span> 
-          </div>
-      </a> -->
-      <a href="cart.html" class="icon-link">
-          <div class="icon-container">
-              <i class="fa fa-shopping-cart"></i>
-              <span id="cart-count">0</span> 
-          </div>
-      </a>
-  </div> 
-</header>
-        <div class="products-container">
-            <div class="container">
-              <h2>Mi Lista de Deseos</h2>
-              <div id="productos-lista"></div>
-            </div>
+    <header class="header">
+        <div class="logo">
+            <a href="index-usuario.html">
+                <img src="image/logo.png" alt="Click Store">
+            </a>
         </div>
+        <div>
+            <a href="cart.html">Ir al carrito <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </header>
 
-
-
-            <footer id="main-footer">
-              <p>&copy; 2024 Click Store. Todos los derechos reservados.</p>
-            </footer>
-          </div>
-
-  <script>
-    // Cargar datos desde localStorage y mostrar la lista de deseos
-    function cargarWishlist() {
-        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        const contenedorProductos = document.getElementById('productos-lista');
-        contenedorProductos.innerHTML = '';
-
-        if (wishlist.length === 0) {
-            contenedorProductos.innerHTML = '<p>No hay productos en la lista de deseos.</p>';
-            return;
-        }
-
-        wishlist.forEach(producto => {
-            const productoDiv = `
-                <div class="product-item">
-                <img src="${producto.foto_url || 'image/not-found.png'}" alt="${producto.nombre}" class="product-image">
-                <h3>${producto.nombre}</h3>
-                <p>${producto.descripcion}</p>
-                <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
-                <button class="delete-btn" onclick='eliminarDeWishlist(${producto.id})'>Eliminar</button>
+    <div class="container mt-4">
+        <h2 class="section-title">
+            Mi Lista de Deseos
+            <i class="fas fa-heart"></i>
+        </h2>
+        <div class="wishlist-container">
+            <div id="empty-message" class="empty-state" style="display: none;">
+                <p>No tienes ningún artículo en tu lista de deseos.</p>
+                <button onclick="window.location.href='index-usuario.html'">
+                    <i class="fas fa-search"></i> Buscar productos
+                </button>
             </div>
+            <div id="productos-lista"></div>
+        </div>
+    </div>
 
-            `;
-            contenedorProductos.innerHTML += productoDiv;
-        });
-    }
+    <footer>
+        <p>&copy; 2024 Click Store. Todos los derechos reservados.</p>
+    </footer>
 
-    // Función para eliminar un producto de la lista de deseos
-    function eliminarDeWishlist(idProducto) {
-        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        wishlist = wishlist.filter(producto => producto.id !== idProducto);
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        cargarWishlist(); // Recargar la lista de deseos después de eliminar
-    }
+    <script>
+        // Función para cargar la lista de deseos desde localStorage
+        function cargarWishlist() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const contenedorProductos = document.getElementById('productos-lista');
+            const emptyMessage = document.getElementById('empty-message');
 
-    // Cargar la wishlist al inicio
-    document.addEventListener('DOMContentLoaded', cargarWishlist);
+            contenedorProductos.innerHTML = '';
+            if (wishlist.length === 0) {
+                emptyMessage.style.display = 'block';
+                return;
+            }
 
-    // Redirige a la categoría seleccionada al cambiar el select
-function redirectToCategory() {
-    const category = document.getElementById('category-select').value;
-    window.location.href = category;
-}
-
-// Filtrar productos por nombre en tiempo real
-function filterProductos() {
-    const searchQuery = document.getElementById('filter_name').value.toLowerCase();
-    const productos = document.querySelectorAll('.product-item');
-
-    productos.forEach(producto => {
-        const nombreProducto = producto.querySelector('h3').textContent.toLowerCase();
-        if (nombreProducto.includes(searchQuery)) {
-            producto.style.display = 'block';
-        } else {
-            producto.style.display = 'none';
-        }
-    });
-}
-
-// Realiza la búsqueda al hacer clic en el botón de búsqueda
-function performSearch() {
-    const category = document.getElementById('category-select').value;
-    const searchQuery = document.getElementById('filter_name').value;
-
-    // Redirige a la categoría con el parámetro de búsqueda
-    if (searchQuery) {
-        window.location.href = `${category}?search=${encodeURIComponent(searchQuery)}`;
-    } else {
-        window.location.href = category;
-    }
-}
-
-// Función para manejar autocompletado (opcional)
-function autocompleteSearch() {
-    const searchQuery = document.getElementById('filter_name').value.toLowerCase();
-    const autocompleteList = document.getElementById('autocomplete-list');
-
-    // Simulación de datos para autocompletado (puedes reemplazar esto con una API)
-    const productosSimulados = ['iPhone', 'Samsung Galaxy', 'Teclado MSI', 'Auriculares Sony'];
-
-    autocompleteList.innerHTML = ''; // Limpiar lista previa
-
-    productosSimulados.forEach(producto => {
-        if (producto.toLowerCase().includes(searchQuery)) {
-            const item = document.createElement('div');
-            item.classList.add('autocomplete-item');
-            item.textContent = producto;
-
-            // Evento al hacer clic en un elemento del autocompletado
-            item.addEventListener('click', () => {
-                document.getElementById('filter_name').value = producto;
-                autocompleteList.innerHTML = ''; // Limpiar lista
+            emptyMessage.style.display = 'none';
+            wishlist.forEach(producto => {
+                const productoHTML = `
+                    <div class="product-item" data-aos="fade-up">
+                        <img src="${producto.foto_url || 'image/no_image.png'}" alt="${producto.nombre}">
+                        <div class="product-info">
+                            <h5>${producto.nombre}</h5>
+                            <p class="price">₲${Number(producto.precio).toLocaleString('es-PY')}</p>
+                        </div>
+                        <div class="product-actions">
+                            <button onclick="eliminarDeWishlist('${producto.id}')">Eliminar</button>
+                        </div>
+                    </div>
+                `;
+                contenedorProductos.innerHTML += productoHTML;
             });
-
-            autocompleteList.appendChild(item);
         }
-    });
-}
 
-// Evento para autocompletar al escribir en el campo de búsqueda
-document.getElementById('filter_name').addEventListener('input', autocompleteSearch);
+        // Función para eliminar un producto de la lista de deseos
+        function eliminarDeWishlist(idProducto) {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const nuevaLista = wishlist.filter(producto => String(producto.id) !== String(idProducto));
+            localStorage.setItem('wishlist', JSON.stringify(nuevaLista));
+            cargarWishlist(); // Actualiza la vista
+        }
 
-</script>
-<script src="../header.js"></script>
+        // Cargar la lista de deseos al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 800, easing: 'slide', once: true });
+            cargarWishlist();
+        });
+    </script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </body>
+
 </html>
