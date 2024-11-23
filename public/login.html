@@ -259,74 +259,51 @@
   <script>
     // Configuración de Toastr
     toastr.options = {
-      "closeButton": true,
-      "debug": false,
-      "newestOnTop": false,
-      "progressBar": true,
-      "positionClass": "toast-top-right",
-      "preventDuplicates": false,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
+      // ... (tu configuración actual de Toastr)
     }
-
+  
     document.getElementById('form-login').addEventListener('submit', async function (event) {
       event.preventDefault();
-
+  
       const email = document.getElementById('login-email').value;
       const contrasena = document.getElementById('login-password').value;
-
+  
       const data = { email, contrasena };
-
+  
       try {
         const response = await fetch('http://localhost:3000/api/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
-
+  
         if (!response.ok) {
           const errorData = await response.json();
           toastr.error('Error: ' + errorData.message, 'Error');
           return;
         }
-
+  
         const responseData = await response.json();
-
+  
         // Guardar la información del usuario en sessionStorage
-        sessionStorage.setItem('nombre', responseData.nombre); // Guarda el nombre del usuario
-        sessionStorage.setItem('Id', responseData.Id);         // Guarda el ID del comerciante o usuario
-        sessionStorage.setItem('tipo', responseData.tipo);     // "usuario" o "comerciante"
-
-        // Mostrar mensaje de éxito
-        Swal.fire({
-          title: '¡Éxito!',
-          text: 'Has iniciado sesión correctamente.',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Redirigir según el tipo de usuario
-            if (responseData.tipo === 'comerciante') {
-              window.location.href = 'index-comer.html'; // Redirigir a la página del comerciante
-            } else if (responseData.tipo === 'usuario') {
-              window.location.href = 'index-usuario.html'; // Redirigir a la página del usuario
-            }
-          }
-        });
-
+        sessionStorage.setItem('nombre', responseData.nombre);
+        sessionStorage.setItem('Id', responseData.Id);
+        sessionStorage.setItem('tipo', responseData.tipo);
+  
+        // Redirigir según el tipo de usuario sin mostrar mensaje
+        if (responseData.tipo === 'comerciante') {
+          window.location.href = 'index-comer.html';
+        } else if (responseData.tipo === 'usuario') {
+          window.location.href = 'index-usuario.html';
+        }
+  
       } catch (error) {
         console.error('Error de conexión o problema con la API:', error);
         toastr.error('Ocurrió un error al intentar iniciar sesión. Por favor, intenta nuevamente.', 'Error');
       }
     });
   </script>
+  
 </body>
 
 </html>
