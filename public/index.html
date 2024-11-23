@@ -455,12 +455,14 @@
 
     /* Carrusel */
     .slider-container {
-      width: 55%;
-      overflow: hidden;
-      border-radius: 10px;
-      animation: slideInUp 1s ease-in-out;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+  width: 55%;
+  overflow: hidden;
+  border-radius: 10px;
+  animation: slideInUp 1s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Asegúrate de no tener 'height' establecido aquí */
+}
+
 
     @keyframes slideInUp {
       from {
@@ -476,8 +478,8 @@
 
     .owl-carousel .item img {
       width: 100%;
-      height: 450px;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       border-radius: 10px;
       transition: transform 0.3s;
     }
@@ -843,8 +845,9 @@
       }
 
       .owl-carousel .item img {
-        height: 200px;
-      }
+  object-fit: cover;
+}
+
 
       .category-title {
         font-size: 24px;
@@ -1149,13 +1152,13 @@
 
     .wishlist-button:hover,
     .cart-button:hover {
-      color: #ff6f61;
+      color: #ff9100;
     }
 
     .ver-mas {
       align-self: center;
       padding: 10px 20px;
-      background-color: #ff6f61;
+      background-color: #ff9100;
       color: #fff;
       border-radius: 25px;
       text-decoration: none;
@@ -1164,7 +1167,7 @@
     }
 
     .ver-mas:hover {
-      background-color: #e55b4d;
+      background-color: #ff9100;
       transform: scale(1.05);
     }
 
@@ -1202,7 +1205,7 @@
       }
 
       .owl-carousel .item img {
-        height: 200px;
+        height: 800px;
       }
 
       .category-title {
