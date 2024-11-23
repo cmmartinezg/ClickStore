@@ -5,32 +5,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Click Store - Panel del Comerciante</title>
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  
+
   <!-- Swiper Carousel Styles -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  
+
   <!-- Custom Styles -->
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
   <link rel="stylesheet" type="text/css" href="css/responsive.css" />
   <link rel="stylesheet" type="text/css" href="css/estilop.css" />
-  
+
   <!-- Estilos Personalizados -->
   <style>
     /* Variables de colores para fácil modificación */
     :root {
-      --primary-color: #2c3e50; /* Azul oscuro */
-      --secondary-color: #ecf0f1; /* Gris claro */
-      --accent-color: #e98411; /* Azul brillante para acentos */
-      --text-color: #34495e; /* Gris oscuro para texto */
+      --primary-color: #2c3e50;
+      /* Azul oscuro */
+      --secondary-color: #ecf0f1;
+      /* Gris claro */
+      --accent-color: #e98411;
+      /* Azul brillante para acentos */
+      --text-color: #34495e;
+      /* Gris oscuro para texto */
       --background-gradient: linear-gradient(135deg, #ecf0f1, #bdc3c7);
       --font-family: 'Roboto', sans-serif;
       --transition-speed: 0.3s;
@@ -46,7 +50,12 @@
       padding: 0;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-weight: 500;
       color: var(--primary-color);
     }
@@ -210,8 +219,8 @@
       margin-bottom: 20px;
       padding: 15px;
       text-align: center;
-      width: calc(33.33% - 40px); 
-      height: 450px; 
+      width: calc(33.33% - 40px);
+      height: 450px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
       background-color: #ffffff;
       color: var(--text-color);
@@ -220,7 +229,7 @@
       position: relative;
       overflow: hidden;
       transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
-      margin-right: 15px; 
+      margin-right: 15px;
     }
 
     .product-item:hover {
@@ -362,7 +371,8 @@
       color: var(--text-color);
       transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
       position: relative;
-      height: 400px; /* Ajuste para limitar la altura */
+      height: 400px;
+      /* Ajuste para limitar la altura */
     }
 
     .chart-box:hover {
@@ -384,134 +394,43 @@
       padding: 20px;
       border-radius: var(--border-radius);
       transition: all var(--transition-speed) ease;
-      width: 100% !important; /* Asegurar que el canvas ocupe el 100% del contenedor */
-      height: 300px !important; /* Limitar la altura del canvas */
+      width: 100% !important;
+      /* Asegurar que el canvas ocupe el 100% del contenedor */
+      height: 300px !important;
+      /* Limitar la altura del canvas */
     }
 
     /* Swiper Carousel */
-.swiper-container {
-  background: var(--secondary-color);
-  border-radius: 10px;
-  padding: 20px;
-  width: 90%;
-  height: auto;
-  min-height: 30px;
-  margin: 0 auto 40px auto;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    .swiper-container {
+      background: var(--secondary-color);
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      height: auto;
+      min-height: 30px;
+      margin: 0 auto 40px auto;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-}
-
-.product-item-carousel {
-  width: 300px;
-  width: 90%; /* Ajustar el ancho del producto en pantallas medianas */
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  background-color: #ffffff;
-  border-radius: 10px;
-  text-align: center;
-  color: var(--text-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-.product-item-carousel:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  background-color: #f1f1f1;
-}
-
-/* Imagen de productos */
-.product-item-carousel img {
-  width: 80%; 
-  height: 150px; /* Reducir altura de la imagen en pantallas medianas */
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  transition: transform var(--transition-speed) ease;
-}
-
-.product-item-carousel:hover img {
-  transform: scale(1.05);
-}
-
-.product-item-carousel h3 {
-  font-size: 18px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 5px;
-  color: var(--text-color);
-}
-
-.product-item-carousel p {
-  font-size: 14px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 5px;
-  color: #666666;
-}
-
-.product-item-carousel .price {
-  font-size: 16px;
-  color: var(--accent-color);
-  font-weight: bold;
-}
-
-/* Swiper Navigation Buttons */
-.swiper-button-next, .swiper-button-prev {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: var(--accent-color);
-  color: #ffffff;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  z-index: 10;
-  opacity: 0.9;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background-color: #cf7703;
-  opacity: 1;
-}
-
-/* Swiper Pagination */
-.swiper-pagination-bullet {
-  background: var(--accent-color);
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.swiper-pagination-bullet-active {
-  opacity: 1;
-  background: var(--primary-color);
-}
-
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+    }
 
     .product-item-carousel {
       width: 300px;
-      padding: 15px;
+      width: 90%;
+      /* Ajustar el ancho del producto en pantallas medianas */
+      padding: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
       background-color: #ffffff;
-      border-radius: var(--border-radius);
+      border-radius: 10px;
       text-align: center;
       color: var(--text-color);
-      transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     }
 
     .product-item-carousel:hover {
@@ -520,8 +439,11 @@
       background-color: #f1f1f1;
     }
 
+    /* Imagen de productos */
     .product-item-carousel img {
-      width: 80%; 
+      width: 80%;
+      height: 150px;
+      /* Reducir altura de la imagen en pantallas medianas */
       height: 180px;
       object-fit: cover;
       border-radius: 8px;
@@ -557,7 +479,101 @@
     }
 
     /* Swiper Navigation Buttons */
-    .swiper-button-next, .swiper-button-prev {
+    .swiper-button-next,
+    .swiper-button-prev {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      z-index: 10;
+      opacity: 0.9;
+      transition: background-color 0.3s ease, opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background-color: #cf7703;
+      opacity: 1;
+    }
+
+    /* Swiper Pagination */
+    .swiper-pagination-bullet {
+      background: var(--accent-color);
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: var(--primary-color);
+    }
+
+
+    .product-item-carousel {
+      width: 300px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      background-color: #ffffff;
+      border-radius: var(--border-radius);
+      text-align: center;
+      color: var(--text-color);
+      transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
+    }
+
+    .product-item-carousel:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      background-color: #f1f1f1;
+    }
+
+    .product-item-carousel img {
+      width: 80%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    .product-item-carousel:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-item-carousel h3 {
+      font-size: 18px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 5px;
+      color: var(--text-color);
+    }
+
+    .product-item-carousel p {
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 5px;
+      color: #666666;
+    }
+
+    .product-item-carousel .price {
+      font-size: 16px;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* Swiper Navigation Buttons */
+    .swiper-button-next,
+    .swiper-button-prev {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -610,10 +626,11 @@
     }
 
     @media (max-width: 768px) {
-  .swiper-container {
-    padding: 15px;
-    max-width: 100%; /* Ancho completo en pantallas pequeñas */
-  }
+      .swiper-container {
+        padding: 15px;
+        max-width: 100%;
+        /* Ancho completo en pantallas pequeñas */
+      }
 
       .comerciante-recuadro {
         margin-right: 0;
@@ -626,18 +643,20 @@
       }
 
       /* Carrusel responsivo */
-.swiper-container {
-  background: var(--secondary-color);
-  border-radius: 10px;
-  padding: 20px;
-  width: 100%; /* Ajuste para ocupar el 100% en móviles */
-  max-width: 90%; /* En pantallas grandes, un límite de ancho */
-  height: auto;
-  min-height: 30px;
-  margin: 0 auto 40px auto;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+      .swiper-container {
+        background: var(--secondary-color);
+        border-radius: 10px;
+        padding: 20px;
+        width: 100%;
+        /* Ajuste para ocupar el 100% en móviles */
+        max-width: 90%;
+        /* En pantallas grandes, un límite de ancho */
+        height: auto;
+        min-height: 30px;
+        margin: 0 auto 40px auto;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
     }
 
     @media (max-width: 480px) {
@@ -649,7 +668,8 @@
         padding: 20px;
       }
 
-      .swiper-button-next, .swiper-button-prev {
+      .swiper-button-next,
+      .swiper-button-prev {
         width: 30px;
         height: 30px;
       }
@@ -766,8 +786,13 @@
 
     /* Animations */
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     /* Loader Styles */
@@ -782,10 +807,14 @@
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+      0% {
+        transform: rotate(0deg);
+      }
 
+      100% {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 </head>
 
@@ -794,7 +823,8 @@
     <!-- Inicio del encabezado -->
     <header class="header">
       <div class="logo">
-        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+        <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store"
+            alt="Click Store" /></a>
       </div>
       <div class="nav-links">
         <span id="nombre-comerciante" class="comerciante-info"><i class="fas fa-user-circle"></i> Hola, [Nombre]</span>
@@ -833,7 +863,8 @@
       <div class="product-list">
         <!-- Botón de Subir Artículo -->
         <div class="text-right mb-3">
-          <button id="subir-producto-btn" onclick="redirigirAProductos()"><i class="fas fa-upload"></i> Subir Artículo</button>
+          <button id="subir-producto-btn" onclick="redirigirAProductos()"><i class="fas fa-upload"></i> Subir
+            Artículo</button>
         </div>
         <h1><i class="fas fa-box-open"></i> Mis Productos</h1>
         <!-- Filtros -->
@@ -855,22 +886,22 @@
           <!-- Los productos se cargarán aquí -->
         </div>
       </div>
-    </div> 
-
-   <!-- Swiper Carousel para productos recomendados -->
-<div class="product-list">
-  <h1>Te pueden interesar estos artículos</h1>
-  <div class="swiper-container" id="productos-recomendados">
-    <div class="swiper-wrapper">
-      <!-- Los productos recomendados se cargarán aquí dinámicamente -->
     </div>
-    <!-- Botones de navegación -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <!-- Paginación -->
-    <div class="swiper-pagination"></div>
-  </div>
-</div>
+
+    <!-- Swiper Carousel para productos recomendados -->
+    <div class="product-list">
+      <h1>Te pueden interesar estos artículos</h1>
+      <div class="swiper-container" id="productos-recomendados">
+        <div class="swiper-wrapper">
+          <!-- Los productos recomendados se cargarán aquí dinámicamente -->
+        </div>
+        <!-- Botones de navegación -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Paginación -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
 
 
     <!-- Gráficos de ventas -->
@@ -907,7 +938,8 @@
           </div>
           <div class="form-group">
             <label for="producto-descripcion"><i class="fas fa-info-circle"></i> Descripción</label>
-            <textarea class="form-control" id="producto-descripcion" rows="3" placeholder="Descripción del Producto"></textarea>
+            <textarea class="form-control" id="producto-descripcion" rows="3"
+              placeholder="Descripción del Producto"></textarea>
           </div>
           <div class="form-group">
             <label for="producto-precio"><i class="fas fa-dollar-sign"></i> Precio</label>
@@ -934,8 +966,10 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" onclick="eliminarProducto()"><i class="fas fa-trash-alt"></i> Eliminar</button>
-          <button type="button" class="btn btn-primary" onclick="guardarCambiosProducto()"><i class="fas fa-save"></i> Guardar Cambios</button>
+          <button type="button" class="btn btn-danger" onclick="eliminarProducto()"><i class="fas fa-trash-alt"></i>
+            Eliminar</button>
+          <button type="button" class="btn btn-primary" onclick="guardarCambiosProducto()"><i class="fas fa-save"></i>
+            Guardar Cambios</button>
         </div>
       </div>
     </div>
@@ -961,26 +995,26 @@
     let mySwiper; // Variable global para almacenar la instancia de Swiper
 
     document.addEventListener('DOMContentLoaded', function () {
-  const nombreComerciante = sessionStorage.getItem('nombre');
-  const comercianteId = sessionStorage.getItem('Id');
+      const nombreComerciante = sessionStorage.getItem('nombre');
+      const comercianteId = sessionStorage.getItem('Id');
 
-  if (nombreComerciante && comercianteId) {
-    document.getElementById('nombre-comerciante').innerHTML = `<i class="fas fa-user-circle"></i> Hola, ${nombreComerciante}`;
-    cargarRecomendaciones(); // Cargar recomendaciones
-  } else {
-    window.location.href = 'login.html';
-  }
+      if (nombreComerciante && comercianteId) {
+        document.getElementById('nombre-comerciante').innerHTML = `<i class="fas fa-user-circle"></i> Hola, ${nombreComerciante}`;
+        cargarRecomendaciones(); // Cargar recomendaciones
+      } else {
+        window.location.href = 'login.html';
+      }
 
-  fetchProductos(); // Cargar los productos del comerciante
-  fetchComercianteInfo(); // Cargar la información del comerciante
+      fetchProductos(); // Cargar los productos del comerciante
+      fetchComercianteInfo(); // Cargar la información del comerciante
 
-  document.getElementById('logout-btn').addEventListener('click', function () {
-      sessionStorage.clear();
-      window.location.href = 'login.html';
-  });
-  
-  obtenerTotalProductosSinStock(); // Mostrar total de productos sin stock
-});
+      document.getElementById('logout-btn').addEventListener('click', function () {
+        sessionStorage.clear();
+        window.location.href = 'login.html';
+      });
+
+      obtenerTotalProductosSinStock(); // Mostrar total de productos sin stock
+    });
 
 
     function fetchProductos() {
@@ -1025,7 +1059,7 @@
       `;
     }
 
-    function displayProductos(productos) { 
+    function displayProductos(productos) {
       const container = document.getElementById('productos-lista');
       container.innerHTML = '';
 
@@ -1035,9 +1069,9 @@
       }
 
       productos.forEach(producto => {
-          const item = document.createElement('div');
-          item.className = 'product-item';
-          item.innerHTML = `
+        const item = document.createElement('div');
+        item.className = 'product-item';
+        item.innerHTML = `
               <img src="${producto.foto_url}" alt="${producto.nombre}" class="product-image">
               <h3>${producto.nombre}</h3>
               <p>${producto.descripcion.substring(0, 60)}...</p>
@@ -1047,7 +1081,7 @@
               </p>
               <button class="ver-mas" onclick="editarProducto(${producto.id})"><i class="fas fa-edit"></i> Editar Producto</button>
           `;
-          container.appendChild(item);
+        container.appendChild(item);
       });
     }
 
@@ -1216,7 +1250,7 @@
             yAxes: [{
               ticks: {
                 beginAtZero: true,
-                callback: function(value) {
+                callback: function (value) {
                   return '₲' + value.toLocaleString('es-PY');
                 }
               }
@@ -1241,104 +1275,104 @@
     }
 
     function ordenarProductos() {
-        const ordenarPor = document.getElementById('ordenar').value;
-        const listaProductos = document.getElementById('productos-lista');
-        const productos = Array.from(listaProductos.getElementsByClassName('product-item'));
+      const ordenarPor = document.getElementById('ordenar').value;
+      const listaProductos = document.getElementById('productos-lista');
+      const productos = Array.from(listaProductos.getElementsByClassName('product-item'));
 
-        let productosOrdenados;
+      let productosOrdenados;
 
-        if (ordenarPor === 'nombre') {
-          productosOrdenados = productos.sort((a, b) => {
-            const nombreA = a.querySelector('h3').textContent.toLowerCase();
-            const nombreB = b.querySelector('h3').textContent.toLowerCase();
-            return nombreA.localeCompare(nombreB);
-          });
-        } else if (ordenarPor === 'precio-asc') {
-          productosOrdenados = productos.sort((a, b) => {
-            const precioA = parseFloat(a.querySelector('.price').textContent.replace(/[^\d]/g, ''));
-            const precioB = parseFloat(b.querySelector('.price').textContent.replace(/[^\d]/g, ''));
-            return precioA - precioB;
-          });
-        } else if (ordenarPor === 'precio-desc') {
-          productosOrdenados = productos.sort((a, b) => {
-            const precioA = parseFloat(a.querySelector('.price').textContent.replace(/[^\d]/g, ''));
-            const precioB = parseFloat(b.querySelector('.price').textContent.replace(/[^\d]/g, ''));
-            return precioB - precioA;
-          });
-        }
-
-        listaProductos.innerHTML = '';
-        productosOrdenados.forEach(producto => {
-          listaProductos.appendChild(producto);
+      if (ordenarPor === 'nombre') {
+        productosOrdenados = productos.sort((a, b) => {
+          const nombreA = a.querySelector('h3').textContent.toLowerCase();
+          const nombreB = b.querySelector('h3').textContent.toLowerCase();
+          return nombreA.localeCompare(nombreB);
+        });
+      } else if (ordenarPor === 'precio-asc') {
+        productosOrdenados = productos.sort((a, b) => {
+          const precioA = parseFloat(a.querySelector('.price').textContent.replace(/[^\d]/g, ''));
+          const precioB = parseFloat(b.querySelector('.price').textContent.replace(/[^\d]/g, ''));
+          return precioA - precioB;
+        });
+      } else if (ordenarPor === 'precio-desc') {
+        productosOrdenados = productos.sort((a, b) => {
+          const precioA = parseFloat(a.querySelector('.price').textContent.replace(/[^\d]/g, ''));
+          const precioB = parseFloat(b.querySelector('.price').textContent.replace(/[^\d]/g, ''));
+          return precioB - precioA;
         });
       }
-      document.addEventListener('DOMContentLoaded', function () {
-    const nombreComerciante = sessionStorage.getItem('nombre');
-    if (nombreComerciante) {
-      document.getElementById('nombre-comerciante').innerHTML = `Hola, ${nombreComerciante}`;
-    } else {
-      window.location.href = 'login.html';
+
+      listaProductos.innerHTML = '';
+      productosOrdenados.forEach(producto => {
+        listaProductos.appendChild(producto);
+      });
     }
+    document.addEventListener('DOMContentLoaded', function () {
+      const nombreComerciante = sessionStorage.getItem('nombre');
+      if (nombreComerciante) {
+        document.getElementById('nombre-comerciante').innerHTML = `Hola, ${nombreComerciante}`;
+      } else {
+        window.location.href = 'login.html';
+      }
 
-    fetchProductos(); // Cargar los productos del comerciante
-    fetchComercianteInfo(); // Cargar la información del comerciante
+      fetchProductos(); // Cargar los productos del comerciante
+      fetchComercianteInfo(); // Cargar la información del comerciante
 
-    document.getElementById('logout-btn').addEventListener('click', function () {
-      sessionStorage.clear();
-      window.location.href = 'login.html';
+      document.getElementById('logout-btn').addEventListener('click', function () {
+        sessionStorage.clear();
+        window.location.href = 'login.html';
+      });
+
+      // Cargar recomendaciones
+      cargarRecomendaciones();
     });
 
-    // Cargar recomendaciones
-     cargarRecomendaciones();
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-  const comercianteId = sessionStorage.getItem('Id');
-  if (comercianteId) {
-    cargarRecomendaciones(comercianteId);
-  } else {
-    console.error('Error: comercianteId no encontrado en sessionStorage');
-  }
-});
-
-
-function almacenarComercianteId(comercianteId) {
-    if (comercianteId) {
-        sessionStorage.setItem('Id', comercianteId); 
-    }
-}
-
-function mostrarTotalProductosSimilares(total) {
-    document.getElementById('total-productos-similares').textContent = total;
-}
-
-
-// Cargar recomendaciones desde la API
-function cargarRecomendaciones() {
-  const comercianteId = sessionStorage.getItem('Id');
-  if (!comercianteId) {
-    console.error('Error: comercianteId no encontrado en sessionStorage');
-    return;
-  }
-
-  axios.get(`http://127.0.0.1:5002/recomendaciones?comercianteId=${comercianteId}`)
-    .then(response => {
-      const recomendaciones = response.data;
-      mostrarRecomendaciones(recomendaciones);
-      mostrarTotalProductosSimilares(recomendaciones.length);
-    })
-    .catch(error => {
-      console.error('Error al cargar recomendaciones:', error);
+    document.addEventListener('DOMContentLoaded', function () {
+      const comercianteId = sessionStorage.getItem('Id');
+      if (comercianteId) {
+        cargarRecomendaciones(comercianteId);
+      } else {
+        console.error('Error: comercianteId no encontrado en sessionStorage');
+      }
     });
-}
 
-// Mostrar recomendaciones en el carrusel
-function mostrarRecomendaciones(recomendaciones) {
-  const swiperWrapper = document.querySelector('#productos-recomendados .swiper-wrapper');
-  swiperWrapper.innerHTML = ''; // Limpiar contenido previo
 
-  recomendaciones.forEach(recomendacion => {
-    const productoDiv = `
+    function almacenarComercianteId(comercianteId) {
+      if (comercianteId) {
+        sessionStorage.setItem('Id', comercianteId);
+      }
+    }
+
+    function mostrarTotalProductosSimilares(total) {
+      document.getElementById('total-productos-similares').textContent = total;
+    }
+
+
+    // Cargar recomendaciones desde la API
+    function cargarRecomendaciones() {
+      const comercianteId = sessionStorage.getItem('Id');
+      if (!comercianteId) {
+        console.error('Error: comercianteId no encontrado en sessionStorage');
+        return;
+      }
+
+      axios.get(`http://127.0.0.1:5002/recomendaciones?comercianteId=${comercianteId}`)
+        .then(response => {
+          const recomendaciones = response.data;
+          mostrarRecomendaciones(recomendaciones);
+          mostrarTotalProductosSimilares(recomendaciones.length);
+        })
+        .catch(error => {
+          console.error('Error al cargar recomendaciones:', error);
+        });
+    }
+
+    // Mostrar recomendaciones en el carrusel
+    function mostrarRecomendaciones(recomendaciones) {
+      const swiperWrapper = document.querySelector('#productos-recomendados .swiper-wrapper');
+      swiperWrapper.innerHTML = ''; // Limpiar contenido previo
+
+      recomendaciones.forEach(recomendacion => {
+        const productoDiv = `
       <div class="swiper-slide">
         <div class="product-item product-item-carousel">
           <img src="${recomendacion.foto_url}" alt="${recomendacion.nombre}" class="product-image">
@@ -1348,50 +1382,50 @@ function mostrarRecomendaciones(recomendaciones) {
         </div>
       </div>
     `;
-    swiperWrapper.innerHTML += productoDiv;
-  });
+        swiperWrapper.innerHTML += productoDiv;
+      });
 
-  inicializarSwiper(); // Inicializar Swiper después de cargar los productos
-}
+      inicializarSwiper(); // Inicializar Swiper después de cargar los productos
+    }
 
-// Inicializar Swiper
-function inicializarSwiper() {
-  new Swiper('#productos-recomendados', {
-    slidesPerView: 3, // Número de productos visibles por defecto
-    spaceBetween: 20, // Espacio entre los productos
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    autoplay: {
-      delay: 3000,
-    },
-    loop: true,
-    breakpoints: {
-      // Configuración para pantallas grandes
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20,
-      },
-      // Configuración para pantallas medianas (tablets)
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 15,
-      },
-      // Configuración para pantallas pequeñas (móviles)
-      480: {
-        slidesPerView: 1,
-        spaceBetween: 10,
-      },
-    },
-  });
-}
+    // Inicializar Swiper
+    function inicializarSwiper() {
+      new Swiper('#productos-recomendados', {
+        slidesPerView: 3, // Número de productos visibles por defecto
+        spaceBetween: 20, // Espacio entre los productos
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        autoplay: {
+          delay: 3000,
+        },
+        loop: true,
+        breakpoints: {
+          // Configuración para pantallas grandes
+          1200: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          // Configuración para pantallas medianas (tablets)
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          // Configuración para pantallas pequeñas (móviles)
+          480: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+        },
+      });
+    }
 
-    
+
     function obtenerTotalProductosSinStock() {
       const sinStockElement = document.getElementById('total-productos-sin-stock');
 

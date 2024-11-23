@@ -251,15 +251,18 @@
                     <div id="resumen-pedido" class="border p-4 rounded">
                         <p><strong>Precio Estimado:</strong> <span id="total-precio">₲0</span></p>
                         <p><strong>Cantidad Total:</strong> <span id="total-cantidad">0</span></p>
-                        <p><strong id="metodo-pago-texto" style="cursor: pointer; color: #28a745;">Método de Pago: No seleccionado</strong></p>
-                        <button class="btn btn-success" id="boton-comprar"><i class="fas fa-credit-card"></i> Comprar Ahora</button>
+                        <p><strong id="metodo-pago-texto" style="cursor: pointer; color: #28a745;">Método de Pago: No
+                                seleccionado</strong></p>
+                        <button class="btn btn-success" id="boton-comprar"><i class="fas fa-credit-card"></i> Comprar
+                            Ahora</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Modal para método de pago -->
-        <div class="modal fade" id="modalMetodoPago" tabindex="-1" aria-labelledby="modalMetodoPagoLabel" aria-hidden="true">
+        <div class="modal fade" id="modalMetodoPago" tabindex="-1" aria-labelledby="modalMetodoPagoLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -283,7 +286,8 @@
                         </form>
                         <div id="qr-section" class="qr-code" style="display: none;">
                             <p>Escanea el siguiente código QR para completar tu pago:</p>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://tu-sitio-de-pago.com" alt="Código QR de Pago">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://tu-sitio-de-pago.com"
+                                alt="Código QR de Pago">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -295,7 +299,8 @@
         </div>
 
         <!-- Modal de Confirmación -->
-        <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel" aria-hidden="true">
+        <div class="modal fade" id="modalConfirmacion" tabindex="-1" aria-labelledby="modalConfirmacionLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -308,7 +313,8 @@
                         <p>Has seleccionado <strong id="metodo-seleccionado"></strong> como método de pago.</p>
                         <div id="qr-confirmacion" class="qr-code" style="display: none;">
                             <p>Escanea el siguiente código QR para completar tu pago:</p>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://tu-sitio-de-pago.com" alt="Código QR de Pago">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://tu-sitio-de-pago.com"
+                                alt="Código QR de Pago">
                         </div>
                         <p>¿Deseas confirmar la compra?</p>
                     </div>
@@ -325,7 +331,8 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-success text-white">
-                        <h5 class="modal-title" id="modalExitoLabel"><i class="fas fa-check-circle"></i> ¡Compra Exitosa!</h5>
+                        <h5 class="modal-title" id="modalExitoLabel"><i class="fas fa-check-circle"></i> ¡Compra
+                            Exitosa!</h5>
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -347,7 +354,8 @@
         </div>
 
         <!-- Loading Spinner Modal -->
-        <div class="modal fade" id="modalLoading" tabindex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal fade" id="modalLoading" tabindex="-1" aria-hidden="true" data-backdrop="static"
+            data-keyboard="false">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="background: transparent; border: none; box-shadow: none;">
                     <div class="d-flex justify-content-center align-items-center">

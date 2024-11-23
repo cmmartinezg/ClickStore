@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Producto</title>
     <!-- CSS Parte Inicio -->
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  
-  <!-- Swiper Carousel Styles -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  
-  <!-- Custom Styles -->
-  <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-  <link rel="stylesheet" type="text/css" href="css/responsive.css" />
-  <link rel="stylesheet" type="text/css" href="css/estilop.css" />
-    
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Swiper Carousel Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilop.css" />
+
     <style>
         .product-info {
             display: flex;
@@ -86,13 +86,13 @@
 
         .cart-buttons {
             display: flex;
-            justify-content:center;
+            justify-content: center;
             gap: 50px;
             width: 60%;
-            margin-top: 5px; 
-            margin-left: 20px; 
+            margin-top: 5px;
+            margin-left: 20px;
         }
-       
+
         .wishlist,
         .btn-primary,
         .btn-buy {
@@ -233,26 +233,27 @@
             width: 100%;
         }
 
-/* Media queries para dispositivos pequeños */
-@media (max-width: 768px) {
-    .qty-buttons-container {
-        flex-direction: column;
-        align-items: center;
-    }
+        /* Media queries para dispositivos pequeños */
+        @media (max-width: 768px) {
+            .qty-buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .cart-buttons {
-        flex-direction:row ; 
-        width: 100%;
-    }
+            .cart-buttons {
+                flex-direction: row;
+                width: 100%;
+            }
 
-    .cart-buttons button {
-        width: 100%; /* Botones de ancho completo */
-    }
+            .cart-buttons button {
+                width: 100%;
+                /* Botones de ancho completo */
+            }
 
-    .qty-container {
-        justify-content: center;
-    }
-}
+            .qty-container {
+                justify-content: center;
+            }
+        }
 
         /* Asegura que esté alineado a la izquierda la imagen del producto  */
         @media (min-width: 768px) {
@@ -268,14 +269,15 @@
         }
 
         #productos-recomendados {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 15px;
-        margin-bottom: 0; 
-        padding-bottom: 0;
-        justify-items: center;
-        padding: 20px;
-    }
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            justify-items: center;
+            padding: 20px;
+        }
+
         /* Ajuste responsivo para diferentes tamaños de pantalla */
         @media (max-width: 1024px) {
             #productos-recomendados {
@@ -285,40 +287,44 @@
 
         @media (max-width: 768px) {
             #productos-recomendados {
-                grid-template-columns: repeat(2, 1fr); /* 2 productos por fila en pantallas más pequeñas */
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 productos por fila en pantallas más pequeñas */
             }
         }
 
         @media (max-width: 480px) {
             #productos-recomendados {
-                grid-template-columns: 1fr; /* 1 producto por fila en pantallas muy pequeñas */
+                grid-template-columns: 1fr;
+                /* 1 producto por fila en pantallas muy pequeñas */
             }
         }
-  
+
         .producto {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
         .producto-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-    .producto-info h3 {
-        font-size: 16px;
-        color: #333;
-        margin: 10px 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .producto-info h3 {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         /* Estilo para las imágenes de los productos */
         .producto img {
             width: 100%;
@@ -326,14 +332,16 @@
             object-fit: cover;
             border-radius: 10px;
         }
+
         .producto-info p {
-        font-size: 14px;
-        color: #666;
-        margin: 5px 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
         /* Estilo para el título del producto */
         .producto h3 {
             font-size: 18px;
@@ -355,6 +363,7 @@
             display: -webkit-box;
             -webkit-box-orient: vertical;
         }
+
         /* Precio del producto */
         .producto-info .precio {
             font-size: 16px;
@@ -362,7 +371,8 @@
             color: #28a745;
             margin-bottom: 10px;
         }
-     /* Estilo de cada tarjeta de producto */
+
+        /* Estilo de cada tarjeta de producto */
         .producto-card {
             background-color: #ffffff;
             border: 1px solid #ddd;
@@ -383,7 +393,7 @@
 
 
 
-            /* Botón "Ver detalles" */
+        /* Botón "Ver detalles" */
         .producto-info .ver-mas {
             display: inline-block;
             padding: 8px 16px;
@@ -398,15 +408,16 @@
         .producto-info .ver-mas:hover {
             background-color: #e65b54;
         }
-    
+
 
         .producto-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 10px;
-    }
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
         .qty-container,
         .rating-container {
             display: flex;
@@ -416,10 +427,10 @@
         }
 
         .qty-container label {
-        font-size: 0.9rem; 
-        font-weight: bold;
-        margin-bottom: 10px;
-         }
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
         .qtyBtn {
             background-color: #ddd;
@@ -435,7 +446,7 @@
             background-color: #ccc;
         }
 
-      
+
         /* Estilo para el formulario de calificación */
         #rating {
             height: 50px;
@@ -461,8 +472,8 @@
             background-color: #ff9f07;
         }
 
-    
-     
+
+
         /* Estilo para el texto de Stock*/
         .label-success {
             background-color: #28a745 !important;
@@ -472,16 +483,16 @@
             border-radius: 5px;
         }
 
-    
 
-    /* Estilo de la cuadrícula de productos */
-    #productos-recomendados.productos-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 20px;
-        justify-items: center;
-        padding: 10px;
-    }
+
+        /* Estilo de la cuadrícula de productos */
+        #productos-recomendados.productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 10px;
+        }
 
 
         /* Contenedor principal de opiniones */
@@ -615,1569 +626,1628 @@
             margin-top: 5px;
         }
 
-       
-#container {
-    padding: 40px 20px; /* Espacio en la parte superior e inferior */
-    background-color: #f8f9fa; /* Fondo claro */
-}
 
-.breadcrumb {
-    margin-bottom: 30px;
-}
+        #container {
+            padding: 40px 20px;
+            /* Espacio en la parte superior e inferior */
+            background-color: #f8f9fa;
+            /* Fondo claro */
+        }
 
-.breadcrumb li {
-    display: inline;
-    margin-right: 10px;
-}
+        .breadcrumb {
+            margin-bottom: 30px;
+        }
 
-.breadcrumb li a {
-    color: #b6a7a3; 
-    text-decoration: none;
-}
+        .breadcrumb li {
+            display: inline;
+            margin-right: 10px;
+        }
 
-.breadcrumb li a:hover {
-    text-decoration: underline;
-}
+        .breadcrumb li a {
+            color: #b6a7a3;
+            text-decoration: none;
+        }
 
-.product-info {
-    background-color: #fff; /* Fondo blanco para el área del producto */
-    padding: 20px;
-    border-radius: 12px; /* Bordes más redondeados */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más suave */
-    display: flex; /* Usar flexbox para un mejor diseño */
-    gap: 20px; /* Espacio entre imagen y texto */
-}
+        .breadcrumb li a:hover {
+            text-decoration: underline;
+        }
 
-.image {
-    flex: 1; /* La imagen ocupa el espacio disponible */
-    max-width: 300px; /* Limitar el tamaño máximo de la imagen */
-    text-align: center; /* Centrar la imagen */
-}
+        .product-info {
+            background-color: #fff;
+            /* Fondo blanco para el área del producto */
+            padding: 20px;
+            border-radius: 12px;
+            /* Bordes más redondeados */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            /* Sombra más suave */
+            display: flex;
+            /* Usar flexbox para un mejor diseño */
+            gap: 20px;
+            /* Espacio entre imagen y texto */
+        }
 
-#product-image {
-    max-width: 100%; /* Asegura que la imagen sea responsiva */
-    height: auto; /* Mantener la proporción */
-    border-radius: 12px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para la imagen */
-}
+        .image {
+            flex: 1;
+            /* La imagen ocupa el espacio disponible */
+            max-width: 300px;
+            /* Limitar el tamaño máximo de la imagen */
+            text-align: center;
+            /* Centrar la imagen */
+        }
 
-.description {
-    flex: 2; /* La descripción ocupa más espacio */
-}
+        #product-image {
+            max-width: 100%;
+            /* Asegura que la imagen sea responsiva */
+            height: auto;
+            /* Mantener la proporción */
+            border-radius: 12px;
+            /* Bordes redondeados */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            /* Sombra para la imagen */
+        }
 
-.description li {
-    font-size: 20px;
-    margin-bottom: 15px; /* Mayor espacio entre las líneas */
-    color: #333; /* Color del texto */
-}
+        .description {
+            flex: 2;
+            /* La descripción ocupa más espacio */
+        }
 
-.qty-container {
-    margin-top: 20px;
-}
+        .description li {
+            font-size: 20px;
+            margin-bottom: 15px;
+            /* Mayor espacio entre las líneas */
+            color: #333;
+            /* Color del texto */
+        }
 
-
-
-/* Estilo del pie de página */
-footer #main-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;  
-    padding: 20px 0;   
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-}
-
-footer {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-/* Ajustes adicionales para dispositivos más pequeños */
-@media (max-width: 768px) {
-    footer#main-footer {
-        font-size: 12px; 
-    }
-}
-
-/* Estilo para los enlaces de navegación */
-.nav-links {
-    display: flex;
-    align-items: center;
-}
-
-/* Media Query para pantallas pequeñas */
-@media (max-width: 768px) {
-    .product-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .nav-links {
-        justify-content: center;
-    }
-}
-
-
-
-   /* Icono del logo */
-        .logo img {
-            width: 200px; 
-            height: auto; 
+        .qty-container {
+            margin-top: 20px;
         }
 
 
-    /* Ajustes de la barra de búsqueda */
-    .search-bar {
-      display: flex;
-      align-items: center;
-      margin-right: auto;
-      padding: 5px;
-    }
-
-    .search-bar select {
-      background-color: #f7f7f7;
-      color: #333;
-      padding: 10px;
-      border-radius: 5px;
-      font-weight: bold;
-      appearance: none;
-      width: 130px;
-      background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 10 10%22%3E%3Cpolygon points=%220,0 10,0 5,7%22 fill=%22%23333%22/%3E%3C/svg%3E'); /* Flecha hacia abajo con color negro */
-      background-repeat: no-repeat;
-      background-size: 60px; 
-      background-position: right 10px center;
-      background-size: 12px;
-      -webkit-appearance: none;
-      -moz-appearance: none; 
-    }
-
-.search-bar select:focus {
-  border-color: #0f0e0a;
-  outline: none; 
-}
-
-/* Estilo de las opciones del desplegable */
-.search-bar select option {
-  background-color: #fff;
-  color: #333; 
-}
-
-/* Estilo cuando el select está abierto */
-.search-bar select:active, 
-.search-bar select:hover {
-  background-color: #fff; 
-  color: #333; 
-}
-
-/* Estilo de las opciones seleccionadas */
-.search-bar select option:checked {
-  background-color: #f7f7f7; 
-  color: #333;
-}
-
-    .search-bar input {
-      flex-grow: 1;
-      border: 1px solid #602f2f;
-    }
-
-    .button-search {
-      border: none;
-      padding: 10px 15px;
-      color:#ffffff; ;
-      cursor: pointer;
-    
-    
-    }
-
-    .button-search:hover {
-      background-color: #444;
-    }
-
-  
-    #welcome-message {
-      color: #a14f1d;
-      font-weight: bold;
-      font-size: 15px;
-    }
-
-    /* Footer */
-    #main-footer {
-      background: #333;
-      color: #fff;
-      padding: 40px 0;
-      font-family: 'Open Sans', sans-serif;
-    }
-
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0;
-      padding: 0 20px;
-    }
-
-    /* Sección del footer */
-    .footer-section {
-      flex: 1 1 30%;
-      margin: 0 20px;
-      margin-bottom: 20px;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .footer-section h4 {
-      font-size: 18px;
-      margin-bottom: 15px;
-      color: #ffc107;
-      transition: color 0.3s;
-    }
-
-    .footer-section h4:hover {
-      color: #91726f;
-    }
-
-    .footer-section p,
-    .footer-section ul {
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .footer-section ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 10px;
-      transition: color 0.3s;
-    }
-
-    .footer-section ul li a {
-      text-decoration: none;
-      color: #ccc;
-      transition: color 0.3s ease;
-    }
-
-    .footer-section ul li a:hover {
-      color: #ffc107;
-    }
-
-    /* Íconos de contacto */
-    .footer-section ul li i {
-      margin-right: 10px;
-      color: #ffc107;
-    }
-
-    /* Contenedor inferior del footer */
-    .footer-bottom {
-      background: #222;
-      color: #aaa;
-      text-align: center;
-      padding: 15px 20px;
-      margin-top: 30px;
-      font-size: 14px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    .footer-bottom a {
-      color: #ffc107;
-      text-decoration: none;
-      margin-left: 5px;
-      transition: color 0.3s;
-    }
-
-    .footer-bottom a:hover {
-      color: #664744;
-      text-decoration: underline;
-    }
-
-  
-    /* Quitar el texto debajo de los íconos */
-    .icon-text {
-      display: none;
-    }
-    /* Eliminar completamente la subrayado y borde */
-    .icon-link {
-    text-decoration: none !important; /* Quitar subrayado */
-    outline: none !important; /* Quitar contorno al hacer clic */
-    border: none !important; /* Quitar cualquier borde */
-    background: transparent; /* Eliminar fondo si existe */
-    }
-
-    .icon-link i {
-    font-size: 28px;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    padding: 5px;
-    transition: color 0.3s ease, border-color 0.3s ease;
-    }
-
-    
-    .icon-container {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 36px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.icon-container i {
-    font-size: 20px;
-    color: #000;
-}
-
-.icon-container span {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #f19c25; /* Color anaranjado */
-    color: #000; /* Texto en negro */
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
-    z-index: 1;
-}
-
-  .product-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-bottom: 1px solid #ddd;
-    box-sizing: border-box;
-}
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    background-color: white;
-}
-
-.container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-.row {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.image {
-    flex: 1;
-    max-width: 400px;
-    text-align: center;
-}
-
-.image img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.product-details {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.product-details h1.title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 15px;
-}
-
-#product-price {
-    font-size: 28px;
-    color: rgb(208, 54, 34);
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-.qty-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.qty-container label {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-
-
-#input-quantity {
-    width: 50px;
-    height: 35px;
-    text-align: center;
-    font-size: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 0 5px;
-}
-
-
-
-@media (max-width: 768px) {
-    .row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .image img {
-        max-width: 300px;
-    }
-
-    .btn-cart,
-    .wishlist-btn {
-        width: 100%;
-    }
-}
-/* Estilo para los botones con el mismo tamaño */
-.btn-cart, 
-.wishlist-btn {
-    background-color: rgb(245, 114, 33);
-    color: rgb(253, 253, 253);
-    flex: 1; 
-    top: 10;
-    padding: 12px 10px;
-    text-align: center;
-    border: none;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 50%; 
-}
-
-
-
-/* Ajuste del tamaño para dispositivos móviles */
-@media (max-width: 768px) {
-    .btn-cart, .wishlist-btn {
-        width: 100%; /* En pantallas pequeñas ocupan el 100% del ancho */
-    }
-}
-
-/* Título y descripción en negro */
-.title, .description {
-    color: rgb(53, 49, 49); 
-}
-
-/* Ajuste de los contenedores para mantener proporción */
-.qty-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* Botones de cantidad */
-.qtyBtn {
-    background-color: rgb(203, 201, 200);
-    color: rgb(118, 116, 116);
-    border: none;
-    padding: 12px;
-    border-radius: 30px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#button-cart {
-    background-color: rgb(245, 114, 33);
-    color: white;
-    width: 60%; 
-}
-
-#button-cart:hover {
-    background-color: #1c1a1a; 
-}
-
-#wishlist-button:hover {
-    background-color: #1c1a1a; 
-}
-
-
-/* Ajuste de la descripción del producto */
-.description {
-    max-width: 500px; 
-    line-height: 1.6; 
-    color: black;
-}
-
-/* Título para los detalles del producto */
-.description-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 20px;
-}
-
-/* Ajuste del contenedor para mantener la estructura */
-.product-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-  
-/* Estilos para la sección de reseñas */
-.review-section {
-    margin-top: 40px;
-    padding: 20px;
-    border-top: 1px solid #e5e5e5;
-}
-
-.review-section h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.rating-input p {
-    font-weight: bold;
-    color: #333;
-}
-
-.stars {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.qty-container label {
-    font-size: 14px !important; 
-    font-weight: 400 !important; 
-    margin-right: 10px !important; 
-}
-
-.rating-category {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.qty-container {
-    border-top: 2px solid #ccc; /* Línea de división */
-    padding-top: 10px; /* Espaciado entre la línea y el contenido */
-    margin-top: 5px; /* Espaciado entre la línea y el contenido anterior */
-}
-
-.stars span {
-    font-size: 18px;
-    color: #ccc;
-    cursor: pointer;
-}
-
-.stars span:hover, .stars span:hover ~ span {
-    color: #ffc107;
-}
-
-.review-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.form-group, .form-group-wide {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.form-group-wide {
-    flex-basis: 100%;
-}
-
-.review-form label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.review-form input, .review-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.review-form textarea {
-    resize: vertical;
-    height: 100px;
-}
-
-.submit-btn {
-    width: fit-content;
-    padding: 10px 20px;
-    background-color: #000000;
-    border: none;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #000000;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .form-row {
-        flex-direction: column;
-    }
-}
-/* Estilos para las estrellas */
-.rating-input {
-    display: flex;
-    align-items: center;
-    gap: 15px; 
-}
-
-.stars {
-    display: flex;
-    flex-direction: row-reverse;
-    font-size: 28px;
-}
-
-.stars input[type="radio"] {
-    display: none;
-}
-
-.stars label {
-    color: #ccc;
-    cursor: pointer;
-}
-
-.stars input[type="radio"]:checked ~ label {
-    color: #ffcc00;
-}
-
-.stars label:hover,
-.stars label:hover ~ label {
-    color: #ffcc00;
-}
-.review-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.review-container {
-    display: flex;
-    gap: 20px;
-}
-
-.review-form-container {
-    flex: 1;
-}
-
-.comment-list {
-    flex: 1;
-    border-left: 1px solid #e0e0e0;
-    padding-left: 30px;
-}
-
-.comment-title {
-    font-size: 1.4em;
-    color: #3e3e3e;
-    font-weight: bold;
-    margin-bottom: 16px;
-    border-bottom: 2px solid #ff6f61;
-    padding-bottom: 6px;
-}
-
-.comment {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.user-icon {
-    font-size: 1.5em;
-    color: #888;
-}
-
-.comment p {
-    font-size: 1em;
-    color: #555;
-    line-height: 1.4;
-    margin: 0;
-    flex: 1;
-}
-
-.comment strong {
-    color: #333;
-}
-
-.comment-stars {
-    font-size: 2em;
-    color: #f7ab3a; 
-    font-family: Arial, sans-serif;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding-top: 80px; 
-    margin-top: 10px; 
-    color: #333;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    position: fixed; 
-    top: 0; 
-    left: 0;
-    width: 100%;
-    z-index: 1000; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Tamaño del logo */
-.header .logo img {
-    max-width: 300px;
-    height: auto;
-}
-
-/* Media query para dispositivos pequeños */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 20px;
-    }
-
-    .search-bar {
-        width: 100%; 
-        margin-top: 10px;
-    }
-
-    .nav-links {
-        flex-direction: row; 
-        justify-content: center;
-        gap: 15px;
-        margin-top: 10px;
-    }
-
-    /* Agregar margen superior dinámicamente solo en dispositivos pequeños */
-    body {
-        margin-top: 200px; 
-    }
-}
-
-/* Estilo para el input y el botón de búsqueda */
-.search-bar select, .search-bar input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ff6f61;
-}
-
-.button-search {
-    background-color: #333;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.button-search:hover {
-    background-color: #444;
-}
-
-.icon-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-}
-
-.icon-image {
-    width: 29px; 
-    height: auto;
-}
-
-.icon-container span {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    color: #000;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-
-.section-title {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-/* Estilo del carrusel */
-.carousel {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.carousel-items {
-    display: flex;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    width: 100%;
-    gap: 15px;
-    padding: 10px 0;
-}
-.carousel-arrow {
-    font-size: 24px;
-    color: #333;
-    background: #c5c4c4;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-.carousel-items {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    scroll-behavior: smooth;
-}
-.product-card {
-    min-width: 200px; /* Ancho mínimo para cada tarjeta */
-    flex-shrink: 0;
-    margin-right: 15px;
-    transition: transform 0.3s ease;
-}
-
-.left-arrow {
-    left: 10px;
-}
-
-.right-arrow {
-    right: 10px;
-}
-
-.carousel-arrow:hover {
-    background: #e74c3c;
-}
-
-/* Estilo de cada tarjeta de producto */
-.product-card {
-    background: #ffffff;
-    border: 1px solid #6c3434;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 220px;
-    flex-shrink: 0;
-    text-align: center;
-    padding: 10px;
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: scale(1.05);
-}
-
-.product-image {
-    width: 100%;
-    height: 180px;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.product-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    margin: 10px 0;
-}
-
-.product-price {
-    color: #b12704;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.product-card button {
-    background-color: #f28b82;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.product-card button:hover {
-    background-color: #e57373;
-}
-/* Contenedor General de Estadísticas */
-.stats-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 20px 0;
-}
-
-/* Cada Tarjeta */
-.stats-card {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stats-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Íconos */
-.stats-card i {
-    font-size: 36px;
-    color: #007bff;
-    margin-right: 15px;
-}
-
-/* Texto */
-.stats-card h3 {
-    font-size: 18px;
-    color: #333;
-    margin: 0;
-    font-weight: bold;
-}
-
-.stats-card p {
-    font-size: 16px;
-    font-weight: normal;
-    color: #555;
-    margin: 0;
-}
-
-/* Sección General */
-.review-section {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-}
-
-/* Título Principal */
-.review-section h2 {
-    font-size: 25px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #e39820;
-    padding-bottom: 10px;
-}
-
-/* Contenedor Principal */
-.review-container {
-    display: flex;
-    gap: 20px;
-}
-
-/* Columna Izquierda: Formulario */
-.review-form-container {
-    flex: 1;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo de Inputs y Botón */
-.review-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-}
-
-.review-form input,
-.review-form textarea {
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.submit-btn {
-    padding: 10px 10px;
-    background-color: #ee8b34;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: block;
-    text-align: start;
-    font-weight: bold;
-}
-
-.submit-btn:hover {
-    background-color: #ec591f;
-}
-
-/* Estilo de Calificación (Estrellas) */
-.rating-input p {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.stars {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-}
-
-.stars input[type="radio"] {
-    display: none;
-}
-
-.stars label {
-    font-size: 28px;
-    color: #f8f273;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.stars input[type="radio"]:checked ~ label {
-    color: #ffd700;
-}
-
-.stars label:hover,
-.stars label:hover ~ label {
-    color: #ffc107;
-}
-
-/* Columna Derecha: Comentarios */
-.comment-list {
-    flex: 1;
-}
-
-.comment-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #1d1c1c;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-}
-
-.comment {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-
-.comment p {
-    margin: 0;
-    font-size: 15px;
-    color: #555;
-}
-
-.comment-stars {
-    font-size: 18px;
-    color: #ffd700;
-    margin-top: 5px;
-}
-
-.user-icon {
-    font-size: 30px;
-    color: #ff8c52; 
-    background-color: #fcc594; 
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* Ajustes en móviles */
-@media (max-width: 768px) {
-    .comment {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-}
-
-/* Ajustes en móviles: columnas una debajo de la otra */
-@media (max-width: 768px) {
-    .review-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-/* Eliminar completamente la subrayado y borde */
-.icon-link {
-  text-decoration: none !important; 
-  outline: none !important;
-  border: none !important; 
-  background: transparent; 
-}
-
-.icon-link i {
-  font-size: 20px;
-  color: #111;
-  border: 2px solid #111;
-  border-radius: 50%;
-  padding: 5px;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Cambiar color al hacer hover sin mostrar borde o fondo extra */
-.icon-link:hover i {
-  color: #ed7553;
-  border-color: #ed7553;
-}
-
-/* Ajuste del contenedor de enlaces */
-.nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px; 
-}
-
-/* Asegurar que no haya texto visible */
-.icon-text {
-  display: none !important;
-}
-
-
-.icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 40px;
-    height: 40px;
-}
-
-/* Estilo del ícono dentro del contenedor */
-.icon-container i {
-    font-size: 28px;
-    color: #111;
-}
-
-/* Estilo del contador */
-.icon-container span {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: #f19c25; 
-    color: #000;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Eliminar cualquier estilo de foco en los íconos */
-.icon-link:focus {
-  outline: none !important;
-  border: none !important;
-}
-
-
-    .icon-link i {
-      font-size: 28px;
-      color: #111;
-      border: 2px solid #111;
-      border-radius: 50%;
-      padding: 5px;
-    }
-
-    .icon-link:hover i {
-      color: #ed7553;
-    }
-
-    /* Ajustar el contenedor de los íconos */
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      margin-right: 20px;
-    }
-
-    /* Quitar el texto debajo de los íconos */
-    .icon-text {
-      display: none;
-    }
-
-/* Métodos de pago */
-.payment-methods {
-    margin-bottom: 20px;
-}
-
-.payment-methods-title {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.payment-icons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.payment-icons img {
-    width: 70px;
-    height: auto;
-}
-/* Contenedor general */
-#recomendaciones-wrapper {
-    padding: 20px 0; 
-    text-align: start;
-    margin: 30px auto; 
-    max-width: 1200px; 
-}
-
-/* Estilo para el título principal */
-.section-title {
-    font-size: 24px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-transform: none;
-    padding-bottom: 5px;
-    position: relative;
-}
-
-/* Línea divisoria decorativa debajo del título */
-.section-title::after {
-    content: "";
-    display: block;
-    width: 50%;
-    height: 2px;
-    background: #f7941d; 
-    margin: 8px auto 0; 
-}
-
-/* Estilo para el subtítulo */
-.sub-title {
-    font-size: 18px;
-    color: #666;
-    text-align: center;
-    margin: 10px 0 20px;
-    font-style: italic;
-}
-
-/* Contenedor de productos */
-.recomendaciones-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-/* Tarjetas de productos */
-.recomendaciones-container div {
-    background: none !important; 
-    overflow: hidden;
-    flex: 1 1 calc(20% - 20px); 
-    max-width: calc(20% - 20px);
-    text-align: center; 
-    transition: transform 0.3s ease;
-    border: none !important ; 
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd; 
-}
-
-.recomendaciones-container div:last-child {
-    border-bottom: none; 
-}
-
-/* Ajuste de imágenes */
-.recomendaciones-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 10px; 
-}
-
-/* Títulos de productos */
-.recomendaciones-container h3 {
-    font-size: 18px;
-    color: #333;
-    margin: 5px 0 10px;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Precio */
-.recomendaciones-container .price {
-    font-size: 16px;
-    color: #28a745;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* Botón "Ver detalles" */
-.recomendaciones-container .ver-detalles {
-    display: inline-block;
-    background: #f7941d; 
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    text-transform: uppercase;
-    transition: background 0.3s ease;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.recomendaciones-container .ver-detalles:hover {
-    background: #ff7700;
-}
-
-/* Responsividad */
-@media (max-width: 1024px) {
-    .recomendaciones-container div {
-        flex: 1 1 calc(33.33% - 20px); /* 3 productos por fila */
-    }
-
-    .section-title {
-        font-size: 22px;
-    }
-
-    .sub-title {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .recomendaciones-container div {
-        flex: 1 1 calc(50% - 20px); /* 2 productos por fila */
-    }
-
-    .section-title {
-        font-size: 20px;
-    }
-
-    .sub-title {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .recomendaciones-container div {
-        flex: 1 1 100%; /* 1 producto por fila */
-    }
-
-    .section-title {
-        font-size: 18px;
-    }
-
-    .sub-title {
-        font-size: 14px;
-    }
-}
-#autocomplete-list {
-    position: absolute;
-    top: 84%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    background: white;
-    border: 1px solid #ddd;
-    max-height: 300px;
-    overflow-y: auto;
-    width: 100%; /* Adaptativo para pantallas pequeñas */
-    max-width: 400px; /* Ancho máximo */
-    z-index: 1;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    display: none; /* Oculto por defecto */
-}
-
-.autocomplete-item {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
-    color: #333;
-    font-size: 14px;
-}
-
-.autocomplete-item:hover {
-    background-color: #f0f0f0;
-}
-
-.autocomplete-icon {
-    font-size: 14px;
-    color: #888;
-    margin-right: 8px;
-}
-
-.autocomplete-item span {
-    font-size: 14px;
-    color: #333;
-}
-
-    
-</style>
+
+        /* Estilo del pie de página */
+        footer #main-footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Ajustes adicionales para dispositivos más pequeños */
+        @media (max-width: 768px) {
+            footer#main-footer {
+                font-size: 12px;
+            }
+        }
+
+        /* Estilo para los enlaces de navegación */
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Media Query para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+        }
+
+
+
+        /* Icono del logo */
+        .logo img {
+            width: 200px;
+            height: auto;
+        }
+
+
+        /* Ajustes de la barra de búsqueda */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+            padding: 5px;
+        }
+
+        .search-bar select {
+            background-color: #f7f7f7;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            appearance: none;
+            width: 130px;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 10 10%22%3E%3Cpolygon points=%220,0 10,0 5,7%22 fill=%22%23333%22/%3E%3C/svg%3E');
+            /* Flecha hacia abajo con color negro */
+            background-repeat: no-repeat;
+            background-size: 60px;
+            background-position: right 10px center;
+            background-size: 12px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .search-bar select:focus {
+            border-color: #0f0e0a;
+            outline: none;
+        }
+
+        /* Estilo de las opciones del desplegable */
+        .search-bar select option {
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Estilo cuando el select está abierto */
+        .search-bar select:active,
+        .search-bar select:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Estilo de las opciones seleccionadas */
+        .search-bar select option:checked {
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .search-bar input {
+            flex-grow: 1;
+            border: 1px solid #602f2f;
+        }
+
+        .button-search {
+            border: none;
+            padding: 10px 15px;
+            color: #ffffff;
+            ;
+            cursor: pointer;
+
+
+        }
+
+        .button-search:hover {
+            background-color: #444;
+        }
+
+
+        #welcome-message {
+            color: #a14f1d;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        #main-footer {
+            background: #333;
+            color: #fff;
+            padding: 40px 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0;
+            padding: 0 20px;
+        }
+
+        /* Sección del footer */
+        .footer-section {
+            flex: 1 1 30%;
+            margin: 0 20px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #ffc107;
+            transition: color 0.3s;
+        }
+
+        .footer-section h4:hover {
+            color: #91726f;
+        }
+
+        .footer-section p,
+        .footer-section ul {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffc107;
+        }
+
+        /* Íconos de contacto */
+        .footer-section ul li i {
+            margin-right: 10px;
+            color: #ffc107;
+        }
+
+        /* Contenedor inferior del footer */
+        .footer-bottom {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 15px 20px;
+            margin-top: 30px;
+            font-size: 14px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .footer-bottom a {
+            color: #ffc107;
+            text-decoration: none;
+            margin-left: 5px;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover {
+            color: #664744;
+            text-decoration: underline;
+        }
+
+
+        /* Quitar el texto debajo de los íconos */
+        .icon-text {
+            display: none;
+        }
+
+        /* Eliminar completamente la subrayado y borde */
+        .icon-link {
+            text-decoration: none !important;
+            /* Quitar subrayado */
+            outline: none !important;
+            /* Quitar contorno al hacer clic */
+            border: none !important;
+            /* Quitar cualquier borde */
+            background: transparent;
+            /* Eliminar fondo si existe */
+        }
+
+        .icon-link i {
+            font-size: 28px;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            padding: 5px;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+
+        .icon-container {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 36px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .icon-container i {
+            font-size: 20px;
+            color: #000;
+        }
+
+        .icon-container span {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #f19c25;
+            /* Color anaranjado */
+            color: #000;
+            /* Texto en negro */
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Sombra */
+            z-index: 1;
+        }
+
+        .product-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: white;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .image {
+            flex: 1;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-details {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-details h1.title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        #product-price {
+            font-size: 28px;
+            color: rgb(208, 54, 34);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .qty-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .qty-container label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+
+        #input-quantity {
+            width: 50px;
+            height: 35px;
+            text-align: center;
+            font-size: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image img {
+                max-width: 300px;
+            }
+
+            .btn-cart,
+            .wishlist-btn {
+                width: 100%;
+            }
+        }
+
+        /* Estilo para los botones con el mismo tamaño */
+        .btn-cart,
+        .wishlist-btn {
+            background-color: rgb(245, 114, 33);
+            color: rgb(253, 253, 253);
+            flex: 1;
+            top: 10;
+            padding: 12px 10px;
+            text-align: center;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 50%;
+        }
+
+
+
+        /* Ajuste del tamaño para dispositivos móviles */
+        @media (max-width: 768px) {
+
+            .btn-cart,
+            .wishlist-btn {
+                width: 100%;
+                /* En pantallas pequeñas ocupan el 100% del ancho */
+            }
+        }
+
+        /* Título y descripción en negro */
+        .title,
+        .description {
+            color: rgb(53, 49, 49);
+        }
+
+        /* Ajuste de los contenedores para mantener proporción */
+        .qty-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        /* Botones de cantidad */
+        .qtyBtn {
+            background-color: rgb(203, 201, 200);
+            color: rgb(118, 116, 116);
+            border: none;
+            padding: 12px;
+            border-radius: 30px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #button-cart {
+            background-color: rgb(245, 114, 33);
+            color: white;
+            width: 60%;
+        }
+
+        #button-cart:hover {
+            background-color: #1c1a1a;
+        }
+
+        #wishlist-button:hover {
+            background-color: #1c1a1a;
+        }
+
+
+        /* Ajuste de la descripción del producto */
+        .description {
+            max-width: 500px;
+            line-height: 1.6;
+            color: black;
+        }
+
+        /* Título para los detalles del producto */
+        .description-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        /* Ajuste del contenedor para mantener la estructura */
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+
+        /* Estilos para la sección de reseñas */
+        .review-section {
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .review-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .rating-input p {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stars {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .qty-container label {
+            font-size: 14px !important;
+            font-weight: 400 !important;
+            margin-right: 10px !important;
+        }
+
+        .rating-category {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-container {
+            border-top: 2px solid #ccc;
+            /* Línea de división */
+            padding-top: 10px;
+            /* Espaciado entre la línea y el contenido */
+            margin-top: 5px;
+            /* Espaciado entre la línea y el contenido anterior */
+        }
+
+        .stars span {
+            font-size: 18px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .stars span:hover,
+        .stars span:hover~span {
+            color: #ffc107;
+        }
+
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .form-group,
+        .form-group-wide {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .form-group-wide {
+            flex-basis: 100%;
+        }
+
+        .review-form label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .review-form input,
+        .review-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .review-form textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .submit-btn {
+            width: fit-content;
+            padding: 10px 20px;
+            background-color: #000000;
+            border: none;
+            color: #ffffff;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #000000;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+        }
+
+        /* Estilos para las estrellas */
+        .rating-input {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stars {
+            display: flex;
+            flex-direction: row-reverse;
+            font-size: 28px;
+        }
+
+        .stars input[type="radio"] {
+            display: none;
+        }
+
+        .stars label {
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .stars input[type="radio"]:checked~label {
+            color: #ffcc00;
+        }
+
+        .stars label:hover,
+        .stars label:hover~label {
+            color: #ffcc00;
+        }
+
+        .review-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .review-form-container {
+            flex: 1;
+        }
+
+        .comment-list {
+            flex: 1;
+            border-left: 1px solid #e0e0e0;
+            padding-left: 30px;
+        }
+
+        .comment-title {
+            font-size: 1.4em;
+            color: #3e3e3e;
+            font-weight: bold;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #ff6f61;
+            padding-bottom: 6px;
+        }
+
+        .comment {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .user-icon {
+            font-size: 1.5em;
+            color: #888;
+        }
+
+        .comment p {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.4;
+            margin: 0;
+            flex: 1;
+        }
+
+        .comment strong {
+            color: #333;
+        }
+
+        .comment-stars {
+            font-size: 2em;
+            color: #f7ab3a;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 80px;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tamaño del logo */
+        .header .logo img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* Media query para dispositivos pequeños */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 20px;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 10px;
+            }
+
+            /* Agregar margen superior dinámicamente solo en dispositivos pequeños */
+            body {
+                margin-top: 200px;
+            }
+        }
+
+        /* Estilo para el input y el botón de búsqueda */
+        .search-bar select,
+        .search-bar input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ff6f61;
+        }
+
+        .button-search {
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button-search:hover {
+            background-color: #444;
+        }
+
+        .icon-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .icon-image {
+            width: 29px;
+            height: auto;
+        }
+
+        .icon-container span {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            color: #000;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        .section-title {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Estilo del carrusel */
+        .carousel {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .carousel-items {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            width: 100%;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        .carousel-arrow {
+            font-size: 24px;
+            color: #333;
+            background: #c5c4c4;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .carousel-items {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        .product-card {
+            min-width: 200px;
+            /* Ancho mínimo para cada tarjeta */
+            flex-shrink: 0;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .left-arrow {
+            left: 10px;
+        }
+
+        .right-arrow {
+            right: 10px;
+        }
+
+        .carousel-arrow:hover {
+            background: #e74c3c;
+        }
+
+        /* Estilo de cada tarjeta de producto */
+        .product-card {
+            background: #ffffff;
+            border: 1px solid #6c3434;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 220px;
+            flex-shrink: 0;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            color: #b12704;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .product-card button {
+            background-color: #f28b82;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card button:hover {
+            background-color: #e57373;
+        }
+
+        /* Contenedor General de Estadísticas */
+        .stats-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        /* Cada Tarjeta */
+        .stats-card {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Íconos */
+        .stats-card i {
+            font-size: 36px;
+            color: #007bff;
+            margin-right: 15px;
+        }
+
+        /* Texto */
+        .stats-card h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .stats-card p {
+            font-size: 16px;
+            font-weight: normal;
+            color: #555;
+            margin: 0;
+        }
+
+        /* Sección General */
+        .review-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Título Principal */
+        .review-section h2 {
+            font-size: 25px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e39820;
+            padding-bottom: 10px;
+        }
+
+        /* Contenedor Principal */
+        .review-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Columna Izquierda: Formulario */
+        .review-form-container {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo de Inputs y Botón */
+        .review-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .review-form input,
+        .review-form textarea {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            padding: 10px 10px;
+            background-color: #ee8b34;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            text-align: start;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background-color: #ec591f;
+        }
+
+        /* Estilo de Calificación (Estrellas) */
+        .rating-input p {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .stars input[type="radio"] {
+            display: none;
+        }
+
+        .stars label {
+            font-size: 28px;
+            color: #f8f273;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .stars input[type="radio"]:checked~label {
+            color: #ffd700;
+        }
+
+        .stars label:hover,
+        .stars label:hover~label {
+            color: #ffc107;
+        }
+
+        /* Columna Derecha: Comentarios */
+        .comment-list {
+            flex: 1;
+        }
+
+        .comment-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1d1c1c;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .comment {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .comment p {
+            margin: 0;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .comment-stars {
+            font-size: 18px;
+            color: #ffd700;
+            margin-top: 5px;
+        }
+
+        .user-icon {
+            font-size: 30px;
+            color: #ff8c52;
+            background-color: #fcc594;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ajustes en móviles */
+        @media (max-width: 768px) {
+            .comment {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+
+        /* Ajustes en móviles: columnas una debajo de la otra */
+        @media (max-width: 768px) {
+            .review-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Eliminar completamente la subrayado y borde */
+        .icon-link {
+            text-decoration: none !important;
+            outline: none !important;
+            border: none !important;
+            background: transparent;
+        }
+
+        .icon-link i {
+            font-size: 20px;
+            color: #111;
+            border: 2px solid #111;
+            border-radius: 50%;
+            padding: 5px;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Cambiar color al hacer hover sin mostrar borde o fondo extra */
+        .icon-link:hover i {
+            color: #ed7553;
+            border-color: #ed7553;
+        }
+
+        /* Ajuste del contenedor de enlaces */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Asegurar que no haya texto visible */
+        .icon-text {
+            display: none !important;
+        }
+
+
+        .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Estilo del ícono dentro del contenedor */
+        .icon-container i {
+            font-size: 28px;
+            color: #111;
+        }
+
+        /* Estilo del contador */
+        .icon-container span {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #f19c25;
+            color: #000;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Eliminar cualquier estilo de foco en los íconos */
+        .icon-link:focus {
+            outline: none !important;
+            border: none !important;
+        }
+
+
+        .icon-link i {
+            font-size: 28px;
+            color: #111;
+            border: 2px solid #111;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        .icon-link:hover i {
+            color: #ed7553;
+        }
+
+        /* Ajustar el contenedor de los íconos */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 20px;
+        }
+
+        /* Quitar el texto debajo de los íconos */
+        .icon-text {
+            display: none;
+        }
+
+        /* Métodos de pago */
+        .payment-methods {
+            margin-bottom: 20px;
+        }
+
+        .payment-methods-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .payment-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .payment-icons img {
+            width: 70px;
+            height: auto;
+        }
+
+        /* Contenedor general */
+        #recomendaciones-wrapper {
+            padding: 20px 0;
+            text-align: start;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+
+        /* Estilo para el título principal */
+        .section-title {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: none;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        /* Línea divisoria decorativa debajo del título */
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50%;
+            height: 2px;
+            background: #f7941d;
+            margin: 8px auto 0;
+        }
+
+        /* Estilo para el subtítulo */
+        .sub-title {
+            font-size: 18px;
+            color: #666;
+            text-align: center;
+            margin: 10px 0 20px;
+            font-style: italic;
+        }
+
+        /* Contenedor de productos */
+        .recomendaciones-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Tarjetas de productos */
+        .recomendaciones-container div {
+            background: none !important;
+            overflow: hidden;
+            flex: 1 1 calc(20% - 20px);
+            max-width: calc(20% - 20px);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: none !important;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .recomendaciones-container div:last-child {
+            border-bottom: none;
+        }
+
+        /* Ajuste de imágenes */
+        .recomendaciones-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Títulos de productos */
+        .recomendaciones-container h3 {
+            font-size: 18px;
+            color: #333;
+            margin: 5px 0 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Precio */
+        .recomendaciones-container .price {
+            font-size: 16px;
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Botón "Ver detalles" */
+        .recomendaciones-container .ver-detalles {
+            display: inline-block;
+            background: #f7941d;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .recomendaciones-container .ver-detalles:hover {
+            background: #ff7700;
+        }
+
+        /* Responsividad */
+        @media (max-width: 1024px) {
+            .recomendaciones-container div {
+                flex: 1 1 calc(33.33% - 20px);
+                /* 3 productos por fila */
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .sub-title {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .recomendaciones-container div {
+                flex: 1 1 calc(50% - 20px);
+                /* 2 productos por fila */
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .sub-title {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .recomendaciones-container div {
+                flex: 1 1 100%;
+                /* 1 producto por fila */
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .sub-title {
+                font-size: 14px;
+            }
+        }
+
+        #autocomplete-list {
+            position: absolute;
+            top: 84%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: white;
+            border: 1px solid #ddd;
+            max-height: 300px;
+            overflow-y: auto;
+            width: 100%;
+            /* Adaptativo para pantallas pequeñas */
+            max-width: 400px;
+            /* Ancho máximo */
+            z-index: 1;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            /* Oculto por defecto */
+        }
+
+        .autocomplete-item {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .autocomplete-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .autocomplete-icon {
+            font-size: 14px;
+            color: #888;
+            margin-right: 8px;
+        }
+
+        .autocomplete-item span {
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
 </head>
+
 <body>
-   <!-- Header -->
-   <header class="header">
-    <div class="logo">
-      <a href="index-usuario.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
-    </div>
-    <div class="search-bar">
-        <select id="category-select" onchange="redirectToCategory()">
-            <option value="index-usuario.html">Todos</option>
-            <option value="electronica.html">Electrónica</option>
-            <option value="informatica.html">Informática</option>
-            <option value="ropa.html">Ropa</option>
-            <option value="automoviles.html">Automóviles</option>
-            <option value="belleza.html">Belleza</option>
-        </select>
-        <input id="filter_name" type="text" name="search" placeholder="Buscar Producto" oninput="filtrarProductosEnTiempoReal()" />
-        <button type="button" id="search-button" class="button-search" onclick="buscarProductoEnBackend()">
-            <i class="fa fa-search"></i>
-        </button>
-        <div id="autocomplete-list"></div>
-    </div>
-    <div class="nav-links">
-        <a href="wishlist.html" class="icon-link">
-            <div class="icon-container">
-                <i class="fa fa-heart"></i>
-                <span id="wishlist-count">0</span> 
-            </div>
-        </a>
-    
-        <a href="cart.html" class="icon-link">
-            <div class="icon-container">
-                <i class="fa fa-shopping-cart"></i>
-                <span id="cart-count">0</span> 
-            </div>
-        </a>
-    </div>
-    
-</header> 
-<div class="container">
-    <div class="row">
-        <div class="image">
-            <img id="product-image" src="image/no_image.png" alt="Imagen del Producto">
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <a href="index-usuario.html"><img class="img-responsive" src="image/logo.png" title="Click Store"
+                    alt="Click Store" /></a>
+        </div>
+        <div class="search-bar">
+            <select id="category-select" onchange="redirectToCategory()">
+                <option value="index-usuario.html">Todos</option>
+                <option value="electronica.html">Electrónica</option>
+                <option value="informatica.html">Informática</option>
+                <option value="ropa.html">Ropa</option>
+                <option value="automoviles.html">Automóviles</option>
+                <option value="belleza.html">Belleza</option>
+            </select>
+            <input id="filter_name" type="text" name="search" placeholder="Buscar Producto"
+                oninput="filtrarProductosEnTiempoReal()" />
+            <button type="button" id="search-button" class="button-search" onclick="buscarProductoEnBackend()">
+                <i class="fa fa-search"></i>
+            </button>
+            <div id="autocomplete-list"></div>
+        </div>
+        <div class="nav-links">
+            <a href="wishlist.html" class="icon-link">
+                <div class="icon-container">
+                    <i class="fa fa-heart"></i>
+                    <span id="wishlist-count">0</span>
+                </div>
+            </a>
+
+            <a href="cart.html" class="icon-link">
+                <div class="icon-container">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span id="cart-count">0</span>
+                </div>
+            </a>
         </div>
 
-        <div class="product-details">
-            <h1 id="product-title" class="title">Cargando...</h1>
-            <div id="product-price">₲0.00</div>
-            <p><b>Detalles del Producto:</b> <span id="product-description">N/A</span></p>
-            <p><b>Stock:</b> <span id="product-availability" class="label label-success">En stock</span></p>
-            <!-- Métodos de Pago -->
-            <!-- <div class="payment-methods">
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="image">
+                <img id="product-image" src="image/no_image.png" alt="Imagen del Producto">
+            </div>
+
+            <div class="product-details">
+                <h1 id="product-title" class="title">Cargando...</h1>
+                <div id="product-price">₲0.00</div>
+                <p><b>Detalles del Producto:</b> <span id="product-description">N/A</span></p>
+                <p><b>Stock:</b> <span id="product-availability" class="label label-success">En stock</span></p>
+                <!-- Métodos de Pago -->
+                <!-- <div class="payment-methods">
                 <div class="payment-methods-title">Métodos de Pago Disponibles</div>
                 <div class="payment-icons">
                     <img src="image/Banci.png" alt="Basa">
@@ -2187,155 +2257,157 @@ body {
                     <img src="image/Banci.png"  alt="Banco Rio">
                 </div>
             </div> -->
-            <div class="qty-container">
-                <label for="input-quantity"><b>Cantidad:</b></label>
-                <div class="input-quantity">
-                    <button class="qtyBtn mines">-</button>
-                    <input type="text" value="1" id="input-quantity">
-                    <button class="qtyBtn plus">+</button>
-                </div>
-            </div>
-
-            <!-- Botones de Acción -->
-            <div class="cart-buttons">
-                <button id="button-cart" class="btn-cart" onclick="agregarAlCarrito()">Añadir al Carrito</button>
-                <button id="wishlist-button" class="wishlist-btn" onclick="agregarAFavoritos()">Añadir a Favoritos</button>
-            </div>            
-        </div>
-    </div>
-</div>
-
-<div id="recomendaciones-wrapper">
-    <!-- Título principal -->
-    <h2 class="section-title">Productos relacionados con este artículo</h2>
-    
-    <!-- Subtítulo -->
-    <h3 class="sub-title">Sugerencias especialmente para ti</h3>
-    
-    <!-- Contenedor de productos recomendados -->
-    <div id="productos-recomendados">
-        <div class="recomendaciones-container">
-            <!-- Aquí se listan dinámicamente los productos -->
-        </div>
-    </div>
-</div>
-
-<!-- Sección de Reseñas -->
-<div class="review-section">
-    <h2>Reseñas de clientes</h2>
-    <div class="review-container">
-        <!-- Columna izquierda: Formulario para agregar reseña -->
-        <div class="review-form-container">
-            <div class="rating-input">
-                <p>Califica este producto</p>
-                <div class="stars">
-                    <input type="radio" id="star5" name="rating" value="5" />
-                    <label for="star5">★</label>
-                    <input type="radio" id="star4" name="rating" value="4" />
-                    <label for="star4">★</label>
-                    <input type="radio" id="star3" name="rating" value="3" />
-                    <label for="star3">★</label>
-                    <input type="radio" id="star2" name="rating" value="2" />
-                    <label for="star2">★</label>
-                    <input type="radio" id="star1" name="rating" value="1" />
-                    <label for="star1">★</label>
-                </div>
-            </div>
-
-            <form id="review-form" class="review-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nickname">Apodo *</label>
-                        <input type="text" id="nickname" name="nickname" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="summary">Resumen *</label>
-                        <input type="text" id="summary" name="summary" required>
-                    </div>
-                    <div class="form-group-wide">
-                        <label for="review">Comentario *</label>
-                        <textarea id="review" name="review" required></textarea>
+                <div class="qty-container">
+                    <label for="input-quantity"><b>Cantidad:</b></label>
+                    <div class="input-quantity">
+                        <button class="qtyBtn mines">-</button>
+                        <input type="text" value="1" id="input-quantity">
+                        <button class="qtyBtn plus">+</button>
                     </div>
                 </div>
-                <button type="submit" class="submit-btn">Enviar mi reseña</button>
-            </form>
-        </div>
 
-        <!-- Columna derecha: Mostrar comentarios -->
-        <div class="comment-list">
-            <h3 class="comment-title">Comentarios de Usuarios</h3>
-            <div class="comment">
-                <div class="user-icon">👤</div>
-                <p><strong>Samantha:</strong> Muy buen producto, lo recomiendo.</p>
-                <div class="comment-stars">★★★★★</div>
-            </div>
-            <div class="comment">
-                <div class="user-icon">👤</div>
-                <p><strong>Leila:</strong> Cumple con lo esperado, buen material.</p>
-                <div class="comment-stars">★★★★☆</div>
-            </div>
-            <div class="comment">
-                <div class="user-icon">👤</div>
-                <p><strong>Marcos:</strong> Excelente calidad y precio.</p>
-                <div class="comment-stars">★★★★★</div>
-            </div>
-            <div class="comment">
-                <div class="user-icon">👤</div>
-                <p><strong>Alejandra:</strong> Podria Mejorar.</p>
-                <div class="comment-stars">★★☆☆☆</div>
-            </div>
-            <div class="comment">
-                <div class="user-icon">👤</div>
-                <p><strong>Manuel:</strong> No es compatible con todas las marcas.</p>
-                <div class="comment-stars">★☆☆☆☆</div>
+                <!-- Botones de Acción -->
+                <div class="cart-buttons">
+                    <button id="button-cart" class="btn-cart" onclick="agregarAlCarrito()">Añadir al Carrito</button>
+                    <button id="wishlist-button" class="wishlist-btn" onclick="agregarAFavoritos()">Añadir a
+                        Favoritos</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <div id="recomendaciones-wrapper">
+        <!-- Título principal -->
+        <h2 class="section-title">Productos relacionados con este artículo</h2>
+
+        <!-- Subtítulo -->
+        <h3 class="sub-title">Sugerencias especialmente para ti</h3>
+
+        <!-- Contenedor de productos recomendados -->
+        <div id="productos-recomendados">
+            <div class="recomendaciones-container">
+                <!-- Aquí se listan dinámicamente los productos -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Reseñas -->
+    <div class="review-section">
+        <h2>Reseñas de clientes</h2>
+        <div class="review-container">
+            <!-- Columna izquierda: Formulario para agregar reseña -->
+            <div class="review-form-container">
+                <div class="rating-input">
+                    <p>Califica este producto</p>
+                    <div class="stars">
+                        <input type="radio" id="star5" name="rating" value="5" />
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4" />
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3" />
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2" />
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1" />
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+
+                <form id="review-form" class="review-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nickname">Apodo *</label>
+                            <input type="text" id="nickname" name="nickname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="summary">Resumen *</label>
+                            <input type="text" id="summary" name="summary" required>
+                        </div>
+                        <div class="form-group-wide">
+                            <label for="review">Comentario *</label>
+                            <textarea id="review" name="review" required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar mi reseña</button>
+                </form>
+            </div>
+
+            <!-- Columna derecha: Mostrar comentarios -->
+            <div class="comment-list">
+                <h3 class="comment-title">Comentarios de Usuarios</h3>
+                <div class="comment">
+                    <div class="user-icon">👤</div>
+                    <p><strong>Samantha:</strong> Muy buen producto, lo recomiendo.</p>
+                    <div class="comment-stars">★★★★★</div>
+                </div>
+                <div class="comment">
+                    <div class="user-icon">👤</div>
+                    <p><strong>Leila:</strong> Cumple con lo esperado, buen material.</p>
+                    <div class="comment-stars">★★★★☆</div>
+                </div>
+                <div class="comment">
+                    <div class="user-icon">👤</div>
+                    <p><strong>Marcos:</strong> Excelente calidad y precio.</p>
+                    <div class="comment-stars">★★★★★</div>
+                </div>
+                <div class="comment">
+                    <div class="user-icon">👤</div>
+                    <p><strong>Alejandra:</strong> Podria Mejorar.</p>
+                    <div class="comment-stars">★★☆☆☆</div>
+                </div>
+                <div class="comment">
+                    <div class="user-icon">👤</div>
+                    <p><strong>Manuel:</strong> No es compatible con todas las marcas.</p>
+                    <div class="comment-stars">★☆☆☆☆</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 
 </body>
 
-  
+
 <footer id="main-footer">
     <div class="footer-container">
-      <!-- Contenedor de información de la compañía -->
-      <div class="footer-section">
-        <h4>Sobre Nosotros</h4>
-        <p>Click Store es una tienda en línea dedicada a ofrecer productos de calidad y un servicio excepcional a
-          nuestros clientes. Nuestro objetivo es satisfacer todas tus necesidades con la mejor experiencia de compra.
-        </p>
-      </div>
+        <!-- Contenedor de información de la compañía -->
+        <div class="footer-section">
+            <h4>Sobre Nosotros</h4>
+            <p>Click Store es una tienda en línea dedicada a ofrecer productos de calidad y un servicio excepcional a
+                nuestros clientes. Nuestro objetivo es satisfacer todas tus necesidades con la mejor experiencia de
+                compra.
+            </p>
+        </div>
 
-      <!-- Contenedor de enlaces rápidos -->
-      <div class="footer-section">
-        <h4>Enlaces Rápidos</h4>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Tienda</a></li>
-          <li><a href="#">Acerca de</a></li>
-          <li><a href="#">Contacto</a></li>
-          <li><a href="#">Política de Privacidad</a></li>
-        </ul>
-      </div>
+        <!-- Contenedor de enlaces rápidos -->
+        <div class="footer-section">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Tienda</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+        </div>
 
-      <!-- Contenedor de contacto -->
-      <div class="footer-section">
-        <h4>Contáctanos</h4>
-        <ul>
-          <li><i class="fa fa-map-marker"></i> Asunción, Paraguay</li>
-          <li><i class="fa fa-phone"></i> +595 21 123 4567</li>
-          <li><i class="fa fa-envelope"></i> contacto@clickstore.com</li>
-        </ul>
-      </div>
+        <!-- Contenedor de contacto -->
+        <div class="footer-section">
+            <h4>Contáctanos</h4>
+            <ul>
+                <li><i class="fa fa-map-marker"></i> Asunción, Paraguay</li>
+                <li><i class="fa fa-phone"></i> +595 21 123 4567</li>
+                <li><i class="fa fa-envelope"></i> contacto@clickstore.com</li>
+            </ul>
+        </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Click Store. Todos los derechos reservados | <a href="#">Términos y Condiciones</a></p>
+        <p>&copy; 2024 Click Store. Todos los derechos reservados | <a href="#">Términos y Condiciones</a></p>
     </div>
-  </footer>
+</footer>
 
 
 <!-- JS Parte Inicio -->
@@ -2344,9 +2416,9 @@ body {
 <script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script type="text/javascript">
-    
-    
-     $(document).ready(function(){
+
+
+    $(document).ready(function () {
         $('.carousel-items').owlCarousel({
             loop: true,
             margin: 10,
@@ -2366,51 +2438,51 @@ body {
     });
 
 
- // Función para cargar recomendaciones al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const productId = params.get('id');
+    // Función para cargar recomendaciones al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id');
 
-    // Verifica si el ID del producto es válido
-    if (productId) {
-        console.log(`ID del producto actual: ${productId}`);
-        obtenerRecomendaciones(productId);
-    } else {
-        console.error('No se encontró el ID del producto en la URL.');
+        // Verifica si el ID del producto es válido
+        if (productId) {
+            console.log(`ID del producto actual: ${productId}`);
+            obtenerRecomendaciones(productId);
+        } else {
+            console.error('No se encontró el ID del producto en la URL.');
+        }
+    });
+
+    // Función para obtener recomendaciones desde la API correcta
+    function obtenerRecomendaciones(idProducto) {
+        console.log(`Intentando obtener recomendaciones para el producto con ID: ${idProducto}`);
+
+        // URL de la API Flask que devuelve las recomendaciones
+        const backendURL = `http://127.0.0.1:5001/recomendaciones_knn/${idProducto}`;
+
+        fetch(backendURL)
+            .then(response => {
+                console.log(`Respuesta de la API recibida: ${response.status}`);
+                if (!response.ok) {
+                    throw new Error(`Error en la API: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(recomendaciones => {
+                console.log('Recomendaciones obtenidas:', recomendaciones);
+                mostrarRecomendaciones(recomendaciones.slice(0, 5));
+            })
+            .catch(error => {
+                console.error('Error al cargar las recomendaciones:', error);
+            });
     }
-});
 
-// Función para obtener recomendaciones desde la API correcta
-function obtenerRecomendaciones(idProducto) {
-    console.log(`Intentando obtener recomendaciones para el producto con ID: ${idProducto}`);
+    // Función para mostrar recomendaciones en el carrusel
+    function mostrarRecomendaciones(recomendaciones) {
+        const contenedorRecomendaciones = document.getElementById('productos-recomendados');
+        contenedorRecomendaciones.innerHTML = ''; // Limpiar cualquier contenido anterior
 
-    // URL de la API Flask que devuelve las recomendaciones
-    const backendURL = `http://127.0.0.1:5001/recomendaciones_knn/${idProducto}`;
-
-    fetch(backendURL)
-        .then(response => {
-            console.log(`Respuesta de la API recibida: ${response.status}`);
-            if (!response.ok) {
-                throw new Error(`Error en la API: ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(recomendaciones => {
-            console.log('Recomendaciones obtenidas:', recomendaciones);
-            mostrarRecomendaciones(recomendaciones.slice(0, 5)); 
-        })
-        .catch(error => {
-            console.error('Error al cargar las recomendaciones:', error);
-        });
-}
-
-// Función para mostrar recomendaciones en el carrusel
-function mostrarRecomendaciones(recomendaciones) {
-    const contenedorRecomendaciones = document.getElementById('productos-recomendados');
-    contenedorRecomendaciones.innerHTML = ''; // Limpiar cualquier contenido anterior
-
-    recomendaciones.forEach(producto => {
-        const tarjetaProducto = `
+        recomendaciones.forEach(producto => {
+            const tarjetaProducto = `
             <div class="producto-card">
                 <img src="${producto.foto_url || 'image-placeholder.png'}" alt="${producto.nombre}" class="producto-imagen" />
                 <div class="producto-info">
@@ -2422,56 +2494,56 @@ function mostrarRecomendaciones(recomendaciones) {
             </div>
         `;
 
-        // Agregar la tarjeta de producto al contenedor de recomendaciones
-        contenedorRecomendaciones.innerHTML += tarjetaProducto;
-    });
-}
+            // Agregar la tarjeta de producto al contenedor de recomendaciones
+            contenedorRecomendaciones.innerHTML += tarjetaProducto;
+        });
+    }
 
-// Función para inicializar el desplazamiento del carrusel
-function iniciarCarruselAuto() {
-    const carousel = document.querySelector('.carousel-items');
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
+    // Función para inicializar el desplazamiento del carrusel
+    function iniciarCarruselAuto() {
+        const carousel = document.querySelector('.carousel-items');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
 
-    rightArrow.addEventListener('click', () => {
-        carousel.scrollBy({ left: 220, behavior: 'smooth' });
-    });
+        rightArrow.addEventListener('click', () => {
+            carousel.scrollBy({ left: 220, behavior: 'smooth' });
+        });
 
-    leftArrow.addEventListener('click', () => {
-        carousel.scrollBy({ left: -220, behavior: 'smooth' });
-    });
-
-  
-    setInterval(() => {
-        carousel.scrollBy({ left: 220, behavior: 'smooth' });
-    }, 3000);
-}
-
-// Llama a la función de inicio del carrusel
-document.addEventListener('DOMContentLoaded', iniciarCarruselAuto);
+        leftArrow.addEventListener('click', () => {
+            carousel.scrollBy({ left: -220, behavior: 'smooth' });
+        });
 
 
+        setInterval(() => {
+            carousel.scrollBy({ left: 220, behavior: 'smooth' });
+        }, 3000);
+    }
 
-function submitRating() {
+    // Llama a la función de inicio del carrusel
+    document.addEventListener('DOMContentLoaded', iniciarCarruselAuto);
+
+
+
+    function submitRating() {
         const rating = document.getElementById('rating').value;
         alert(`Gracias por calificar con ${rating} estrella(s).`);
-}
-// Función para redirigir según la categoría seleccionada
-function redirectToCategory() {
-    const selectElement = document.getElementById('category-select');
-    const selectedCategory = selectElement.value;
-    window.location.href = selectedCategory; // Redirige a la categoría seleccionada
-}
+    }
+    // Función para redirigir según la categoría seleccionada
+    function redirectToCategory() {
+        const selectElement = document.getElementById('category-select');
+        const selectedCategory = selectElement.value;
+        window.location.href = selectedCategory; // Redirige a la categoría seleccionada
+    }
 
 
 
-// Función para mostrar los resultados de búsqueda en la página
-function mostrarResultadosBusqueda(productos) {
-    const contenedorResultados = document.getElementById('resultados-busqueda');
-    contenedorResultados.innerHTML = ''; 
+    // Función para mostrar los resultados de búsqueda en la página
+    function mostrarResultadosBusqueda(productos) {
+        const contenedorResultados = document.getElementById('resultados-busqueda');
+        contenedorResultados.innerHTML = '';
 
-    productos.forEach(producto => {
-        const productoHTML = `
+        productos.forEach(producto => {
+            const productoHTML = `
             <div class="producto">
                 <img src="${producto.foto_url}" alt="${producto.nombre}" class="producto-imagen" />
                 <h3>${producto.nombre}</h3>
@@ -2480,61 +2552,11 @@ function mostrarResultadosBusqueda(productos) {
                 <a href="product.html?id=${producto.id}" class="ver-mas">Ver detalles</a>
             </div>
         `;
-        contenedorResultados.innerHTML += productoHTML;
-    });
-}
-
-// Función para realizar la búsqueda de productos
-function performSearch() {
-  const searchQuery = document.getElementById('filter_name').value.trim().toLowerCase();
-  const url = `https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(searchQuery)}`;
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      if (data.length === 0) {
-        document.getElementById('productos-lista').innerHTML = '<p>No se encontraron productos.</p>';
-      } else {
-        mostrarProductos(data);
-      }
-    })
-    .catch(error => {
-      console.error('Error al buscar productos:', error);
-    });
-}
-document.addEventListener('DOMContentLoaded', function () {
-    const params = new URLSearchParams(window.location.search);
-    const productId = params.get('id');
-
-    if (productId) {
-        fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productId}`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('product-title').textContent = data.nombre;
-                document.getElementById('product-image').src = data.foto_url;
-                document.getElementById('product-price').textContent = 
-                    `₲${Number(data.precio).toLocaleString('es-PY')}`;
-                document.getElementById('product-description').textContent = data.descripcion || 'N/A';
-                const stockElement = document.getElementById('product-availability');
-                stockElement.textContent = data.stock > 0 ? 'En stock' : 'Agotado';
-                stockElement.className = data.stock > 0 ? 'label label-success' : 'label label-danger';
-            })
-            .catch(err => console.error('Error fetching product:', err));
+            contenedorResultados.innerHTML += productoHTML;
+        });
     }
 
-    document.querySelector('.qtyBtn.plus').addEventListener('click', function () {
-        const input = document.getElementById('input-quantity');
-        input.value = parseInt(input.value, 10) + 1;
-    });
-
-    document.querySelector('.qtyBtn.mines').addEventListener('click', function () {
-        const input = document.getElementById('input-quantity');
-        if (parseInt(input.value, 10) > 1) {
-            input.value = parseInt(input.value, 10) - 1;
-        }
-    });
-
-    // Función para buscar productos
+    // Función para realizar la búsqueda de productos
     function performSearch() {
         const searchQuery = document.getElementById('filter_name').value.trim().toLowerCase();
         const url = `https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(searchQuery)}`;
@@ -2545,226 +2567,276 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.length === 0) {
                     document.getElementById('productos-lista').innerHTML = '<p>No se encontraron productos.</p>';
                 } else {
-                    mostrarResultadosBusqueda(data);
+                    mostrarProductos(data);
                 }
             })
-            .catch(error => console.error('Error al buscar productos:', error));
+            .catch(error => {
+                console.error('Error al buscar productos:', error);
+            });
     }
+    document.addEventListener('DOMContentLoaded', function () {
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id');
 
-    // Evento para el botón de búsqueda y el campo de búsqueda al presionar "Enter"
-    document.querySelector('.button-search').addEventListener('click', performSearch);
-    document.getElementById('filter_name').addEventListener('keyup', function (event) {
-        if (event.key === 'Enter') {
-            performSearch();
+        if (productId) {
+            fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('product-title').textContent = data.nombre;
+                    document.getElementById('product-image').src = data.foto_url;
+                    document.getElementById('product-price').textContent =
+                        `₲${Number(data.precio).toLocaleString('es-PY')}`;
+                    document.getElementById('product-description').textContent = data.descripcion || 'N/A';
+                    const stockElement = document.getElementById('product-availability');
+                    stockElement.textContent = data.stock > 0 ? 'En stock' : 'Agotado';
+                    stockElement.className = data.stock > 0 ? 'label label-success' : 'label label-danger';
+                })
+                .catch(err => console.error('Error fetching product:', err));
         }
-    });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const productosRecomendados = document.querySelectorAll('#productos-recomendados .producto');
+        document.querySelector('.qtyBtn.plus').addEventListener('click', function () {
+            const input = document.getElementById('input-quantity');
+            input.value = parseInt(input.value, 10) + 1;
+        });
 
-    // Limita a mostrar solo 5
-    if (productosRecomendados.length > 5) {
-        productosRecomendados.forEach((producto, index) => {
-            if (index >= 5) {
-                producto.style.display = 'none';
+        document.querySelector('.qtyBtn.mines').addEventListener('click', function () {
+            const input = document.getElementById('input-quantity');
+            if (parseInt(input.value, 10) > 1) {
+                input.value = parseInt(input.value, 10) - 1;
             }
         });
-    }
-});
 
-document.getElementById('review-form').addEventListener('submit', async function (event) {
-    event.preventDefault();
+        // Función para buscar productos
+        function performSearch() {
+            const searchQuery = document.getElementById('filter_name').value.trim().toLowerCase();
+            const url = `https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(searchQuery)}`;
 
-    // Obtener el ID del producto desde la URL
-    const params = new URLSearchParams(window.location.search);
-    const productoId = params.get('id');
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        document.getElementById('productos-lista').innerHTML = '<p>No se encontraron productos.</p>';
+                    } else {
+                        mostrarResultadosBusqueda(data);
+                    }
+                })
+                .catch(error => console.error('Error al buscar productos:', error));
+        }
 
-    if (!productoId) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'No se pudo obtener el ID del producto.',
-            confirmButtonColor: '#d9534f'
+        // Evento para el botón de búsqueda y el campo de búsqueda al presionar "Enter"
+        document.querySelector('.button-search').addEventListener('click', performSearch);
+        document.getElementById('filter_name').addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
         });
-        return;
-    }
+    });
 
-    // Recopilar los datos del formulario
-    const data = {
-        producto_id: productoId,
-        calificacion: document.querySelector('input[name="rating"]:checked')?.value,
-        comentario: document.getElementById('review').value
-    };
+    document.addEventListener('DOMContentLoaded', () => {
+        const productosRecomendados = document.querySelectorAll('#productos-recomendados .producto');
 
-    if (!data.calificacion || !data.comentario) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Faltan Datos',
-            text: 'Por favor, completa todos los campos requeridos.',
-            confirmButtonColor: '#d9534f'
-        });
-        return;
-    }
-
-    try {
-        const response = await fetch('http://localhost:3000/api/calificaciones', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Gracias por tu calificación',
-                text: 'Tu reseña se guardó exitosamente.',
-                confirmButtonColor: '#28a745'
-            }).then(() => {
-                document.getElementById('review-form').reset(); // Resetea el formulario después de enviar
+        // Limita a mostrar solo 5
+        if (productosRecomendados.length > 5) {
+            productosRecomendados.forEach((producto, index) => {
+                if (index >= 5) {
+                    producto.style.display = 'none';
+                }
             });
-        } else {
+        }
+    });
+
+    document.getElementById('review-form').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        // Obtener el ID del producto desde la URL
+        const params = new URLSearchParams(window.location.search);
+        const productoId = params.get('id');
+
+        if (!productoId) {
             Swal.fire({
                 icon: 'error',
-                title: 'Error al guardar',
-                text: 'Hubo un problema al guardar tu calificación. Intenta nuevamente.',
+                title: 'Error',
+                text: 'No se pudo obtener el ID del producto.',
+                confirmButtonColor: '#d9534f'
+            });
+            return;
+        }
+
+        // Recopilar los datos del formulario
+        const data = {
+            producto_id: productoId,
+            calificacion: document.querySelector('input[name="rating"]:checked')?.value,
+            comentario: document.getElementById('review').value
+        };
+
+        if (!data.calificacion || !data.comentario) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Faltan Datos',
+                text: 'Por favor, completa todos los campos requeridos.',
+                confirmButtonColor: '#d9534f'
+            });
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:3000/api/calificaciones', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Gracias por tu calificación',
+                    text: 'Tu reseña se guardó exitosamente.',
+                    confirmButtonColor: '#28a745'
+                }).then(() => {
+                    document.getElementById('review-form').reset(); // Resetea el formulario después de enviar
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al guardar',
+                    text: 'Hubo un problema al guardar tu calificación. Intenta nuevamente.',
+                    confirmButtonColor: '#d9534f'
+                });
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error de conexión',
+                text: 'No se pudo conectar con el servidor. Intenta nuevamente más tarde.',
                 confirmButtonColor: '#d9534f'
             });
         }
-    } catch (error) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error de conexión',
-            text: 'No se pudo conectar con el servidor. Intenta nuevamente más tarde.',
-            confirmButtonColor: '#d9534f'
-        });
-    }
-});
-// Función para agregar un producto al carrito
-function agregarAlCarrito() {
-    const producto = {
-        id: new URLSearchParams(window.location.search).get('id'),
-        nombre: document.getElementById('product-title').textContent,
-        precio: parseFloat(document.getElementById('product-price').textContent.replace('₲', '').replace(',', '')),
-        foto_url: document.getElementById('product-image').src
-    };
+    });
+    // Función para agregar un producto al carrito
+    function agregarAlCarrito() {
+        const producto = {
+            id: new URLSearchParams(window.location.search).get('id'),
+            nombre: document.getElementById('product-title').textContent,
+            precio: parseFloat(document.getElementById('product-price').textContent.replace('₲', '').replace(',', '')),
+            foto_url: document.getElementById('product-image').src
+        };
 
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-    // Verificar si el producto ya está en el carrito
-    const index = carrito.findIndex(p => p.id === producto.id);
-    if (index >= 0) {
-        carrito[index].cantidad += 1; // Incrementar la cantidad si ya existe
-    } else {
-        producto.cantidad = 1; // Establecer la cantidad inicial
-        carrito.push(producto); // Agregar el nuevo producto al carrito
-    }
+        // Verificar si el producto ya está en el carrito
+        const index = carrito.findIndex(p => p.id === producto.id);
+        if (index >= 0) {
+            carrito[index].cantidad += 1; // Incrementar la cantidad si ya existe
+        } else {
+            producto.cantidad = 1; // Establecer la cantidad inicial
+            carrito.push(producto); // Agregar el nuevo producto al carrito
+        }
 
-    // Guardar el carrito actualizado en localStorage
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-
-    // Actualizar los contadores
-    actualizarContadores();
-
-    console.log(`Producto "${producto.nombre}" añadido al carrito.`);
-}
-
-// Función para agregar un producto a favoritos
-function agregarAFavoritos() {
-    const producto = {
-        id: new URLSearchParams(window.location.search).get('id'),
-        nombre: document.getElementById('product-title').textContent,
-        precio: parseFloat(document.getElementById('product-price').textContent.replace('₲', '').replace(',', '')),
-        foto_url: document.getElementById('product-image').src
-    };
-
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-
-    // Verificar si el producto ya está en favoritos
-    if (!wishlist.some(p => p.id === producto.id)) {
-        wishlist.push(producto); // Agregar el producto a favoritos
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        // Guardar el carrito actualizado en localStorage
+        localStorage.setItem('carrito', JSON.stringify(carrito));
 
         // Actualizar los contadores
         actualizarContadores();
 
-        console.log(`Producto "${producto.nombre}" añadido a favoritos.`);
-    } else {
-        console.log(`El producto "${producto.nombre}" ya está en favoritos.`);
-    }
-}
-
-// Función para eliminar un producto de la lista de deseos
-function eliminarDeWishlist(productoId) {
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-
-    // Filtrar la lista para eliminar el producto con el ID especificado
-    wishlist = wishlist.filter(producto => producto.id !== productoId);
-
-    // Guardar la lista actualizada en localStorage
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
-
-    console.log(`Producto con ID ${productoId} eliminado de la lista de deseos.`);
-
-    // Actualizar los contadores
-    actualizarContadores();
-
-    // Actualizar la vista en la página de la lista de deseos (si aplica)
-    actualizarVistaWishlist();
-}
-
-// Función para eliminar un producto del carrito
-function eliminarDelCarrito(productoId) {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    // Filtrar el carrito para eliminar el producto con el ID especificado
-    carrito = carrito.filter(producto => producto.id !== productoId);
-
-    // Guardar el carrito actualizado en localStorage
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-
-    console.log(`Producto con ID ${productoId} eliminado del carrito.`);
-
-    // Actualizar los contadores
-    actualizarContadores();
-}
-
-// Función para actualizar los contadores en el header
-function actualizarContadores() {
-    const wishlistCount = document.getElementById('wishlist-count');
-    const cartCount = document.getElementById('cart-count');
-
-    const favoritos = JSON.parse(localStorage.getItem('wishlist')) || [];
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    wishlistCount.textContent = favoritos.length;
-    cartCount.textContent = carrito.length;
-
-    console.log('Contadores actualizados:', {
-        wishlist: favoritos.length,
-        carrito: carrito.length
-    });
-}
-
-// Función para cargar datos desde localStorage y actualizar contadores al cargar la página
-function cargarDatosDesdeLocalStorage() {
-    actualizarContadores();
-}
-
-// Función para actualizar la vista de la lista de deseos en la página correspondiente
-function actualizarVistaWishlist() {
-    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-    const contenedorWishlist = document.getElementById('wishlist-container');
-
-    if (!contenedorWishlist) {
-        console.error('No se encontró el contenedor de la lista de deseos.');
-        return;
+        console.log(`Producto "${producto.nombre}" añadido al carrito.`);
     }
 
-    contenedorWishlist.innerHTML = '';
+    // Función para agregar un producto a favoritos
+    function agregarAFavoritos() {
+        const producto = {
+            id: new URLSearchParams(window.location.search).get('id'),
+            nombre: document.getElementById('product-title').textContent,
+            precio: parseFloat(document.getElementById('product-price').textContent.replace('₲', '').replace(',', '')),
+            foto_url: document.getElementById('product-image').src
+        };
 
-    wishlist.forEach(producto => {
-        const productoHTML = `
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+        // Verificar si el producto ya está en favoritos
+        if (!wishlist.some(p => p.id === producto.id)) {
+            wishlist.push(producto); // Agregar el producto a favoritos
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+            // Actualizar los contadores
+            actualizarContadores();
+
+            console.log(`Producto "${producto.nombre}" añadido a favoritos.`);
+        } else {
+            console.log(`El producto "${producto.nombre}" ya está en favoritos.`);
+        }
+    }
+
+    // Función para eliminar un producto de la lista de deseos
+    function eliminarDeWishlist(productoId) {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+        // Filtrar la lista para eliminar el producto con el ID especificado
+        wishlist = wishlist.filter(producto => producto.id !== productoId);
+
+        // Guardar la lista actualizada en localStorage
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+
+        console.log(`Producto con ID ${productoId} eliminado de la lista de deseos.`);
+
+        // Actualizar los contadores
+        actualizarContadores();
+
+        // Actualizar la vista en la página de la lista de deseos (si aplica)
+        actualizarVistaWishlist();
+    }
+
+    // Función para eliminar un producto del carrito
+    function eliminarDelCarrito(productoId) {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        // Filtrar el carrito para eliminar el producto con el ID especificado
+        carrito = carrito.filter(producto => producto.id !== productoId);
+
+        // Guardar el carrito actualizado en localStorage
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+        console.log(`Producto con ID ${productoId} eliminado del carrito.`);
+
+        // Actualizar los contadores
+        actualizarContadores();
+    }
+
+    // Función para actualizar los contadores en el header
+    function actualizarContadores() {
+        const wishlistCount = document.getElementById('wishlist-count');
+        const cartCount = document.getElementById('cart-count');
+
+        const favoritos = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        wishlistCount.textContent = favoritos.length;
+        cartCount.textContent = carrito.length;
+
+        console.log('Contadores actualizados:', {
+            wishlist: favoritos.length,
+            carrito: carrito.length
+        });
+    }
+
+    // Función para cargar datos desde localStorage y actualizar contadores al cargar la página
+    function cargarDatosDesdeLocalStorage() {
+        actualizarContadores();
+    }
+
+    // Función para actualizar la vista de la lista de deseos en la página correspondiente
+    function actualizarVistaWishlist() {
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        const contenedorWishlist = document.getElementById('wishlist-container');
+
+        if (!contenedorWishlist) {
+            console.error('No se encontró el contenedor de la lista de deseos.');
+            return;
+        }
+
+        contenedorWishlist.innerHTML = '';
+
+        wishlist.forEach(producto => {
+            const productoHTML = `
             <div class="producto">
                 <img src="${producto.foto_url}" alt="${producto.nombre}" />
                 <h3>${producto.nombre}</h3>
@@ -2772,119 +2844,119 @@ function actualizarVistaWishlist() {
                 <button onclick="eliminarDeWishlist('${producto.id}')">Eliminar</button>
             </div>
         `;
-        contenedorWishlist.innerHTML += productoHTML;
+            contenedorWishlist.innerHTML += productoHTML;
+        });
+
+        if (wishlist.length === 0) {
+            contenedorWishlist.innerHTML = '<p>No tienes productos en tu lista de deseos.</p>';
+        }
+    }
+
+    // Escuchar eventos al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+        cargarDatosDesdeLocalStorage();
+
+        // Opcional: actualizar la vista de la lista de deseos si estás en esa página
+        if (document.getElementById('wishlist-container')) {
+            actualizarVistaWishlist();
+        }
     });
 
-    if (wishlist.length === 0) {
-        contenedorWishlist.innerHTML = '<p>No tienes productos en tu lista de deseos.</p>';
-    }
-}
+    // Función para filtrar productos en tiempo real
+    function filtrarProductosEnTiempoReal() {
+        const query = document.getElementById("filter_name").value.trim().toLowerCase();
+        const autocompleteList = document.getElementById("autocomplete-list");
 
-// Escuchar eventos al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    cargarDatosDesdeLocalStorage();
+        if (!query) {
+            autocompleteList.innerHTML = '';
+            autocompleteList.style.display = 'none'; // Ocultar cuando no hay consulta
+            return;
+        }
 
-    // Opcional: actualizar la vista de la lista de deseos si estás en esa página
-    if (document.getElementById('wishlist-container')) {
-        actualizarVistaWishlist();
-    }
-});
-
-// Función para filtrar productos en tiempo real
-function filtrarProductosEnTiempoReal() {
-    const query = document.getElementById("filter_name").value.trim().toLowerCase();
-    const autocompleteList = document.getElementById("autocomplete-list");
-
-    if (!query) {
-        autocompleteList.innerHTML = '';
-        autocompleteList.style.display = 'none'; // Ocultar cuando no hay consulta
-        return;
-    }
-
-    fetch(`https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(query)}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length > 0) {
-                mostrarSugerenciasEnAutocompletado(data);
-            } else {
-                autocompleteList.innerHTML = '<p style="padding:10px;">No se encontraron productos.</p>';
+        fetch(`https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(query)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    mostrarSugerenciasEnAutocompletado(data);
+                } else {
+                    autocompleteList.innerHTML = '<p style="padding:10px;">No se encontraron productos.</p>';
+                    autocompleteList.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error al buscar productos:', error);
+                autocompleteList.innerHTML = '<p style="padding:10px;">Error al buscar productos. Intenta de nuevo.</p>';
                 autocompleteList.style.display = 'block';
-            }
-        })
-        .catch(error => {
-            console.error('Error al buscar productos:', error);
-            autocompleteList.innerHTML = '<p style="padding:10px;">Error al buscar productos. Intenta de nuevo.</p>';
-            autocompleteList.style.display = 'block';
-        });
-}
+            });
+    }
 
-// Función para mostrar sugerencias de productos en la lista de autocompletado
-function mostrarSugerenciasEnAutocompletado(productos) {
-    const autocompleteList = document.getElementById("autocomplete-list");
-    autocompleteList.innerHTML = ''; // Limpia el contenido previo
+    // Función para mostrar sugerencias de productos en la lista de autocompletado
+    function mostrarSugerenciasEnAutocompletado(productos) {
+        const autocompleteList = document.getElementById("autocomplete-list");
+        autocompleteList.innerHTML = ''; // Limpia el contenido previo
 
-    productos.forEach(producto => {
-        const item = document.createElement('div');
-        item.className = 'autocomplete-item';
-        item.innerHTML = `
+        productos.forEach(producto => {
+            const item = document.createElement('div');
+            item.className = 'autocomplete-item';
+            item.innerHTML = `
             <i class="autocomplete-icon fa fa-tag"></i>
             <span>${producto.nombre}</span>
         `;
-        item.addEventListener('click', () => {
-            // Redirige al producto seleccionado al hacer clic
-            window.location.href = `product.html?id=${producto.id}`;
+            item.addEventListener('click', () => {
+                // Redirige al producto seleccionado al hacer clic
+                window.location.href = `product.html?id=${producto.id}`;
+            });
+            autocompleteList.appendChild(item);
         });
-        autocompleteList.appendChild(item);
+
+        autocompleteList.style.display = 'block'; // Mostrar el contenedor de resultados
+    }
+
+    // Ocultar la lista de autocompletado cuando el mouse no está sobre ella
+    document.addEventListener('click', function (e) {
+        const autocompleteList = document.getElementById("autocomplete-list");
+        if (!e.target.closest('#autocomplete-list') && !e.target.closest('#filter_name')) {
+            autocompleteList.style.display = 'none';
+        }
     });
 
-    autocompleteList.style.display = 'block'; // Mostrar el contenedor de resultados
-}
+    // Evento de búsqueda en tiempo real
+    document.getElementById("filter_name").addEventListener('input', filtrarProductosEnTiempoReal);
 
-// Ocultar la lista de autocompletado cuando el mouse no está sobre ella
-document.addEventListener('click', function (e) {
-    const autocompleteList = document.getElementById("autocomplete-list");
-    if (!e.target.closest('#autocomplete-list') && !e.target.closest('#filter_name')) {
-        autocompleteList.style.display = 'none';
-    }
-});
-
-// Evento de búsqueda en tiempo real
-document.getElementById("filter_name").addEventListener('input', filtrarProductosEnTiempoReal);
-
-// Evento de tecla Enter para buscar
-document.getElementById("filter_name").addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        filtrarProductosEnTiempoReal();
-    }
-});
-
-// Función para mostrar sugerencias de productos en la lista de autocompletado
-function mostrarSugerenciasEnAutocompletado(productos) {
-    const autocompleteList = document.getElementById("autocomplete-list");
-    autocompleteList.innerHTML = ''; // Limpia el contenido previo
-
-    productos.forEach(producto => {
-        const item = document.createElement('div');
-        item.className = 'autocomplete-item';
-        item.textContent = producto.nombre; // Mostrar solo el nombre del producto
-        item.addEventListener('click', () => {
-            // Redirige al producto seleccionado al hacer clic
-            window.location.href = `product.html?id=${producto.id}`;
-        });
-        autocompleteList.appendChild(item);
+    // Evento de tecla Enter para buscar
+    document.getElementById("filter_name").addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            filtrarProductosEnTiempoReal();
+        }
     });
 
-    autocompleteList.style.display = 'block'; // Mostrar el contenedor de resultados
-}
+    // Función para mostrar sugerencias de productos en la lista de autocompletado
+    function mostrarSugerenciasEnAutocompletado(productos) {
+        const autocompleteList = document.getElementById("autocomplete-list");
+        autocompleteList.innerHTML = ''; // Limpia el contenido previo
+
+        productos.forEach(producto => {
+            const item = document.createElement('div');
+            item.className = 'autocomplete-item';
+            item.textContent = producto.nombre; // Mostrar solo el nombre del producto
+            item.addEventListener('click', () => {
+                // Redirige al producto seleccionado al hacer clic
+                window.location.href = `product.html?id=${producto.id}`;
+            });
+            autocompleteList.appendChild(item);
+        });
+
+        autocompleteList.style.display = 'block'; // Mostrar el contenedor de resultados
+    }
 
 
-// Mostrar productos en el contenedor
-function mostrarProductosEnLista(productos) {
-  const contenedor = document.getElementById("productos-lista");
-  contenedor.innerHTML = ""; // Limpia el contenedor
+    // Mostrar productos en el contenedor
+    function mostrarProductosEnLista(productos) {
+        const contenedor = document.getElementById("productos-lista");
+        contenedor.innerHTML = ""; // Limpia el contenedor
 
-  productos.forEach(producto => {
-    const productoDiv = `
+        productos.forEach(producto => {
+            const productoDiv = `
       <div class="product-item">
         <img src="${producto.foto_url || 'image/not-found.png'}" alt="${producto.nombre}" class="product-image">
         <h3>${producto.nombre}</h3>
@@ -2893,38 +2965,39 @@ function mostrarProductosEnLista(productos) {
         <a href="product.html?id=${producto.id}" class="ver-mas">Ver más</a>
       </div>
     `;
-    contenedor.innerHTML += productoDiv;
-  });
-}
-// Escuchar el evento de clic en el botón de búsqueda
-document.getElementById("search-button").addEventListener("click", buscarProductoEnBackend);
+            contenedor.innerHTML += productoDiv;
+        });
+    }
+    // Escuchar el evento de clic en el botón de búsqueda
+    document.getElementById("search-button").addEventListener("click", buscarProductoEnBackend);
 
-// Escuchar el evento `input` para filtrar productos en tiempo real
-document.getElementById("filter_name").addEventListener("input", filtrarProductosEnTiempoReal);
+    // Escuchar el evento `input` para filtrar productos en tiempo real
+    document.getElementById("filter_name").addEventListener("input", filtrarProductosEnTiempoReal);
 
-// Cerrar la lista de autocompletado al hacer clic fuera
-document.addEventListener("click", function (e) {
-  if (!e.target.closest(".search-bar")) {
-    document.getElementById("autocomplete-list").style.display = "none";
-  }
-});
-app.get('/api/buscar', async (req, res) => {
-  const { query } = req.query;
-  if (!query) return res.status(400).send({ error: "El término de búsqueda es obligatorio" });
+    // Cerrar la lista de autocompletado al hacer clic fuera
+    document.addEventListener("click", function (e) {
+        if (!e.target.closest(".search-bar")) {
+            document.getElementById("autocomplete-list").style.display = "none";
+        }
+    });
+    app.get('/api/buscar', async (req, res) => {
+        const { query } = req.query;
+        if (!query) return res.status(400).send({ error: "El término de búsqueda es obligatorio" });
 
-  try {
-    const productos = await pool.query(
-      "SELECT * FROM productos WHERE LOWER(nombre) LIKE $1",
-      [`%${query.toLowerCase()}%`]
-    );
-    res.json(productos.rows);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send({ error: "Error al buscar productos" });
-  }
-});
+        try {
+            const productos = await pool.query(
+                "SELECT * FROM productos WHERE LOWER(nombre) LIKE $1",
+                [`%${query.toLowerCase()}%`]
+            );
+            res.json(productos.rows);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({ error: "Error al buscar productos" });
+        }
+    });
 
 </script>
 <script src="js/header.js"></script>
 </body>
+
 </html>

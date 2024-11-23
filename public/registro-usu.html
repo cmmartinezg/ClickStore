@@ -289,60 +289,53 @@ body {
   <script>
     // Envío del formulario de registro
     document.getElementById('form-registro-usuario').addEventListener('submit', async function (event) {
-    event.preventDefault();
+        event.preventDefault();
 
-    const data = {
-        nombre: document.getElementById('nombre').value,
-        email: document.getElementById('email').value,
-        contrasena: document.getElementById('contrasena').value,
-        direccion: document.getElementById('direccion').value || null,
-        telefono: document.getElementById('telefono').value || null
-    };
+        const data = {
+            nombre: document.getElementById('nombre').value,
+            email: document.getElementById('email').value,
+            contrasena: document.getElementById('contrasena').value,
+            direccion: document.getElementById('direccion').value || null,
+            telefono: document.getElementById('telefono').value || null
+        };
 
-    try {
-        const response = await fetch('https://tcc-api-nodejs.onrender.com/api/usuarios', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-            const responseData = await response.json();
-            sessionStorage.setItem('userId', responseData.id);
-            sessionStorage.setItem('userName', responseData.nombre);
-
-            Swal.fire({
-                icon: 'success',
-                title: '¡Registro Exitoso!',
-                html: `<p style="font-size: 1.1em; color: #444;">Bienvenido, <strong>${responseData.nombre}</strong>!</p>
-                       <p style="color: #888;">Tu cuenta ha sido creada correctamente.</p>`,
-                background: '#f9f9f9',
-                backdrop: `
-                    rgba(0, 0, 0, 0.6)
-                    url("https://media.giphy.com/media/3oz8xIsloV7zOmt81G/giphy.gif") center left no-repeat
-                `,
-                confirmButtonText: 'Explorar preferencias',
-                confirmButtonColor: '#fa8072',
-                padding: '2em',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = 'preferencias.html';
-                }
+        try {
+            const response = await fetch('https://tcc-api-nodejs.onrender.com/api/usuarios', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
             });
-        } else {
-            const errorData = await response.json();
+
+            if (response.ok) {
+                const responseData = await response.json();
+                sessionStorage.setItem('userId', responseData.id);
+                sessionStorage.setItem('userName', responseData.nombre);
+                window.location.href = 'index-usuario.html'; // Redirige directamente sin mostrar mensaje visual
+            } else {
+                const errorData = await response.json();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error en el Registro',
+                    text: errorData.message,
+                    background: '#fff3f3',
+                    confirmButtonText: 'Intentar de nuevo',
+                    confirmButtonColor: '#d9534f',
+                    padding: '1.5em',
+                    showClass: {
+                        popup: 'animate__animated animate__shakeX'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOut'
+                    }
+                });
+            }
+        } catch (error) {
             Swal.fire({
                 icon: 'error',
-                title: 'Error en el Registro',
-                text: errorData.message,
+                title: 'Error de Conexión',
+                text: 'Hubo un problema al conectar con el servidor. Inténtalo de nuevo más tarde.',
                 background: '#fff3f3',
-                confirmButtonText: 'Intentar de nuevo',
+                confirmButtonText: 'Aceptar',
                 confirmButtonColor: '#d9534f',
                 padding: '1.5em',
                 showClass: {
@@ -353,24 +346,7 @@ body {
                 }
             });
         }
-    } catch (error) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error de Conexión',
-            text: 'Hubo un problema al conectar con el servidor. Inténtalo de nuevo más tarde.',
-            background: '#fff3f3',
-            confirmButtonText: 'Aceptar',
-            confirmButtonColor: '#d9534f',
-            padding: '1.5em',
-            showClass: {
-                popup: 'animate__animated animate__shakeX'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOut'
-            }
-        });
-    }
-});
-  </script>
+    });
+</script>
 </body>
 </html>
