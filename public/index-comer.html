@@ -238,18 +238,26 @@
       background-color: #f1f1f1;
     }
 
-    .product-image {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      transition: transform var(--transition-speed) ease;
-    }
+ /* Ajustar imagen en el contenedor del producto */
+.product-image {
+  display: block; /* Asegura que la imagen sea un elemento de bloque */
+  max-width: 100%; /* La imagen no excederá el ancho del contenedor */
+  max-height: 200px; /* Limita la altura máxima de la imagen */
+  height: auto; /* Mantiene la proporción original de la imagen */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  object-fit: contain; /* Asegura que toda la imagen esté contenida en el área */
+  border-radius: 8px; /* Bordes redondeados para un diseño más atractivo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+}
 
     .product-item:hover .product-image {
       transform: scale(1.05);
     }
+
+    /*productos del comerciante*/
+
+
+    
 
     .product-item h3 {
       font-size: 18px;
@@ -815,6 +823,185 @@
         transform: rotate(360deg);
       }
     }
+
+    /* Contenedor de Filtros */
+    .filter-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 29px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 9000px;
+    }
+
+    /* Barra de búsqueda */
+    #search-bar {
+      flex: 1;
+      padding: 12px 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 18px;
+      margin-right: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #search-bar:focus {
+      border-color: #3498db;
+      box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+      outline: none;
+    }
+
+    /* Contenedor de ordenamiento */
+    .sort-container {
+      display: flex;
+      align-items: center;
+      /* Alinea los elementos verticalmente al centro */
+      gap: 10px;
+      /* Añade espacio entre el texto y el selector */
+      flex-shrink: 0;
+      /* Evita que el contenedor se reduzca demasiado */
+    }
+
+    .sort-container label {
+      font-size: 16px;
+      /* Tamaño de fuente consistente */
+      color: #555;
+      /* Color gris oscuro para el texto */
+      font-weight: bold;
+      /* Negrita para destacar */
+      display: flex;
+      align-items: center;
+      /* Alinea el ícono y el texto verticalmente */
+      gap: 5px;
+      /* Espacio entre el texto y el ícono */
+      margin: 0;
+      /* Elimina márgenes extra */
+      white-space: nowrap;
+      /* Evita que el texto se divida en dos líneas */
+    }
+
+    /* Selector ajustado */
+    .sort-container select {
+      padding: 10px 15px;
+      /* Espaciado interno para hacerlo más grande */
+      border: 1px solid #ccc;
+      /* Borde gris claro */
+      border-radius: 5px;
+      /* Bordes redondeados */
+      font-size: 16px;
+      /* Tamaño de fuente para que combine con el texto */
+      color: #555;
+      /* Color del texto interno */
+      background-color: #ffffff;
+      /* Fondo blanco */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      /* Sombra ligera para destacar */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      /* Efectos suaves al interactuar */
+      width: 200px;
+      /* Tamaño fijo para evitar que se deforme */
+    }
+
+    .sort-container select:focus {
+      border-color: #cf7703;
+      /* Borde azul cuando está enfocado */
+      box-shadow: 0 4px 8px rgba(255, 157, 0, 0.3);
+      /* Sombra más pronunciada */
+      outline: none;
+      /* Elimina el contorno por defecto */
+    }
+
+    /* Ajustes responsivos */
+    @media (max-width: 768px) {
+      .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      #search-bar {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .sort-container {
+        justify-content: center;
+      }
+    }
+
+
+
+    /*barra de busqueda*/
+
+
+    /* Contenedor para el título y botón */
+    .title-button-container {
+      display: flex;
+      /* Alinea los elementos horizontalmente */
+      align-items: center;
+      /* Centra verticalmente el título y el botón */
+      justify-content: space-between;
+      /* Coloca el título a la izquierda y el botón a la derecha */
+      margin-bottom: 20px;
+      /* Espaciado inferior */
+    }
+
+    /* Estilo del botón */
+    #subir-producto-btn {
+      background-color: #cf7703;
+      /* Azul principal */
+      color: #fff;
+      /* Texto blanco */
+      padding: 10px 20px;
+      /* Espaciado interno */
+      border: none;
+      /* Sin borde */
+      border-radius: 5px;
+      /* Bordes redondeados */
+      font-size: 16px;
+      /* Tamaño de texto */
+      font-weight: bold;
+      /* Negrita */
+      cursor: pointer;
+      /* Cambia el cursor al pasar por encima */
+      transition: background-color 0.3s ease;
+      /* Transición suave al interactuar */
+      display: flex;
+      /* Alinea ícono y texto en una fila */
+      align-items: center;
+      /* Centra verticalmente el ícono y texto */
+      gap: 10px;
+      /* Espaciado entre el ícono y el texto */
+    }
+
+    #subir-producto-btn:hover {
+      background-color: #2c81ba;
+      /* Oscurece el azul al pasar el mouse */
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .title-button-container {
+        flex-direction: column;
+        /* Cambia a disposición vertical en pantallas pequeñas */
+        align-items: flex-start;
+        /* Alinea los elementos a la izquierda */
+        gap: 10px;
+        /* Espaciado entre el título y el botón */
+      }
+
+      #subir-producto-btn {
+        width: 100%;
+        /* Ocupa todo el ancho en pantallas pequeñas */
+        text-align: center;
+        /* Centra el texto */
+      }
+    }
   </style>
 </head>
 
@@ -861,26 +1048,51 @@
 
       <!-- Contenedor de la lista de productos -->
       <div class="product-list">
-        <!-- Botón de Subir Artículo -->
-        <div class="text-right mb-3">
-          <button id="subir-producto-btn" onclick="redirigirAProductos()"><i class="fas fa-upload"></i> Subir
-            Artículo</button>
-        </div>
-        <h1><i class="fas fa-box-open"></i> Mis Productos</h1>
-        <!-- Filtros -->
-        <div class="filter-container">
-          <input type="text" id="search-bar" placeholder="Buscar producto..." class="form-control"
-            onkeyup="filtrarProductos()">
 
-          <div class="sort-container d-flex align-items-center">
-            <label for="ordenar"><i class="fas fa-sort"></i> Ordenar por:</label>
-            <select id="ordenar" class="form-control" onchange="ordenarProductos()">
-              <option value="nombre">Nombre</option>
-              <option value="precio-asc">Precio: Menor a Mayor</option>
-              <option value="precio-desc">Precio: Mayor a Menor</option>
-            </select>
+        <div class="title-filter-container">
+          <!-- Título -->
+
+
+          <div class="title-button-container">
+            <!-- Título -->
+            <h1>
+              <i class="fas fa-box-open"></i> Mis Productos
+            </h1>
+
+            <!-- Botón de Subir Artículo -->
+            <div class="text-right">
+              <button id="subir-producto-btn" onclick="redirigirAProductos()">
+                <i class="fas fa-upload"></i> Subir Artículo
+              </button>
+            </div>
+          </div>
+
+
+
+
+
+
+          <!-- Filtros -->
+          <div class="filter-container">
+            <!-- Barra de búsqueda -->
+            <input type="text" id="search-bar" placeholder="Buscar producto..." class="form-control"
+              onkeyup="filtrarProductos()" />
+
+            <!-- Contenedor de ordenamiento -->
+            <div class="sort-container">
+              <label for="ordenar">
+                <i class="fas fa-sort"></i> Ordenar por:
+              </label>
+              <select id="ordenar" class="form-control" onchange="ordenarProductos()">
+                <option value="nombre">Nombre</option>
+                <option value="precio-asc">Precio: Menor a Mayor</option>
+                <option value="precio-desc">Precio: Mayor a Menor</option>
+              </select>
+            </div>
           </div>
         </div>
+
+
 
         <div id="productos-lista">
           <!-- Los productos se cargarán aquí -->
@@ -922,6 +1134,10 @@
     aria-labelledby="editarProductoModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
+
+
+
+
         <div class="modal-header">
           <h4 class="modal-title" id="editarProductoModalLabel"><i class="fas fa-edit"></i> Editar Producto</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"
@@ -929,6 +1145,11 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
+
+
+
+        
 
         <div class="modal-body">
           <input type="hidden" id="producto-id">
@@ -1392,7 +1613,7 @@
     function inicializarSwiper() {
       new Swiper('#productos-recomendados', {
         slidesPerView: 3, // Número de productos visibles por defecto
-        spaceBetween: 20, // Espacio entre los productos
+        spaceBetween: 5, // Espacio entre los productos
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
@@ -1408,18 +1629,18 @@
         breakpoints: {
           // Configuración para pantallas grandes
           1200: {
-            slidesPerView: 3,
-            spaceBetween: 20,
+            slidesPerView: 5,
+            spaceBetween: 5,
           },
           // Configuración para pantallas medianas (tablets)
           768: {
-            slidesPerView: 2,
-            spaceBetween: 15,
+            slidesPerView: 4,
+            spaceBetween: 5,
           },
           // Configuración para pantallas pequeñas (móviles)
           480: {
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 5,
           },
         },
       });
