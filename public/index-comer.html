@@ -86,7 +86,7 @@
 
     .nav-links .comerciante-info {
       font-size: 16px;
-      color: #ffffff;
+      color: #000000;
       font-weight: bold;
       margin-right: 20px;
       display: flex;
@@ -1040,10 +1040,7 @@
           <h4><i class="fas fa-star"></i> Total de Productos Recomendados</h4>
           <p id="total-productos-similares">0</p>
         </div>
-        <div class="dashboard-item">
-          <h4><i class="fas fa-warehouse"></i> Total de Productos Sin Stock</h4>
-          <p id="total-productos-sin-stock">Cargando...</p>
-        </div>
+        
       </div>
 
       <!-- Contenedor de la lista de productos -->
@@ -1613,7 +1610,7 @@
     function inicializarSwiper() {
       new Swiper('#productos-recomendados', {
         slidesPerView: 3, // Número de productos visibles por defecto
-        spaceBetween: 5, // Espacio entre los productos
+        spaceBetween: 3, // Espacio entre los productos
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
@@ -1623,19 +1620,19 @@
           clickable: true,
         },
         autoplay: {
-          delay: 3000,
+          delay: 2000,
         },
         loop: true,
         breakpoints: {
           // Configuración para pantallas grandes
           1200: {
-            slidesPerView: 5,
-            spaceBetween: 5,
+            slidesPerView: 3,
+            spaceBetween: 3,
           },
           // Configuración para pantallas medianas (tablets)
           768: {
-            slidesPerView: 4,
-            spaceBetween: 5,
+            slidesPerView: 3,
+            spaceBetween: 3,
           },
           // Configuración para pantallas pequeñas (móviles)
           480: {
