@@ -43,9 +43,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 15px;
-    background-color: #312525;
+    background-color: #ffffff;
     color: #fff;
-    background: linear-gradient(90deg, #4c453e, #fff3e8, #453f3b);
+    /* background: linear-gradient(90deg, #4c453e, #fff3e8, #453f3b); */
     position: fixed;
     top: 0;
     width: 100%;
@@ -193,7 +193,7 @@ body {
 
 /* Estilo de bienvenida del usuario */
 #welcome-message {
-  color: #f1f0ee;
+  color: #1f1e1b;
   font-weight: bold;
   font-size: 15px;
 }
