@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css" />
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>
+  <meta charset="UTF-8"> <!-- Asegúrate de tener este meta -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- CSS de Owl Carousel -->
@@ -2489,6 +2490,74 @@
   margin-top: 0 !important; 
 }
 
+
+
+
+
+
+
+
+
+
+
+/*nuevo css*/
+/* Estilos comunes para los íconos */
+.category-categorias::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 40px;
+  color: #f6a206;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #f6a206;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+/* Asignación de códigos Unicode a cada categoría */
+.category-categorias.ofertas::before {
+  content: "\f0a1"; /* Código Unicode para altavoz */
+}
+
+.category-categorias.calidad::before {
+  content: "\f058"; /* Código Unicode para check-circle */
+}
+
+.category-categorias.solucion::before {
+  content: "\f0ad"; /* Código Unicode para wrench (herramienta) */
+}
+
+.category-categorias.experiencia::before {
+  content: "\f2b5"; /* Código Unicode para handshake */
+}
+
+.category-categorias.reportes::before {
+  content: "\f1c1"; /* Código Unicode para file */
+}
+
+
+
+.category-categorias {
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  /* Otros estilos que puedas tener */
+}
+
+/* Pseudo-elemento para mostrar el ícono */
+.category-categorias::before {
+  content: attr(data-icon);
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 3rem;
+  color: #ffc107; /* Ajusta el color a tu preferencia */
+  display: block;
+  margin-bottom: 10px;
+}
+
   </style>
 </head>
 
@@ -2603,32 +2672,34 @@
       <h2>Nuestras Ventajas</h2>
       <p>Descubre los beneficios que ClickStore tiene para ofrecerte</p>
     </div>
-    <!-- Contenedor central con tarjetas de categorías -->
+
+
     <div class="background-section-categorias">
       <div class="categories-categorias">
-        <div class="category-categorias ofertas" data-icon="" onclick="scrollToSection('ofertas')">
+        <div class="category-categorias ofertas" onclick="scrollToSection('informática')">
           <h3>Millones de ofertas comerciales</h3>
           <p>Explora productos recomendados para tu negocio entre las distintas categorías.</p>
         </div>
-        <div class="category-categorias calidad" data-icon="" onclick="scrollToSection('calidad')">
+        <div class="category-categorias calidad" onclick="scrollToSection('belleza')">
           <h3>Calidad y transacciones aseguradas</h3>
           <p>Asegura la calidad de producción de los proveedores verificados.</p>
         </div>
-        <div class="category-categorias solucion" data-icon="" onclick="scrollToSection('solucion')">
+        <div class="category-categorias solucion" onclick="scrollToSection('electrónica')">
           <h3>Solución comercial única</h3>
           <p>Pide sin problemas desde la recomendación de los productos y la gestión del pedido.</p>
         </div>
-        <div class="category-categorias experiencia" data-icon="" onclick="scrollToSection('experiencia')">
+        <div class="category-categorias experiencia" onclick="scrollToSection('ropa')">
           <h3>Experiencia comercial a medida</h3>
           <p>Obtén beneficios seleccionados, como protección mejorada y soporte adicional.</p>
         </div>
-        <div class="category-categorias reportes" data-icon="" onclick="scrollToSection('reportes')">
+        <div class="category-categorias reportes" onclick="scrollToSection('automóviles')">
           <h3>Reportes</h3>
           <p>Obtén beneficios seleccionados, como descuentos exclusivos, protección mejorada y soporte adicional.</p>
         </div>
       </div>
     </div>
   </div>
+  
 
   <!-- Espaciador -->
   <p style="margin-bottom: 30px;"></p>
@@ -3314,9 +3385,11 @@
 
 
     function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
+      const section = document.getElementById(sectionId + "-info");
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.error(`La sección con id "${sectionId}-info" no existe.`);
       }
     }
 
