@@ -77,6 +77,16 @@
       margin-top: 3px;
     }
 
+@media (max-width: 768px) {
+  #autocomplete-list {
+    width: 95%; 
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70%; 
+    margin-top: 3px;
+  }
+}
+
 
     .categories-dropdown ul {
       list-style: none;
@@ -878,7 +888,7 @@
   <!-- Header -->
   <header class="header">
     <div class="logo">
-      <a href="index.html"><img class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+      <img id="logout-logo" class="img-responsive" src="image/logo.png" title="Click Store" alt="Click Store" />
     </div>
     <div class="search-bar">
       <select id="category-select">
@@ -1207,6 +1217,8 @@
   <script src="js/api.js"></script> <!-- Incluir api.js aquí -->
   <!-- JS de Owl Carousel -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
   <!-- Parte JS Fin -->
 
@@ -2190,6 +2202,38 @@
         window.location.href = selectedCategory;
       }
     }
+// Selecciona el logo por su ID
+document.getElementById('logout-logo').addEventListener('click', function (e) {
+  // Evita el comportamiento predeterminado
+  e.preventDefault();
+
+  // Muestra el modal con SweetAlert2
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "Cerrarás tu sesión actual.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#fa8072', // Botón de confirmación (rojo claro)
+    cancelButtonColor: '#aaa', // Botón de cancelar (gris)
+    confirmButtonText: 'Sí, cerrar sesión',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Limpia el almacenamiento de sesión
+      sessionStorage.clear();
+
+      // Muestra un mensaje de confirmación
+      Swal.fire(
+        'Sesión Cerrada',
+        'Has cerrado sesión exitosamente.',
+        'success'
+      ).then(() => {
+        // Redirige al index principal
+        window.location.href = 'index.html';
+      });
+    }
+  });
+});
 
 
   </script>
