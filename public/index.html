@@ -3266,6 +3266,153 @@
         behavior: 'smooth'
       });
     }
+
+
+
+
+
+
+// Llamar a la función para obtener los parámetros de búsqueda cuando se carga la página
+window.onload = function () {
+      getSearchQuery();
+    };
+
+    $(document).ready(function () {
+      $("#carousel-example").owlCarousel({
+        items: 1, // Solo una imagen a la vez
+        loop: true, // Para que el carrusel sea cíclico
+        autoplay: true, // Habilitar el autoplay
+        autoplayTimeout: 1800, // Velocidad del autoplay (cambia a 1.5 segundos)
+        autoplayHoverPause: true, // Pausar al pasar el mouse por encima
+        dots: true, // Mostrar puntos de navegación
+        nav: true, // Habilitar las flechas de navegación
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"], // Flechas de navegación
+        smartSpeed: 600 // Velocidad de transición entre imágenes
+      });
+    });
+
+    // Redirigir a la categoría seleccionada
+    function redirectToCategory() {
+      const select = document.getElementById('category-select');
+      const category = select.value;
+      window.location.href = category;
+    }
+
+    function redirectToCategory(page) {
+      window.location.href = page;
+    }
+
+    // Filtrar productos en tiempo real
+    function filtrarProductosTodos() {
+      const input = document.getElementById("filter_name").value.toLowerCase();
+      const productos = document.querySelectorAll(".small-images .image-box");
+
+      productos.forEach(producto => {
+        const nombreProducto = producto.querySelector("img").alt.toLowerCase();
+        producto.style.display = nombreProducto.includes(input) ? "block" : "none";
+      });
+    }
+
+
+
+
+
+
+
+
+document.querySelectorAll('.main-container').forEach(container => {
+      let currentIndex = 0;
+      const images = container.querySelectorAll('.carousel-images img');
+      const arrowLeft = container.querySelector('.arrow-left');
+      const arrowRight = container.querySelector('.arrow-right');
+      const totalImages = images.length;
+
+      // Función para mostrar la imagen actual
+      function mostrarImagen(index) {
+        currentIndex = (index + totalImages) % totalImages;
+
+        images.forEach(img => img.classList.remove('active'));
+        images[currentIndex].classList.add('active');
+      }
+
+      // Eventos para los botones
+      arrowLeft.addEventListener('click', () => {
+        mostrarImagen(currentIndex - 1);
+      });
+
+      arrowRight.addEventListener('click', () => {
+        mostrarImagen(currentIndex + 1);
+      });
+
+      // Cambio automático cada 3 segundos
+      setInterval(() => {
+        mostrarImagen(currentIndex + 1);
+      }, 3000);
+    });
+
+    // Limpiar el sessionStorage al cargar la página
+    sessionStorage.clear();
+
+
+
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId + "-info");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      } else {
+        console.error(`La sección con id "${sectionId}-info" no existe.`);
+      }
+    }
+
+
+    // Función para pedir permiso de notificación notificacion de pagina
+    function solicitarPermisoNotificacion() {
+      if (Notification.permission === 'granted') {
+        mostrarNotificacion("¡Bienvenido! Activaste las notificaciones de nuevos productos.");
+      } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            mostrarNotificacion("Notificaciones activadas para nuevos productos.");
+          }
+        });
+      }
+    }
+
+    function mostrarNotificacion(mensaje) {
+      if (Notification.permission === 'granted') {
+        new Notification("Click Store - Nuevo Producto", {
+          body: mensaje,
+          icon: "image/logo.png" // Cambia a la ruta del icono de tu sitio web
+        });
+      }
+    }
+
+
+// Ejecutar la verificación cada 5 minutos
+    setInterval(verificarNuevosProductos, 300000); // 300000ms = 5 minutos
+
+    document.addEventListener('DOMContentLoaded', function () {
+      solicitarPermisoNotificacion();
+    });
+
+    function toggleModal() {
+      const modal = document.getElementById("account-modal");
+      modal.style.display = modal.style.display === "block" ? "none" : "block";
+    }
+
+    // Cerrar el modal al hacer clic fuera del contenido
+    window.onclick = function (event) {
+      const modal = document.getElementById("account-modal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+
+
+
+
+
+
   </script>
   
   
