@@ -1,139 +1,185 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Contraseña - Click Store</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="http://localhost:3000/styles.css"> <!-- Asegúrate de servir el CSS desde tu servidor -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
 
+    <style>
+        /* Estilos del formulario */
+        .container {
+            max-width: 400px;
+            margin: 5% auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-<style>
-/* Contenedor principal centrado */
-.container {
-    max-width: 400px;
-    margin: 5% auto;
-    padding: 40px;
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-}
+        .logo-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
 
-/* Logo alineado a la izquierda */
-.logo-container {
-    text-align: left;
-    margin-bottom: 20px;
-}
+        .logo {
+            width: 150px;
+            height: auto;
+        }
 
-.logo {
-    width: 150px;
-    height: auto;
-}
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+            color: #333;
+        }
 
-/* Título de la página */
-.title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: left;
-    color: #333;
-}
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            text-align: left;
+        }
 
-/* Subtítulo */
-.subtitle {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 30px;
-    text-align: left;
-}
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-/* Contenido del formulario */
-.form-content {
-    text-align: left;
-}
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 14px;
+        }
 
-/* Grupo de campos */
-.form-group {
-    margin-bottom: 15px;
-}
+        .form-control {
+            width: 100%;
+            border-radius: 30px;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
 
-.form-group label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-    font-size: 14px;
-}
+        .btn-primary {
+            background-color: #fa8072;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
 
-.form-control {
-    width: 100%;
-    border-radius: 30px;
-    padding: 15px 20px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-}
+        .btn-primary:hover {
+            background-color: #e06450;
+        }
 
-/* Botón de envío */
-.btn-primary {
-    background-color: #fa8072;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 18px;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
-}
+        .back-login {
+            margin-top: 15px;
+            text-align: center;
+        }
 
-.btn-primary:hover {
-    background-color: #e06450;
-}
+        .back-login a {
+            text-decoration: none;
+            color: #fa8072;
+            font-size: 14px;
+        }
 
-/* Enlace para volver al login */
-.back-login {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.back-login a {
-    text-decoration: none;
-    color: #fa8072;
-    font-size: 14px;
-}
-
-.back-login a:hover {
-    text-decoration: underline;
-}
-</style>
-
+        .back-login a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
+
 <body>
-
-<div class="container">
-    <div class="logo-container">
-        <img src="image/logo.png" alt="Click Store" class="logo">
-    </div>
-
-    <h1 class="title">Recuperar Contraseña</h1>
-    <p class="subtitle">Introduce tu dirección de correo electrónico para recibir un enlace de restablecimiento de contraseña.</p>
-
-    <form class="form-content" action="javascript:void(0);">
-        <div class="form-group">
-            <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" class="form-control" placeholder="Introduce tu correo" required>
+    <div class="container">
+        <div class="logo-container">
+            <img src="http://localhost:3000/image/logo.png" alt="Click Store" class="logo"> <!-- Ajusta la ruta -->
         </div>
 
-        <div class="buttons">
-            <input type="submit" class="btn btn-primary" value="Enviar Enlace">
+        <h1 class="title">Recuperar Contraseña</h1>
+        <p class="subtitle">Introduce tu dirección de correo electrónico para recibir un enlace de restablecimiento de contraseña.</p>
+
+        <form class="form-content" action="javascript:void(0);">
+            <div class="form-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" class="form-control" placeholder="Introduce tu correo" required>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" class="btn btn-primary" value="Enviar Enlace">
+            </div>
+        </form>
+
+        <div class="back-login">
+            <a href="login.html"><i class="fas fa-arrow-left"></i> Volver a Iniciar Sesión</a>
         </div>
-    </form>
-
-    <div class="back-login">
-        <a href="login.html"><i class="fas fa-arrow-left"></i> Volver a Iniciar Sesión</a>
     </div>
-</div>
 
+    <script>
+        // Envío del formulario de recuperación de contraseña
+        document.querySelector('.form-content').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del formulario
+
+            const email = document.getElementById('email').value;
+
+            if (!email) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Campo vacío',
+                    text: 'Por favor, introduce un correo electrónico válido.',
+                    confirmButtonColor: '#fa8072',
+                });
+                return;
+            }
+
+            const data = { email };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/recuperar_contrasena', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    const responseData = await response.json();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Enlace enviado',
+                        text: 'Hemos enviado un enlace de recuperación a tu correo electrónico.',
+                        confirmButtonText: 'Aceptar',
+                        confirmButtonColor: '#28a745',
+                    });
+                } else {
+                    const errorData = await response.json();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error al enviar',
+                        text: errorData.message || 'Hubo un problema al procesar tu solicitud.',
+                        confirmButtonText: 'Intentar de nuevo',
+                        confirmButtonColor: '#d9534f',
+                    });
+                }
+            } catch (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error de Conexión',
+                    text: 'No pudimos conectar con el servidor. Inténtalo más tarde.',
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#d9534f',
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
