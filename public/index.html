@@ -2770,10 +2770,11 @@
 
     <div class="background-section-categorias">
       <div class="categories-categorias">
-        <div class="category-categorias ofertas" onclick="scrollToSection('informática')">
+        <div class="category-categorias ofertas" onclick="scrollToSection('informatica')">
           <h3>Millones de ofertas comerciales</h3>
           <p>Explora productos recomendados para tu negocio entre las distintas categorías.</p>
         </div>
+        
         <div class="category-categorias calidad" onclick="scrollToSection('belleza')">
           <h3>Calidad y transacciones aseguradas</h3>
           <p>Asegura la calidad de producción de los proveedores verificados.</p>
@@ -3356,13 +3357,15 @@ document.querySelectorAll('.main-container').forEach(container => {
 
 
     function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId + "-info");
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      } else {
-        console.error(`La sección con id "${sectionId}-info" no existe.`);
-      }
-    }
+  const normalizedId = sectionId.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Elimina tildes
+  const section = document.getElementById(`${normalizedId}-info`);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  } else {
+    console.error(`La sección con id "${normalizedId}-info" no existe.`);
+  }
+}
+
 
 
     // Función para pedir permiso de notificación notificacion de pagina
