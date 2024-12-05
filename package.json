@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "proxy": "http://localhost:3000",
-
   "scripts": {
     "start": "node index.js"
   },
@@ -22,6 +21,7 @@
   "homepage": "https://github.com/cmmartinezg/ClickStore#readme",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "react-router-dom": "^7.0.2"
   }
 }
