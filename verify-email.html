@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verificación de Cuenta - Click Store</title>
+  <link rel="stylesheet" href="js/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f9fafb;
+      margin: 0;
+    }
+    #content {
+      text-align: center;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    p {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>Verificando tu cuenta...</h1>
+    <p>Por favor, espera unos segundos.</p>
+  </div>
+
+  <script>
+    (async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get('token');
+      const email = urlParams.get('email');
+      const tipo = urlParams.get('tipo');
+
+      if (!token || !email || !tipo) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Faltan datos de verificación. Por favor revisa el enlace enviado a tu correo.',
+          confirmButtonText: 'Aceptar'
+        });
+        return;
+      }
+
+      let endpoint;
+      if (tipo === 'usuario') {
+        endpoint = `http://127.0.0.1:3000/api/usuarios/verify-email?token=${encodeURIComponent(token)}&email=${encodeURIComponent(email)}`;
+      } else if (tipo === 'comerciante') {
+        endpoint = `http://127.0.0.1:3000/api/comerciantes/verify-email?token=${encodeURIComponent(token)}&email=${encodeURIComponent(email)}`;
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Tipo inválido',
+          text: 'El tipo de verificación no es reconocido.',
+          confirmButtonText: 'Aceptar'
+        });
+        return;
+      }
+
+      try {
+        const response = await fetch(endpoint, { method: 'GET' });
+        const data = await response.json();
+
+        if (response.ok) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Correo Verificado',
+            text: data.message,
+            confirmButtonText: 'Ir a la página principal',
+            confirmButtonColor: '#28a745'
+          }).then(() => {
+            if (tipo === 'usuario') {
+              window.location.href = 'index-usuario.html';
+            } else {
+              window.location.href = 'index-comer.html';
+            }
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: data.message || 'El enlace de verificación no es válido o ha expirado.',
+            confirmButtonText: 'Aceptar'
+          });
+        }
+
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error de Conexión',
+          text: 'No se pudo conectar con el servidor. Inténtalo más tarde.',
+          confirmButtonText: 'Aceptar'
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

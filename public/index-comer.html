@@ -238,17 +238,25 @@
       background-color: #f1f1f1;
     }
 
- /* Ajustar imagen en el contenedor del producto */
-.product-image {
-  display: block; /* Asegura que la imagen sea un elemento de bloque */
-  max-width: 100%; /* La imagen no excederá el ancho del contenedor */
-  max-height: 200px; /* Limita la altura máxima de la imagen */
-  height: auto; /* Mantiene la proporción original de la imagen */
-  margin: 0 auto; /* Centra la imagen horizontalmente */
-  object-fit: contain; /* Asegura que toda la imagen esté contenida en el área */
-  border-radius: 8px; /* Bordes redondeados para un diseño más atractivo */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
-}
+    /* Ajustar imagen en el contenedor del producto */
+    .product-image {
+      display: block;
+      /* Asegura que la imagen sea un elemento de bloque */
+      max-width: 100%;
+      /* La imagen no excederá el ancho del contenedor */
+      max-height: 200px;
+      /* Limita la altura máxima de la imagen */
+      height: auto;
+      /* Mantiene la proporción original de la imagen */
+      margin: 0 auto;
+      /* Centra la imagen horizontalmente */
+      object-fit: contain;
+      /* Asegura que toda la imagen esté contenida en el área */
+      border-radius: 8px;
+      /* Bordes redondeados para un diseño más atractivo */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Sombra suave para dar profundidad */
+    }
 
     .product-item:hover .product-image {
       transform: scale(1.05);
@@ -257,7 +265,7 @@
     /*productos del comerciante*/
 
 
-    
+
 
     .product-item h3 {
       font-size: 18px;
@@ -1018,6 +1026,7 @@
         <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
       </div>
     </header>
+
     <!-- Encabezado End -->
 
     <!-- Contenedor principal con comerciante y productos -->
@@ -1040,7 +1049,7 @@
           <h4><i class="fas fa-star"></i> Total de Productos Recomendados</h4>
           <p id="total-productos-similares">0</p>
         </div>
-        
+
       </div>
 
       <!-- Contenedor de la lista de productos -->
@@ -1146,7 +1155,7 @@
 
 
 
-        
+
 
         <div class="modal-body">
           <input type="hidden" id="producto-id">
@@ -1242,7 +1251,7 @@
         return;
       }
 
-      fetch(`https://tcc-api-nodejs.onrender.com/api/productos?comercianteId=${comercianteId}`)
+      fetch(`http://127.0.0.1:3000/api/productos?comercianteId=${comercianteId}`)
         .then(response => response.json())
         .then(data => {
           displayProductos(data);
@@ -1259,11 +1268,12 @@
         return;
       }
 
-      fetch(`https://tcc-api-nodejs.onrender.com/api/comerciantes/${comercianteId}`)
+      fetch(`http://127.0.0.1:3000/api/comerciantes/${comercianteId}`)
         .then(response => response.json())
         .then(data => displayComercianteInfo(data))
         .catch(err => console.error('Error fetching comerciante info:', err));
     }
+
 
     function displayComercianteInfo(comerciante) {
       const comercianteInfo = document.getElementById('comerciante-info');
@@ -1272,10 +1282,28 @@
         <p><strong>Email:</strong> ${comerciante.email}</p>
         <p><strong>Dirección:</strong> ${comerciante.direccion}</p>
         <p><strong>Teléfono:</strong> ${comerciante.telefono}</p>
-       <!-- <p><strong>Descripción:</strong> ${comerciante.descripcion}</p>
+        <!-- <p><strong>Descripción:</strong> ${comerciante.descripcion}</p>
         <p><strong>Enlace a la tienda:</strong> <a href="${comerciante.enlace_tienda}" target="_blank">${comerciante.enlace_tienda}</a></p>-->
-      `;
+    `;
+
+      // Actualizar el encabezado con el estado de verificación
+      const nombreComercianteElement = document.getElementById('nombre-comerciante');
+      if (comerciante.verified) {
+        nombreComercianteElement.innerHTML = `
+            <i class="fas fa-user-circle"></i> Hola, ${comerciante.nombre} 
+            <i class="fas fa-check-circle" style="color: green;" title="Cuenta Verificada" data-toggle="tooltip"></i>
+        `;
+      } else {
+        nombreComercianteElement.innerHTML = `
+            <i class="fas fa-user-circle"></i> Hola, ${comerciante.nombre} 
+            <i class="fas fa-exclamation-circle" style="color: red;" title="Cuenta No Verificada" data-toggle="tooltip"></i>
+        `;
+      }
+
+      // Re-inicializar tooltips después de modificar el DOM
+      $('[data-toggle="tooltip"]').tooltip();
     }
+
 
     function displayProductos(productos) {
       const container = document.getElementById('productos-lista');
@@ -1316,7 +1344,7 @@
     }
 
     function editarProducto(id) {
-      fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${id}`)
+      fetch(`http://127.0.0.1:3000/api/productos/${id}`)
         .then(response => response.json())
         .then(data => {
           // Cargar los datos del producto en los campos del modal
@@ -1359,7 +1387,7 @@
       const categoria = document.getElementById('producto-categoria').value; // Obtener la categoría seleccionada
       const idComerciante = sessionStorage.getItem('Id');
 
-      fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productoId}`, {
+      fetch(`http://127.0.0.1:3000/api/productos/${productoId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -1391,7 +1419,7 @@
       const productoId = document.getElementById('producto-id').value;
 
       if (confirm('¿Estás seguro de que deseas eliminar este producto?')) {
-        fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productoId}`, {
+        fetch(`http://127.0.0.1:3000/api/productos/${productoId}`, {
           method: 'DELETE',
         })
           .then(response => {
@@ -1654,7 +1682,7 @@
         return;
       }
 
-      fetch(`https://tcc-api-nodejs.onrender.com/api/productos/sin-stock?comercianteId=${comercianteId}`)
+      fetch(`http://127.0.0.1:3000/api/productos/sin-stock?comercianteId=${comercianteId}`)
         .then(response => response.json())
         .then(data => {
           sinStockElement.textContent = data.total;
