@@ -1240,7 +1240,7 @@
     });
 
     function fetchProductos() {
-      fetch('https://tcc-api-nodejs.onrender.com/api/productos')
+      fetch('http://127.0.0.1:3000/api/productos')
         .then(response => response.json())
         .then(data => {
           displayProductos(data);
@@ -1305,7 +1305,7 @@
         document.getElementById('autocomplete-list').style.display = 'none';
         return;
       }
-      fetch('https://tcc-api-nodejs.onrender.com/api/productos')
+      fetch('http://127.0.0.1:3000/api/productos')
         .then(response => response.json())
         .then(data => {
           const filtered = data.filter(producto => producto.nombre.toLowerCase().includes(query));
@@ -1583,7 +1583,7 @@
       };
 
       try {
-        const response = await fetch('https://tcc-api-nodejs.onrender.com/api/usuarios', {
+        const response = await fetch('http://127.0.0.1:3000/api/usuarios', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -2086,7 +2086,7 @@
       async function fetchResults(query) {
         try {
           // URL de la API con el parámetro de búsqueda codificado
-          const response = await fetch(`https://tcc-api-nodejs.onrender.com/api/buscar?query=${encodeURIComponent(query)}`);
+          const response = await fetch(`http://127.0.0.1:3000/api/buscar?query=${encodeURIComponent(query)}`);
           if (!response.ok) throw new Error('Error en la respuesta del servidor');
 
           const data = await response.json();
