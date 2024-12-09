@@ -397,7 +397,7 @@
         .producto-info .ver-mas {
             display: inline-block;
             padding: 8px 16px;
-            background-color: #ff6f61;
+            background-color: #ff912a;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -406,7 +406,7 @@
         }
 
         .producto-info .ver-mas:hover {
-            background-color: #e65b54;
+            background-color: #f3ae72;
         }
 
 
@@ -486,13 +486,13 @@
 
 
         /* Estilo de la cuadrícula de productos */
-        #productos-recomendados.productos-grid {
+        /* #productos-recomendados.productos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
             justify-items: center;
             padding: 10px;
-        }
+        } */
 
 
         /* Contenedor principal de opiniones */
@@ -845,96 +845,121 @@
             font-size: 15px;
         }
 
-        /* Footer */
-        #main-footer {
-            background: #333;
-            color: #fff;
-            padding: 40px 0;
-            font-family: 'Open Sans', sans-serif;
-        }
+      
+    /* Estilo del pie de página */
+    footer #main-footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+    }
 
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0;
-            padding: 0 20px;
-        }
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
 
-        /* Sección del footer */
-        .footer-section {
-            flex: 1 1 30%;
-            margin: 0 20px;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-in-out;
-        }
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        .footer-section h4 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #ffc107;
-            transition: color 0.3s;
-        }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* Estilo general del pie de página */
+    #main-footer {
+      background: #333;
+      color: #fff;
+      padding: 40px 0;
+      font-family: 'Open Sans', sans-serif;
+    }
 
-        .footer-section h4:hover {
-            color: #91726f;
-        }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        .footer-section p,
-        .footer-section ul {
-            font-size: 14px;
-            line-height: 1.6;
-        }
+    /* Sección del pie de página */
+    .footer-section {
+      flex: 1;
+      margin: 0 20px;
+    }
 
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
+    .footer-section h4 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #ffc107;
+    }
 
-        .footer-section ul li {
-            margin-bottom: 10px;
-            transition: color 0.3s;
-        }
+    .footer-section p,
+    .footer-section ul {
+      font-size: 14px;
+      line-height: 1.6;
+    }
 
-        .footer-section ul li a {
-            text-decoration: none;
-            color: #ccc;
-            transition: color 0.3s ease;
-        }
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
 
-        .footer-section ul li a:hover {
-            color: #ffc107;
-        }
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
 
-        /* Íconos de contacto */
-        .footer-section ul li i {
-            margin-right: 10px;
-            color: #ffc107;
-        }
+    .footer-section ul li a {
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
 
-        /* Contenedor inferior del footer */
-        .footer-bottom {
-            background: #222;
-            color: #aaa;
-            text-align: center;
-            padding: 15px 20px;
-            margin-top: 30px;
-            font-size: 14px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+    .footer-section ul li a:hover {
+      color: #ffc107;
+    }
 
-        .footer-bottom a {
-            color: #ffc107;
-            text-decoration: none;
-            margin-left: 5px;
-            transition: color 0.3s;
-        }
+    /* Estilos de los íconos de contacto */
+    .footer-section ul li i {
+      margin-right: 10px;
+      color: #ffc107;
+    }
 
-        .footer-bottom a:hover {
-            color: #664744;
-            text-decoration: underline;
-        }
+    /* Estilo del contenedor inferior */
+    .footer-bottom {
+      background: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 15px 20px;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    .footer-bottom a {
+      color: #ffc107;
+      text-decoration: none;
+      margin-left: 5px;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+    /* Ajustes adicionales para dispositivos más pequeños */
+    @media (max-width: 768px) {
+      footer#main-footer {
+        font-size: 12px;
+      }
+    }
 
 
         /* Quitar el texto debajo de los íconos */
@@ -2370,46 +2395,42 @@
 
 
 </body>
-
-
 <footer id="main-footer">
     <div class="footer-container">
-        <!-- Contenedor de información de la compañía -->
-        <div class="footer-section">
-            <h4>Sobre Nosotros</h4>
-            <p>Click Store es una tienda en línea dedicada a ofrecer productos de calidad y un servicio excepcional a
-                nuestros clientes. Nuestro objetivo es satisfacer todas tus necesidades con la mejor experiencia de
-                compra.
-            </p>
-        </div>
+      <!-- Contenedor de información de la compañía -->
+      <div class="footer-section">
+        <h4>Sobre Nosotros</h4>
+        <p>Click Store es una tienda en línea dedicada a ofrecer productos de calidad y un servicio excepcional a
+          nuestros clientes. Nuestro objetivo es satisfacer todas tus necesidades con la mejor experiencia de compra.
+        </p>
+      </div>
 
-        <!-- Contenedor de enlaces rápidos -->
-        <div class="footer-section">
-            <h4>Enlaces Rápidos</h4>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Tienda</a></li>
-                <li><a href="#">Acerca de</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Política de Privacidad</a></li>
-            </ul>
-        </div>
-
-        <!-- Contenedor de contacto -->
-        <div class="footer-section">
-            <h4>Contáctanos</h4>
-            <ul>
-                <li><i class="fa fa-map-marker"></i> Asunción, Paraguay</li>
-                <li><i class="fa fa-phone"></i> +595 21 123 4567</li>
-                <li><i class="fa fa-envelope"></i> contacto@clickstore.com</li>
-            </ul>
-        </div>
+      <!-- Contenedor de enlaces rápidos -->
+      <div class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Tienda</a></li>
+          <li><a href="#">Acerca de</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+        </ul>
+      </div>
+      <!-- Contenedor de contacto -->
+      <div class="footer-section">
+        <h4>Contáctanos</h4>
+        <ul>
+          <li><i class="fa fa-map-marker"></i> Asunción, Paraguay</li>
+          <li><i class="fa fa-phone"></i> +595 21 123 4567</li>
+          <li><i class="fa fa-envelope"></i> contacto@clickstore.com</li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2024 Click Store. Todos los derechos reservados | <a href="#">Términos y Condiciones</a></p>
+      <p>&copy; 2024 Click Store. Todos los derechos reservados | <a href="#">Términos y Condiciones</a></p>
     </div>
-</footer>
-
+  </footer>
+  <!--Footer Fin-->
 
 <!-- JS Parte Inicio -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -2470,7 +2491,7 @@
             })
             .then(recomendaciones => {
                 console.log('Recomendaciones obtenidas:', recomendaciones);
-                mostrarRecomendaciones(recomendaciones.slice(0, 5));
+                mostrarRecomendaciones(recomendaciones.slice(0, 10));//Num de recomendaciones productos 
             })
             .catch(error => {
                 console.error('Error al cargar las recomendaciones:', error);
@@ -2637,10 +2658,10 @@
         const productosRecomendados = document.querySelectorAll('#productos-recomendados .producto');
 
         // Limita a mostrar solo 5
-        if (productosRecomendados.length > 5) {
+        if (productosRecomendados.length > 10) {
             productosRecomendados.forEach((producto, index) => {
-                if (index >= 5) {
-                    producto.style.display = 'none';
+                if (index >= 10) {
+                    producto.style.display = 'block';
                 }
             });
         }

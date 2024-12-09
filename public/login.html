@@ -78,9 +78,9 @@
 
     /* Contenedor del Formulario */
     .form-content {
-      width: 90%;
-      max-width: 600px;
-      /* Ajustado para mantener consistencia */
+      width: 100%;
+      max-width: 520px;
+      min-height: 300px; 
       background-color: #ffffff;
       padding: 40px 50px;
       border-radius: 15px;
@@ -93,7 +93,7 @@
     .form-content h1 {
       font-size: 2.4em;
       font-weight: 700;
-      color: #333;
+      color: #181616;
       text-align: center;
       margin-bottom: 10px;
     }
@@ -109,6 +109,7 @@
     .form-group {
       margin-bottom: 20px;
       text-align: left;
+      margin-top: 30px;
     }
 
     .form-group label {
@@ -147,6 +148,7 @@
       padding: 12px 20px;
       border-radius: 8px;
       font-size: 1.1rem;
+      margin-top: 20px;
       font-weight: 600;
       text-transform: uppercase;
       transition: background-color 0.3s ease, transform 0.3s ease;
@@ -196,6 +198,35 @@
     #main-footer a:hover {
       color: #e06450;
     }
+    /* Contenedor para el campo de contraseña y botón */
+.password-container {
+  position: relative;
+}
+
+.password-container input {
+  padding-right: 40px; /* Espacio para el botón */
+}
+
+.password-container .toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #555;
+}
+
+.password-container .toggle-password:focus {
+  outline: none;
+}
+
+.password-container .toggle-password:hover {
+  color: #ff9500;
+}
+
   </style>
 </head>
 
@@ -221,10 +252,27 @@
         </div>
 
         <div class="form-group required">
-          <label for="login-password"><i class="fas fa-lock"></i>Contraseña</label>
-          <input type="password" class="form-control" id="login-password" placeholder="Contraseña" name="contrasena"
-            required>
-        </div>
+          <label for="login-password">
+            <i class="fas fa-lock"></i>Contraseña
+          </label>
+          <div class="password-container">
+            <input
+              type="password"
+              class="form-control"
+              id="login-password"
+              placeholder="Contraseña"
+              name="contrasena"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              onclick="togglePasswordVisibility()"
+            >
+              <i class="fas fa-eye" id="password-icon"></i>
+            </button>
+          </div>
+        </div>        
       </fieldset>
 
       <div class="forgot-password">
@@ -302,6 +350,20 @@
         toastr.error('Ocurrió un error al intentar iniciar sesión. Por favor, intenta nuevamente.', 'Error');
       }
     });
+    function togglePasswordVisibility() {
+    const passwordInput = document.getElementById("login-password");
+    const passwordIcon = document.getElementById("password-icon");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      passwordIcon.classList.remove("fa-eye");
+      passwordIcon.classList.add("fa-eye-slash");
+    } else {
+      passwordInput.type = "password";
+      passwordIcon.classList.remove("fa-eye-slash");
+      passwordIcon.classList.add("fa-eye");
+    }
+  }
   </script>
   
 </body>
