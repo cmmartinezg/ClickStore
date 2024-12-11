@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Contraseña - Click Store</title>
-    <link rel="stylesheet" href="http://localhost:3000/styles.css">
     <!-- Asegúrate de servir el CSS desde tu servidor -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
@@ -103,7 +102,7 @@
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="http://localhost:3000/image/logo.png" alt="Click Store" class="logo"> <!-- Ajusta la ruta -->
+            <img src="/public/image/logo.png" alt="Click Store" class="logo"> <!-- Ajusta la ruta -->
         </div>
 
         <h1 class="title">Recuperar Contraseña</h1>
@@ -146,7 +145,7 @@
             const data = { email };
 
             try {
-                const response = await fetch('http://localhost:3000/api/recuperar_contrasena/reset-password', {
+                const response = await fetch('http://127.0.0.1:4000/api/recuperar_contrasena/reset-password', {
                     method: 'POST',  // Se hace POST al endpoint adecuado
                     headers: {
                         'Content-Type': 'application/json',

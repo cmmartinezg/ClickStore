@@ -2581,7 +2581,7 @@
     // Función para realizar la búsqueda de productos
     function performSearch() {
         const searchQuery = document.getElementById('filter_name').value.trim().toLowerCase();
-        const url = `https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(searchQuery)}`;
+        const url = `http://127.0.0.1:3000/api/productos?search=${encodeURIComponent(searchQuery)}`;
 
         fetch(url)
             .then(response => response.json())
@@ -2601,7 +2601,7 @@
         const productId = params.get('id');
 
         if (productId) {
-            fetch(`https://tcc-api-nodejs.onrender.com/api/productos/${productId}`)
+            fetch(`http://127.0.0.1:3000/api/productos/${productId}`)
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('product-title').textContent = data.nombre;
@@ -2631,7 +2631,7 @@
         // Función para buscar productos
         function performSearch() {
             const searchQuery = document.getElementById('filter_name').value.trim().toLowerCase();
-            const url = `https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(searchQuery)}`;
+            const url = `http://127.0.0.1:3000/api/productos?search=${encodeURIComponent(searchQuery)}`;
 
             fetch(url)
                 .then(response => response.json())
@@ -2895,7 +2895,7 @@
             return;
         }
 
-        fetch(`https://tcc-api-nodejs.onrender.com/api/productos?search=${encodeURIComponent(query)}`)
+        fetch(`http://127.0.0.1:3000/api/productos?search=${encodeURIComponent(query)}`)
             .then(response => response.json())
             .then(data => {
                 if (data.length > 0) {

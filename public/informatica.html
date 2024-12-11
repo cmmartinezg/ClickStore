@@ -912,7 +912,7 @@
   <script>
     // Función que se ejecuta al cargar la página
     document.addEventListener('DOMContentLoaded', function () {
-      const url = 'https://tcc-api-nodejs.onrender.com/api/productos/categoria/informática';
+      const url = 'http://127.0.0.1:3000/api/productos/categoria/informática';
 
 
       fetch(url)
@@ -931,7 +931,7 @@
 
     // Función para obtener los productos reales desde la API
     function cargarProductos() {
-      fetch('https://tcc-api-nodejs.onrender.com/api/productos/categoria/informática')
+      fetch('http://127.0.0.1:3000/api/productos/categoria/informática')
         .then(response => response.json())
         .then(data => mostrarProductos(data))
         .catch(error => console.error('Error al cargar productos:', error));
@@ -943,7 +943,7 @@
       const minPrecio = document.getElementById('precio-min').value || 0;
       const maxPrecio = document.getElementById('precio-max').value || 10000000;
 
-      const url = `https://tcc-api-nodejs.onrender.com/api/productos/categoria/informática?min_precio=${minPrecio}&max_precio=${maxPrecio}`;
+      const url = `http://127.0.0.1:3000/api/productos/categoria/informática?min_precio=${minPrecio}&max_precio=${maxPrecio}`;
 
       fetch(url)
         .then(response => response.json())
@@ -956,7 +956,7 @@
     // Función de ordenación
     function ordenarProductos() {
       const criterio = document.getElementById("ordenar").value;
-      const url = `https://tcc-api-nodejs.onrender.com/api/productos/categoria/informática?ordenar=${criterio}`;
+      const url = `http://127.0.0.1:3000/api/productos/categoria/informática?ordenar=${criterio}`;
 
       fetch(url)
         .then(response => response.json())
@@ -968,7 +968,7 @@
 
     // Inicializa la página mostrando todos los productos al cargar
     window.onload = () => {
-      const url = 'https://tcc-api-nodejs.onrender.com/api/productos/categoria/informática';
+      const url = 'http://127.0.0.1:3000/api/productos/categoria/informática';
 
 
       fetch(url)  // Llama a la API para obtener todos los productos de la categoría "Electrónica"
@@ -1020,7 +1020,7 @@
     function actualizarProductos() {
       const { minPrecio, maxPrecio, ordenar } = currentFilters;
 
-      const url = `https://tcc-api-nodejs.onrender.com/api/productos/categoria/informática?min_precio=${minPrecio}&max_precio=${maxPrecio}&ordenar=${ordenar}`;
+      const url = `http://127.0.0.1:3000/api/productos/categoria/informática?min_precio=${minPrecio}&max_precio=${maxPrecio}&ordenar=${ordenar}`;
 
       fetch(url)
         .then(response => response.json())
@@ -1035,7 +1035,7 @@
       const minPrecio = document.getElementById('precio-min').value || 0;
       const maxPrecio = document.getElementById('precio-max').value || 10000000;
 
-      const url = `https://tcc-api-nodejs.onrender.com/api/productos/categoria/informática?min_precio=${minPrecio}&max_precio=${maxPrecio}`;
+      const url = `http://127.0.0.1:3000/api/productos/categoria/informática?min_precio=${minPrecio}&max_precio=${maxPrecio}`;
 
       console.log('URL de la solicitud:', url); // Verifica la URL en la consola
 
