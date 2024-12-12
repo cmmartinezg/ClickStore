@@ -880,6 +880,34 @@
     .footer-bottom a:hover {
       text-decoration: underline;
     }
+
+    /* Estilos para el botón "Volver arriba" */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none; /* Oculto por defecto */
+  width: 50px;
+  height: 50px;
+  background-color: #f6a206;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000; /* Encima de otros elementos */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#backToTop:hover {
+  background-color: #d87a0f;
+  transform: scale(1.1);
+}
+
+#backToTop i {
+  font-size: 24px;
+}
+
   </style>
 </head>
 
@@ -1169,6 +1197,11 @@
   <div class="container" id="comerciante-section" style="display: none;">
     <button class="btn btn-primary" id="productos-btn">Subir Artículo</button>
   </div>
+
+<!-- Botón "Volver arriba" -->
+<button id="backToTop" onclick="scrollToTop()" aria-label="Volver arriba">
+  <i class="fas fa-chevron-up"></i>
+</button>
 
   <footer id="main-footer">
     <div class="footer-container">
@@ -2235,9 +2268,22 @@ document.getElementById('logout-logo').addEventListener('click', function (e) {
   });
 });
 
+  window.addEventListener('scroll', function () {
+    const backToTopButton = document.getElementById('backToTop');
+    if (window.scrollY > 300) { // Mostrar botón después de 300px de scroll
+      backToTopButton.style.display = 'block';
+    } else {
+      backToTopButton.style.display = 'none';
+    }
+  });
 
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
   </script>
-
   <script src="../header.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
