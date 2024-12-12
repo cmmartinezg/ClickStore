@@ -51,22 +51,6 @@
         transition: background 0.5s ease-in-out;
     }
 
-    body::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 70%),
-                    radial-gradient(circle at bottom left, rgba(0, 0, 0, 0.2), transparent 70%);
-        z-index: -1;
-    }
-
-    body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
 
     @media (min-width: 768px) {
         body {
@@ -74,29 +58,11 @@
         }
     }
 
-    .header {
-        padding: 15px;
-        text-align: center;
-    }
-    .header .logo img {
-        max-width: 140px;
-    }
-
-    .breadcrumb {
-        background-color: transparent;
-        padding: 15px 0;
-        text-align: center;
-        animation: fadeIn 1s ease-in-out;
-    }
-    .breadcrumb a {
-        color: #4f4f4e;
-        font-weight: 600;
-        text-decoration: none;
-    }
-
+   
+   
     .form-content {
         width: 90%;
-        max-width: 6000px;
+        max-width: 800px;
         background-color: #ffffff;
         padding: 40px 50px;
         border-radius: 15px;
@@ -166,7 +132,7 @@
     }
 
     .checkbox {
-        text-align: left;
+        text-align: right;
         margin-bottom: 15px;
     }
     .agree a {
@@ -224,25 +190,21 @@
     .progress-bar.bg-success {
         background-color: #28a745;
     }
+    .logo img {
+    width: 120px; 
+    margin: 0 auto 20px auto; 
+    display: block;
+}
   </style>
 </head>
 
 <body>
-  <!-- Encabezado -->
-  <header class="header">
-    <div class="logo">
-      <a href="index.html"><img src="image/logo.png" title="Click Store" alt="Click Store" /></a>
-    </div>
-  </header>
-
-  <!-- Breadcrumb -->
-  <ul class="breadcrumb">
-    <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-    <li><a href="registro-usu.html">Registro</a></li>
-  </ul>
-
+ 
   <!-- Formulario de Registro -->
   <div class="form-content">
+    <div class="logo">
+        <a href="index.html"><img src="image/logo.png" title="Click Store" alt="Click Store" /></a>
+      </div>
     <h1>Registro de Usuario</h1>
     <p>Por favor, completa el formulario para registrarte como usuario en nuestra tienda.</p>
     <form id="form-registro-usuario">

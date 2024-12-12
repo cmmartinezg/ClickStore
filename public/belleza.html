@@ -87,15 +87,24 @@
       font-size: 15px;
     }
 
-    /* Estilo del título */
     .productos-titulo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #0046be;
-      /* Azul similar al ejemplo */
-      margin-bottom: 10px;
-      margin-left: 10px;
-    }
+    font-size: 28px;
+    font-weight: bold;
+    color: #060504 !important; 
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+.productos-titulo i {
+  font-size: 28px; 
+  color: #ff7e0d; 
+  animation:none;
+}
+
 
 
 
@@ -404,15 +413,7 @@
       border: 1px solid #eeeeee;
     }
 
-    /* Estilo del título */
-    .productos-titulo {
-      font-size: 22px;
-      font-weight: 200;
-      color: #fa8072;
-      margin: 1px;
-      margin: 0;
-    }
-
+ 
     /* Contenedor del filtro */
     .filter-container {
       display: flex;
@@ -766,7 +767,7 @@
 
     /* Estilo del botón "Agregar al Carrito" */
     .cart-btn {
-      background-color: #e04f3c;
+      background-color: #ff8521;
       color: rgb(255, 255, 255);
       border: none;
       padding: 10px 15px;
@@ -789,7 +790,7 @@
 
     /* Estilo del botón "Ver más" */
     .ver-mas {
-      background-color: #e04f3c;
+      background-color: #ff8521;
       color: rgb(255, 255, 255);
       border: none;
       padding: 10px;
@@ -817,7 +818,7 @@
       top: 10px;
       right: 10px;
       background-color: transparent;
-      border: 2px solid #ff6f61;
+      border: 2px solid #ff8521;
       border-radius: 50%;
       width: 40px;
       height: 40px;
@@ -835,7 +836,7 @@
 
     /* Estilo del ícono del corazón */
     .wishlist-btn i {
-      color: #c45454;
+      color: #ff8521;
       font-size: 24px;
       font-weight: bold;
     }
@@ -886,8 +887,11 @@
 
   </header>
   <div class="products-header">
-    <h2 class="productos-titulo">Todos los Productos</h2>
-
+    <h2 class="productos-titulo">
+      <i class="fas fa-th-list"></i>
+      Todos los Productos
+    </h2>
+    
     <div class="filter-container">
       <label for="ordenar">Ordenar por:</label>
       <select id="ordenar" class="form-control" onchange="ordenarProductos()">
